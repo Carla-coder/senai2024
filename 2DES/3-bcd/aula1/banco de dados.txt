@@ -1,0 +1,89 @@
+O que é um Banco de Dados?
+Banco de dados definido
+Um banco de dados é uma coleção organizada de informações - ou dados - estruturadas, normalmente armazenadas eletronicamente em um sistema de computador. Um banco de dados é geralmente controlado por um sistema de gerenciamento de banco de dados (DBMS). Juntos, os dados e o DBMS, juntamente com os aplicativos associados a eles, são chamados de sistema de banco de dados, geralmente abreviados para apenas banco de dados.
+
+Os dados nos tipos mais comuns de bancos de dados em operação atualmente são modelados em linhas e colunas em uma série de tabelas para tornar o processamento e a consulta de dados eficientes. Os dados podem ser facilmente acessados, gerenciados, modificados, atualizados, controlados e organizados. A maioria dos bancos de dados usa a linguagem de consulta estruturada (SQL) para escrever e consultar dados.
+
+O que é SQL (Structured Query Language, Linguagem de consulta estruturada)?
+SQL é uma linguagem de programação usada por quase todos os bancos de dados relacionais para consultar, manipular e definir dados e fornecer controle de acesso. O SQL foi desenvolvido pela primeira vez na IBM nos anos 1970, com a Oracle como principal contribuinte, o que levou à implementação do padrão SQL ANSI; o SQL estimulou muitas extensões de empresas como IBM, Oracle e Microsoft. Embora o SQL ainda seja amplamente usado hoje em dia, novas linguagens de programação estão começando a aparecer.
+
+Evolução do banco de dados
+Os bancos de dados evoluíram muito desde a sua criação no início dos anos 1960. Bancos de dados de navegação, como o banco de dados hierárquico (que se baseava em um modelo de árvore e permitia apenas um relacionamento um-para-muitos), e o banco de dados de rede (um modelo mais flexível que permitia múltiplos relacionamentos) eram os sistemas originais usados para armazenar e manipular dados. Embora simples, esses primeiros sistemas eram inflexíveis. Nos anos 1980, bancos de dados relacionais tornaram-se populares, seguidos por bancos de dados orientados a objetos na década de 1990. Mais recentemente, bancos de dados NoSQL surgiram como uma resposta ao crescimento da internet e à necessidade de maior velocidade e processamento de dados não estruturados. Hoje, bancos de dados na nuvem e bancos de dados autônomos estão abrindo novos caminhos quando se trata de como os dados são coletados, armazenados, gerenciados e utilizados.
+
+Qual é a diferença entre um banco de dados e uma planilha?
+Bancos de dados e planilhas (como o Microsoft Excel) são modos convenientes de armazenar informações. As principais diferenças entre os dois são:
+
+Como os dados são armazenados e manipulados
+Quem pode acessar os dados
+Quantos dados podem ser armazenados
+As planilhas foram originalmente projetadas para um usuário e suas características refletem isso. São ótimos para um único usuário ou um pequeno número de usuários que não precisam fazer manipulação de dados muito complicada. Bancos de dados, por outro lado, são projetados para conter coleções muito maiores de informações organizadas - quantidades enormes, às vezes. Os bancos de dados permitem que vários usuários, ao mesmo tempo, acessem e consultem com rapidez e segurança os dados usando lógica e linguagem altamente complexas.
+
+Tipos de bancos de dados
+Existem muitos tipos diferentes de bancos de dados. O melhor banco de dados para uma organização específica depende de como a organização pretende usar os dados.
+
+Bancos de dados relacionais
+Bancos de dados relacionais se tornaram dominantes na década de 1980. Os itens em um banco de dados relacional são organizados como um conjunto de tabelas com colunas e linhas. A tecnologia de banco de dados relacional fornece a maneira mais eficiente e flexível de acessar informações estruturadas.
+Bancos de dados orientados a objetos
+As informações em um banco de dados orientado a objetos são representadas na forma de objetos, como na programação orientada a objetos.
+Bancos de dados distribuídos
+Um banco de dados distribuído consiste em dois ou mais arquivos localizados em sites diferentes. O banco de dados pode ser armazenado em vários computadores, localizados no mesmo local físico ou espalhados por diferentes redes.
+Data warehouses
+Um repositório central de dados, um data warehouse é um tipo de banco de dados projetado especificamente para consultas e análises rápidas.
+Bancos de dados NoSQL
+Um NoSQL, ou banco de dados não relacional, permite que dados não estruturados e semiestruturados sejam armazenados e manipulados (em contraste com um banco de dados relacional, que define como todos os dados inseridos no banco de dados devem ser compostos). Os bancos de dados NoSQL se tornaram populares à medida que os aplicativos web se tornaram mais comuns e mais complexos.
+Bancos de dados gráficos
+Um banco de dados gráfico armazena dados em termos de entidades e os relacionamentos entre entidades.
+Bancos de dados OLTP. Um banco de dados OLTP é um banco de dados rápido e analítico projetado para um grande número de transações realizadas por vários usuários.
+Esses são apenas alguns dos vários tipos de bancos de dados em uso atualmente. Outros bancos de dados menos comuns são adaptados para funções científicas, financeiras ou outras muito específicas. Além dos diferentes tipos de banco de dados, as mudanças nas abordagens de desenvolvimento de tecnologia e os avanços dramáticos, como a nuvem e a automação, estão impulsionando os bancos de dados em direções totalmente novas. Alguns dos mais recentes bancos de dados incluem
+
+Bancos de dados de código aberto
+Um sistema de banco de dados de código aberto é aquele cujo código-fonte é código aberto; esses bancos de dados podem ser bancos de dados SQL ou NoSQL.
+Bancos de dados em nuvem
+Um banco de dados em nuvem é uma coleção de dados, estruturados ou não estruturados, que residem em uma plataforma de computação em nuvem privada, pública ou híbrida. Existem dois tipos de modelos de banco de dados em nuvem: tradicional e banco de dados como serviço (DBaaS). Com o DBaaS, as tarefas administrativas e a manutenção são executadas por um provedor de serviços.
+Banco de dados multimodelo
+Bancos de dados multimodelo combinam diferentes tipos de modelos de banco de dados em um back-end único e integrado. Isso significa que eles podem acomodar vários tipos de dados.
+Banco de dados de documentos/JSON
+Projetado para armazenamento, recuperação e gerenciamento de informações orientadas a documentos, os bancos de dados de documentos são uma maneira moderna de armazenar dados no formato JSON, em vez de linhas e colunas.
+Bancos de dados autônomos
+Os bancos de dados independentes mais novos e inovadores (também conhecidos como bancos de dados autônomos) são baseados em nuvem e usam machine learning para automatizar o ajuste de banco de dados, segurança, backups, atualizações e outras tarefas de gerenciamento de rotina tradicionalmente executadas por administradores de banco de dados.
+O que é um software de banco de dados?
+O software de banco de dados é usado para criar, editar e manter arquivos e registros de banco de dados, facilitando a criação de arquivos e registros, entrada de dados, edição, atualização e relatórios de dados. O software também processa armazenamento de dados, backup e relatórios, controle multiacesso e segurança. A segurança forte do banco de dados é especialmente importante hoje, porque o roubo de dados se torna mais frequente. O software de banco de dados às vezes também é conhecido como "sistema de gerenciamento de banco de dados" (DBMS).
+
+O software de banco de dados simplifica o gerenciamento de dados, permitindo que os usuários armazenem dados em um formulário estruturado e depois os acessem. Ele normalmente tem uma interface gráfica para ajudar a criar e gerenciar os dados e, em alguns casos, os usuários podem construir os próprios bancos de dados usando o software do banco de dados.
+
+O que é um sistema de gerenciamento de banco de dados (DBMS)?
+Um banco de dados normalmente requer um programa abrangente de banco de dados, conhecido como sistema de gerenciamento de banco de dados (DBMS). Um DBMS serve como uma interface entre o banco de dados e seus usuários finais ou programas, permitindo que os usuários recuperem, atualizem e gerenciem como as informações são organizadas e otimizadas. Um DBMS também facilita a supervisão e o controle de bancos de dados, permitindo uma variedade de operações administrativas, como monitoramento de desempenho, ajuste e backup e recuperação.
+
+Alguns exemplos de softwares de bancos de dados populares ou DBMSs incluem MySQL, Microsoft Access, Microsoft SQL Server, FileMaker Pro, Oracle Database e dBASE.
+
+O que é um MySQL Database?
+MySQL é um sistema de gerenciamento de banco de dados relacional de código aberto baseado em SQL. Ele foi projetado e otimizado para aplicativos da web e pode ser executado em qualquer plataforma. Como surgiram requisitos novos e diferentes com a internet, o MySQL tornou-se a plataforma preferida para desenvolvedores da web e aplicativos baseados na web. Como foi projetado para processar milhões de consultas e milhares de transações, o MySQL é uma escolha popular para empresas de comércio eletrônico que precisam gerenciar várias transferências de dinheiro. A flexibilidade sob demanda é o principal recurso do MySQL.
+
+O MySQL é o DBMS por trás de alguns dos principais sites e aplicativos baseados na web do mundo, incluindo Airbnb, Uber, LinkedIn, Facebook, Twitter e YouTube.
+
+Uso de bancos de dados para aprimorar o desempenho e a tomada de decisões nos negócios
+Com a coleta maciça de dados da Internet das Coisas, transformando a vida e o setor em todo o mundo, as empresas hoje têm acesso a mais dados do que nunca. Organizações inovadoras agora podem usar bancos de dados que vão além do armazenamento de dados e de transações básicas para analisar grandes quantidades de dados de vários sistemas. Ao usar bancos de dados e outras ferramentas de business intelligence e computação, as organizações aproveitam dados que coletam para executar funções com mais eficiência, possibilitar melhor tomada de decisões e serem mais rápidas e escalonáveis. A otimização do acesso e do throughput aos dados é fundamental para as empresas de hoje, pois há mais volume de dados a ser rastreado. É fundamental ter uma plataforma que possa oferecer o desempenho, a escala e a agilidade necessários às empresas à medida que crescem com o tempo.
+
+O banco de dados autônomo está pronto para fornecer um impulso significativo a esses recursos. Como os bancos de dados autônomos automatizam processos manuais caros e demorados, eles liberam utilizadores de negócios para se tornarem mais proativos com seus dados. Por ter controle direto sobre a capacidade de criar e usar bancos de dados, os usuários ganham controle e autonomia enquanto mantêm importantes padrões de segurança.
+
+Desafios do banco de dados
+Os grandes bancos de dados empresariais atuais geralmente suportam consultas muito complexas e devem fornecer respostas quase instantâneas a essas consultas. Como resultado, os administradores de bancos de dados são constantemente chamados para empregar uma ampla variedade de métodos que ajudam a melhorar o desempenho. Alguns desafios comuns que eles enfrentam incluem:
+
+Absorção de aumentos significativos no volume de dados. A explosão de dados provenientes de sensores, máquinas conectadas e dezenas de outras fontes mantém os administradores de bancos de dados lutando para gerenciar e organizar os dados de suas empresas com eficiência.
+Garantia da segurança de dados. Violações de dados estão acontecendo em todos os lugares nos dias de hoje, e os hackers estão ficando mais inventivos. É mais importante do que nunca garantir que os dados estejam seguros, mas também acessíveis aos usuários.
+Acompanhando a demanda. No atual ambiente de negócios de rápido movimento, as empresas precisam de acesso em tempo real aos seus dados para apoiar a tomada de decisões em tempo hábil e aproveitar novas oportunidades.
+Gerenciamento e manutenção do banco de dados e da infraestrutura. Os administradores de banco de dados devem observar continuamente o banco de dados em busca de problemas e executar a manutenção preventiva, bem como aplicar atualizações e correções de software. À medida que os bancos de dados se tornam mais complexos e o volume de dados aumenta, as empresas enfrentam a despesa de contratar mais talentos para monitorar e ajustar seus bancos de dados.
+Remoção de limites na escalabilidade. Uma empresa precisa crescer se quiser sobreviver, e seu gerenciamento de dados deve crescer junto com ela. Mas é muito difícil para os administradores de banco de dados prever a capacidade que a empresa precisará, principalmente com bancos de dados on-premise.
+Garantir residência, soberania de dados ou requisitos de latência. Algumas organizações têm casos de uso mais adequados para sua execução on-premises. Nesses casos, os sistemas projetados pré-configurados e pré-otimizados para a execução do banco de dados são ideais.
+Resolver todos esses desafios pode consumir muito tempo e impedir que os administradores de banco de dados executem mais funções estratégicas.
+
+Como a tecnologia autônoma está aprimorando o gerenciamento de banco de dados
+Os bancos de dados autônomos são a onda do futuro - e oferecem uma possibilidade intrigante para as organizações que desejam usar a melhor tecnologia de banco de dados disponível sem as dores de cabeça da execução e da operação dessa tecnologia.
+
+Os bancos de dados autônomos usam tecnologia baseada em nuvem e machine learning para automatizar muitas das tarefas de rotina necessárias para gerenciar bancos de dados, como ajuste, segurança, backups, atualizações e outras tarefas de gerenciamento de rotina. Com essas tarefas tediosas automatizadas, os administradores de banco de dados ficam livres para fazer um trabalho mais estratégico. Os recursos autônomos de autocondução, autoproteção e autorreparo dos bancos de dados independentes estão prestes a revolucionar a forma como as empresas gerenciam e protegem seus dados, possibilitando vantagens de desempenho, custos mais baixos e segurança aprimorada.
+
+Futuro dos bancos de dados e bancos de dados autônomos
+O primeiro banco de dados autônomo foi anunciado no final de 2017, e vários analistas independentes do setor rapidamente reconheceram a tecnologia e seu impacto potencial na computação.
+
+****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+Créditos da matéria site https://www.oracle.com/br/database/what-is-database/
