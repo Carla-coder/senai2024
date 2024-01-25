@@ -1,0 +1,28 @@
+Aula #1 PWBE (24/01/2024)
+
+Como criar um novo projeto em Nodejs
+
+1. criar uma pasta e abrir no VSC
+2. abrir terminal e digitar no cmd => npm init => (enter)
+3. colocar o nome do projeto clientesfull e dar enter em tudo até chegar na pergunta 'yes'
+4. vai criar automaticamente um arquivo package.json (é o arquivo mais importante do projeto)
+5. criar um novo servidor server.js
+6. instalar as principais dependências => npm install express ( npm i express mysql cors ).
+A 'cors' abre todas as portas para poder implantar o projeto aberto e depois precisa fechar.
+7. no server.js adicionar a biblioteca 'express'.
+8. npm i = instala novamente as dependências que forem retiradas do arquivo package.json. 
+9. ctrl + c para sair do servidor após ter respondido.
+10. para enviar para o git hub por exemplo, delete do VSC o 'node_modules' e o 'package-lock.json'.
+11. para verificar se o backend está respondendo, abra uma aba no navegador e digite http://localhost:3000 (sem o 's'). 
+Se a frase aparecer, significa que seu back-end está respondendo.
+12. const teste = (req, res) => {
+    let nome = req.query.nome;
+    res.send("Back-end respondendo "+ nome); // retorna criando uma variável nome // retorna no navegador http://localhost:3000/?nome=Carla => Back-end respondendo Carla
+13. NO VSC criar uma pasta 'Front' arquivo form.html e no 'action' aicionar o endereço do navegador "http://localhost:3000"
+
+// Dentro do SQL
+14a. DDL: ou Data Definition Language (Linguagem de Definição de dados) permite ao usuário definir as novas tabelas e os elementos que serão associados a elas. 
+É responsável pelos comandos de criação e alteração no banco de dados, sendo composto por três comandos: CREATE, ALTER e DROP. (desenvolvimento da estrutura).
+    
+14b. DML: LINGUAGEM DE MANIPULAÇÃO DE DADOS: é o grupo de comandos dentro da linguagem SQL utilizado para a recuperação, inclusão, remoção e modificação de 
+informações em bancos de dados. Os principais comandos DML são SELECT, INSERT, UPDATE E DELETE.
