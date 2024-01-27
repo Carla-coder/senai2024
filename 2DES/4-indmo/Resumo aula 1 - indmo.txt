@@ -1,0 +1,18 @@
+Aula #1 - Indmo
+
+1. Entrar no app Mit app Inventor
+2. Baixar uma img
+
+site Bug me Not: te dá senha para entrar em sites que precisam de cadastro
+
+
+Entrega de trabalho para sexta-feira dia 2/2
+loja de informatica
+listar venda e salvar no Banco de dados
+3 telas
+  1. tela:splash ( baixar imagem ) 
+  2. cadastrar a venda : cpf, nome, sobrenome,produto,valor
+* em produto coloque uma lista pronta * => mouse, teclado, pendrive ( 10 produtos )...onde o clicnte clique e tem a opção de 10 itens para escolher
+  3. tela: mostrar as vendas
+
+Instalação de fonte: fontfree / dafont
