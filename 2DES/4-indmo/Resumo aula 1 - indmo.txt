@@ -3,16 +3,176 @@ Aula #1 - Indmo
 1. Entrar no app Mit app Inventor
 2. Baixar uma img
 
-site Bug me Not: te dá senha para entrar em sites que precisam de cadastro
+**Entrega de trabalho para sexta-feira dia 2/2**
 
+Loja de informática
 
-Entrega de trabalho para sexta-feira dia 2/2
-loja de informatica
-listar venda e salvar no Banco de dados
-3 telas
-  1. tela:splash ( baixar imagem ) 
-  2. cadastrar a venda : cpf, nome, sobrenome,produto,valor
-* em produto coloque uma lista pronta * => mouse, teclado, pendrive ( 10 produtos )...onde o clicnte clique e tem a opção de 10 itens para escolher
-  3. tela: mostrar as vendas
+* listar vendas e salvar no Banco de dados
+* 3 telas
+   1. tela:splash ( baixar imagem ) 
+   2. cadastrar a venda : cpf, nome, sobrenome,produto,valor
+* em produtos, coloque uma lista pronta ex: => mouse, teclado, pendrive ( 10 produtos )...onde o cliente clique e tenha a opção de 10 itens para escolher
+   3. tela final: mostrar as vendas
+_________________________________________________________________________________________________________________________________________________________
 
 Instalação de fonte: fontfree / dafont
+site Bug me Not: te dá senha para entrar em sites que precisam de cadastro
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+O MIT App Inventor é uma plataforma visual de desenvolvimento de aplicativos para dispositivos Android, que permite criar aplicativos usando blocos de construção visuais. 
+
+Splash Screen (Tela de Abertura - Tela 1):
+
+Arraste um componente "Image" para a tela.
+Faça o upload da imagem da loja.
+Adicione um temporizador (componente "Timer") e defina o tempo desejado para a tela de abertura.
+No bloco de eventos do temporizador, adicione um bloco para abrir a próxima tela (Tela de Cadastro).
+Cadastro de Vendas (Tela 2):
+
+Adicione os seguintes componentes:
+
+Labels para CPF, Nome, Sobrenome.
+
+Caixas de Texto para inserir CPF, Nome, Sobrenome.
+
+Uma Lista (componente "ListPicker") para selecionar produtos.
+
+Labels para mostrar os produtos e seus preços.
+
+Um botão para confirmar o cadastro de vendas.
+
+Crie variáveis para armazenar os valores inseridos.
+
+No bloco de eventos do botão de confirmação, colete os dados inseridos e armazene-os em variáveis.
+
+Mostrar Vendas (Tela 3):
+
+Adicione um componente "ListView" para mostrar as vendas.
+
+No bloco de eventos da tela, exiba os dados coletados na Tela 2 usando o componente "ListView".
+
+Você também pode adicionar opções para filtrar as vendas por CPF ou outros critérios, se desejar.
+
+Após criar as telas, você pode testar o aplicativo usando o emulador no MIT App Inventor ou instalando o APK gerado em um dispositivo Android. 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Splash Screen (Tela 1):
+
+Use um componente "Image" para exibir a imagem da loja.
+Adicione um temporizador para controlar a transição para a próxima tela.
+Cadastro de Vendas (Tela 2):
+
+Adicione componentes "Label", "TextBox" e "ListPicker" para CPF, Nome, Sobrenome e seleção de produtos.
+Use variáveis para armazenar os valores inseridos.
+Adicione um botão para confirmar o cadastro de vendas.
+No evento de clique do botão, colete os dados inseridos e armazene-os em variáveis.
+
+Ao clicar no botão "Confirmar Venda":
+  ArmazenarCPF = Valor da caixa de texto do CPF
+  ArmazenarNome = Valor da caixa de texto do Nome
+  ArmazenarSobrenome = Valor da caixa de texto do Sobrenome
+  ArmazenarProduto = Valor selecionado no ListPicker
+
+  AdicionarVendaNaLista(ArmazenarCPF, ArmazenarNome, ArmazenarSobrenome, ArmazenarProduto)
+
+Mostrar Vendas (Tela 3):
+
+Adicione um componente "ListView" para exibir as vendas.
+No evento de inicialização da tela, preencha o "ListView" com os dados das vendas.
+Personalize conforme necessário, como adicionar a opção de filtrar por CPF.
+
+Ao iniciar tela:
+  Para cada venda na listaDeVendas:
+    AdicionarItemAoListView("CPF: " & venda.CPF & ", Nome: " & venda.Nome & ", Produto: " & venda.Produto)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Exemplo de como você pode criar 'variáveis para armazenar os valores' de CPF, nome, sobrenome e produto:
+
+Vá para a seção "Variáveis" no menu de blocos.
+
+Clique com o botão direito do mouse e escolha "Criar variável" para cada uma das seguintes variáveis:
+
+cpf
+nome
+sobrenome
+produto
+
+Após criar as variáveis, você pode usá-las nos blocos de código para armazenar e acessar os valores inseridos. 
+Por exemplo, ao clicar no botão de confirmação de vendas, você pode definir essas variáveis com os valores inseridos nas caixas de texto e no ListPicker.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Para representar itens em um ListPicker no MIT App Inventor, você precisa fornecer uma lista de opções que o usuário pode escolher. 
+Aqui está um exemplo de como você pode configurar o ListPicker para mostrar opções de produtos:
+
+Vá para a seção "User Interface" e arraste um componente ListPicker para a tela onde você está coletando informações de vendas.
+
+Em seguida, vá para a seção "Lists" e procure o bloco "make a list". Use esse bloco para criar uma lista de produtos com seus respectivos valores.
+
+Assim que a lista for criada, vá para o bloco de propriedades do ListPicker e defina as opções do ListPicker como a lista que você acabou de criar.
+
+Criar lista de produtos:
+  Produto1 = "Laptop - R$ 2000"
+  Produto2 = "Impressora - R$ 500"
+  Produto3 = "Monitor - R$ 800"
+  Produto4 = "Teclado - R$ 100"
+  Produto5 = "Mouse - R$ 50"
+  Produto6 = "HD Externo - R$ 300"
+  Produto7 = "Memória RAM - R$ 150"
+  Produto8 = "Webcam - R$ 120"
+  Produto9 = "Caixa de Som - R$ 80"
+  Produto10 = "Roteador - R$ 120"
+
+  ListaProdutos = make a list Produto1, Produto2, Produto3, Produto4, Produto5, Produto6, Produto7, Produto8, Produto9, Produto10
+
+Configurar ListPicker:
+  Vá para o bloco de propriedades do ListPicker
+  Defina "Elements" ou "Opções" como a ListaProdutos
+
+Ao configurar o ListPicker dessa forma, ele mostrará as opções de produtos ao usuário, e o usuário poderá selecionar um produto na lista. 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+O bloco 'ListPicker' para permitir que os usuários escolham entre várias opções. Aqui está como você pode configurar o bloco ListPicker para mostrar opções de produtos:
+
+Após criar suas variáveis e componentes, vá até a seção "User Interface" no menu de blocos.
+
+Arraste um bloco ListPicker para a área de trabalho.
+
+Clique com o botão direito no bloco ListPicker e escolha "Properties" para acessar as configurações do bloco.
+
+Na janela de propriedades, encontre a opção chamada "Elements" ou "Opções" (pode variar dependendo da versão do MIT App Inventor).
+
+Insira a lista de produtos como um bloco de lista. Você pode usar o bloco "make a list" para criar a lista de produtos. Cada item da lista seria um produto com seu respectivo preço.
+
+ListPicker1.Elements = make a list("Laptop - R$ 2000", "Impressora - R$ 500", "Monitor - R$ 800", "Teclado - R$ 100", "Mouse - R$ 50", "HD Externo - R$ 300",
+ "Memória RAM - R$ 150", "Webcam - R$ 120", "Caixa de Som - R$ 80", "Roteador - R$ 120")
+
+Essa configuração associará a lista de produtos ao ListPicker. 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Mostrar as vendas usando o componente ListView
+
+Adicione um componente ListView à Tela 3:
+
+Vá para a seção "User Interface" e arraste um componente ListView para a Tela 3.
+No bloco de eventos da Tela 3, você pode usar o bloco "When Screen1.Initialize" para inicializar o ListView com os dados das vendas. No exemplo, 
+assumimos que você tem uma lista chamada listaDeVendas que armazena objetos de venda.
+
+Quando Screen3.Inicializar:
+    Para cada venda em listaDeVendas:
+        Adicionar item ao ListView: venda.CPF & ", " & venda.Nome & ", " & venda.Produto
+
+Neste exemplo, estamos iterando sobre cada venda na listaDeVendas e adicionando uma string formatada ao ListView que contém informações como CPF, Nome e Produto. 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
