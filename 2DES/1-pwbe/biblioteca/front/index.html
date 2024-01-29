@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Biblioteca</title>
+</head>
+<body>
+    <header>
+        <h1>Listar todos os Livros</h1>
+    </header>
+    <nav>
+        <a href="./index.html">Listar todos</a>
+        <a href="./form.html">Cadastrar</a>
+    </nav>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Ano da publicação</th>
+                </tr>
+            </thead>
+            <tbody id="dados">
+            </tbody>
+        </table>
+    </main>
+    <footer>&copy; 2024 By Carla-coder Todos os direitos reservados.</footer>
+</body>
+<script>
+    const dados = document.getElementById('dados');
+    fetch('http://localhost:3000/livros')
+        .then(res => res.json())
+        .then(res => {
+            res.forEach(bib => {
+                dados.innerHTML += `
+                    <tr>
+                        <td>${bib.id}</td>
+                        <td>${bib.titulo}</td>
+                        <td>${bib.autor}</td>
+                        <td>${bib.anoPublicação}</td>
+                    </tr>
+                `;
+            });
+        });
+</script>
+</html>

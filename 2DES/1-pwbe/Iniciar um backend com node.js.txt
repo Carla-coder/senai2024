@@ -1,3 +1,4 @@
+
 - 1. Criar uma pasta com o nome do seu projeto
 - 2. Abrir a pasta com o vsCode
 - 3. Abrir um terminal do vsCode "CTRL" + """

@@ -16,7 +16,8 @@ use lojinha; => acessa o banco de dados
 drop database lojinha: apaga o banco e dados
 ***********************************************
 configurações de ambiente de Dev => variáveis de ambiente 'Path' 
-entrar em 'propriedades do sistema' > variáveis de ambiente >Path (duplo clique encima) > novo > copia e cola o endereço do terminal VSC e retira o sinal de > do final e enter (isso cria o caminho da variável)
+entrar em 'propriedades do sistema' > variáveis de ambiente >Path (duplo clique encima)
+> novo > copia e cola o endereço do terminal VSC e retira o sinal de > do final e enter (isso cria o caminho da variável)
 OBS: o xampp precisa estar ativado (verdinho) no mysql 
 ***********************************************
 Apache => gerencia o banco de dados
