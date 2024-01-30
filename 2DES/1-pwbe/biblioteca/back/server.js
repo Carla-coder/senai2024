@@ -18,11 +18,11 @@ const teste = (req, res)=>{
 
 //CRUD - create
 const create = (req, res) => {
-    let título = req.body.título;
+    let titulo = req.body.titulo;
     let autor = req.body.autor;
-    let anoPublicação = req.body.anoPublicação;
+    let anoPublicacao = req.body.anoPublicacao;
     let query = `INSERT INTO livros(título, autor, anoPublicação) VALUE`;
-    query += `('${título}', '${autor}', '${anoPublicação}');`;
+    query += `('${titulo}', '${autor}', '${anoPublicacao}');`;
     con.query(query,(err, result)=>{
         if(err)
             res.redirect("http://127.0.0.1:5500/front/erro.html?erro=Provalmente o Livro já está cadastrado&err="+err.code);
