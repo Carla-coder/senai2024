@@ -1,0 +1,12 @@
+Tarefa Projeto FullStack
+Entrega dia 01/02/24 em dupla
+
+back/ front/ banco
+
+temas a escolher: 
+
+1. Patrimonio/ inventário = id, nome, descrição, valor
+2. Cantina = produtos
+3. Biblioteca
+
+* Precisa ter uma tabela em um banco de dados *

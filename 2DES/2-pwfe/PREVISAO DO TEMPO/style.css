@@ -11,7 +11,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+<<<<<<< HEAD
     background-image: url("https://source.unsplash.com/1600x900/?landscape");
+=======
+    background-image: url("https://source.unsplash.com/1920x1080/?landscape");
+>>>>>>> 72ba9b419a820ccf0796d5a48d28d5057bb14fc2
 }
 
 .caixa-maior {
@@ -35,7 +39,11 @@ body {
     width: calc(100% - 100px);
 }
 
+<<<<<<< HEAD
 .botao-busca {
+=======
+.botao-buscar {
+>>>>>>> 72ba9b419a820ccf0796d5a48d28d5057bb14fc2
     border: none;
     outline: none;
     padding: 10px;

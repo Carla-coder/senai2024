@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Biblioteca</title>
+</head>
+
+<body>
+    <header>
+        <h1>Listar todos os Livros</h1>
+    </header>
+    <nav>
+        <a href="./index.html">Listar todos</a>
+        <a href="./form.html">Cadastrar</a>
+    </nav>
+    <main>
+        <h2 id="erro"></h2>
+    </main>
+    <footer>&copy By Carla-coder Todos os direitos reservados.</footer>
+</body>
+<script>
+    //Obter a mensagem de erro da URL
+    const url = window.location.search
+    const params = new URLSearchParams(url)
+    const msg = params.get('erro');
+    const cod = params.get('err');
+    document.querySelector('#erro').innerHTML = msg
+    document.querySelector('#erro').innerHTML += "<br>Código do erro:" + cod
+</script>
+
+</html>
