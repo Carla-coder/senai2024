@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+const key = "" // copiar a key do site
+
+function buscarCidade() {
+    const dados = await fetch() // copiar link da api call
+    colocarDados
+}
+=======
 const key = "39e8d4ac83a488e474f69b5a69afa074" // copiar a key do site
 
 function buscarCidade() {
@@ -54,4 +62,5 @@ function buscarCidade() {
     }
 </script>*/
 
+>>>>>>> 72ba9b419a820ccf0796d5a48d28d5057bb14fc2
  

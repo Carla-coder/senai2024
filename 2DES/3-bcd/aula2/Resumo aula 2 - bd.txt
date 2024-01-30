@@ -1,0 +1,38 @@
+Aula # 02 - 30/01/24
+
+Banco de Dados (BCD)
+
+MER- Modelo Entidade Relacionamento
+
+Entidade 1 (Atributos chave:tipo, Atributo:tipo Atributo: tipo - modificador)
+Entidade 2 (Atributo chave primária: tipo, Atributo: tipo,Atributo chave estrangeira: tipo-Referência[Entidade:chave primária])
+ *Entidade 1 e Entidade 2 => 1 para muitos*
+
+Exemplo: Banco $ Genérico
+
+MER - Modelo Entidade Relacionamento (faz parte do planejamento do escopo)- O modelo pode ser alterado
+
+Clientes (cpf:texto(20) => {chave primária}, nome_completo:texto(100), cep:texto(10), rua:texto(50), numero:texto(5) - nulo, complemento:texto(50), telefone:texto(20) - nulo, nascimento:data);
+
+Conta (numero_conta:inteiro {chave primária}, tipo: texto(20), cpf do cliente: texto(20)-Referencia [Clientes,cpf]) => chave estrangeira
+
+Movimentações (id: inteiro {chave primária} - auto incremento, tipo: texto(15), valor:moeda [float}, numero da conta: inteiro - Referencia[Conta: numero da conta]); => chave estrangeira 
+
+SGBD - SQL
+
+- Estrutura DDL
+- Dados DML
+- Consultas DQL
+- Visões Relatórios
+  - Procedimentos
+  - Funções
+  - Gatilhos
+- Acessos DCL
+
+Tarefa: MER (Escolher um dos tópicos)
+
+- Banco
+- Transportadora
+- Varegista
+- Academia
+- Escola
