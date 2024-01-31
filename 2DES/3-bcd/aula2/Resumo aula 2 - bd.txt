@@ -36,3 +36,17 @@ Tarefa: MER (Escolher um dos tópicos)
 - Varegista
 - Academia
 - Escola
+----------------------------------------------------------------------------
+Resumo parte 2 - 31/01/24
+
+Mer (só representa as colunas da tabela- os atributos)
+
+* Dicionário de dados => Estrutura
+
+DER
+
+* Tabelas
+* Campos e registros => Linhas de tabelas
+
+----------------------------------------------------------------------------
+
