@@ -49,4 +49,9 @@ DER
 * Campos e registros => Linhas de tabelas
 
 ----------------------------------------------------------------------------
+Na verdade, o DER nada mais é que a representação gráfica do que foi escrito no MER. Ou seja, enquanto o MER mostra os relacionamentos de conjuntos de entidades armazenados em um banco de dados. O DER é simplesmente a representação gráfica disso.
+
+O MER (Modelo Entidade Relacionamento) é utilizado para descrever os objetos do mundo real através de entidades, com suas propriedades que são os atributos e os seus relacionamentos.
+----------------------------------------------------------------------------
+
 
