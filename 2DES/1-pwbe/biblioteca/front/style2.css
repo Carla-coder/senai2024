@@ -4,20 +4,22 @@ body {
     margin: 0;
     padding: 0;
 }
-
 header {
     background-color: #78866b;
-    padding: 50px;
+    padding: 20px;
 }
 
 h1{
     color: black;
     padding: 10px;
     text-align: center;
+    font-size: 50px;
 }
    
 nav {
-    background-color: #949494;
+    display: flex;
+    justify-content: space-around;
+    background-color: #bdbebd;
     padding: 20px;
     text-align: center;
 }
@@ -27,6 +29,7 @@ nav a {
     text-decoration: none;
     margin-right: 20px;
     font-weight: bold;
+    font-size: 20px;
     transition: color 0.3s ease;
 }
 
@@ -50,11 +53,11 @@ table {
 th, td {
     border: 1px solid #ddd;
     padding: 10px;
-    text-align: left;
+    text-align: center;
 }
 
 th {
-    background-color: #bdbebd;
+    background-color: #78866b;
     color: black;
 }
 
@@ -66,7 +69,7 @@ footer {
     color: black;
     padding: 20px;
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
     margin-bottom: 20px;
 }
 

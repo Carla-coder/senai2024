@@ -21,7 +21,7 @@ const create = (req, res) => {
     let titulo = req.body.titulo;
     let autor = req.body.autor;
     let anoPublicacao = req.body.anoPublicacao;
-    let query = `INSERT INTO livros(título, autor, anoPublicação) VALUE`;
+    let query = `INSERT INTO livros(titulo, autor, anoPublicacao) VALUE`;
     query += `('${titulo}', '${autor}', '${anoPublicacao}');`;
     con.query(query,(err, result)=>{
         if(err)
@@ -31,9 +31,12 @@ const create = (req, res) => {
     });
 }
 
+
+
+
 //CRUD - Read
 const read = (req, res) => {
-    con.query("SELECT * FROM Livros ORDER BY id DESC",(err, result)=>{
+    con.query("SELECT * FROM Livros ORDER BY id ASC",(err, result)=>{
         if(err)
             res.json(err);
         else

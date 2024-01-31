@@ -7,10 +7,10 @@ body {
 
 h1 {
     background-color: #78866b;
-    padding: 50px;
+    padding: 60px;
     text-align: center;
     color: black;
-    font-size: 35px;
+    font-size: 40px;
 }
 
 /*nav {
@@ -23,6 +23,8 @@ h1 {
 }*/
 
 nav {
+    display: flex;
+    justify-content: space-around;
     background-color: #949494;
     padding: 20px;
     text-align: center;
@@ -32,7 +34,7 @@ nav a {
     color: black;
     text-decoration: none;
     margin-right: 20px;
-    font-size: 18px;
+    font-size: 25px;
     font-weight: bold;
     transition: color 0.3s ease;
 }
@@ -88,6 +90,6 @@ footer {
     color: #333;
     padding: 20px;
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
     margin-bottom: 20px;
 }
