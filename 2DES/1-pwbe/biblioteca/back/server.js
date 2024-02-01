@@ -44,6 +44,7 @@ const read = (req, res) => {
     });
 }
 
+
 //Configurações de saída - FrontEnd
 const app = express();
 app.use(express.json());
