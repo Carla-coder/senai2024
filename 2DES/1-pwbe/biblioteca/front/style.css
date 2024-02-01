@@ -7,25 +7,18 @@ body {
 
 h1 {
     background-color: #78866b;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
     padding: 60px;
     text-align: center;
     color: black;
     font-size: 40px;
 }
 
-/*nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 60px;
-    border-bottom: solid 2px #dedede;
-    color: #4CAF50;
-}*/
-
 nav {
     display: flex;
     justify-content: space-around;
     background-color: #949494;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
     padding: 20px;
     text-align: center;
 }
@@ -50,10 +43,10 @@ form {
     background-color: #bdbebd;
     border-radius: 5px;
     cursor: pointer;
-    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
     border:none;
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 20px;
     color: #333;
 }
 
@@ -64,6 +57,7 @@ input {
     box-sizing: border-box;
     border: none;
     border-radius: 5px;
+    font-size: 14px;
 }
 
 input[type=submit] {
@@ -74,7 +68,7 @@ input[type=submit] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 input[type=submit]:hover {
@@ -83,13 +77,11 @@ input[type=submit]:hover {
 }
 
 footer {
-    /*display: flex;
-    justify-content: center;
-    text-align: center;*/
-    /*background-color: #333;*/
-    color: #333;
-    padding: 20px;
+    background-color: #78866b;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    padding: 10px;
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 20px;
 }

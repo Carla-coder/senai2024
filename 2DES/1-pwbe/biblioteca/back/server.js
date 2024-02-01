@@ -31,9 +31,6 @@ const create = (req, res) => {
     });
 }
 
-
-
-
 //CRUD - Read
 const read = (req, res) => {
     con.query("SELECT * FROM Livros ORDER BY id ASC",(err, result)=>{

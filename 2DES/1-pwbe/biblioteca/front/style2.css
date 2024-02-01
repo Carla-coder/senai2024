@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
 }
-header {
+header, footer {
     background-color: #78866b;
     padding: 20px;
 }
@@ -20,6 +20,7 @@ nav {
     display: flex;
     justify-content: space-around;
     background-color: #bdbebd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
     padding: 20px;
     text-align: center;
 }
@@ -38,16 +39,15 @@ nav a:hover {
     text-decoration: none;
 }
 
-main {
-    padding: 20px;
+main th {
     margin: 0px;
-    padding: 0px;
+    padding: 10px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 th, td {
@@ -61,15 +61,13 @@ th {
     color: black;
 }
 
-/*tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-}*/
-
 footer {
+    background-color: #78866b;
     color: black;
-    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 10px;
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 20px;
 }
 
