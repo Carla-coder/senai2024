@@ -1,0 +1,20 @@
+Arnaldo Coelho cpf 111 c/c 777-7
+1. depósito 1000.00
+2. transferência 200.00 para c/p 777-8 de Ivone Silva
+3. saque 100.00
+Resultado => 700.00
+
+Solange Gomes cpf 888 c/c 333-7 c/p 333-8
+1. transferência 1500.00 c/p (PIX)
+2. saque 100.00 c/c
+3. depósito 200.00 c/p
+Resultado => 1600.00
+
+Ivone Silva cpf 555  Conta-Salário 444-6 c/p 777-8
+1. transferência 1600.00 - conta salário (crédito)
+2. depósito 300.00 c/p (crédito)
+3. transferência 200.00 para c/p 777-8 de Arnaldo Coelho
+4. transferência 200.00 da c/c 777-7 para c/p 777-8
+5. depósito 200.00 c/p (crédito)
+Resultado => 2100.00
+ 
