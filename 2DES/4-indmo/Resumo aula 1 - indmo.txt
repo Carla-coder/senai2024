@@ -18,7 +18,7 @@ ________________________________________________________________________________
 Instalação de fonte: fontfree / dafont
 site Bug me Not: te dá senha para entrar em sites que precisam de cadastro
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------
 
 O MIT App Inventor é uma plataforma visual de desenvolvimento de aplicativos para dispositivos Android, que permite criar aplicativos usando blocos de construção visuais. 
 
@@ -55,9 +55,7 @@ No bloco de eventos da tela, exiba os dados coletados na Tela 2 usando o compone
 Você também pode adicionar opções para filtrar as vendas por CPF ou outros critérios, se desejar.
 
 Após criar as telas, você pode testar o aplicativo usando o emulador no MIT App Inventor ou instalando o APK gerado em um dispositivo Android. 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Splash Screen (Tela 1):
+----------------------------------------------------------------------------Splash Screen (Tela 1):
 
 Use um componente "Image" para exibir a imagem da loja.
 Adicione um temporizador para controlar a transição para a próxima tela.
@@ -86,8 +84,7 @@ Ao iniciar tela:
   Para cada venda na listaDeVendas:
     AdicionarItemAoListView("CPF: " & venda.CPF & ", Nome: " & venda.Nome & ", Produto: " & venda.Produto)
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+----------------------------------------------------------------------------
 Exemplo de como você pode criar 'variáveis para armazenar os valores' de CPF, nome, sobrenome e produto:
 
 Vá para a seção "Variáveis" no menu de blocos.
@@ -102,7 +99,7 @@ produto
 Após criar as variáveis, você pode usá-las nos blocos de código para armazenar e acessar os valores inseridos. 
 Por exemplo, ao clicar no botão de confirmação de vendas, você pode definir essas variáveis com os valores inseridos nas caixas de texto e no ListPicker.
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------
 
 Para representar itens em um ListPicker no MIT App Inventor, você precisa fornecer uma lista de opções que o usuário pode escolher. 
 Aqui está um exemplo de como você pode configurar o ListPicker para mostrar opções de produtos:
@@ -133,7 +130,7 @@ Configurar ListPicker:
 
 Ao configurar o ListPicker dessa forma, ele mostrará as opções de produtos ao usuário, e o usuário poderá selecionar um produto na lista. 
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------
 
 O bloco 'ListPicker' para permitir que os usuários escolham entre várias opções. Aqui está como você pode configurar o bloco ListPicker para mostrar opções de produtos:
 
@@ -152,7 +149,7 @@ ListPicker1.Elements = make a list("Laptop - R$ 2000", "Impressora - R$ 500", "M
 
 Essa configuração associará a lista de produtos ao ListPicker. 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------
 
 Mostrar as vendas usando o componente ListView
 
@@ -168,8 +165,7 @@ Quando Screen3.Inicializar:
 
 Neste exemplo, estamos iterando sobre cada venda na listaDeVendas e adicionando uma string formatada ao ListView que contém informações como CPF, Nome e Produto. 
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+----------------------------------------------------------------------------
 
 
 

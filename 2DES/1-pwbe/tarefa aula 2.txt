@@ -10,3 +10,6 @@ temas a escolher:
 3. Biblioteca
 
 * Precisa ter uma tabela em um banco de dados *
+
+=> meu exemplo foi de uma Biblioteca que contém uma formulário de cadastrar os livros e outra página HTML para listar os livros já cadsatrados.
+O desafio agora, é implementar a atualização dos livros cadastrados quando se abre o sistema ( ficara registrado a última atualização )

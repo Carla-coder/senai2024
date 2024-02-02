@@ -1,0 +1,142 @@
+// ...
+
+// CRUD - Update
+const update = (req, res) => {
+    let id = req.params.id; // supondo que o ID do livro seja passado como parte da URL
+    let titulo = req.body.titulo;
+    let autor = req.body.autor;
+    let anoPublicacao = req.body.anoPublicacao;
+    
+    let query = `UPDATE livros SET titulo='${titulo}', autor='${autor}', anoPublicacao='${anoPublicacao}' WHERE id=${id};`;
+    
+    con.query(query, (err, result) => {
+        if (err) {
+            res.status(500).json({ error: 'Erro ao atualizar o livro', details: err });
+        } else {
+            res.status(200).json({ message: 'Livro atualizado com sucesso' });
+        }
+    });
+}
+
+// ...
+
+// Rotas de Saída - FrontEnd
+app.get("/", teste);
+app.post("/livros", create);
+app.get("/livros", read);
+app.put("/livros/:id", update); // Adicionando a rota para atualização
+
+// ...
+Neste exemplo, a rota app.put("/livros/:id", update); foi adicionada para lidar com solicitações de atualização. A lógica de atualização está na função update, que pega o ID do livro da URL e os dados atualizados do corpo da requisição.
+
+
+precisa colocar algum botão de atualizar neste exemplo?
+Sim, se você deseja permitir que os usuários atualizem informações diretamente através do formulário HTML, você precisará adicionar elementos HTML para capturar as informações atualizadas e um botão para enviar a solicitação de atualização para o servidor. Vou mostrar um exemplo simples de como você pode modificar o formulário para incluir campos de atualização e um botão de envio:
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Biblioteca</title>
+</head>
+<body>
+    <header>
+        <h1>Atualizar Livro</h1>
+    </header>
+    <nav>
+        <a href="./index.html">Listar todos</a>
+        <a href="./form.html">Cadastrar</a>
+    </nav>
+    <main>
+        <form id="updateForm">
+            <!-- Adicionando um campo para o ID -->
+            <input type="hidden" name="id" id="livroId" value="ID_DO_LIVRO_A_SER_ATUALIZADO">
+
+            <input type="text" name="titulo" id="titulo" placeholder="Novo Título" required>
+            <input type="text" name="autor" id="autor" placeholder="Novo Autor" required>
+            <input type="number" name="anoPublicacao" id="anoPublicacao" placeholder="Novo Ano da Publicação" required>
+            
+            <!-- Adicionando um botão de envio para atualização -->
+            <input type="button" value="Atualizar" onclick="enviarAtualizacao()">
+        </form>
+    </main>
+    <footer>
+        <h3>&copy; 2024 By Carla-coder. Todos os direitos reservados.</h3>
+    </footer>
+
+    <!-- Adicionando um script para manipular o envio de atualização -->
+    <script>
+        function enviarAtualizacao() {
+            const form = document.getElementById('updateForm');
+            const livroId = document.getElementById('livroId').value;
+
+            // Atualizando a ação e método do formulário para envio PUT
+            form.action = `http://localhost:3000/livros/${livroId}`;
+            form.method = 'put';
+
+            // Enviando o formulário
+            form.submit();
+        }
+    </script>
+</body>
+</html>
+
+Neste exemplo, adicionei um campo oculto para armazenar o ID do livro a ser atualizado (<input type="hidden" name="id" id="livroId" value="ID_DO_LIVRO_A_SER_ATUALIZADO">). Também alterei o tipo do botão de "submit" para "button" e adicionei uma função JavaScript (enviarAtualizacao()) que manipula o envio do formulário com o método PUT para a rota apropriada.
+
+Lembre-se de substituir ID_DO_LIVRO_A_SER_ATUALIZADO pelo ID real do livro que você deseja atualizar. Este exemplo pressupõe que você tem o ID disponível na página ou o obtém de alguma forma dinâmica.
+
+
+precisa ser feito outro html para a adição do update?
+Sim, para a funcionalidade de atualização, você precisará de uma página HTML adicional para exibir o formulário de atualização. Este formulário geralmente é exibido quando o usuário deseja editar informações existentes. Abaixo, apresento um exemplo simples de um HTML para a página de atualização (update.html):
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Biblioteca - Atualizar Livro</title>
+</head>
+<body>
+    <header>
+        <h1>Atualizar Livro</h1>
+    </header>
+    <nav>
+        <a href="./index.html">Listar todos</a>
+        <a href="./form.html">Cadastrar</a>
+    </nav>
+    <main>
+        <form id="updateForm">
+            <input type="hidden" name="id" id="livroId" value="ID_DO_LIVRO_A_SER_ATUALIZADO">
+            <input type="text" name="titulo" id="titulo" placeholder="Novo Título" required>
+            <input type="text" name="autor" id="autor" placeholder="Novo Autor" required>
+            <input type="number" name="anoPublicacao" id="anoPublicacao" placeholder="Novo Ano da Publicação" required>
+            <input type="button" value="Atualizar" onclick="enviarAtualizacao()">
+        </form>
+    </main>
+    <footer>
+        <h3>&copy; 2024 By Carla-coder. Todos os direitos reservados.</h3>
+    </footer>
+
+    <script>
+        function enviarAtualizacao() {
+            const form = document.getElementById('updateForm');
+            const livroId = document.getElementById('livroId').value;
+
+            // Atualizando a ação e método do formulário para envio PUT
+            form.action = `http://localhost:3000/livros/${livroId}`;
+            form.method = 'put';
+
+            // Enviando o formulário
+            form.submit();
+        }
+    </script>
+</body>
+</html>
+
+Este HTML é semelhante ao que forneci anteriormente, mas agora é uma página separada (update.html). A página de atualização é responsável por exibir o formulário e chamar a função enviarAtualizacao() para enviar a solicitação de atualização.
+
+Lembre-se de substituir ID_DO_LIVRO_A_SER_ATUALIZADO pelo ID real do livro que você deseja atualizar. Essa página pode ser acessada a partir de um link na página principal ou de qualquer outra forma que faça sentido para a experiência do usuário.
+
