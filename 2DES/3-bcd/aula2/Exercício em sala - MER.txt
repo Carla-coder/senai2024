@@ -14,3 +14,152 @@
 - Fornecedor (id: Inteiro, nome: texto(20), celular: texto(20))
 
 - Loja (id: Inteiro, cep:texto(10), rua: texto(10), numero: texto(5)-nulo, estado: texto(10), horario-funcionamento: date(20))
+
+
+MER - VAREJISTA
+ENTIDADES:
+
+1. Produto:
+
+id: Inteiro (Chave Primária)
+nome: texto(20)
+categoria: texto(30)
+quantidade: Inteiro
+preço: moeda
+id_fornecedor: Inteiro (Chave Estrangeira para Fornecedor.id)
+
+2. Cliente:
+
+id: Inteiro (Chave Primária)
+nome: texto(20)
+cep: texto(10)
+rua: texto(10)
+numero: texto(5) (Nulo)
+cidade: texto(10)
+complemento: texto(10)
+obs: texto(20)
+id_funcionário: Inteiro (Chave Estrangeira para Funcionário.id)
+
+3. Pedido:
+
+id: Inteiro (Chave Primária)
+data: date
+valor_total: moeda
+status_venda: texto(20)
+id_produto: Inteiro (Chave Estrangeira para Produto.id)
+id_cliente: Inteiro (Chave Estrangeira para Cliente.id)
+
+4. Funcionário:
+
+id: Inteiro (Chave Primária)
+nome: texto(20)
+cargo: texto(20)
+
+5. Fornecedor:
+
+id: Inteiro (Chave Primária)
+nome: texto(20)
+celular: texto(20)
+
+6. Loja:
+
+id: Inteiro (Chave Primária)
+cep: texto(10)
+rua: texto(10)
+numero: texto(5) (Nulo)
+estado: texto(10)
+horario_funcionamento: date(20)
+
+RELAÇÕES:
+
+Produto:
+Fornecedor (1:N) - Um Fornecedor pode fornecer vários Produtos.
+
+Cliente:
+Funcionário (1:N) - Um Funcionário pode ter vários Clientes.
+Pedido (N:N) - Vários Clientes podem fazer vários Pedidos.
+
+Pedido:
+Produto (1:N) - Um Produto pode estar em vários Pedidos.
+Cliente (1:N) - Um Cliente pode fazer vários Pedidos.
+
+Funcionário:
+Cliente (N:N) - Vários Funcionários podem ter vários Clientes.
+
+DIAGRAMAS:
+
+Diagrama de Entidade e Relacionamento (DER):
+Diagrama de Entidade e Relacionamento: <URL inválido removido>
+
+Observações:
+
+A coluna numero nas entidades Cliente e Loja é nula, pois pode haver casos em que o número não seja conhecido.
+A relação entre Cliente e Pedido é N:N, pois um Cliente pode fazer vários Pedidos e um Pedido pode ser feito por vários Clientes.
+A relação entre Funcionário e Cliente é N:N, pois um Funcionário pode ter vários Clientes e um Cliente pode ter vários Funcionários.
+
+Representação Gráfica:
+
+erDiagram
+    // Entidades
+    entity Produto {
+        id
+        nome
+        categoria
+        quantidade
+        preço
+        id_fornecedor
+    }
+    entity Cliente {
+        id
+        nome
+        cep
+        rua
+        numero
+        cidade
+        complemento
+        obs
+        id_funcionário
+    }
+    entity Pedido {
+        id
+        data
+        valor_total
+        status_venda
+        id_produto
+        id_cliente
+    }
+    entity Funcionario {
+        id
+        nome
+        cargo
+    }
+    entity Fornecedor {
+        id
+        nome
+        celular
+    }
+    entity Loja {
+        id
+        cep
+        rua
+        numero
+        estado
+        horario_funcionamento
+    }
+
+    // Relacionamentos
+    Produto -- 1:N --> Fornecedor
+    Cliente -- 1:N --> Funcionario
+    Cliente -- N:N --> Pedido
+    Pedido -- 1:N --> Produto
+    Pedido -- 1:N --> Cliente
+    Funcionario -- N:N --> Cliente
+
+Observações:
+
+O diagrama foi criado utilizando a linguagem Mermaid.
+As entidades são representadas por retângulos.
+Os atributos das entidades são listados dentro dos retângulos.
+As relações são representadas por linhas.
+As cardinalidades das relações são indicadas nas linhas.
+

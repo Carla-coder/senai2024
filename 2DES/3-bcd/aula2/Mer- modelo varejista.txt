@@ -1,5 +1,6 @@
 
-Como o Modelo Entidade-Relacionamento (MER) é uma representação visual, geralmente é desenhado usando diagramas. No entanto, aqui vou fornecer uma descrição textual de um exemplo simples de um diagrama MER para um sistema de varejo:
+Como o Modelo Entidade-Relacionamento (MER) é uma representação visual, geralmente é desenhado usando diagramas. 
+No entanto, aqui vou fornecer uma descrição textual de um exemplo simples de um diagrama MER para um sistema de varejo:
 
 Entidades:
 
@@ -20,5 +21,9 @@ Fornecedor: Se necessário, com atributos como ID do fornecedor, nome, informaç
 Chaves Primárias e Estrangeiras:
 
 Cada entidade teria uma chave primária única (por exemplo, ID do produto, ID do cliente, ID do pedido).
-Chaves estrangeiras seriam usadas para estabelecer relacionamentos (por exemplo, ID do cliente em um pedido, ID do produto em um pedido).
-Para visualizar isso em um diagrama, você poderia representar cada entidade como uma caixa e os relacionamentos entre elas como linhas conectando as caixas. A cardinalidade dos relacionamentos (quantos objetos de uma entidade estão relacionados a quantos objetos da outra entidade) seria indicada nas linhas. Certifique-se de adaptar o modelo de acordo com os requisitos específicos do seu sistema de varejo.
+Chaves estrangeiras seriam usadas para estabelecer relacionamentos (por exemplo, ID do cliente em um pedido, 
+ID do produto em um pedido).
+Para visualizar isso em um diagrama, você poderia representar cada entidade como uma caixa e os relacionamentos 
+entre elas como linhas conectando as caixas. A cardinalidade dos relacionamentos (quantos objetos de uma entidade 
+estão relacionados a quantos objetos da outra entidade) seria indicada nas linhas. Certifique-se de adaptar o modelo 
+de acordo com os requisitos específicos do seu sistema de varejo.
