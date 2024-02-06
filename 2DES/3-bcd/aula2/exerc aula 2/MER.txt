@@ -1,0 +1,14 @@
+
+	 						MER - VAREJISTA
+
+-> ENTIDADES: 
+
+- Produto  (id: Inteiro, nome: texto(20), categoria: texto(30), quantidade: Inteiro, preço: moeda, id_fornecedor:inteiro - referencia [produtos:produto])
+
+- Cliente (id: Inteiro, nome: texto(20, cep:texto(10), rua: texto(10), numero: texto(5)-nulo, cidade: texto(10), complemento: texto(10), obs: texto(20), id_funcionário:inteiro - referencia [produtos:cliente])
+
+- Pedido (id: Inteiro, data: date, valor-total: moeda, status-venda: texto(20), id_produto:inteiro - referencia [produtos:id], id_cliente:inteiro - referencia [cliente:id] )
+
+- Funcionário (id: Inteiro, nome: texto(20), cargo: texto(20))
+
+- Fornecedor (id: Inteiro, nome: texto(20), celular: texto(20))
