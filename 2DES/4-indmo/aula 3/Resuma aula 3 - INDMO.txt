@@ -11,7 +11,7 @@ NO VSCode, abra a pasta da aula 3, abra o terminal e copie e cole esta linha de 
 1. Entre na pasta do aplicativo : cd my-app <este é o nome da minha pasta>
 2. Instale estas dependências:npx expo install react-native-web react-dom @expo/metro-runtime
 3. Digite após o término da instalação: npm run web
-4. Dentro das pastas, em App.js, digite na linha do Text (Senai 2024). Vai aparecer no centro da página de teste no endereço localhost:8081
+4. Dentro das pastas, em App.js, digite na linha do Text (Senai 2024). Vai aparecer no centro da página o Texto digitado neste endereço: localhost:8081
 5. Dentro de favicon (na pasta assets), dá para trocar o ícone do app. Substitua o favicon antigo pelo escolhido. Ex de ícone no Google => 'ícone professor png' - baixe a imagem e renomeie com o mesmo nome 'favicon'
  
 
