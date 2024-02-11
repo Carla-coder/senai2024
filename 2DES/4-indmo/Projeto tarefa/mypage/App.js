@@ -45,8 +45,8 @@ export default function App () {
       />
 
       <p style={styles.p}>
-        Currently transitioning careers to the Technology field. Specializing in
-        HTML, CSS, JavaScript, MySQL, React e React-Native.
+        Currently 54 years old and studying FullStack Systems Development. 
+        Transitioning careers to the Technology field. Specialized in HTML, CSS, JavaScript, Node.js, React, and React-Native.
       </p>
 
       <p></p>
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     color: '#000',
     fontSize: 30,
-    bottom: 20
+    bottom: 40
   },
 
   footer: {
