@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabela de Inventário</title>
+    <title>Inventário Papelaria</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header>
-        <section class="container1">
+
+<header>
+    <section class="container1">
         <h1>Inventário - Papelaria PapelTudo</h1>
         <thead>
             <tr>
@@ -18,15 +19,17 @@
                 <th>Valor</th>
                 <th>Ação</th>
                 <td>
-                    <a href="#">Cadastrar</a> 
+                    <a href="#">Cadastrar</a>
                 </td>
             </tr>
         </thead>
     </section>
-    </header>
-    <section class="container">
-        <div class="tabela-inventario">
-            <table>
+</header>
+
+<section class="container">
+    <div class="tabela-inventario">
+        <table>
+            <tbody>
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -36,64 +39,82 @@
                         <th>Ação</th>
                     </tr>
                 </thead>
-                <tbody>
-                   
-                    <tr>
-                        <td>1001</td>
-                        <td>Mesa</td>
-                        <td>Mesa de escritório</td>
-                        <td>R$ 100,00</td>
-                        <td>
-                            <a href="#">Editar</a> | <a href="#">Excluir</a>
-                        </td>
-                    </tr>
+            </tbody>
 
-                    <tr>
-                        <td>1002</td>
-                        <td>Computador</td>
-                        <td>Desktop DEL 15, 8GB RAM, SSD 500GB</td>
-                        <td>R$ 2.200,00</td>
-                        <td>
-                            <a href="#">Editar</a> | <a href="#">Excluir</a>
-                        </td>
-                    </tr>
 
-                    <tr>
-                        <td>1003</td>
-                        <td>Cadeira</td>
-                        <td>Cadeira giratória de escritório</td>
-                        <td>R$ 500,00</td>
-                        <td>
-                            <a href="#">Editar</a> | <a href="#">Excluir</a>
-                        </td>
-                    </tr>
+            <tr>
+                <td>1001</td>
+                <td>Mesa</td>
+                <td>Mesa de escritório</td>
+                <td>R$ 100,00</td>
+                <td>
+                    <a href="#">Editar</a> | <a href="#">Excluir</a>
+                </td>
+            </tr>
 
-                    <tr>
-                        <td>1004</td>
-                        <td>Longarina</td>
-                        <td>Longarina de três cadeiras</td>
-                        <td>R$ 450,00</td>
-                        <td>
-                            <a href="#">Editar</a> | <a href="#">Excluir</a>
-                        </td>
-                    </tr>
+            <tr>
+                <td>1002</td>
+                <td>Computador</td>
+                <td>Desktop DEL 15, 8GB RAM, SSD 500GB</td>
+                <td>R$ 2.200,00</td>
+                <td>
+                    <a href="#">Editar</a> | <a href="#">Excluir</a>
+                </td>
+            </tr>
 
-                    <tr>
-                        <td>1007</td>
-                        <td>Multifuncional</td>
-                        <td>Impressora e copiadora multifuncional Xerox</td>
-                        <td>R$ 2.000,00</td>
-                        <td>
-                            <a href="#">Editar</a> | <a href="#">Excluir</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <tr>
+                <td>1003</td>
+                <td>Cadeira</td>
+                <td>Cadeira giratória de escritório</td>
+                <td>R$ 500,00</td>
+                <td>
+                    <a href="#">Editar</a> | <a href="#">Excluir</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>1004</td>
+                <td>Longarina</td>
+                <td>Longarina de três cadeiras</td>
+                <td>R$ 450,00</td>
+                <td>
+                    <a href="#">Editar</a> | <a href="#">Excluir</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>1007</td>
+                <td>Multifuncional</td>
+                <td>Impressora e copiadora multifuncional Xerox</td>
+                <td>R$ 2.000,00</td>
+                <td>
+                    <a href="#">Editar</a> | <a href="#">Excluir</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- Rodapé -->
+<footer>
+    <div class="footer">
+        <div class="rodapé">
+            <div class="mensagens-sistema">
+                Mensagem do Sistema:
+                <div class="caixa">
+                </div>
+            </div>
+            <div class="patrimonio">
+                Patrimônio Total:
+                <div class="caixa2">
+                    <!-- R$ 5.250,00-->
+                </div>
+            </div>
         </div>
-        <div class="mensagens-sistema">
-            <p>Mensagem do Sistema:</p>
-            <p>Patrimônio Total: R$ 5.250,00</p>
-        </div>
-    </section>
+    </div>
+</footer>
+<script src="script.js"></script>
 </body>
+
 </html>

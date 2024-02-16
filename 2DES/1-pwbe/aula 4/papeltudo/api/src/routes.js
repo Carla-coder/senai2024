@@ -9,7 +9,7 @@ const teste = (req, res) => {
     res.json("Back-end, API Inventário Papelaria PapelTudo respondendo!");
 }
 
-//Rotas de Saída - Clientes
+//Rotas de Saída - Item
 router.get("/", teste);
 router.post("/item", Item.create);
 router.get("/item", Item.read);

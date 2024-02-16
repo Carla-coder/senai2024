@@ -3,13 +3,12 @@ const con = require("../connect/connect").con;
 
 //CRUD - create
 const create = (req, res) => {
-    let id = req.body.id;
     let nome = req.body.nome;
     let descricao = req.body.descricao;
     let valor = req.body.valor;
     let acao = req.body.acao;
     let query = `INSERT INTO clientes(cpf, nome, sobrenome, nascimento) VALUE`;
-    query += `('${id}', '${nome}', '${descricao}', '${valor}', '${acao}');`;
+    query += `('${nome}', '${descricao}', '${valor}', '${acao}');`;
     con.query(query, (err, result) => {
         if (err)
             res.status(400).json(err).end();
@@ -23,7 +22,7 @@ const create = (req, res) => {
 
 //CRUD - Read
 const read = (req, res) => {
-    con.query("SELECT * FROM Item ORDER BY id DESC", (err, result) => {
+    con.query("SELECT * FROM item ORDER BY id DESC", (err, result) => {
         if (err)
             res.json(err);
         else
@@ -54,7 +53,7 @@ const update = (req, res) => {
 //CRUD - Delete
 const del = (req, res) => {
     let id = req.params.id;
-    con.query(`DELETE FROM Item WHERE id = ${id}`, (err, result) => {
+    con.query(`DELETE FROM item WHERE id = ${id}`, (err, result) => {
         if (err)
             res.status(400).json(err).end();
         else {

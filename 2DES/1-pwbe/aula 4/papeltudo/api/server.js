@@ -1,7 +1,7 @@
 //Dependências - Frameworks
 const express = require("express");
 const cors = require("cors");
- const routes = require("./src/routes");
+ const routes = require("./src/routes/router");
 
 //Configurações de saída - FrontEnd
 const app = express();
