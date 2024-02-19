@@ -12,7 +12,14 @@
     "expo": "~50.0.6",
     "expo-status-bar": "~1.11.1",
     "react": "18.2.0",
+<<<<<<< HEAD
     "react-native": "0.73.4"
+=======
+    "react-native": "0.73.4",
+    "react-native-web": "~0.19.6",
+    "react-dom": "18.2.0",
+    "@expo/metro-runtime": "~3.1.3"
+>>>>>>> 515ee9268b359804ce284ee6ccbeeb2935ff3f1d
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
