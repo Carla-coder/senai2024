@@ -9,112 +9,79 @@
 </head>
 
 <header>
+
     <section class="container1">
+
         <h1>Inventário - Papelaria PapelTudo</h1>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nome</th>
-                <th>Descrição</th>
-                <th>Valor</th>
-                <th>Ação</th>
-                <td>
-                    <a href="#">Cadastrar</a>
-                </td>
-            </tr>
-        </thead>
+
+        <form id="form1">
+
+            <div class="container">
+                <label for="id">Id:</label>
+                <input type="text" id="id" name="id">
+            </div>
+            <div class="container">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome">
+            </div>
+            <div class="container">
+                <label for="Descrição">Descrição:</label>
+                <input type="text" id="Descrição" name="Descrição">
+            </div>
+            <div class="container">
+                <label for="Valor">Valor:</label>
+                <input type="number" id="Valor" name="Valor" step="0.01" required>
+            </div>
+            <div class="container">
+                <label for="Ação">Ação:</label>
+                <button type="submit">Cadastrar</button>
+            </div>
+
+        </form>
+
     </section>
+
 </header>
 
-<section class="container">
-    <div class="tabela-inventario">
+
+<main>
+
+    <section class="container2">
         <table>
-            <tbody>
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Nome</th>
-                        <th>Descrição</th>
-                        <th>Valor</th>
-                        <th>Ação</th>
-                    </tr>
-                </thead>
-            </tbody>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
 
+            <tbody id="item-list">
 
-            <tr>
-                <td>1001</td>
-                <td>Mesa</td>
-                <td>Mesa de escritório</td>
-                <td>R$ 100,00</td>
-                <td>
-                    <a href="#">Editar</a> | <a href="#">Excluir</a>
-                </td>
-            </tr>
-
-            <tr>
-                <td>1002</td>
-                <td>Computador</td>
-                <td>Desktop DEL 15, 8GB RAM, SSD 500GB</td>
-                <td>R$ 2.200,00</td>
-                <td>
-                    <a href="#">Editar</a> | <a href="#">Excluir</a>
-                </td>
-            </tr>
-
-            <tr>
-                <td>1003</td>
-                <td>Cadeira</td>
-                <td>Cadeira giratória de escritório</td>
-                <td>R$ 500,00</td>
-                <td>
-                    <a href="#">Editar</a> | <a href="#">Excluir</a>
-                </td>
-            </tr>
-
-            <tr>
-                <td>1004</td>
-                <td>Longarina</td>
-                <td>Longarina de três cadeiras</td>
-                <td>R$ 450,00</td>
-                <td>
-                    <a href="#">Editar</a> | <a href="#">Excluir</a>
-                </td>
-            </tr>
-
-            <tr>
-                <td>1007</td>
-                <td>Multifuncional</td>
-                <td>Impressora e copiadora multifuncional Xerox</td>
-                <td>R$ 2.000,00</td>
-                <td>
-                    <a href="#">Editar</a> | <a href="#">Excluir</a>
-                </td>
-            </tr>
             </tbody>
         </table>
+    </section>
+
+    <div class="mensagem">
+
+        <label for="Mensagem">Mensagem do Sistema:</label>
+        <input type="text" id="Mensagem" name="Mensagem">
+        <p>Patrimônio Total: <span id="Total">0.00</span></p>
     </div>
-</section>
+
+</main>
 
 <!-- Rodapé -->
 <footer>
-    <div class="footer">
-        <div class="rodapé">
-            <div class="mensagens-sistema">
-                Mensagem do Sistema:
-                <div class="caixa">
-                </div>
-            </div>
-            <div class="patrimonio">
-                Patrimônio Total:
-                <div class="caixa2">
-                    <!-- R$ 5.250,00-->
-                </div>
-            </div>
-        </div>
-    </div>
+
+    <h1>Copyright &copy; By Carla-coder</h1>
+
 </footer>
+
 <script src="script.js"></script>
+
 </body>
 
 </html>

@@ -7,7 +7,7 @@ const create = (req, res) => {
     let descricao = req.body.descricao;
     let valor = req.body.valor;
     let acao = req.body.acao;
-    let query = `INSERT INTO clientes(cpf, nome, sobrenome, nascimento) VALUE`;
+    let query = `INSERT INTO item(cpf, nome, sobrenome, nascimento) VALUE`;
     query += `('${nome}', '${descricao}', '${valor}', '${acao}');`;
     con.query(query, (err, result) => {
         if (err)

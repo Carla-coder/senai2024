@@ -11,9 +11,9 @@ const teste = (req, res) => {
 
 //Rotas de Saída - Item
 router.get("/", teste);
-router.post("/item", Item.create);
-router.get("/item", Item.read);
-router.put("/item/:id", Item.update);
-router.delete("/item/:id", Item.del);
+router.post("/api/item", Item.create);
+router.get("/api/item", Item.read);
+router.put("/api/item/:id", Item.update);
+router.delete("/api/item/:id", Item.del);
 
 module.exports = router;

@@ -16,6 +16,21 @@ body {
     gap: 15px;
 }
 
+header h1 {
+    color: #f38f00;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    width: 100%;
+}
+
 header {
     display: flex;
     justify-content: center;
@@ -25,16 +40,6 @@ header {
     border-radius: 10px;
     width: 100vw;
     height: 190px;
-}
-
-header h1 {
-    margin-bottom: 90px;
-}
-
-h2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 form {
@@ -65,11 +70,6 @@ button[type="submit"] {
     transition: .3s ease all;
 }
 
-/*button[disabled]{
-    opacity: .5;
-    cursor: not-allowed;
-}*/
-
 button[type="submit"]:hover {
     background-color: #fa9b00;
 }
@@ -92,17 +92,10 @@ button[type="submit"]:hover {
     font-size: 20px;
 }*/
 
-.container {
+.container2 {
     width: 100%;
     margin: 0 auto;
     border-radius: 5px;
-}
-
-.tabela-inventario {
-    border: 1px solid #f38f00;
-    border-radius: 5px;
-    border-collapse: collapse;
-    width: 100%;
 }
 
 table th,
@@ -116,36 +109,8 @@ table th {
     background-color: #f9f9f9;
 }
 
-table a {
-    text-decoration: none;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #f38f00;
-    color: #fff;
-    border-radius: 5px;
-    width: 100%;
-    text-align: center;
-    font-size: 16px;
-}
 
-.rodapé {
-    margin-top: 20px;
-    border: 1px solid #f38f00;
-    height: 90px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    font-size: 16px;
-    border-radius: 5px;
-}
-
-.caixa .mensagens-sistema {
+.mensagens {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -155,11 +120,5 @@ table a {
     border-radius: 1px solid #f38f00;
 }
 
-.caixa2 {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    font-size: 10px;
-    width: 100%;
-    height: 70vh;
-}
+
+
