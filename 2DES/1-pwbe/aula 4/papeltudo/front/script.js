@@ -75,17 +75,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const calculateTotal = () => {
-    let total = 0
-
+    let total = 0;
+  
     itemsList.querySelectorAll('tr').forEach(row => {
-      const value = parseFloat(row.cells[3].textContent.replace('R$ ', ''))
-
-      total += value
-    })
-
-    totalValueSpan.textContent = total.toFixed(2)
+      const value = parseFloat(row.cells[3].textContent.replace('R$', ''));
+      total += value;
+    });
+  
+    totalValueSpan.textContent = `R$ ${total.toFixed(2)}`;
   }
-
+  
   const loadItem = () => {
     fetch('http://localhost:3000/api/item')
       .then(response => response.json())
