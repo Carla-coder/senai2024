@@ -3,29 +3,33 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Courier Prime", monospace;
 }
 
 body {
+    font-family: "Courier Prime", monospace;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
+    margin: 0;
     width: 100vw;
-    gap: 15px;
+    background-color: #f1f1f1;
 }
 
 header h1 {
-    color: #f38f00;
+    background: #f38f00;
+    background: linear-gradient(to right, #f6d365, #fda085);
+    box-shadow: inset -70px 0 0 #f7dac2, inset 70px 0 0 #fcebad;
+    box-shadow: inset 70px 0 0 #fcebad, inset -70px 0 0 #f7dac2;
+    color: #000;
     text-align: center;
     font-size: 40px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-top: 20px;
     margin-bottom: 20px;
-    padding: 10px;
+    padding: 20px;
     background-color: #f9f9f9;
     border-radius: 10px;
     width: 100%;
@@ -36,7 +40,7 @@ header {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 1px solid #f38f00;
+    border: 2px solid #f38f00;
     border-radius: 10px;
     width: 100vw;
     height: 190px;
@@ -44,23 +48,46 @@ header {
 
 form {
     display: flex;
-    Justify-content: center;
-    align-items: center;
-    gap: 15px;
-    max-width: 60%;
+    background: linear-gradient(to right, #f6d365, #fda085);
+    box-shadow: inset -70px 0 0 #f7dac2, inset 70px 0 0 #fcebad;
+    box-shadow: inset 70px 0 0 #fcebad, inset -70px 0 0 #f7dac2;
 }
 
-.input {
+.form1 {
+    background-color: #ffffff;
+    border: 2px solid #f38f00;
+    border-radius: 10px;
+    font-size: 18px;
+    margin-top: 20px;
+    display: grid;
+}
+
+input {
     display: flex;
     justify-content: center;
-    padding: 10px;
-    border: 1px solid #f38f00;
-    border-radius: 10px;
+    align-items: center;
+    padding: 5px;
     outline: none;
+}
+
+input[type="number"] {
+    border-radius: 10px;
+    border: 2px solid #f38f00;
+    padding: 5px;
+    outline: none;
+}
+
+input[type="text"] {
+    font-family: "Courier Prime", monospace;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid #f38f00;
+    padding: 5px;
 }
 
 button[type="submit"] {
     padding: 10px 20px;
+    font-size: 14px;
     cursor: pointer;
     font-weight: bold;
     color: white;
@@ -74,28 +101,19 @@ button[type="submit"]:hover {
     background-color: #fa9b00;
 }
 
-/*.container1  {
-    font-size:18px;
-    text-align: center;
-    color: #000000;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border: 2px solid #f38f00;
-    border-radius: 5px;
-    width: 100%;
-    text-align: center;
-    font-size: 20px;
-}*/
-
-.container2 {
-    width: 100%;
+main .container2 {
+    width: 100vw;
     margin: 0 auto;
-    border-radius: 5px;
+    margin-top: 10px;
+    padding: 50px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    border: 2px solid #f38f00;
+    border-radius: 10px;
+    background: linear-gradient(to right, #f6d365, #fda085);
+    box-shadow: inset -70px 0 0 #f7dac2, inset 70px 0 0 #fcebad;
+    box-shadow: inset 70px 0 0 #fcebad, inset -70px 0 0 #f7dac2;
 }
 
 table th,
@@ -103,22 +121,72 @@ table td {
     border: none;
     padding: 8px;
     text-align: center;
+    vertical-align: middle;
 }
 
 table th {
     background-color: #f9f9f9;
 }
 
-
-.mensagens {
+.mensagem {
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: column;
-    width: 40vw;
-    height: 5vh;
-    border-radius: 1px solid #f38f00;
+    justify-content: center;
+    height: 8vh;
+    color: #000;
+    font-family: "Courier Prime", monospace;
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: .2rem;
+    background: #f38f00;
+    background: linear-gradient(to right, #f6d365, #fda085);
+    box-shadow: inset -70px 0 0 #f7dac2, inset 70px 0 0 #fcebad;
+    box-shadow: inset 70px 0 0 #fcebad, inset -70px 0 0 #f7dac2;
+    transform: skewX(-1deg);
+    border: 2px solid #f38f00;
+    border-radius: 10px;
+    margin-top: 10px;
 }
 
+.mensagem .Mensagem {
+    border-radius: 10px;
+    border: 2px solid #f38f00;
+    line-height:25px;
+}
+ 
+.mensagem p span {
+    border-radius: 10px;
+    display: inline-block;
+    padding: 0 40px;
+    font-weight: bold;
+    line-height:25px;
+    transition: all .3s ease;
+    border: 2px solid #f38f00;
+    background-color: #f9f9f9;
+    color: #7f0000;
+    font-weight: bold;
+}
 
+footer {
+    font-size: 18px;
+    color: #000;
+    text-align: center;
+}
 
+.btn-edit {
+    border-radius: 10px;
+    background: #f38f00;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    color: #f9f9f9;
+}
+
+.btn-delete {
+    border-radius: 10px;
+    background: #f38f00;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    color: #f9f9f9;
+}
