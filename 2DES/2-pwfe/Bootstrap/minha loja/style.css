@@ -5,8 +5,11 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
+    background: linear-gradient(to right,  #3498db, #5dade2, #85c1e9, #aed6f1);
+    width: 100%;
+    height: 200px;
     color: #343a40;
     padding-top: 0px;
 }
@@ -22,80 +25,101 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 0;
-    background-color: #343a40;
+    background: linear-gradient(to bottom, #333333, #555555, #777777);
+    color: #fff;
 }
 
 .navbar-brand {
     color: #ffffff;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 25px;
     align-items: center;
 }
 
-.navbar-nav .nav-link  {
+.navbar-nav .nav-links {
     color: #ffffff;
     font-weight: bold;
     transition: color 0,3s ease;
+    font-size: 20px;
+    margin-left: 155px;
+    margin-right: 65px;
+    margin-top: 35px;
+    margin-bottom: 45px;
 }
 
-.nav-bar .nav-link:hover {
+.navbar-nav .nav-links:hover {
     color: #007bff;
+    text-decoration: none;
 }
 
-.form-control {
-    border-color: #ffffff;
-    color :#ffffff;
+.d-flex {
+    width: 400px;
 }
 
-.btn-outilne-light {
-    border-color: #ffffff;
-    background-color: #343a40;
+.d-flex input {
+    border-radius: 20px;
 }
 
-.btn-outilne-light:hover {
-    color: #c2bbbb;
-    background-color: #342a40;
+.d-flex button {
+    margin-left: 10px;
+    border-radius: 20px;
+    background-color: #007bff;
+    color: #fff;
+    outline: none;
 }
 
-.car {
+.card {
     margin-bottom: 30px;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
     transition: transform 0.3s ease;
+    border: none;
+    border-radius: 20px;
 }
 
-.car:hover {
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     transform: translateY(-5px);
 }
 
 .card-img-top {
-    height: 200px;
+    height: 300px;
     object-fit: cover;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
+/* Dentro do card na parte inferior */
 .card-body {
     padding: 20px;
+    background: linear-gradient(to right, #aed6f1, #85c1e9, #3498db);
 }
 
-.card-title {
-    color: #343a40;
-    font-weight: bold;
-    font-size: 20px;
+.card-img-top3 {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .card-text {
-    color: #343a40;
-    font-size: 14px;
+    color: #342a40;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h2, h3, h4, h6 {
     color: #342a40;
+}
+
+h5, h1 {
+    text-align: center;
 }
 
 p {
     color: #666666;
+    text-align: center;
 }
 
+/*  linha - Produtos em destaque */
+.row {
+    margin-top: 60px;
+}

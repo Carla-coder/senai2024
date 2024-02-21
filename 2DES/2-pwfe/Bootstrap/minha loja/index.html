@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha Loja</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Estilos personalizados -->
-    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -32,19 +32,19 @@
 
                     <lr class="nav-item">
 
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-links" href="#">Home</a>
 
                     </lr>
 
                     <lr class="nav-item">
 
-                        <a class="nav-link" href="#">Produtos</a>
+                        <a class="nav-links" href="#">Produtos</a>
 
                     </lr>
 
                     <lr class="nav-item">
 
-                        <a class="nav-link" href="#">Contato</a>
+                        <a class="nav-links" href="contato.html">Contato</a>
 
                     </lr>
 
@@ -79,7 +79,7 @@
 
                 <div class="card">
 
-                    <img src="img/produto1.jpg" class="card-img-top" alt="Produto 1">
+                    <img class="card-img-top" src="img/produto1.jpg" alt="Produto1">
 
                     <div class="card-body">
 
@@ -87,12 +87,8 @@
 
                         <p class="card-text">Monitor para jogos!</p>
 
-                        <!-- Botão para abrir o modal específico -->
-                        <button type="button" class="btn btn-primary btn-details" data-bs-toggle="modal"
-                            data-bs-target="#Modal1">
-                            Detalhes
-
-                        </button>
+                        <a href="#" class="btn btn-primary btn-details" data-bs-toggle="modal1"
+                            data-bs-target="#Modal1">Detalhes</a>
 
                     </div>
 
@@ -105,18 +101,16 @@
 
                 <div class="card">
 
-                    <img src="img/produto2.jpg" class="card-img-top" alt="Produto 2">
+                    <img class="card-img-top2" src="img/produto2.jpg" alt="Produto 2">
 
                     <div class="card-body">
 
-                        <h5 class="card-title">Teclado Mecanico MARVO</h5>
+                        <h5 class="card-title">Teclado Mecânico MARVO</h5>
 
-                        <p class="card-text">Teclado para utilizar com seu Monitor</p>
+                        <p class="card-text">Teclado para utilizar com seu Monitor!</p>
 
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal">
-
-                            Detalhes
-                        </button>
+                        <a href="#" class="btn btn-primary btn-details" data-bs-toggle="modal1"
+                            data-bs-target="#Modal">Detalhes</a>
 
                     </div>
 
@@ -128,7 +122,7 @@
 
                 <div class="card">
 
-                    <img src="img/produto3.jpg" class="card-img-top" alt="Produto 3">
+                    <img class="card-img-top3" src="img/produto3.jpg" alt="Produto 3">
 
                     <div class="card-body">
 
@@ -136,11 +130,8 @@
 
                         <p class="card-text">Pronto para os jogos que no seu pc não roda!</p>
 
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal">
-
-                            Detalhes
-
-                        </button>
+                        <a href="#" class="btn btn-primary btn-details" data-bs-toggle="modal1"
+                            data-bs-target="#Modal">Detalhes</a>
 
                     </div>
 
