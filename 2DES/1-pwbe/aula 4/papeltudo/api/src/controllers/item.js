@@ -8,7 +8,11 @@ const create = (req, res) => {
     let valor = req.body.valor;
     let acao = req.body.acao;
     let query = `INSERT INTO item(cpf, nome, sobrenome, nascimento) VALUE`;
-    query += `('${nome}', '${descricao}', '${valor}', '${acao}');`;
+    query += `('${nome}', 
+    '${descricao}', 
+    '${valor}', 
+    '${acao}');`;
+    
     con.query(query, (err, result) => {
         if (err)
             res.status(400).json(err).end();
@@ -37,7 +41,13 @@ const update = (req, res) => {
     let descricao = req.body.descricao;
     let valor = req.body.valor;
     let acao = req.body.acao;
-    let query = `UPDATE item SET id = '${id}', nome = '${nome}', descricao = '${descricao}', valor = '${valor}', acao = '${acao}' WHERE id = ${id}`;
+    let query = `UPDATE item SET id = '${id}', 
+    nome = '${nome}', 
+    descricao = '${descricao}', 
+    valor = '${valor}', 
+    acao = '${acao}' 
+    WHERE id = ${id}`;
+
     con.query(query, (err, result) => {
         if (err)
             res.status(400).json(err).end;

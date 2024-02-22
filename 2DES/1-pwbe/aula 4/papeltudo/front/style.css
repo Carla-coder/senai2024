@@ -95,6 +95,8 @@ button[type="submit"] {
     border: none;
     border-radius: 10px;
     transition: .3s ease all;
+    margin-top: 6px;
+    margin: 6px;
 }
 
 button[type="submit"]:hover {
