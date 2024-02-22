@@ -1,5 +1,5 @@
 //Dependências - Frameworks
-const mysql = require("mysql"); //usa o protoolo SSL
+const mysql = require("mysql"); //usa o protocolo SSL
 
 //Conexão com o SGBD MySQL - conecta com o banco de dados
 const con = mysql.createConnection({

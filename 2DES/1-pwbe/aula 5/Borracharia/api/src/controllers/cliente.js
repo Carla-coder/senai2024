@@ -8,7 +8,7 @@ const create = (req, res) => {
     let endereco = req.body.endereco;
     let contato = req.body.contato;
     let query = `INSERT INTO clientes(id, nome, endereco, contato) VALUES`;
-    query += `( '${id}', ${nome}', '${endereco}','${contato}') RETURNING *;`;
+    query += `( '${id}', '${nome}', '${endereco}','${contato}')`;
     con.query(query,(err, result)=>{
         if(err)
             res.status(400).json(err).end();
@@ -22,7 +22,7 @@ const create = (req, res) => {
 
 //CRUD - Read
 const read = (req, res) => {
-    con.query("SELECT * FROM Clientes ORDER BY id DESC",(err, result)=>{
+    con.query("SELECT * FROM clientes ORDER BY id DESC",(err, result)=>{
         if(err)
             res.json(err);
         else
@@ -53,7 +53,7 @@ const update = (req, res) => {
 //CRUD - Delete
 const del = (req, res) => {
     let id = req.params.id;
-    con.query(`DELETE FROM Clientes WHERE id = ${id}`,(err, result)=>{
+    con.query(`DELETE FROM clientes WHERE id = ${id}`,(err, result)=>{
         if(err)
             res.status(400).json(err).end();
         else{
