@@ -98,7 +98,7 @@ Back-end: NodeJS, MySQL
 Testes: Insomnia
 ## Autores
 
-* @octokatherine
+* [@octokatherine](https://www.github.com/octokatherine)
 ## Instituição de Ensino
 
 Escola Senai unidade Jaguariúna - 
