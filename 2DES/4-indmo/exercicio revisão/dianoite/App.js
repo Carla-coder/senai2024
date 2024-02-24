@@ -1,53 +1,83 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, Image, Switch, Text, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react'
+import {
+  StatusBar,
+  StyleSheet,
+  View,
+  Image,
+  Text,
+  TouchableOpacity,
+} from 'react-native'
 
-const sunIcon = require('./assets/sun.png');
-const moonIcon = require('./assets/full-moon.png');
+const sunIcon = require('./assets/sun.png')
+const moonIcon = require('./assets/full-moon.png')
 
-export default function App() {
-  const [habilitado, setHabilitado] = useState(false);
+export default function App () {
+  const [isDia, setIsDia] = useState(true)
 
-  const habilitar = () => {
-    setHabilitado(!habilitado);
-  };
+  const alternarDiaNoite = () => {
+    setIsDia(!isDia)
+  }
 
-  const saudacao = habilitado ? 'Boa Noite' : 'Bom Dia';
+  const alternarSaudacao = () => {
+    return isDia ? 'Bom Dia' : 'Boa Noite'
+  }
+
+  const cordeFundo = () => {
+    return isDia ? 'lightyellow' : 'lightblue'
+  }
+
+  const handleButtonClick = () => {
+    alternarDiaNoite()
+  }
 
   return (
-    <View style={styles.container}>
-      <Image source={habilitado ? moonIcon : sunIcon} style={styles.icon} />
+    <View style={[styles.container, { backgroundColor: cordeFundo() }]}>
+      <Image
+        source={
+          isDia
+            ? require('./assets/sun.png')
+            : require('./assets/full-moon.png')
+        }
+        resizeMode='contain'
+      />
 
-      <Switch value={habilitado} onValueChange={habilitar} />
-
-      <TouchableOpacity onPress={habilitar}>
+      <Text onPress={alternarDiaNoite}>
         <View style={styles.button}>
-          <Text style={styles.buttonText}>{saudacao}</Text>
+          <Text style={styles.buttonText}>Clique Aqui!</Text>
         </View>
-      </TouchableOpacity>
+      </Text>
+
+      <Pressable onPress={handleButtonClick}>
+        <View style={styles.button}>
+          <Text style={styles.buttonText}>{alternarSaudacao()}</Text>
+        </View>
+      </Pressable>
+
+      <StatusBar style='auto' />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   icon: {
-    width: 100,
-    height: 100,
+    width: 200,
+    height:200,
     resizeMode: 'contain',
-    marginVertical: 20,
+    marginVertical: 20
   },
   button: {
-    backgroundColor: 'blue',
-    padding: 10,
+    backgroundColor: '#949494',
+    padding: 20,
     marginTop: 20,
-    borderRadius: 5,
+    borderRadius: 8
   },
   buttonText: {
     color: 'white',
-    fontSize: 18,
-  },
-});
+    fontSize: 20
+  }
+})
