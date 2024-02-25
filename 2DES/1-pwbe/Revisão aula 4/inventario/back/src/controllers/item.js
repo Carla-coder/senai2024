@@ -18,8 +18,8 @@ const criar = (req, res) => {
     const listar = (req, res) => {
        let item = new Item(req.params)
        con.query(item.read(), (err, result) => {
-        if (err == null)
-        res.json(result).end()
+            if (err == null)
+                res.json(result).end()
        })
     }   
 

@@ -76,7 +76,7 @@ function excluirItem(i) {
 }
 function alterarItem(id) {
     const linha = document.querySelector(`th[data-id="${id}"]`);
-    if (!linha) {
+        if (!linha) {
         console.error(`Item com ID ${id} não encontrado na tabela.`);
         return;
     }

@@ -18,7 +18,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid #6cf89f;
+    border: 1px solid #f38f00;
     border-radius: 5px;
     margin: 5px;
     padding: 5px;
@@ -44,12 +44,12 @@ form {
 input {
     max-width: 160px;
     margin: 5px;
-    border: 1px solid #95e4fa;
+    border: 1px solid #f38f00;
     border-radius: 5px;
     font-size: small;
     font-weight: bold;
-    color: #d7f6dc;
-    box-shadow: 1px 1px 3px #ccc;
+    color: #f38f00;
+    /*box-shadow: 1px 1px 3px #ccc;*/
 }
 
 main {
@@ -58,7 +58,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid #bdfad1;
+    border: 1px solid #f38f00;
     border-radius: 5px;
     overflow-y: auto;
     overflow-x: hidden;
@@ -73,18 +73,18 @@ main::-webkit-scrollbar-track {
     background: rgb(215, 246, 214);
 }
 
-main::-webkit-scrollbar-thumb {
+/*main::-webkit-scrollbar-thumb {
     background-color: #09ccf8;
     border-radius: 10px;
     border: 1px solid #05acff;
-}
+}*/
 
 main table {
     width: 100%;
 }
 
 main table tr:nth-child(even) {
-    background: rgb(198, 252, 221);
+    background: #ffc266;
 }
 
 main table tr td {
@@ -93,32 +93,32 @@ main table tr td {
 
 button {
     border: none;
-    background-color: #7a0460;
+    background-color: #f38f00;
     border-radius: 5px;
     font-size: small;
     font-weight: bold;
     padding: 5px;
     color: #fff;
-    box-shadow: 1px 1px 3px #ccc;
+    /*box-shadow: 1px 1px 3px #ccc;*/
     cursor: pointer;
 }
 
 input[type=submit] {
     border: none;
-    background-color: #ff05d5;
+    background-color: #f38f00;
     border-radius: 5px;
     font-size: small;
     font-weight: bold;
     padding: 5px;
     color: #fff;
-    box-shadow: 1px 1px 3px #ccc;
+    /*box-shadow: 1px 1px 3px #ccc;*/
     cursor: pointer;
 }
 
 footer {
     height: 5vh;
     width: 50vw;
-    border: 1px solid #6d0346;
+    border: 1px solid #f38f00;
     border-radius: 5px;
     display: flex;
     flex-direction: row;

@@ -1,16 +1,19 @@
 class Item {
     constructor(i) {
-        this.id = i;
+        /*this.id = i;
         this.nome = i.nome;
         this.descricao = i.descricao;
-        this.valor = i.valor;
+        this.valor = i.valor;*/
+        Object.assign(this, i);
     }
 
     create() {
-        return `INSERT INTO item VALUE('${this.id}', 
+        return `INSERT INTO item VALUE(
+        '${this.id}', 
         '${this.nome}', 
         '${this.descricao}', 
-        '${this.valor}')`
+        '${this.valor}'
+        )`
     }
 
     read() {
