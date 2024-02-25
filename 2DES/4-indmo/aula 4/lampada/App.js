@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, Image, Switch } from 'react-native';
+import { StyleSheet, View, Image, Switch } from 'react-native';
 
 const icon = require('./assets/icon.png');
 
@@ -24,8 +24,8 @@ export default function App() {
       <Image
         source={{
           uri: (habilitado)
-            ? "./assets/lampadaon.png.png"
-            : "./assets/lampadaoff.png.png"
+            ? "./assets/lampadaon.png"
+            : "./assets/lampadaoff.png"
         }}
         style={[styles.lampada, { opacity: 0.8 }]} //opacity tira um pouco o brilho da imagem//
       />

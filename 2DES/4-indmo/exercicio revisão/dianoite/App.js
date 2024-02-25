@@ -5,14 +5,20 @@ import {
   View,
   Image,
   Text,
-  TouchableOpacity,
+  Pressable,
+  Switch
 } from 'react-native'
 
-const sunIcon = require('./assets/sun.png')
-const moonIcon = require('./assets/full-moon.png')
+const sunIcon = './assets/sun.png'
+const moonIcon = './assets/full-moon.png'
 
 export default function App () {
-  const [isDia, setIsDia] = useState(true)
+  const [habilitado, setHabilitado] = new useState(false)
+  const habilitar = () => {
+    setHabilitado(!habilitado)
+  }
+
+  const [isDia, setIsDia] = new useState(true)
 
   const alternarDiaNoite = () => {
     setIsDia(!isDia)
@@ -33,19 +39,14 @@ export default function App () {
   return (
     <View style={[styles.container, { backgroundColor: cordeFundo() }]}>
       <Image
-        source={
-          isDia
-            ? require('./assets/sun.png')
-            : require('./assets/full-moon.png')
-        }
+        source={{
+          uri: habilitado ? sunIcon : moonIcon
+        }}
         resizeMode='contain'
+        style={styles.icon}
       />
 
-      <Text onPress={alternarDiaNoite}>
-        <View style={styles.button}>
-          <Text style={styles.buttonText}>Clique Aqui!</Text>
-        </View>
-      </Text>
+      <Switch value={habilitado} onValueChange={habilitar} />
 
       <Pressable onPress={handleButtonClick}>
         <View style={styles.button}>
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     width: 200,
-    height:200,
+    height: 200,
     resizeMode: 'contain',
     marginVertical: 20
   },
