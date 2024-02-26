@@ -37,7 +37,7 @@ const criar = (req, res) => {
         let item = new Item(req.params)
         con.query(item.delete(), (err, result) => {
             if (result.affectedRows > 0)
-                res.status(200).end()
+                res.status(204).end()
             else
                 res.status(404).json(err).end()
         })

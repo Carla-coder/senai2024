@@ -2,6 +2,7 @@
 DROP DATABASE IF EXISTS inventario;
 CREATE DATABASE inventario CHARSET=UTF8 COLLATE utf8_general_ci;
 USE inventario;
+
 -- DDL Criação da estrutura da tabela
 CREATE TABLE item(
     id varchar(5) not null primary key,
@@ -9,6 +10,7 @@ CREATE TABLE item(
     descricao text,
     valor decimal(10,2) not null
 );
+
 -- DML Popular a tabela com dados de teste
 INSERT INTO item VALUES
 ('i001','Samsung','Celular A23',100.00),

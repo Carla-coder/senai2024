@@ -1,10 +1,9 @@
 class Item {
     constructor(i) {
-        /*this.id = i;
+        this.id = i.id;
         this.nome = i.nome;
         this.descricao = i.descricao;
-        this.valor = i.valor;*/
-        Object.assign(this, i);
+        this.valor = i.valor;
     }
 
     create() {
