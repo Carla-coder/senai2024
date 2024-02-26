@@ -68,31 +68,110 @@
 
     </nav>
 
+    <!-- Modal de Contato -->
+<div class="modal fade" id="modalContato" tabindex="-1" aria-labelledby="modalContatoLabel" aria-hidden="true">
+    
+    <div class="modal-dialog modal-dialog-centered">
+        
+        <div class="modal-content">
+            
+            <div class="modal-header">
+                
+                <h5 class="modal-title" id="modalContatoLabel">Contato</h5>
+                
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            
+            </div>
+            
+            <div class="modal-body">
+                
+                <div id="conteudoContato">
+                    
+                    <form>
+                        
+                        <div class="mb-3">
+                           
+                            <label for="nome" class="form-label">Nome</label>
+                            
+                            <input type="text" class="form-control" id="nome" placeholder="Seu nome">
+                        
+                        </div>
+                        
+                        <div class="mb-3">
+                            
+                            <label for="email" class="form-label">Email</label>
+                            
+                            <input type="email" class="form-control" id="email" placeholder="Seu email">
+                        
+                        </div>
+                        
+                        <div class="mb-3">
+                            
+                            <label for="mensagem" class="form-label">Mensagem</label>
+                            
+                            <textarea class="form-control" id="mensagem" rows="3" placeholder="Sua mensagem"></textarea>
+                        
+                        </div>
+                       
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    
+                    </form>
+                
+                </div>
+            
+            </div>
+            
+            <div class="modal-footer">
+                
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            
+            </div>
+       
+        </div>
+    
+    </div>
+
+</div>
+
     <div class="container mt-5">
 
         <h1>Produtos em Destaque</h1>
 
         <div class="row">
-            <!-- Modal 1-->
-            <div class="modal fade" id="Modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Detalhes do Produto</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                        </div>
-                        <div class="modal-body">
-                            <!--Conteúdo do Modal-->
-                            <p>Monitor excelente para jogos e desenvolvimento de aplicativos com o Visual Code</p>
-                            <p>Preço: R$ 1500,00</p>
-                        </div>
-                            <!--<img class="card-img-top" src="img/produto1.jpg" alt="Produto1">-->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                        </div>
+             <!-- Modal 1 -->
+        <div class="modal fade" id="Modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            
+            <div class="modal-dialog modal-dialog-centered">
+                
+                <div class="modal-content">
+                    
+                    <div class="modal-header">
+                        
+                        <h5 class="modal-title" id="exampleModalLabel">Detalhes do Produto 1</h5>
+                        
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    
                     </div>
+                    
+                    <div class="modal-body">
+                        
+                        <!-- Conteúdo do modal -->
+                        <p>Detalhes do Produto 1 aqui...</p>
+                    
+                    </div>
+                    
+                    <div class="modal-footer">
+                        
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    
+                    </div>
+                
                 </div>
+            
             </div>
+       
+        </div>
+        
             
             <!-- Produto 1 -->
             <div class="col-md-4">
@@ -107,7 +186,7 @@
 
                         <p class="card-text">Monitor para jogos!</p>
 
-                        <a href="#" class="btn btn-primary btn-details" data-bs-toggle="modal1"
+                        <a href="#" class="btn btn-primary btn-details" data-bs-toggle="modal"
                             data-bs-target="#Modal1">Detalhes</a>
 
                     </div>
@@ -232,7 +311,7 @@
 
                 <div class="card">
 
-                    <img class="card-img-top7" src="img/produto7.jpg" alt="Produto 7">
+                    <img class="card-img-top7" src="img/produto7.webp" alt="Produto 7">
 
                     <div class="card-body">
 
@@ -322,7 +401,12 @@
 
 
     <!-- Bootstrap JS e Scripts personalizados -->
+
+    <!-- Incluindo JQuery primeito-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Popper.js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <!-- Bootstrap JavaScript-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
 </body>
