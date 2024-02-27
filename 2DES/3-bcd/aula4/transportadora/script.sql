@@ -10,16 +10,16 @@ USE transportadora;
 CREATE TABLE Clientes (
     idCliente INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
-    telefone VARCHAR(10) NOT NULL,
+    telefone INT NOT NULL,
     email VARCHAR(50),
-    endereco VARCHAR(50)
+    endereco VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Veiculos (
     idVeiculo INT PRIMARY KEY AUTO_INCREMENT,
-    placa VARCHAR(10) NOT NULL,
+    placa VARCHAR(10)  unique NOT NULL,
     modelo VARCHAR(50) NOT NULL,
-    capacidade INT
+    capacidade INT NOT NULL
 );
 
 CREATE TABLE Funcionarios (
@@ -44,15 +44,15 @@ CREATE TABLE Entregas (
     idVeiculo INT,
     motorista VARCHAR(50),
     idRota INT,
-    FOREIGN KEY (idVeiculo) REFERENCES Veiculos(idVeiculo),
-    FOREIGN KEY (idRota) REFERENCES Rotas(idRota)
+    FOREIGN KEY (idRota) REFERENCES Rotas(idRota),
+    FOREIGN KEY (idVeiculo) REFERENCES Veiculos(idVeiculo)
 );
 
 CREATE TABLE Pedidos (
     idPedido INT PRIMARY KEY AUTO_INCREMENT,
-    idCliente INT NOT NULL,
-    idEntrega INT NOT NULL,
-    dataPedido DATE NOT NULL,
+    idCliente INT unique NOT NULL,
+    idEntrega INT unique NOT NULL,
+    dataPedido INT unique NOT NULL,
     valor DECIMAL (10, 2),
     FOREIGN KEY (idCliente) REFERENCES Clientes(idCliente),
     FOREIGN KEY (idEntrega) REFERENCES Entregas(idEntrega)
