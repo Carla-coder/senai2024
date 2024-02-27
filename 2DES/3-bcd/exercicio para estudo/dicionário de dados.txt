@@ -1,0 +1,81 @@
+Entidades:
+
+Aluno:
+
+idAluno (PK): Identificador único do aluno (Chave Primária).
+nome: Nome do aluno.
+dataNascimento: Data de nascimento do aluno.
+endereco: Endereço do aluno.
+
+Professor:
+
+idProfessor (PK): Identificador único do professor (Chave Primária).
+nome: Nome do professor.
+especialidade: Especialidade ou matéria que o professor leciona.
+
+Disciplina:
+
+idDisciplina (PK): Identificador único da disciplina (Chave Primária).
+nome: Nome da disciplina.
+cargaHoraria: Carga horária da disciplina.
+ 
+Turma:
+
+idTurma (PK): Identificador único da turma (Chave Primária).
+nome: Nome ou identificador da turma.
+Relacionamentos:
+
+Matrícula (Relacionamento entre Aluno e Turma):
+
+idMatricula (PK): Identificador único da matrícula (Chave Primária).
+idAluno (FK): Chave estrangeira referenciando o idAluno da tabela Aluno.
+idTurma (FK): Chave estrangeira referenciando o idTurma da tabela Turma.
+dataMatricula: Data em que o aluno foi matriculado na turma.
+
+Ministra (Relacionamento entre Professor e Disciplina):
+
+idMinistra (PK): Identificador único da relação (Chave Primária).
+idProfessor (FK): Chave estrangeira referenciando o idProfessor da tabela Professor.
+idDisciplina (FK): Chave estrangeira referenciando o idDisciplina da tabela Disciplina. 
+
+***************************************************************************************
+
+Entidades:
+
+Alunos
+
+idAluno (PK)
+nome
+idade
+turma
+Disciplinas
+
+idDisciplina (PK)
+nome
+professor
+Relacionamento:
+
+Matriculas
+idMatricula (PK)
+idAluno (FK para Alunos)
+idDisciplina (FK para Disciplinas)
+
+Aqui está o Diagrama Entidade-Relacionamento (DER) conceitual:
+
+    +------------------+       +-------------------+       +---------------------+
+    |      Alunos      |       |   Disciplinas     |       |      Matriculas     |
+    +------------------+       +-------------------+       +---------------------+
+    | idAluno (PK)     |       | idDisciplina (PK) |       | idMatricula (PK)    |
+    | nome             |       | nome              |       | idAluno (FK)        |
+    | idade            |       | professor         |       | idDisciplina (FK)   |
+    | turma            |       +-------------------+       +---------------------+
+    +------------------+                                   |                     |
+                                                           +---------------------+
+Neste diagrama:
+
+As caixas representam as entidades.
+As linhas indicam os relacionamentos.
+(PK) indica a chave primária.
+(FK) indica a chave estrangeira.
+
+****************************************************************************************
