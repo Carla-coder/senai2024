@@ -1,0 +1,16 @@
+Aula # 04
+
+Exemplos de Projetos de Banco de Dados Relacionais
+
+Modelo Transportadora
+
+Mer - Dicionário de Dados
+
+-Cliente(idCliente [chave primaria], nome, endereco, telefone, email);
+-Funcionario(idFuncionario [chave primaria], nome, cargo, salario);
+-Veiculo(idVeiculo [chave primaria], placa, modelo, capacidade);
+-Rota(idRota [chave primaria], origem, destino, distancia);
+-Entrega(idEntrega [chave primaria], inicio, fim, status, (em anadamento, Concluída, Atrasada), idRota [chave estrangeira] referenciaRota(idRota), 
+idVeiculo[chave estrangeira referencia veiculo} (idVeiculo)], mororista [chave estrangeira referencia Funcionario(id|Funcionario)]);
+-Pedido(idPedido [chave primaria], dataPedido, valor, idCliente[chave estrangeira referencia Cliente (idCliente)], 
+idEntrega[chave estrangeira referencia Entrega[idEntrega]]);
