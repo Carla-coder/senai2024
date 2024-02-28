@@ -1,17 +1,16 @@
-
 -- Criação do Banco de Dados
 DROP DATABASE IF EXISTS transportadora;
-CREATE DATABASE transportadora;
+CREATE DATABASE transportadora CHARSET=utf8 COLLATE utf8_general_ci;
 USE transportadora;
 
 -- Criação das Tabelas
 
 -- Tabela para armazenar informações sobre os clientes
 CREATE TABLE Clientes (
-    idCliente INT PRIMARY KEY AUTO_INCREMENT,
+    idCliente INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
     telefone INT NOT NULL,
-    email VARCHAR(50),
+    email VARCHAR(50) NOT NULL,
     endereco VARCHAR(50) NOT NULL
 );
 
@@ -19,43 +18,47 @@ CREATE TABLE Veiculos (
     idVeiculo INT PRIMARY KEY AUTO_INCREMENT,
     placa VARCHAR(10)  unique NOT NULL,
     modelo VARCHAR(50) NOT NULL,
-    capacidade INT NOT NULL
+    capacidade DECIMAL (10, 2) NOT NULL
 );
 
 CREATE TABLE Funcionarios (
-    idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
+    idFuncionario INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
     cargo VARCHAR(10) NOT NULL,
-    salario DECIMAL(10, 2)
+    salario DECIMAL(10, 2) NOT NULL
 );
 
 CREATE TABLE Rotas (
-    idRota INT PRIMARY KEY AUTO_INCREMENT,
-    origem VARCHAR(50) NOT NULL,
-    destino VARCHAR(50) NOT NULL,
+    idRota INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    origem VARCHAR(100) NOT NULL,
+    destino VARCHAR(100) NOT NULL,
     distancia_km DECIMAL(10, 2)
 );
 
 CREATE TABLE Entregas (
-    idEntrega INT PRIMARY KEY AUTO_INCREMENT,
-    inicio VARCHAR(50),
-    fim VARCHAR(50),
+    idEntrega INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    inicio date,
+    fim date,
     status VARCHAR(20),
     idVeiculo INT,
-    motorista VARCHAR(50),
-    idRota INT,
+    motorista INT NOT NULL,
+    idRota INT NOT NULL,
     FOREIGN KEY (idRota) REFERENCES Rotas(idRota),
     FOREIGN KEY (idVeiculo) REFERENCES Veiculos(idVeiculo)
 );
-
+    
 CREATE TABLE Pedidos (
-    idPedido INT PRIMARY KEY AUTO_INCREMENT,
-    idCliente INT unique NOT NULL,
-    idEntrega INT unique NOT NULL,
-    dataPedido INT unique NOT NULL,
-    valor DECIMAL (10, 2),
+    idPedido INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    idveiculo INT NOT NULL,
+    idCliente INT NOT NULL,
+    idEntrega INT NOT NULL,
+    idFuncionario INT NOT NULL,
+    dataPedido date NOT NULL,
+    valor DECIMAL (10, 2) NOT NULL,
     FOREIGN KEY (idCliente) REFERENCES Clientes(idCliente),
-    FOREIGN KEY (idEntrega) REFERENCES Entregas(idEntrega)
+    FOREIGN KEY (idEntrega) REFERENCES Entregas(idEntrega),
+    FOREIGN KEY (idFuncionario) REFERENCES Funcionarios(idFuncionario),
+    FOREIGN KEY (idVeiculo) REFERENCES Veiculos(idVeiculo)
 );
 
 -- Inserção de Dados de Teste - 5 Clientes
@@ -78,47 +81,57 @@ INSERT INTO Funcionarios (nome, cargo, salario) VALUES
     ('Funcionario2', 'Despachante', 4500.00),
     ('Funcionario3', 'Gerente', 6000.00);
 
--- Inserção de Dados de teste - 3 rotas
+-- Inserção de Dados de teste - 5 rotas
 INSERT INTO Rotas (origem, destino, distancia_km) VALUES
     ('Origem1', 'Destino1', 150.5),
     ('Origem2', 'Destino2', 120.2),
-    ('Origem3', 'Destino3', 200.8);
+    ('Origem3', 'Destino3', 200.8),
+    ('Origem4', 'Destino4', 80.3),
+    ('Origem5', 'Destino5', 150.5);
 
--- Inserção de Dados de teste - 10 Entregas
 INSERT INTO Entregas (inicio, fim, status, idVeiculo, motorista, idRota) VALUES
-    ('Endereço1', 'Destino1', 'Em andamento', 1, 'Motorista1', 1),
-    ('Endereço2', 'Destino2', 'Concluída', 2, 'Motorista2', 2),
-    ('Endereço3', 'Destino3', 'Em andamento', 3, 'Motorista3', 3),
-    ('Endereço4', 'Destino4', 'Concluída', 1, 'Motorista1', 1),
-    ('Endereço5', 'Destino5', 'Em andamento', 2, 'Motorista2', 2),
-    ('Endereço6', 'Destino6', 'Concluída', 3, 'Motorista3', 3),
-    ('Endereço7', 'Destino7', 'Em andamento', 1, 'Motorista1', 1),
-    ('Endereço8', 'Destino8', 'Concluída', 2, 'Motorista2', 2),
-    ('Endereço9', 'Destino9', 'Em andamento', 3, 'Motorista3', 3),
-    ('Endereço10','Destino10', 'Pendente', 1, 'Motorista1', 1);
+    ('2024-02-27', '2024-02-27', 'Em andamento', 1, 1, 1),
+    ('2024-02-28', '2024-02-28', 'Concluída', 2, 2, 2),
+    ('2024-02-27', '2024-02-27', 'Em andamento', 3, 3, 3),
+    ('2024-02-28', '2024-02-28', 'Concluída', 1, 1, 1),
+    ('2024-02-27', '2024-02-27', 'Em andamento', 2, 2, 2),
+    ('2024-02-28', '2024-02-28', 'Concluída', 3, 3, 3),
+    ('2024-02-27', '2024-02-27', 'Em andamento', 1, 1, 1),
+    ('2024-02-28', '2024-02-28', 'Concluída', 2, 2, 2),
+    ('2024-02-27', '2024-02-27', 'Em andamento', 3, 3, 3),
+    ('2024-02-28', '2024-02-28', 'Pendente', 1, 1, 1);
 
--- Inserção de Dados de Teste - 20 Pedidos ( sendo 2 por entrega)
-INSERT INTO Pedidos (idCliente, idEntrega, dataPedido, valor) VALUES
-   (1, 1, '2024-02-27', 100.00),
-    (1, 2, '2024-02-28', 120.50),
-    (2, 3, '2024-02-27', 80.00),
-    (2, 4, '2024-02-28', 90.25),
-    (3, 5, '2024-02-27', 150.75),
-    (3, 6, '2024-02-28', 200.00),
-    (4, 7, '2024-02-27', 75.50),
-    (4, 8, '2024-02-28', 110.00),
-    (5, 9, '2024-02-27', 95.25),
-    (5, 10, '2024-02-28', 130.50),
-    (1, 11, '2024-02-27', 115.75),
-    (1, 12, '2024-02-28', 180.00),
-    (2, 13, '2024-02-27', 80.50),
-    (2, 14, '2024-02-28', 100.25),
-    (3, 15, '2024-02-27', 120.00),
-    (3, 16, '2024-02-28', 150.50),
-    (4, 17, '2024-02-27', 90.75),
-    (4, 18, '2024-02-28', 110.50),
-    (5, 19, '2024-02-27', 130.25),
-    (5, 20, '2024-02-28', 160.00);
+
+INSERT INTO Pedidos (idCliente, idEntrega, dataPedido, valor, idFuncionario, idVeiculo) VALUES
+    (1, 1, '2024-02-27', 100.00, 1, 1),
+    (2, 1, '2024-02-27', 120.50, 1, 1),
+    -- Entrega 2
+    (3, 2, '2024-02-28', 80.00, 2, 2),
+    (4, 2, '2024-02-28', 90.25, 2, 2),
+    -- Entrega 3
+    (5, 3, '2024-02-27', 150.75, 3, 3),
+    (1, 3, '2024-02-27', 200.00, 3, 3),
+    -- Entrega 4
+    (2, 4, '2024-02-28', 75.50, 1, 1),
+    (3, 4, '2024-02-28', 110.00, 1, 1),
+    -- Entrega 5
+    (4, 5, '2024-02-27', 95.25, 2, 2),
+    (5, 5, '2024-02-27', 130.50, 2, 2),
+    -- Entrega 6
+    (1, 6, '2024-02-28', 115.75, 3, 3),
+    (2, 6, '2024-02-28', 180.00, 3, 3),
+    -- Entrega 7
+    (3, 7, '2024-02-27', 80.50, 1, 1),
+    (4, 7, '2024-02-27', 100.25, 1, 1),
+    -- Entrega 8
+    (5, 8, '2024-02-28', 120.00, 2, 2),
+    (1, 8, '2024-02-28', 150.50, 2, 2),
+    -- Entrega 9
+    (2, 9, '2024-02-27', 90.75, 3, 3),
+    (3, 9, '2024-02-27', 110.50, 3, 3),
+    -- Entrega 10
+    (4, 10, '2024-02-28', 130.25, 1, 1),
+    (5, 10, '2024-02-28', 160.00, 1, 1);
 
 -- Visualização dos Dados das Tabelas
 SELECT * FROM Clientes;
