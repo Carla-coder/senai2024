@@ -54,7 +54,7 @@ CREATE TABLE Pedidos (
     idEntrega INT NOT NULL,
     idFuncionario INT NOT NULL,
     dataPedido date NOT NULL,
-    valor DECIMAL (10, 2) NOT NULL,
+    valor DECIMAL (50, 2) NOT NULL,
     FOREIGN KEY (idCliente) REFERENCES Clientes(idCliente),
     FOREIGN KEY (idEntrega) REFERENCES Entregas(idEntrega),
     FOREIGN KEY (idFuncionario) REFERENCES Funcionarios(idFuncionario),
