@@ -9,7 +9,7 @@ USE transportadora;
 CREATE TABLE Clientes (
     idCliente INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
-    telefone INT NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
     email VARCHAR(50) NOT NULL,
     endereco VARCHAR(50) NOT NULL
 );
@@ -72,13 +72,13 @@ INSERT INTO Clientes (nome, telefone, email, endereco) VALUES
 -- Inserção de Dados de Teste - 3 Veículos
 INSERT INTO Veiculos (placa, modelo, capacidade) VALUES
     ('ABC123', 'Focus', 5),
-    ('XYZ789', 'Cruze', 4),
+    ('XYZ789', 'Hyundai Azera', 4),
     ('DEF456', 'Corolla', 5);
 
--- Inserção de Dados de Teste - 3 Funcionários
+-- Inserção de Dados de Teste - 3 Funcionáriosa
 INSERT INTO Funcionarios (nome, cargo, salario) VALUES
     ('Funcionario1', 'Motorista', 5000.00),
-    ('Funcionario2', 'Despachante', 4500.00),
+    ('Funcionario2', 'Auxiliar Administrativo', 4500.00),
     ('Funcionario3', 'Gerente', 6000.00);
 
 -- Inserção de Dados de teste - 5 rotas

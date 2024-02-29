@@ -28,7 +28,7 @@ const create = (req, res) => {
 //CRUD - Read
 
 const read = (req, res) => {
-    con.query("SELECT * FROM Rotas ORDER BY id DESC", (err, result) => {
+    con.query("SELECT * FROM Rotas", (err, result) => {
         if (err)
             res.json(err);
         else
