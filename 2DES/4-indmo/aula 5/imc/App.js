@@ -13,11 +13,11 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen 
         name="Login" 
-        component={loginForm}
-        options={{title: 'Bem Vindo'}} />
+        component={LoginForm}
+        options={{titlle: 'Bem Vindo'}} />
 
         <Stack.Screen 
-        name="IMC" 
+        name="telaIMC" 
         component={ScreenIMC}
         options={{titlle: 'Calcule seu IMC'}} />
       </Stack.Navigator>
