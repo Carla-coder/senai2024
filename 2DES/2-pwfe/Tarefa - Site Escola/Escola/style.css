@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding-top: 56px;
+}
+
+.jumbotron {
+    background-image: url('./image/favo de mel.jpg'); 
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+}
+
+.feature {
+    padding: 30px 0;
+}
+
+.course {
+    margin-bottom: 20px;
+}
+
+/* Estilo para a imagem Sobre Nós */
+.feature img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estilo para o rodapé */
+footer {
+    background-color: #f8f9fa;
+    color: #212529;
+    padding: 15px 0;
+}
+   
