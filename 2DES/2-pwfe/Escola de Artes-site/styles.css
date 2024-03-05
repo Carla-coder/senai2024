@@ -1,0 +1,89 @@
+/* Estilos gerais */
+* {
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+   padding-top: 56px; /* Altura da navbar fixa */
+   background-image: url('./image/mini abelhas 2.jpg'); 
+  }
+  
+  /* Navbar */
+.navbar {
+    background-color: #f8f9fa;
+  }
+
+.jumbotron {
+  background-image: url('./image/favo de mel.jpg'); 
+  background-size: cover;
+  /*color: #fff; */
+  text-align: center;
+}
+
+.feature {
+  padding: 30px 0;
+  background-color: #ffffd7;
+}
+
+h1,h2 {
+  font-family: "TinkerToy Regular", sans-serif;
+}
+
+h5 {
+  font-family: "ink Free Regular", sans-serif;
+}
+  
+/* Cursos */
+#cursos {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+  
+.card {
+    transition: transform 0.2s;
+}
+  
+.card:hover {
+    transform: scale(1.05);
+}
+  
+ /* Matrícula */
+#matricula {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+  
+/* Contato */
+#contato {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+  
+/* Rodapé */
+footer {
+  background-color: #a6bf5a; /* Cor de fundo do footer */
+  color: #ffffff; /* Cor do texto no footer */
+  padding-top: 25px; /* Espaçamento interno superior */
+}
+
+.btn-floating {
+  font-size: 1.25rem; /* Tamanho dos ícones das redes sociais */
+}
+
+/* Seções do footer */
+section {
+  margin-bottom: 20px;
+}
+
+/* Estilos para o link nas seções */
+section a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Créditos no rodapé */
+footer p {
+  font-size: 16px;
+}
