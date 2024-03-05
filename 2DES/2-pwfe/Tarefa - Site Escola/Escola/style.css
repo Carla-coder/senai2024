@@ -1,22 +1,32 @@
 * {
-    margin: 0;
+    margin:0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
     padding-top: 56px;
+    background-image: url('./image/mini abelhas 2.jpg');
+}
+
+h1, h2 {
+    font-family:"TinkerToy Regular", sans-serif;
+}
+
+h4 {
+    font-family: "ink Free Regular", sans-serif;
 }
 
 .jumbotron {
     background-image: url('./image/favo de mel.jpg'); 
     background-size: cover;
-    color: #fff;
+    /* color: #fff; */
     text-align: center;
 }
 
 .feature {
     padding: 30px 0;
+    background-color: #ffffd7;
 }
 
 .course {
@@ -31,8 +41,9 @@ body {
 
 /* Estilo para o rodapé */
 footer {
-    background-color: #f8f9fa;
+    background-color: #a6bf5a;
     color: #212529;
     padding: 15px 0;
+    font-size: 18px;
 }
    
