@@ -3,12 +3,12 @@ const cors = require("cors");
 
 const routes = require('./src/routes');
 
-const teste = (req, res)=>{
-    res.send("API transportadora respondendo ");
-}
+/*const teste = (req, res)=>{
+    res.send("Transportadora API respondendo ");
+}*/
 
 const app = express(); // a criptografia esta no HTTPS, esta no express, faz a comunicação segura entre o back end e front end
-app.use(cors()); // o web front end faz a comunicação com o https
+app.use(cors()); // o web front-end faz a comunicação com o HTTPS
 app.use(express.json());
 app.use(routes);
 
