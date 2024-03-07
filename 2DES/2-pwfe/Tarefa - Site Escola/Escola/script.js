@@ -14,9 +14,9 @@ $(document).ready(function () {
             var hash = this.hash;
             // Utiliza a função animate do jQuery para criar uma animação de rolagem suave.
             $('html, body').animate({ // Seleciona os elementos HTML e body.
-                scrollTop: $(hash).offset().top // Anima a rolagem até a posição definida opelo elemento com o 'id' correspondente ao 'hash'
+                scrollTop: $(hash).offset().top // Anima a rolagem até a posição definida pelo elemento com o 'id' correspondente ao 'hash'
             }, 800, function () { // A duração da animação em milissegundos(neste caso, 800 milissegundos ou 0,8 segundos)
-                window.location.hash = hash; // Após a conlusãoda animação, atualiza a hash na barra de endereços para corresponder ao destino do link.
+                window.location.hash = hash; // Após a conlusão da animação, atualiza a hash na barra de endereços para corresponder ao destino do link.
             });
         }
     });
