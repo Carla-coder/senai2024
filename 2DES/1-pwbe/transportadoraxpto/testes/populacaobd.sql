@@ -57,11 +57,10 @@ insert into pedido(idCliente, idEntrega, dataPedido, valor) values
 (1,9,date_sub(now(),interval 3 hour),150),
 (4,9,date_sub(now(),interval 2 hour),180),
 (6,10,date_sub(now(),interval 1 hour),180),
-(7,10,now(),180);
 
 select * from cliente;
 select * from funcionario;
 select * from rota;
 select * from veiculo;
- select * from entrega;
- select * from pedido;
+select * from entrega;
+select * from pedido;

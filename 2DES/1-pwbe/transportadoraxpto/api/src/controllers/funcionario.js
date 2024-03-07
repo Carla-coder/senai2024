@@ -4,8 +4,8 @@ const con = require('../connection/mysql');
 //CRUD - CREATE
 const addFuncionario = (req, res) => {
     if (req.body != null && req.body.nome != null && req.body.cargo != null && req.body.salario) {
-        const { nome, telefone, email } = req.body;
-        con.query('INSERT INTO funcionario (nome, cargo, salario) VALUES (?, ?, ?, ?)', [nome, cargo, salario], (err, result) => {
+        const { nome, cargo, salario } = req.body;
+        con.query('INSERT INTO funcionario (nome, cargo, salario) VALUES (?, ?, ?)', [nome, cargo, salario], (err, result) => {
             if (err) {
                 res.status(500).json('Erro ao adicionar funcionario');
             } else {
@@ -41,7 +41,7 @@ const getFuncionarios = (req, res) => {
 const updateFuncionario = (req, res) => {
     if (req.body != null && req.body.id != null && req.body.nome != null && req.body.cargo != null && req.body.salario) {
         const { id, nome, cargo, salario } = req.body;
-        con.query('UPDATE funcionario SET id = ?, nome = ?, cargo = ?, salario = ? WHERE idFuncionario = ?', [nome, cargo, salario, id], (err, result) => {
+        con.query('UPDATE funcionario SET nome = ?, cargo = ?, salario = ? WHERE idFuncionario = ?', [nome, cargo, salario,id], (err, result) => {
             if (err) {
                 res.status(500).json(err);
             } else {
@@ -75,7 +75,7 @@ const deleteFuncionario = (req, res) => {
 
 
 module.exports = {
-    addCliente,
+    addFuncionario,
     getFuncionarios,
     updateFuncionario,
     deleteFuncionario

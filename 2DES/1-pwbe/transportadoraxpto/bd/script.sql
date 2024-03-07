@@ -8,7 +8,7 @@ create table Cliente(
     nome varchar(100) not null,
     endereco varchar(100) not null,
     telefone varchar(15) not null,
-    email varchar(100) not null
+    email varchar(100)  unique not null
 );
 create table Funcionario(
     idFuncionario int not null primary key auto_increment,
