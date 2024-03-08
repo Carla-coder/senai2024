@@ -3,20 +3,23 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
 
 export default function CalculoJuros() {
-    
+
+  // Estados para armazenar o valor, taxa de juros e o valor total após o cálculo 
   const [valor, setValor] = useState('');
   const [taxaJuros, setTaxaJuros] = useState('');
   const [valorTotal, setValorTotal] = useState(null);
 
+  // Função para calcular juros com base no valor e na taxa de juros inseridos
   const calcularJuros = () => {
-
+    // Calcula o valor total com base na fórmula de juros simples
     const valorCalculado = parseFloat(valor) + (parseFloat(valor) * parseFloat(taxaJuros) / 100);
+    // Atualiza o estado do valor total, limitando o número de casas decimais a 2
     setValorTotal(valorCalculado.toFixed(2));
 
   };
 
   return (
-
+    // Componente de imagem de fundo
     <ImageBackground
     source={require('./image/juros.jpg')}
     style={styles.backgroundImage}
@@ -62,6 +65,7 @@ export default function CalculoJuros() {
 
 }
 
+// Estilos para os componentes
 const styles = StyleSheet.create({
 
   container: {
