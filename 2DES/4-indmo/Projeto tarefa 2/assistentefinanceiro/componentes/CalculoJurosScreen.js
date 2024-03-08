@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover', 
   },
   input: {
-    width: '20%',
+    width: 200,
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,

@@ -7,14 +7,14 @@ const { width, height } = Dimensions.get('screen');
 
 const users = [
 
-  { username: 'user1', pass: '123456' },
-  { username: 'user2', pass: '654321' }
+  { username: 'Desenvolvimento', pass: '123456' },
+  { username: 'Aluno', pass: '654321' }
 
 ];
 
 export default function LoginForm({ navigation }) {
 
-  const [username, setUsername] = React.useState('user1');
+  const [username, setUsername] = React.useState('Desenvolvimento');
   const [pass, setPass] = React.useState('123456');
 
 
