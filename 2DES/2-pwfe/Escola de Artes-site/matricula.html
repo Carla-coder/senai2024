@@ -44,10 +44,18 @@
 
         <div class="mb-3">
           <label for="nome" class="form-label">Curso</label>
-          <input type="text" class="form-control" id="curso" required>
+          <select class="form-select" id="curso" require>
+            <option value="" disabled selected>Selecione um curso</option>
+            <option value="curso1">Curso de Técnicas de Fundos Country</option>
+            <option value="curso2">Curso de Pintura Country no Tecido com Stencil</option>
+            <option value="curso3">Curso Pátinas Demolição</option>
+            <option value="curso1">Curso de Técnicas de Fundos variadas</option>
+            <option value="curso2">Curso de Pintura Primitiva com Stencil</option>
+            <option value="curso3">Curso de Pintura Primitiva com lápis aquarela no tecido</option>
+            </select>
         </div>
 
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="submit" class="btn btn-secondary">Enviar</button>
       </form>
     </div>
   </section>

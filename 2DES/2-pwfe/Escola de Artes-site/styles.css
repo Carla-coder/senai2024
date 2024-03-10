@@ -43,12 +43,38 @@ h5 {
   padding: 60px 0;
 }
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .card {
+  flex: 1;
+  margin: 0 10px 20px;
+  /* height: 400px; */
+  border: 1px solid #dee2e6; /* Adicione uma borda ao redor do card */
+  border-radius: 8px; /* Adicione bordas arredondadas aos cantos do card */
   transition: transform 0.2s;
 }
 
 .card:hover {
   transform: scale(1.05);
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #dee2e6; /* Adicione uma borda na parte inferior da imagem */
+}
+
+.card-title {
+  font-size: 1.25rem; /* Ajuste o tamanho da fonte do título conforme necessário */
+}
+
+/* Dentro do card na parte inferior */
+.card-body {
+    padding: 20px;
+    background: linear-gradient(to right, #fff200, #ffcc00, #ffa500);
 }
 
 /* Matrícula */
@@ -93,3 +119,7 @@ section a {
 footer p {
   font-size: 16px;
 }
+
+
+  
+

@@ -1,27 +1,69 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Modais dos cursos
-  var cursoModals = document.querySelectorAll('[data-bs-toggle="modal"]')
+  var cursoModals = document.querySelectorAll('[data-bs-toggle="modal"]');
+
   cursoModals.forEach(function (modal) {
     modal.addEventListener('click', function () {
-      var targetModalId = modal.getAttribute('data-bs-target')
-      var targetModal = new bootstrap.Modal(
-        document.querySelector(targetModalId)
-      )
-      targetModal.show()
-    })
-  })
+      var targetModalId = modal.getAttribute('data-bs-target');
+      var targetModal = new bootstrap.Modal(document.querySelector(targetModalId));
 
-  // Adiciona evento ao fechar o modal
-  var modals = document.querySelectorAll('.modal')
+      // Esconde as imagens dos cards ao abrir o modal
+      var cardImages = document.querySelectorAll('.card-img-top');
+      cardImages.forEach(function (image) {
+        image.style.display = 'none';
+      });
+
+      targetModal.show();
+    });
+  });
+
+  var modals = document.querySelectorAll('.modal');
   modals.forEach(function (modal) {
     modal.addEventListener('hidden.bs.modal', function () {
-      document.body.classList.remove('modal-open')
-      var modalBackdrops = document.getElementsByClassName('modal-backdrop')
-      for (var i = 0; i < modalBackdrops.length; i++) {
-        modalBackdrops[i].parentNode.removeChild(modalBackdrops[i])
+      // Restaura as imagens dos cards ao fechar o modal
+      var cardImages = document.querySelectorAll('.card-img-top');
+      cardImages.forEach(function (image) {
+        image.style.display = 'block';
+      });
+
+      // Remove o backdrop ao fechar o modal
+      var modalBackdrop = document.querySelector('.modal-backdrop');
+      if (modalBackdrop) {
+        modalBackdrop.parentNode.removeChild(modalBackdrop);
       }
-    })
-  })
+
+      // Restaura o corpo da página ao estado normal
+      document.body.style.overflow = 'auto';
+    });
+  });
+});
+
+
+// Esta parte do código foi para fins de estudo //
+
+// document.addEventListener('DOMContentLoaded', function () {
+//   // Modais dos cursos
+//   var cursoModals = document.querySelectorAll('[data-bs-toggle="modal"]')
+//   cursoModals.forEach(function (modal) {
+//     modal.addEventListener('click', function () {
+//       var targetModalId = modal.getAttribute('data-bs-target')
+//       var targetModal = new bootstrap.Modal(
+//         document.querySelector(targetModalId)
+//       )
+//       targetModal.show()
+//     })
+//   })
+
+//    // Adiciona evento ao fechar o modal
+//    var modals = document.querySelectorAll('.modal')
+//    modals.forEach(function (modal) {
+//      modal.addEventListener('hidden.bs.modal', function () {
+//        document.body.classList.remove('modal-open')
+//        var modalBackdrops = document.getElementsByClassName('modal-backdrop')
+//        for (var i = 0; i < modalBackdrops.length; i++) {
+//        modalBackdrops[i].parentNode.removeChild(modalBackdrops[i])
+//       }
+//      })
+//    })
 
   // // Adiciona evento ao formulário de matrícula
   // var matriculaForm = document.querySelector('#matricula-form')
@@ -69,4 +111,4 @@ document.addEventListener('DOMContentLoaded', function () {
 //     mensagemElement.textContent = mensagem
 //     mensagensDiv.appendChild(mensagemElement)
 //   }
- })
+ 
