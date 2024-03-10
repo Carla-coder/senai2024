@@ -38,7 +38,7 @@ create table Entrega(
     status varchar(20)
 );
 
-create table pedido(
+create table Pedido(
     idPedido int not null primary key auto_increment,
     idCliente int not null,
     idEntrega int not null,
