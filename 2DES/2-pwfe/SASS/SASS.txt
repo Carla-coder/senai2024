@@ -1,0 +1,64 @@
+Aula # 06 - 11/03/2024
+
+SASS
+
+Instalação do SASS
+
+no prompt de comando digite: npm install -g sass
+
+*. Se não encontrar, instale a versão atualizada do nodejs - site nodejs.org e faça o dowload do LIT.
+Clique no dowload e instale a nova versão no pc.
+
+OBS: sass --version ( versão do sass ) se não der certo, reinicie a máquina.
+     npm --version
+     node --version ( versão do nodejs )
+
+Matéria de Estudo: Extensão CSS - variáveis - Nesting - Mixings - Heranças
+
+*****************************************************************************************************
+site para consulta: https://www.ufsm.br/pet/sistemas-de-informacao/2021/09/22/o-que-e-sass-venha-entender-esse-novo-metodo-de-escrever-css
+
+Por que utilizar SASS?
+
+O SASS foi criado visando facilitar a criação de códigos CSS, por isso, nos traz várias vantagens que o 
+CSS não possui.
+
+Algumas delas são:
+
+"Variáveis"
+
+Podemos declarar uma variável utilizando o operador $, então passamos a propriedade, podendo ela ser uma cor, 
+fonte, tamanho da fonte, largura ou altura, etc.
+
+css> style.css
+     $cor: #26df23;
+
+     .navbar{
+      background: $cor;
+      display: flex;
+      align-items: center;
+      padding: 30px 10%;
+      }
+
+      .section {
+       background: $cor;
+      }
+*******************************************************************************************************
+Nested Selectors
+
+Em uma situação em que gostaríamos de acessar uma lista dentro de uma navbar. Seguindo a sintaxe padrão do CSS,
+iríamos utilizar o seguinte comando “navbar ul”. Agora, com o SASS, podemos apenas incluir a lista dentro da própria 
+classe da navbar, facilitando o acesso, visualização e organização do código, que dessa maneira, 
+flui de uma forma mais eficiente. Segue o exemplo abaixo:
+
+css> style.css
+     $cor-verde: #26df23;
+
+     .navbar{
+	ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+        }
+      }
+*******************************************************************************************************
