@@ -1,0 +1,16 @@
+Aula #05 - Banco de Dados - DQL - 12/03/2024
+
+SQL { DDL, DML, DQL< DCL}
+
+Queries ou Query - Consultas ou Relatórios DQL 
+
+Relatórios Normalização { Join }
+
+Select - Filtro = Where
+
+Group by - (Join - Inner Join - Left - Right)
+
+sun()
+average()
+max()
+min()
