@@ -42,14 +42,20 @@ inner join veiculo v on e.placa = v.placa
 group by count(e.idEntrega) desc limit 1;
 
 -- 7. Crie um relatório (report)  que mostre 'todas as entregas' com os 'nomes dos motoristas', 'modelos dos veículos', salve como 'relatorio_de_entregas_01'
-SELECT e.idEntrega, f.nome AS motorista, v.modelo AS modelo_veiculo
+SELECT e.idEntrega, f.nome AS motorista, v.modelo AS modelo_veiculo, sun(p.valor)
 FROM Entrega e
 JOIN Funcionario f ON e.motorista = f.idFuncionario
 JOIN Veiculo v ON e.placa = v.placa;
 
--- 8. Crie um relatório que mostre todas as entregas com os nomes dos motoristas, modelos dos veículos e o valor total da entrega, salve como 'relatorio_de_entregas_02'
+-- 8. Crie um relatório que mostre todas as entregas com os nomes dos motoristas, modelos dos veículos e o valor total da entrega, salve como 'relatorio_de_entregas_02' mostrar 10 entregas na tabela
+SELECT * FROM entrega;
+create view relatorio_de_entregas_02 as
 SELECT e.idEntrega, f.nome AS motorista, v.modelo AS modelo_veiculo, p.valor AS valor_total
 FROM Entrega e
 JOIN Funcionario f ON e.motorista = f.idFuncionario
 JOIN Veiculo v ON e.placa = v.placa
-JOIN Pedido p ON e.idEntrega = p.idEntrega;
+JOIN Pedido p ON e.idEntrega = p.idEntrega
+group by e.idEntrega;
+
+-- Para testar o relatório
+select * from relatorio_de_entregas_02;
