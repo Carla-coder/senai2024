@@ -19,6 +19,7 @@ const tarefas = [
 // Função para preencher a tabela de usuários
 function preencherTabelaUsuarios() {
     const tbody = document.querySelector('#usuarios tbody');
+    tbody.innerHTML = ''; // Limpa o conteúdo atual da tabela
     usuarios.forEach(usuario => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
@@ -33,46 +34,92 @@ function preencherTabelaUsuarios() {
     });
 }
 
+  // Função para preencher a tabela de tarefas
+  function preencherTabelaTarefas() {
+    const tbody = document.querySelector('#tarefas tbody');
+    tbody.innerHTML = '';
+    tarefas.forEach(tarefa => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+        <td>${tarefa.idTarefa}</td>
+        <td>${tarefa.descricao}</td>
+        <td>${tarefa.data_vencimento}</td>
+        <td>${tarefa.status}</td>
+        <td>${tarefa.idUsuario}</td>
+        <td>
+        <button class="btn btn-danger" onclick="excluirTarefa(${tarefa.idTarefa})">Excluir</button>
+    </td>
+    `;
+    tbody.appendChild(tr);
+});
+}
+
 // Função para adicionar um novo usuário
 function adicionarUsuario() {
+    const nomeInput = document.getElementById('nomeInput').value;
+    console.log('Valor do nomeInput:', nomeInput);
+    const emailInput = document.getElementById('emailInput').value;
+
+    let nomeUsuario;
+    if (nomeInput.trim() !== '') {
+        nomeUsuario = nomeInput;
+    } else {
+        nomeUsuario = 'Novo Usuário';
+    }
+
+    console.log('Nome do usuário:', nomeUsuario);
+
     const novoUsuario = {
         idUsuario: usuarios.length + 1,
-        nome: 'Novo Usuário',
-        email: 'novousuario@email.com'
+        nome: nomeUsuario,
+        email: emailInput || 'novousuario@email.com'
     };
+
     usuarios.push(novoUsuario);
     preencherTabelaUsuarios(); // Atualizar a tabela de usuários após adicionar um novo usuário
 }
 
-// Função para preencher a tabela de tarefas
-function preencherTabelaTarefas() {
-    const tbody = document.querySelector('#tarefas tbody');
-    tarefas.forEach(tarefa => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td>${tarefa.idTarefa}</td>
-            <td>${tarefa.descricao}</td>
-            <td>${tarefa.data_vencimento}</td>
-            <td>${tarefa.status}</td>
-            <td>${tarefa.idUsuario}</td>
-        `;
-        tbody.appendChild(tr);
-    });
-}
-
 // Função para adicionar uma nova tarefa
-function adicionarTarefa() {
+function adicionarTarefa(event) {
+    event.preventDefault(); // Evita o recarregamento da página
+
+    const descricao = document.getElementById('descricao').value;
+    const dataVencimento = document.getElementById('dataVencimento').value;
+    const status = document.getElementById('status').value;
+    const idUsuario = parseInt(document.getElementById('idUsuario').value);
+
     const novaTarefa = {
         idTarefa: tarefas.length + 1,
-        descricao: 'Nova Tarefa',
-        data_vencimento: '2024-03-31',
-        status: 'A fazer',
-        idUsuario: 1 // ID de um usuário existente ou lógica para selecionar um usuário
+        descricao: descricao,
+        data_vencimento: dataVencimento,
+        status: status,
+        idUsuario: idUsuario
     };
     tarefas.push(novaTarefa);
-    preencherTabelaTarefas(); // Atualizar a tabela de tarefas após adicionar uma nova tarefa
+    preencherTabelaTarefas(); // Atualiza a tabela de tarefas
+    document.getElementById('formNovaTarefa').reset(); // Limpa o formulário após adicionar a tarefa
 }
 
+
+
+// Função para excluir uma tarefa
+function excluirTarefa(idTarefa) {
+    // Encontrar o índice da tarefa na lista de tarefas
+    const tarefaIndex = tarefas.findIndex(tarefa => tarefa.idTarefa === idTarefa);
+
+    // Verificar se a tarefa foi encontrada
+    if (tarefaIndex !== -1) {
+        // Remover a tarefa da lista de tarefas
+        tarefas.splice(tarefaIndex, 1);
+    } else {
+        alert('Tarefa com ID ' + idTarefa + ' não encontrada.');
+    }
+
+     // Chamando a função para preencher a tabela de tarefas
+     preencherTabelaTarefas();
+    }
+
+   
 // Função para excluir um usuário
 function excluirUsuario(idUsuario) {
     // Encontrar o índice do usuário na lista de usuários
@@ -91,10 +138,15 @@ function excluirUsuario(idUsuario) {
     preencherTabelaUsuarios();
 }
 
-
 // Adicionar event listener para o botão Adicionar Usuário
 document.getElementById('btnAdicionarUsuario').addEventListener('click', adicionarUsuario);
+
+// Adicionar event listener para o formulário de adição de tarefa
+document.getElementById('formNovaTarefa').addEventListener('submit', adicionarTarefa);
 
 // Adicionar event listener para o botão Adicionar Tarefa
 document.getElementById('btnAdicionarTarefa').addEventListener('click', adicionarTarefa);
 
+// Chamando as funções para preencher as tabelas ao carregar a página
+preencherTabelaUsuarios();
+preencherTabelaTarefas();

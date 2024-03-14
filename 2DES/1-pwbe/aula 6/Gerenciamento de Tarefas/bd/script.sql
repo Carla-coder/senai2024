@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS tarefa;
-CREATE DATABASE tarefa CHARSET=UTF8 COLLATE utf8_general_ci;
+CREATE DATABASE tarefa CHARACTER SET UTF8 COLLATE utf8_general_ci;
 USE tarefa;
 
 -- DDL Criação da Estrutura da Tabela
@@ -7,9 +7,9 @@ USE tarefa;
 -- Definição da tabela Usuário
 CREATE TABLE Usuario (
     idUsuario INT  NOT NULL PRIMARY KEY auto_increment,
-    nome VARCHAR(100),
-    email VARCHAR(100),
-    senha VARCHAR(255) -- Recomenda-se um tamanho suficiente para armazenar senhas criptografadas
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    senha VARCHAR(100) NOT NULL -- Recomenda-se um tamanho suficiente para armazenar senhas criptografadas
 );
 
 -- Definição da tabela Tarefa

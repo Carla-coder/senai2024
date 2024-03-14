@@ -10,8 +10,11 @@
 <body>
 
 <div class="container">
+    
+    <h2>Adicionar Novo Usuário</h2>
+    <input type="text" id="nomeInput" placeholder="Nome">
+    <input type="email" id="emailInput" placeholder="Email">
     <button id="btnAdicionarUsuario" class="btn">Adicionar Usuário</button>
-    <h2>Lista de Usuários</h2>
     <table id="usuarios">
         <thead>
             <tr>
@@ -25,8 +28,23 @@
         </tbody>
     </table>
 
+    <h2>Adicionar Nova Tarefa</h2>
+    <form id="formNovaTarefa">
+        <input type="text" id="descricao" placeholder="Descrição">
+        <input type="date" id="dataVencimento" placeholder="Data de Vencimento">
+        <select id="status">
+            <option value="A fazer">A fazer</option>
+            <option value="Em andamento">Em andamento</option>
+            <option value="Concluído">Concluído</option>
+        </select>
+        <input type="number" id="idUsuario" placeholder="ID do Usuário">
+        <button type="submit" class="btn">Adicionar Tarefa</button>
+    </form>
+
     <h2>Lista de Tarefas</h2>
-    <button id="btnAdicionarTarefa" class="btn">Adicionar Tarefa</button>
+    <div class="button-group">
+       
+    </div>
     <table id="tarefas">
         <thead>
             <tr>
@@ -35,12 +53,14 @@
                 <th>Data de Vencimento</th>
                 <th>Status</th>
                 <th>ID do Usuário</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
             <!-- Os dados das tarefas serão inseridos aqui via JavaScript -->
         </tbody>
     </table>
+
 </div>
 
 <script src="script.js"></script>

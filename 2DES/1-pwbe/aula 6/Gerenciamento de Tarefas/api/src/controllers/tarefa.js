@@ -5,7 +5,8 @@ const con = require('../connection/mysql');
 
 const addTarefa = (req, res) => {
     if (req.body != null && req.body.descricao != null && req.body.data_vencimento != null && req.body.status != null && req.body.idUsuario != null ) {
-        const { descricao, data_vencimento, status, idUsuario} = req.body;
+        const { descricao, data_vencimento, status } = req.body;
+        // const idUsuario = req.body.idUsuario; //Pegando o ID do usuário logado na sessão
         con.query('INSERT INTO tarefa (descricao, data_vencimento, status, idUsuario) VALUES (?, ?, ?, ?)', [descricao, data_vencimento, status, idUsuario], (err, result) => {
             if (err) {
                 res.status(500).json('Erro ao adicionar tarefa');
