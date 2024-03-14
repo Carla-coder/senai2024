@@ -5,7 +5,7 @@ const con = require('../connection/mysql');
 const addPedido = (req, res) => {
     if (req.body != null && req.body.idPedido != null && req.body.idEntrega != null && req.body.dataPedido != null && req.body.valor != null) {
         const { idCliente, idEntrega, dataPedido, valor } = req.body;
-        con.query('INSERT INTO pedido (idCliente, id Entrega, dataPedido, valor) VALUES (?, ?, ?, ?)', [idCliente, idEntrega, dataPedido, valor], (err, result) => {
+        con.query('INSERT INTO pedido (idCliente, idEntrega, dataPedido, valor) VALUES (?, ?, ?, ?)', [idCliente, idEntrega, dataPedido, valor], (err, result) => {
             if (err) {
                 res.status(500).json('Erro ao adicionar pedido');
             } else {

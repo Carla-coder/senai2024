@@ -62,8 +62,8 @@ const getUsuarioById = (req, res) => {
 //CRUD - UPDATE
 const updateUsuario = (req, res) => {
     if (req.body != null && req.body.id != null && req.body.nome != null && req.body.email != null && req.body.senha != null) {
-        const { nome, email, senha } = req.body;
-        con.query('UPDATE usuario SET nome = ?, email = ?, senha = ? WHERE idUsuario = ?', [nome, email, senha], (err, result) => {
+        const {id, nome, email, senha } = req.body;
+        con.query('UPDATE usuario SET nome = ?, email = ?, senha = ? WHERE idUsuario = ?', [nome, email, senha, id], (err, result) => {
             if (err) {
                 res.status(500).json({ error: 'Erro ao atualizar usuário'});
             } else {

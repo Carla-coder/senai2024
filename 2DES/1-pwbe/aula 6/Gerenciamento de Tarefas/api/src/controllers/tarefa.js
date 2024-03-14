@@ -4,13 +4,14 @@ const con = require('../connection/mysql');
 // CRUD - CREATE
 
 const addTarefa = (req, res) => {
-    if (req.body != null && req.body.descricao != null && req.body.data_vencimento != null && req.body.status != null) {
-        const { descricao, data_vencimento, status} = req.body;
-        con.query('INSERT INTO tarefa (descricao, data_vencimento, status) VALUES (?, ?, ?)', [descricao, data_vencimento, status], (err, result) => {
+    if (req.body != null && req.body.descricao != null && req.body.data_vencimento != null && req.body.status != null && req.body.idUsuario != null ) {
+        const { descricao, data_vencimento, status, idUsuario} = req.body;
+        con.query('INSERT INTO tarefa (descricao, data_vencimento, status, idUsuario) VALUES (?, ?, ?, ?)', [descricao, data_vencimento, status, idUsuario], (err, result) => {
             if (err) {
                 res.status(500).json('Erro ao adicionar tarefa');
             } else {
-                req.body.id = result.insertId;
+                req.body.idTarefa = result.insertIdTarefa;
+                // req.body.idUsuario = result.insertIdUsuario;
                 res.status(201).json(req.body);
             }
         });
@@ -21,8 +22,8 @@ const addTarefa = (req, res) => {
 
 //CRUD - READ
 const getTarefas = (req, res) => {
-    if (req.params.id != null) {
-        con.query('SELECT * FROM tarefa WHERE idTarefa ='+req.params.id, (err, result) => {
+    if (req.params.idTarefa != null) {
+        con.query('SELECT * FROM tarefa WHERE idTarefa ='+req.params.idTarefa, (err, result) => {
             if (err) {
                 res.status(500).send('Erro ao listar tarefas');
             }
@@ -39,9 +40,9 @@ const getTarefas = (req, res) => {
 };
 
 const getTarefaById = (req, res) => {
-    if (req.params.id != null) {
-        const { id } = req.params;
-        con.query('SELECT * FROM tarefa WHERE idTarefa = ?', [id], (err, result) => {
+    if (req.params.idTarefa != null) {
+        const { idTarefa } = req.params;
+        con.query('SELECT * FROM tarefa WHERE idTarefa = ?', [idTarefa], (err, result) => {
             if (err) {
                 res.status(500).json({ error: 'Erro ao buscar tarefa por ID' });
             } else {
@@ -59,9 +60,9 @@ const getTarefaById = (req, res) => {
 
 //CRUD - UPDATE
 const updateTarefa = (req, res) => {
-    if (req.body != null && req.body.id != null && req.body.descricao != null && req.body.data_vencimento != null && req.body.status != null) {
-        const { descricao, data_vencimento, status } = req.body;
-        con.query('UPDATE tarefa SET descricao = ?, datadevencimento = ?, status = ? WHERE idTarefa = ?', [descricao, data_vencimento, status], (err, result) => {
+    if (req.body != null && req.body.idTarefa != null && req.body.descricao != null && req.body.data_vencimento != null && req.body.status != null && req.body.idUsuario != null) {
+        const { id, descricao, data_vencimento, status, idUsuario } = req.body;
+        con.query('UPDATE tarefa SET descricao = ?, data_vencimento = ?, status = ?, idUsuario = ? WHERE idTarefa = ?', [descricao, data_vencimento, status, idUsuario, id], (err, result) => {
             if (err) {
                 res.status(500).json(err);
             } else {
@@ -75,9 +76,9 @@ const updateTarefa = (req, res) => {
 
 //CRUD - DELETE
 const deleteTarefa = (req, res) => {
-    if (req.params != null && req.params.id != null) {
-        const { id } = req.params;
-        con.query('DELETE FROM tarefa WHERE idTarefa = ?', [id], (err, result) => {
+    if (req.params.id != null) {
+        const { idTarefa } = req.params;
+        con.query('DELETE FROM tarefa WHERE idTarefa = ?', [idTarefa], (err, result) => {
             if (err) {
                 res.status(500).json(err);
             } else {
