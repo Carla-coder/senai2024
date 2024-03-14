@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lista de Usuários e Tarefas</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+    <button id="btnAdicionarUsuario" class="btn">Adicionar Usuário</button>
+    <h2>Lista de Usuários</h2>
+    <table id="usuarios">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Os dados dos usuários serão inseridos aqui via JavaScript -->
+        </tbody>
+    </table>
+
+    <h2>Lista de Tarefas</h2>
+    <button id="btnAdicionarTarefa" class="btn">Adicionar Tarefa</button>
+    <table id="tarefas">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Descrição</th>
+                <th>Data de Vencimento</th>
+                <th>Status</th>
+                <th>ID do Usuário</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Os dados das tarefas serão inseridos aqui via JavaScript -->
+        </tbody>
+    </table>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -13,14 +13,14 @@ routes.get('/', (req, res) => {
 routes.post('/usuario', Usuario.addUsuario);
 routes.get('/usuario', Usuario.getUsuarios);
 routes.get('/usuario/:id', Usuario.getUsuarioById);
-routes.put('/usuario/:id', Usuario.updateUsuario);
+routes.put('/usuario', Usuario.updateUsuario);
 routes.delete('/usuario/:id', Usuario.deleteUsuario);
 
 // Rotas de Tarefas
 routes.post('/tarefa', Tarefa.addTarefa);
 routes.get('/tarefa', Tarefa.getTarefas);
 routes.get('/tarefa/:id', Tarefa.getTarefaById);
-routes.put('/tarefa/:id', Tarefa.updateTarefa);
+routes.put('/tarefa', Tarefa.updateTarefa);
 routes.delete('/tarefa/:id', Tarefa.deleteTarefa);
 
 module.exports = routes;

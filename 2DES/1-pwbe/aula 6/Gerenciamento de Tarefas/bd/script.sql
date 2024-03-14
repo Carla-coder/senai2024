@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS tarefa;
 CREATE DATABASE tarefa CHARSET=UTF8 COLLATE utf8_general_ci;
 USE tarefa;
 
---- DDL Criação da Estrutura da Tabela
+-- DDL Criação da Estrutura da Tabela
 
 -- Definição da tabela Usuário
 CREATE TABLE Usuario (
