@@ -11,7 +11,7 @@ function ProductCard({ name, addtoCart }) {
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Text>
-            Descrição do produto {name}, um otimo produto para você comprar.
+            Descrição do produto {name}.
           </Card.Text>
           <Button variant="primary" onClick={() => addtoCart(name)}>
             Adicionar ao carrinho
