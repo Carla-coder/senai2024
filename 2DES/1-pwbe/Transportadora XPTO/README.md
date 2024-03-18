@@ -16,7 +16,7 @@
 - express
 - cors
 
-## Para testar
+## Como testar
 - 1 Faça download deste repositório
 - 2 Abra com VsCode
 - 3 Abra um terminal **cmd** ou **bash**
@@ -37,5 +37,4 @@ npx nodemon
 ```
 - 9 Execute os CRUD testes a partir do insomnia
 
-## Atividade
-- Desenvolva os CRUDs das entidades: Funcionário, Entrega, Rota e Pedido
+
