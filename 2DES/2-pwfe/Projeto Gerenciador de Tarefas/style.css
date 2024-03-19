@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #add8e6, #0073e6); /* Degrade de tons de azul */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Para garantir que a altura da página seja pelo menos a altura da janela de visualização */
+}
+
+nav {
+    background: linear-gradient(to bottom, #ddd, #333); /* Degrade de tons de cinza */
+    color: #fff;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box; /* Considerar o padding na largura */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinhar itens verticalmente */
+}
+
+.right-items {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.right-items a {
+    margin-left: 10px; /* Adiciona espaçamento entre os links */
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    transition: all .5s ease; 
+    font-size: 18px; /* Tamanho da fonte aumentado */
+}
+
+nav ul li a:hover {
+    color: #00aaff; /* Altera a cor ao passar o mouse */
+}
+
+.homepage {
+    /* text-align: center;
+    margin-top: 50px;  */
+    flex: 1; /* Ocupa todo o espaço restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.homepage h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px; /* Adicione espaço abaixo do título */
+}
+
+.homepage p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.homepage ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.homepage ul li {
+    margin-bottom: 10px;
+}
+
+.homepage ul li:before {
+    content: "\2022"; /* Adiciona um ponto de bullet */
+    color: #333; /* Cor do bullet */
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+footer {
+    background: linear-gradient(to bottom, #ddd, #333); /* Degrade de tons de cinza */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+}

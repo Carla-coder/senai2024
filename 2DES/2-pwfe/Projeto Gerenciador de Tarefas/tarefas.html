@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de Tarefas</title>
+    <link rel="stylesheet" href="tarefas.css">
+
+</head>
+
+<body id="tarefas-container"> <!-- Adicione um ID ao contêiner de tarefas -->>
+    <h1>Visualizador de Tarefas</h1>
+
+    <!-- Aqui você pode adicionar os post-its para cada tarefa -->
+    <div class="post-it">
+        <h3>Tarefa 1 - Revisar relatório</h3>
+        <p><strong>Data de Vencimento:</strong> 20 de março de 2024</p>
+        <p><strong>Status:</strong> Em andamento</p>
+        <p><strong>Responsável:</strong> João</p>
+    </div>
+
+    <div class="post-it">
+        <h3>Tarefa 2 - Preparar apresentação</h3>
+        <p><strong>Data de Vencimento:</strong> 15 de março de 2024</p>
+        <p><strong>Status:</strong> Concluído</p>
+        <p><strong>Responsável:</strong> João</p>
+    </div>
+
+    <!-- Adicione mais post-its conforme necessário para outras tarefas -->
+    <script>
+        
+        // Função para adicionar uma nova tarefa à página
+        function adicionarTarefa(descricao, dataVencimento, status, responsavel) {
+            var tarefasContainer = document.getElementById("tarefas-container"); // Obtém o contêiner de tarefas
+
+            // Cria um novo elemento div para o post-it da tarefa
+            var postIt = document.createElement("div");
+            postIt.classList.add("post-it");
+
+            // Preenche o conteúdo do post-it com os dados da tarefa
+            postIt.innerHTML = `
+        <h3>${descricao}</h3>
+        <p><strong>Data de Vencimento:</strong> ${dataVencimento}</p>
+        <p><strong>Status:</strong> ${status}</p>
+        <p><strong>Responsável:</strong> ${responsavel}</p>
+    `;
+
+            // Adiciona o post-it ao contêiner de tarefas
+            tarefasContainer.appendChild(postIt);
+        }
+
+        // Exemplo de como adicionar uma nova tarefa (você pode chamar essa função ao cadastrar uma nova tarefa)
+        adicionarTarefa("Nova Tarefa", "25 de março de 2024", "A fazer", "João");
+    </script>
+    <script src="script.js" defer></script>
+
+</body>
+
+</html>

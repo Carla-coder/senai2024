@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2> Faça seu Login</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
+            </div>
+            <button type="submit">Entrar</button>
+        </form>
+        <p id="mensagem"></p>
+    </div>
+
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            var email = document.getElementById("email").value;
+            var senha = document.getElementById("senha").value;
+            if (email === "joao@email.com" && senha === "senha123") {
+                // Se as credenciais estiverem corretas, redireciona para a página principal
+                window.location.href = "login.html";
+            } else {
+                // Caso contrário, exiba uma mensagem de erro
+                document.getElementById("mensagem").innerText = "Credenciais inválidas. Por favor, tente novamente.";
+            }
+        });
+    </script>
+</body>
+</html>

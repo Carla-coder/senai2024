@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(to bottom, #add8e6, #0073e6); /* Degrade de tons de azul */
+}
+
+.post-it {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.post-it h3 {
+    margin-top: 0;
+}
+
+.post-it p {
+    margin-bottom: 0;
+}
