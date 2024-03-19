@@ -2,7 +2,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background: linear-gradient(to bottom, #add8e6, #0073e6); /* Degrade de tons de azul */
+    background: linear-gradient(to bottom, #add8e6, #0073e6);
+    /* Degrade de tons de azul */
 }
 
 .post-it {

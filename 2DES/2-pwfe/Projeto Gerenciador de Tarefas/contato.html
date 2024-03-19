@@ -24,7 +24,7 @@
             <div class="modal-content">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalContatoLabel">Formulário de Contato</h5>
+                    <h5 class="modal-title" id="modalContatoLabel">Fale Conosco</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -43,12 +43,15 @@
                             <input type="tel" class="form-control" id="phone" name="phone" required>
                         </div>
                         <div class="mb-3">
-                            <label for="description" class="form-label">Descrição:</label>
-                            <textarea class="form-control" id="description" name="description" rows="4"
-                                required></textarea>
+                            <label for="description" class="form-label">Mensagem:</label>
+                            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Enviar</button>
                     </form>
+                </div>
+                <div class="modal-footer">
+                    <!-- Botão de fechar -->
+                    <button type="button" class="btn btn-secondary btn-close" data-bs-dismiss="modal">X</button>
                 </div>
             </div>
         </div>
@@ -67,12 +70,12 @@
             var name = document.getElementById("name").value;
             var email = document.getElementById("email").value;
             var phone = document.getElementById("phone").value;
-            var description = document.getElementById("description").value;
+            var message = document.getElementById("message").value;
 
             // Aqui você pode adicionar código para enviar os dados do formulário para o servidor, por exemplo, usando AJAX
 
             // Exemplo de como exibir os dados na página (você pode remover isso em seu projeto final)
-            alert("Nome: " + name + "\nEmail: " + email + "\nTelefone: " + phone + "\nDescrição: " + description);
+            alert("Nome: " + name + "\nEmail: " + email + "\nTelefone: " + phone + "\nMensagem: " + message);
 
             // Fechar o modal após o envio
             var modal = new bootstrap.Modal(document.getElementById('modalContato'));

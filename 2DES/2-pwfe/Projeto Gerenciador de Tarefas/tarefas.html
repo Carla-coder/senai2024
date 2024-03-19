@@ -9,7 +9,7 @@
 
 </head>
 
-<body id="tarefas-container"> <!-- Adicione um ID ao contêiner de tarefas -->>
+<body id="tarefas-container"> <!-- Adicione um ID ao contêiner de tarefas -->
     <h1>Visualizador de Tarefas</h1>
 
     <!-- Aqui você pode adicionar os post-its para cada tarefa -->
@@ -24,12 +24,39 @@
         <h3>Tarefa 2 - Preparar apresentação</h3>
         <p><strong>Data de Vencimento:</strong> 15 de março de 2024</p>
         <p><strong>Status:</strong> Concluído</p>
-        <p><strong>Responsável:</strong> João</p>
+        <p><strong>Responsável:</strong> Maria</p>
     </div>
 
-    <!-- Adicione mais post-its conforme necessário para outras tarefas -->
+    <div class="post-it">
+        <h3>Tarefa 3 - Reunião de equipe</h3>
+        <p><strong>Data de Vencimento:</strong> 25 de março de 2024</p>
+        <p><strong>Status:</strong> A fazer</p>
+        <p><strong>Responsável:</strong> Ana</p>
+    </div>
+
+    <div class="post-it">
+        <h3>Tarefa 4 - Preparar relatório de vendas</h3>
+        <p><strong>Data de Vencimento:</strong> 10 de abril de 2024</p>
+        <p><strong>Status:</strong> Em andamento</p>
+        <p><strong>Responsável:</strong> Pedro</p>
+    </div>
+
+    <div class="post-it">
+        <h3>Tarefa 5 - Treinamento de Novos Funcionários</h3>
+        <p><strong>Data de Vencimento:</strong> 5 de abril de 2024</p>
+        <p><strong>Status:</strong> Em andamento</p>
+        <p><strong>Responsável:</strong> Luiza</p>
+    </div>
+
+    <div class="post-it">
+        <h3>Tarefa 6 - Desenvolver Novo Recurso do Software</h3>
+        <p><strong>Data de Vencimento:</strong> 30 de abril de 2024</p>
+        <p><strong>Status:</strong> A fazer</p>
+        <p><strong>Responsável:</strong> Carla</p>
+    </div>
+
     <script>
-        
+
         // Função para adicionar uma nova tarefa à página
         function adicionarTarefa(descricao, dataVencimento, status, responsavel) {
             var tarefasContainer = document.getElementById("tarefas-container"); // Obtém o contêiner de tarefas
@@ -45,14 +72,15 @@
         <p><strong>Status:</strong> ${status}</p>
         <p><strong>Responsável:</strong> ${responsavel}</p>
     `;
-
             // Adiciona o post-it ao contêiner de tarefas
             tarefasContainer.appendChild(postIt);
         }
 
-        // Exemplo de como adicionar uma nova tarefa (você pode chamar essa função ao cadastrar uma nova tarefa)
-        adicionarTarefa("Nova Tarefa", "25 de março de 2024", "A fazer", "João");
+        // // Exemplo de como adicionar uma nova tarefa (você pode chamar essa função ao cadastrar uma nova tarefa)
+        // adicionarTarefa("Nova Tarefa", "25 de março de 2024", "A fazer", "João");
+
     </script>
+
     <script src="script.js" defer></script>
 
 </body>

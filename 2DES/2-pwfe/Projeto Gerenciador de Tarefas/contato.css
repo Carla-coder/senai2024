@@ -22,10 +22,10 @@ body {
     /* Efeito de transição */
     cursor: pointer;
     /* Efeito de curso */
-    margin: 10px 0;
-    /* Espaço entre os botões */
-    display: inline-block;
-    /* Efeito de display */
+    margin: 20px auto;
+    /* Centraliza horizontalmente e adiciona margem superior */
+    display: block;
+    /* Torna o botão um elemento de bloco para que a margem funcione */
     text-decoration: none;
     /* Efeito de sublinhado */
     outline: none;
@@ -40,7 +40,6 @@ body {
     /* Efeito de peso */
     letter-spacing: 2px;
     /* Efeito de espaçamento */
-
     font-family: 'Roboto', sans-serif;
     /* Efeito de fonte */
 }
@@ -71,7 +70,7 @@ body {
 }
 
 .modal-title {
-    font-size: 24px;
+    font-size: 25px;
     /* Tamanho da fonte */
     color: #333;
     /* Cor do texto */
@@ -95,15 +94,26 @@ body {
     /* Distância do topo */
     right: 10px;
     /* Distância da direita */
+    background-color: transparent;
+    /* Cor de fundo transparente */
+    border: none;
+    /* Remover borda */
+    cursor: pointer;
+    /* Cursor ao passar o mouse */
+    z-index: 1050;
+    /* Garantir que o botão de fechar esteja acima do modal */
 }
 
 .btn-close:hover {
-    color: #fff;
+    color: #000;
+    /* Mudar a cor do ícone de fechar ao passar o mouse */
+    /* color: #fff; */
     /* Cor do texto do ícone de fechar */
-    background: #333;
+    background: #fff;
     /* Cor do ícone de fechar */
     border: 1px solid #333;
     /* Cor do ícone de fechar */
+    border-radius: 5px;
 }
 
 .btn-close:focus {

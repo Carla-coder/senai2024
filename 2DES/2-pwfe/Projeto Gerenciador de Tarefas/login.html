@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="login.css">
 </head>
+
 <body>
     <div class="login-container">
         <h2> Faça seu Login</h2>
@@ -24,9 +26,10 @@
     </div>
 
     <script>
-        document.getElementById("login-form").addEventListener("submit", function(event) {
+
+        document.getElementById("login-form").addEventListener("submit", function (event) {
             event.preventDefault();
-            
+
             var email = document.getElementById("email").value;
             var senha = document.getElementById("senha").value;
             if (email === "joao@email.com" && senha === "senha123") {
@@ -39,4 +42,5 @@
         });
     </script>
 </body>
+
 </html>

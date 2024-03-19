@@ -2,18 +2,22 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #add8e6, #0073e6); /* Degrade de tons de azul */
+    background: linear-gradient(to bottom, #add8e6, #0073e6);
+    /* Degrade de tons de azul */
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Para garantir que a altura da página seja pelo menos a altura da janela de visualização */
+    min-height: 100vh;
+    /* Para garantir que a altura da página seja pelo menos a altura da janela de visualização */
 }
 
 nav {
-    background: linear-gradient(to bottom, #ddd, #333); /* Degrade de tons de cinza */
+    background: linear-gradient(to bottom, #ddd, #333);
+    /* Degrade de tons de cinza */
     color: #fff;
     padding: 20px;
     width: 100%;
-    box-sizing: border-box; /* Considerar o padding na largura */
+    box-sizing: border-box;
+    /* Considerar o padding na largura */
 }
 
 nav ul {
@@ -22,7 +26,8 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Alinhar itens verticalmente */
+    align-items: center;
+    /* Alinhar itens verticalmente */
 }
 
 .right-items {
@@ -31,7 +36,8 @@ nav ul {
 }
 
 .right-items a {
-    margin-left: 10px; /* Adiciona espaçamento entre os links */
+    margin-left: 10px;
+    /* Adiciona espaçamento entre os links */
 }
 
 nav ul li {
@@ -41,18 +47,19 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: #fff;
-    transition: all .5s ease; 
-    font-size: 18px; /* Tamanho da fonte aumentado */
+    transition: all .5s ease;
+    font-size: 18px;
+    /* Tamanho da fonte aumentado */
 }
 
 nav ul li a:hover {
-    color: #00aaff; /* Altera a cor ao passar o mouse */
+    color: #00aaff;
+    /* Altera a cor ao passar o mouse */
 }
 
 .homepage {
-    /* text-align: center;
-    margin-top: 50px;  */
-    flex: 1; /* Ocupa todo o espaço restante */
+    flex: 1;
+    /* Ocupa todo o espaço restante */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -63,11 +70,12 @@ nav ul li a:hover {
 .homepage h1 {
     font-size: 36px;
     color: #333;
-    margin-bottom: 20px; /* Adicione espaço abaixo do título */
+    margin-bottom: 20px;
+    /* Adicione espaço abaixo do título */
 }
 
 .homepage p {
-    font-size: 18px;
+    font-size: 22px;
     color: #333;
     margin-bottom: 20px;
 }
@@ -75,6 +83,8 @@ nav ul li a:hover {
 .homepage ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
+    font-size: 18px;
 }
 
 .homepage ul li {
@@ -82,16 +92,45 @@ nav ul li a:hover {
 }
 
 .homepage ul li:before {
-    content: "\2022"; /* Adiciona um ponto de bullet */
-    color: #333; /* Cor do bullet */
+    content: "\2022";
+    /* Adiciona um ponto de bullet */
+    color: #333;
+    /* Cor do bullet */
     font-weight: bold;
     display: inline-block;
     width: 1em;
     margin-left: -1em;
 }
 
+button {
+    background-color: #0073e6;
+    /* Cor de fundo azul */
+    color: #fff;
+    /* Cor do texto branco */
+    padding: 10px 20px;
+    /* Preenchimento interno do botão */
+    font-size: 18px;
+    /* Tamanho da fonte */
+    border: none;
+    /* Remover borda */
+    border-radius: 5px;
+    /* Borda arredondada */
+    cursor: pointer;
+    /* Cursor ao passar o mouse */
+    transition: background-color 0.3s;
+    /* Transição suave de cor de fundo */
+    margin-top: 20px;
+    /* Adicionando margem superior */
+}
+
+button:hover {
+    background-color: #0055a4;
+    /* Cor de fundo azul mais escura ao passar o mouse */
+}
+
 footer {
-    background: linear-gradient(to bottom, #ddd, #333); /* Degrade de tons de cinza */
+    background: linear-gradient(to bottom, #ddd, #333);
+    /* Degrade de tons de cinza */
     color: #fff;
     text-align: center;
     padding: 20px 0;

@@ -1,4 +1,43 @@
  /* As linhas de código são comentadas para fins de estudo */
+ .btn.btn-primary {
+     color: #ffffff;
+     /* Cor do texto */
+     font-size: 18px;
+     /* Tamanho da fonte */
+     background-color: #00aaff;
+     /* Cor do fundo */
+     border: 1px solid #00aaff;
+     /* Borda */
+     border-radius: 5px;
+     /* Cor de borda */
+     padding: 10px 20px;
+     /* Espaço entre o texto e a borda */
+     transition: all.5s ease;
+     /* Efeito de transição */
+     cursor: pointer;
+     /* Efeito de curso */
+     margin: 20px auto;
+     /* Centraliza horizontalmente e adiciona margem superior */
+     display: block;
+     /* Torna o botão um elemento de bloco para que a margem funcione */
+     text-decoration: none;
+     /* Efeito de sublinhado */
+     outline: none;
+     /* Efeito de destaque */
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 00.2), 0 9px 25px 0 rgba(0, 0, 0.3);
+     /* Efeito de box-shadow */
+     text-align: center;
+     /* Efeito de alinhamento */
+     text-transform: uppercase;
+     /* Efeito de transformação */
+     font-weight: 700;
+     /* Efeito de peso */
+     letter-spacing: 2px;
+     /* Efeito de espaçamento */
+     font-family: 'Roboto', sans-serif;
+     /* Efeito de fonte */
+ }
+
  .modal {
      display: none;
      position: fixed;
@@ -59,6 +98,7 @@
      /* Torna o texto em negrito */
  }
 
+ /* Botão de fechar do Modal */
  .btn-close {
      color: #fff;
      /* Cor do botão de fechar */
@@ -111,17 +151,8 @@
      /* Alinhe verticalmente o texto */
      box-sizing: border-box;
      /* Certifique-se de que a largura inclui a espessura da borda e o preenchimento */
-     padding: 0 8px;
+     padding: 0 6px;
      /* Adicione preenchimento interno para melhor aparência */
- }
-
- #contato {
-     width: 200px;
-     /* Define o tamanho fixo do input de contato para 200 pixels */
-     height: 100px;
-     /* Define a altura fixa da textarea para 100 pixels */
-     overflow-y: hidden;
-     /* Oculta o conteúdo que ultrapassa a altura definida */
  }
 
  /* Estilos para botão */
