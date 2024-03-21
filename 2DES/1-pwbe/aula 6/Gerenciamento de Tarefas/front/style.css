@@ -2,6 +2,8 @@
 body {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+
 }
 
 /* Estilos Gerais */
@@ -17,12 +19,27 @@ body {
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    border-right: 2px solid #ddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 h2 {
     margin-top: 20px;
     margin-bottom: 10px;
+}
+
+.formNovaTarefa {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 /* Tabelas */
@@ -42,6 +59,15 @@ th {
     background-color: #f2f2f2;
     font-weight: bold;
     text-align: left;
+    color: #333;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    border-right: 2px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 td {
