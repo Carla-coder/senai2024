@@ -28,6 +28,12 @@
   color: #61dafb;
 }
 
+.product-image {
+  width: 100%; /* Defina a largura desejada para as imagens */
+  height: auto; /* Isso garantirá que a altura seja ajustada automaticamente de acordo com a largura */
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
