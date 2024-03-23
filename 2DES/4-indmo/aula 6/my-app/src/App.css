@@ -33,6 +33,32 @@
   height: auto; /* Isso garantirá que a altura seja ajustada automaticamente de acordo com a largura */
 }
 
+/* .green-gradient {
+  background-image: linear-gradient(to right, #d9ef9f, #b7cd7f, #778c43, #445a14);
+  border-color: transparent;
+}
+
+.green-gradient:hover {
+  background-image: linear-gradient(to right, #778c43, #445a14);
+} */
+
+/* Estilos adicionais para os botões */
+.button {
+  padding: 10px;
+  font-size: 1em;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  border: none;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 
 @keyframes App-logo-spin {
   from {

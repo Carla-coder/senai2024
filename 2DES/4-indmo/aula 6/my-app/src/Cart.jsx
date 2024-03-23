@@ -3,11 +3,11 @@
 import React from 'react';
 import {Modal, Button, ListGroup} from 'react-bootstrap';
 
-const Cart = ({ cartItems, removeFromCart, show, randleClose, finalizePurchase}) => {
+const Cart = ({ cartItems, removeFromCart, show, handleClose, finalizePurchase}) => {
  const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+
  return (
-    <Modal>
-  <Modal.Footer show={show} onHide={randleClose}>
+    <Modal show={show} onHide={handleClose}>
     <Modal.Header closeButton>
       <Modal.Title>Carrinho</Modal.Title>
     </Modal.Header>
@@ -26,21 +26,18 @@ const Cart = ({ cartItems, removeFromCart, show, randleClose, finalizePurchase})
       <p className="mt-3"> Total: R$ {totalPrice.toFixed(2)}</p>
     </Modal.Body>
     <Modal.Footer>
-      <Button variant="primary" onClick={finalizePurchase}>
-        Finalizar compra
+      <Button variant="secondary" onClick={handleClose}>
+        Fechar
       </Button>
-    </Modal.Footer>
-            <Button variant="secondary" onClick={randleClose}>
-                Fechar
-            </Button>
-            <Button variant="primary" onClick={finalizePurchase}>
-                Finalizar Compra
-            </Button>
-            </Modal.Footer>
-            </Modal>
-    );
+      <Button variant="primary" onClick={finalizePurchase}>
+          Finalizar Compra
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
 }
-
+    
+    
 export default Cart;
 
 
