@@ -1,0 +1,99 @@
+Revisão Front-end - 25/03/2024 
+
+API - uso de Key
+JavaScript - funcionalidades
+Bootstrap - substituir o CSS usando Bibliotecas já prontas
+
+(Realizar um projeto com estes 3 itens)
+
+Projeto 'Previsão do Tempo':
+
+1. Importe o bootstrap pelo 'cdn' do site 'getbootstrap' ( primeiro link) 
+importe e cole abaixo do 'title' no index.
+2. puxar a API do site openweathermap.org - Current Weather Data - APi Doc -
+Built-in API request by city name - https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+
+OBS: coloque o $ na frente de 'city', $ na frente de 'apiKey' , troque o units por 'metric' e adicione mais um '&lang=pt-br' para a busca ser em portugues.
+
+3. Entre na parte do ususario no site openweather e clique em My Api Keys e copie e cole a key e cole na parte de key no JS.
+
+4. Graus Celsius = °C => 'alt gr' => botõa do teclado ( ?/°)
+
+***************************************************************************************************************************************************************
+
+Explicando cada linha de código do HTML:
+
+1.<!DOCTYPE html>: Define a versão do HTML sendo utilizada.
+
+2.<html lang="pt-br">: Abertura da tag HTML com o atributo lang definido como "pt-br" para indicar o idioma Português do Brasil.
+
+3.<head>: Início da seção de cabeçalho do documento HTML.
+
+4.<meta charset="UTF-8">: Define a codificação de caracteres como UTF-8 para garantir o correto processamento de caracteres especiais.
+
+5.<meta name="viewport" content="width=device-width, initial-scale=1.0">: Define a configuração da viewport para dispositivos móveis.
+
+6.<title>Previsão do Tempo</title>: Define o título da página como "Previsão do Tempo".
+
+7.<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">: Inclui o CSS do Bootstrap para estilização da página.
+
+8.</head>: Fim da seção de cabeçalho.
+
+9.<body>: Início do corpo do documento HTML.
+
+10.<div class="container mt-5">: Define um contêiner Bootstrap com margem superior de 5 unidades.(container é uma classe do Bootstrap, um framework de front-end amplamente utilizado para desenvolvimento web responsivo. No contexto do Bootstrap, container é um elemento de layout que centraliza e agrupa o conteúdo de uma página em uma largura máxima específica. Ele ajuda a garantir uma aparência consistente e organizada em diferentes dispositivos e tamanhos de tela.
+
+O mt-5 é uma classe de espaçamento também do Bootstrap. Nesse caso, mt significa "margin-top" (margem superior) e 5 é um valor específico de espaçamento, que indica um espaçamento grande. Portanto, mt-5 adiciona uma margem superior grande ao elemento que possui essa classe.
+
+Em resumo, container mt-5 indica que o elemento com essa classe será um contêiner centralizado na página, com uma grande margem superior. Isso é comumente usado para criar espaçamento entre o topo da página e o conteúdo dentro do contêiner.)
+
+11.<h1 class="text-center mb-4">Previsão do Tempo</h1>: Cabeçalho centralizado indicando "Previsão do Tempo".
+
+12.<div class="row">: Define uma linha Bootstrap.
+
+13.<div class="col-md-6 offset-me-3">: Define uma coluna Bootstrap com 6 unidades de largura média e deslocamento de 3 unidades.(
+A classe col-md-6 é parte do sistema de grid do Bootstrap. Neste caso:
+
+col-md-6: Indica que o elemento será uma coluna que ocupará 6 unidades de largura em dispositivos de tamanho médio (md). O grid do Bootstrap é composto por 12 unidades de largura, então uma coluna com col-md-6 ocupará metade da largura total disponível em dispositivos de tamanho médio.
+
+offset-me-3: Indica um deslocamento à direita de 3 unidades de largura do grid (me significa "margin-end" ou margem final). Ou seja, o elemento será recuado 3 unidades de largura do lado direito.
+
+Portanto, <div class="col-md-6 offset-me-3"> cria uma coluna que ocupa metade da largura disponível em dispositivos de tamanho médio e a desloca 3 unidades para a direita dentro do layout Bootstrap. Isso é útil para centralizar ou posicionar elementos de forma específica dentro do layout da página.)
+
+14<form id="weatherform" class="mb-3">: Define um formulário com o ID "weatherform" e uma margem inferior de 3 unidades.
+
+15.<input type="text" id="cityInput" class="form-control" placeholder="Digite o nome da Cidade">: Campo de entrada de texto para o nome da cidade.
+
+16.<button type="submit" class="btn btn-primary">Buscar</button>: Botão de envio do formulário.
+
+17.<div class="row" id="weatherCards">: Define uma linha Bootstrap com um ID "weatherCards".
+
+18</div>: Fecha a tag da div.
+
+19</body>: Fim do corpo.
+
+20.<script src="script.js"></script>: Inclui um arquivo JavaScript chamado "script.js".
+
+21.</html>: Fim do documento HTML.
+
+********************************************************************************************************************************************************************
+
+Explicando cada linha de código do JavaScript
+
+1.const apiKey = 'e0800bb787cb97e908e0cd533766706d';: Define uma constante apiKey que armazena a chave de API para acessar os dados meteorológicos da OpenWeatherMap.
+
+2.document.getElementById('weatherForm').addEventListener('submit', function (event) {: Adiciona um ouvinte de evento ao formulário com o ID "weatherForm", que será acionado quando o formulário for submetido. O parâmetro function (event) {...} define a função a ser executada quando o evento de submissão ocorrer. O parâmetro event é o objeto de evento associado à submissão do formulário.
+
+3.event.preventDefault();: Previne o comportamento padrão do formulário de ser submetido, o que faria a página recarregar.
+
+4.const city = document.getElementById('cityInput').value.trim();: Obtém o valor do campo de entrada de texto com o ID "cityInput" e remove espaços em branco extras no início e no final usando o método trim(). Este valor representa o nome da cidade digitado pelo usuário.
+
+5.if (city === '') {...}: Verifica se o campo da cidade está vazio. Se estiver vazio, exibe um alerta solicitando ao usuário que insira o nome da cidade e encerra a execução da função usando return.
+
+6.const apiUrl = ...``: Constrói a URL da API da OpenWeatherMap com base na cidade inserida pelo usuário e na chave de API. A consulta é feita em unidades métricas e no idioma português do Brasil.
+
+7.fetch(apiUrl) {...}: Inicia uma solicitação de busca de dados à API da OpenWeatherMap usando a URL construída. A função fetch retorna uma promessa que representa a resposta à solicitação.
+
+8. .then(data => {...}): Manipula os dados retornados pela API após a promessa ser resolvida. 'data' contém os dados meteorológicos da cidade fornecidos pela API.
+
+9. .catch(error => {...});: Captura e trata qualquer erro que ocorra durante a solicitação à API. Se ocorrer um erro, uma mensagem de erro será exibida e detalhes do erro serão registrados no console.
