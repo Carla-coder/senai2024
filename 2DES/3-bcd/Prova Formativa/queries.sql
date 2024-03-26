@@ -26,10 +26,20 @@ ORDER BY v.placa;
 
 5. Crie uma consulta que mostre todas as manutenções acrescida do nome do funcionário que a realizou e o modelo do veículo e salve como uma visão chamada vw_todas_as_manutencoes:
 
-CREATE VIEW vw_todas_as_manutencoes AS
-SELECT m.*, f.funcionario, v.modelo
-FROM Manutencao m
-LEFT JOIN Funcionario f ON f.matricula = f.matricula
-LEFT JOIN Veiculo v ON m.placa = v.placa;
+CREATE VIEW vw_todas_as_manutencoes AS 
+SELECT m.*, f.matricula AS funcionario, v.modelo 
+FROM Manutencao m 
+INNER JOIN Funcionario f ON m.placa = f.matricula 
+INNER JOIN Veiculo v ON m.placa = v.Placa;
 
-SELECT * FROM vw_todas_as_manutencoes;
+-- CREATE VIEW nova_vw_todas_as_manutencoes AS
+-- SELECT m.*, f.funcionario, v.modelo
+-- FROM Manutencao m
+-- LEFT JOIN Veiculo v ON m.placa = v.placa
+-- LEFT JOIN Funcionario f ON f.matricula = m.matricula;
+
+
+
+
+
+

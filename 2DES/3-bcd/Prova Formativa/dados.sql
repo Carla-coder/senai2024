@@ -10,22 +10,23 @@ VALUES
 ('EDB-2475', 'Ranger', 'Ford', 2005);
 
 -- Inserção dos dados na tabela Manutencao
-INSERT INTO Manutencao (id_manutencao, inicio_manutencao, fim_manutencao, descricao)
+INSERT INTO Manutencao (id_manutencao, inicio_manutencao, fim_manutencao, descricao, placa)
 VALUES 
-(1, '2023-02-25', '2023-03-04', 'Lanterna queimada'),
-(2, '2023-03-13', '2023-03-21', 'Farol queimado'),
-(3, '2023-03-29', '2023-04-05', 'Troca de pneus dianteiros'),
-(4, '2023-04-14', '2023-04-24', 'Troca de pneus dianteiros'),
-(5, '2023-04-30', '2023-05-07', 'Farol queimado'),
-(6, '2023-05-16', '2023-05-25', 'Troca de pneus traseiros'),
-(7, '2023-06-05', '2023-06-10', 'Retrovisor quebrado'),
-(8, '2023-06-25', '2023-07-02', 'Troca de óleo e revisão geral'),
-(9, '2023-07-15', '2023-07-19', 'Troca de Fluido de Freio'),
-(10, '2023-08-04', '2023-08-10', 'Problemas no cabo do acelerador'),
-(11, '2023-08-24', '2023-08-31', 'Pane elétrica'),
-(12, '2023-08-27', '2023-09-04', 'Rebimboca da parafuseta'),
-(13, '2023-08-30', '2023-09-04', 'Troca de cavalos por poneis'),
-(14, '2023-09-02', '2023-09-07', 'Lanterna queimada');
+(1, '2023-02-25', '2023-03-04', 'Lanterna queimada', 'DEA-7981'),
+(2, '2023-03-13', '2023-03-21', 'Farol queimado', 'CBC-4945'),
+(3, '2023-03-29', '2023-04-05', 'Troca de pneus dianteiros', 'BEE-7735'),
+(4, '2023-04-14', '2023-04-24', 'Troca de pneus dianteiros', 'CBA-4403'),
+(5, '2023-04-30', '2023-05-07', 'Farol queimado', 'BBC-8504'),
+(6, '2023-05-16', '2023-05-25', 'Troca de pneus traseiros', 'BEB-5885'),
+(7, '2023-06-05', '2023-06-10', 'Retrovisor quebrado', 'EDB-2475'),
+(8, '2023-06-25', '2023-07-02', 'Troca de óleo e revisão geral', 'DEA-7981'),
+(9, '2023-07-15', '2023-07-19', 'Troca de Fluido de Freio', 'CBC-4945'),
+(10, '2023-08-04', '2023-08-10', 'Problemas no cabo do acelerador', 'BEE-7735'),
+(11, '2023-08-24', '2023-08-31', 'Pane elétrica', 'CBA-4403'),
+(12, '2023-08-27', '2023-09-04', 'Rebimboca da parafuseta', 'BBC-8504'),
+(13, '2023-08-30', '2023-09-04', 'Troca de cavalos por poneis', 'BEB-5885'),
+(14, '2023-09-02', '2023-09-07', 'Lanterna queimada', 'EDB-2475');
+
 
 -- Inserção dos dados na tabela Funcionario
 INSERT INTO Funcionario (matricula, funcionario)
@@ -37,7 +38,7 @@ VALUES
 (48562, 'Evandro Silva');
 
 -- Inserção dos dados na tabela Telefone
-INSERT INTO Telefone (matricula, telefone)
+INSERT INTO Telefone (matricula, numero)
 VALUES 
 (48482, '19-72077-0521'),
 (48482, '19-06078-6843'),

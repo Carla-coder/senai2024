@@ -24,7 +24,6 @@ CREATE TABLE Manutencao (
 CREATE TABLE Funcionario (
     matricula INT PRIMARY KEY,
     funcionario VARCHAR(100)
-    
 );
 
 -- Criação da tabela Telefone
@@ -34,6 +33,9 @@ CREATE TABLE Telefone (
     PRIMARY KEY (matricula, telefone),
     FOREIGN KEY (matricula) REFERENCES Funcionario(matricula)
 );
+
+--DDL - ALTER
+alter table Telefone CHANGE telefone numero VARCHAR(20);
 
 describe Veiculo;
 describe Manutencao;
