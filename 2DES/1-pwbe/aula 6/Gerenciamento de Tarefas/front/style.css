@@ -1,9 +1,8 @@
 /* Reset */
-body {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 /* Estilos Gerais */
@@ -49,7 +48,6 @@ table {
     margin-top: 20px;
 }
 
-th,
 td {
     padding: 10px;
     border: 1px solid #ddd;
@@ -105,6 +103,7 @@ td {
 input[type="text"],
 input[type="email"],
 input[type="date"],
+input[type="number"],
 select {
     padding: 8px;
     margin-bottom: 10px;
@@ -117,6 +116,7 @@ select {
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="date"]:focus,
+input[type="number"]:focus,
 select:focus {
     outline: none;
     border-color: #007bff;
