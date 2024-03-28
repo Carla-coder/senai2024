@@ -1,11 +1,11 @@
 -- Inserção de dados na tabela Usuario
 INSERT INTO Usuario (idUsuario, nome, email, senha)
 VALUES
-    (1, 'João', 'joao@email.com', 'senha123'),
-    (2, 'Maria', 'maria@email.com', 'abc456'),
-    (3, 'Pedro', 'pedro@email.com', '789xyz'),
-    (4, 'Ana', 'ana@email.com', 'passw0rd'),
-    (5, 'Carlos', 'carlos@email.com', '123abc');
+    (1, 'João', 'joao@email.com', md5 ('senha123')),
+    (2, 'Maria', 'maria@email.com', md5 ('abc456')),
+    (3, 'Pedro', 'pedro@email.com', md5 ('789xyz')),
+    (4, 'Ana', 'ana@email.com', md5 ('passw0rd')),
+    (5, 'Carlos', 'carlos@email.com', md5 ('123abc'));
 
 -- Inserção de dados na tabela Tarefa
 INSERT INTO Tarefa (idTarefa, descricao, data_vencimento, status, idUsuario)
