@@ -1,0 +1,65 @@
+Para normalizar os dados  e identificar registros duplicados, vamos separá-los em tabelas distintas de acordo com as entidades envolvidas.
+As entidades principais são "Veículo" e "Reserva".
+
+Aqui está a normalização:
+
+Tabela Veículo:
+
+placa (chave primária)
+modelo
+marca
+tipo
+diaria
+
+Tabela Cliente:
+
+cpf_cliente (chave primária)
+nome_cliente
+telefone
+
+Tabela Reserva:
+
+id_reserva (chave primária)
+placa_veiculo (chave estrangeira referenciando a tabela Veículo)
+cpf_cliente (chave estrangeira referenciando a tabela Cliente)
+data_reserva
+data_retirada
+data_devolucao
+dias
+status
+subtotal
+
+Separando as tabelas:
+
+Entidades:
+
+Veículo:
+Atributos: placa (chave primária), modelo, marca, tipo, diária.
+Cliente:
+Atributos: CPF (chave primária), nome.
+Telefone:
+Atributos: ID (chave primária), CPF_cliente (chave estrangeira para Cliente), telefone.
+Reserva:
+Atributos: reserva_id (chave primária), reserva, retirada, devolucao, dias, subtotal.
+Status_Reserva:
+Atributos: reserva_id (chave estrangeira para Reserva), status.
+
+Relacionamentos:
+
+Um Cliente pode realizar zero ou muitas Reservas. (Relacionamento 1:N entre Cliente e Reserva)
+Um Veículo pode ser alugado em zero ou muitas Reservas. (Relacionamento 1:N entre Veículo e Reserva)
+Cada Reserva tem um ou muitos Status associados. (Relacionamento 1:N entre Reserva e Status_Reserva)
+Um Cliente pode ter zero ou muitos Telefones. (Relacionamento 1:N entre Cliente e Telefone)
+
+MER - Dicionario de Dados
+
+Veiculo:
+Atributos: placa (Chave Primária), modelo, marca, tipo, diaria.
+Cliente:
+Atributos: cpf (Chave Primária), nome.
+Telefone:
+Atributos: id (Chave Primária), cpf_cliente (Chave Estrangeira referenciando Cliente), telefone.
+Reserva:
+Atributos: reserva_id (Chave Primária), reserva, retirada, devolucao, dias, subtotal.
+Status_Reserva:
+Atributos: reserva_id (Chave Estrangeira referenciando Reserva), status.

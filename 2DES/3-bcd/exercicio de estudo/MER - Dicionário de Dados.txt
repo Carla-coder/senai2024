@@ -1,0 +1,31 @@
+Chaves Primárias (PK):
+
+Na tabela "Veículo", a chave primária seria "placa", pois é um identificador único para cada veículo.
+Na tabela "Cliente", a chave primária seria "cpf", pois cada cliente é identificado pelo seu CPF.
+Na tabela "Reserva", a chave primária seria "id", pois cada reserva precisa de um identificador único.
+Chaves Estrangeiras (FK):
+
+Na tabela "Reserva", temos duas chaves estrangeiras:
+"placa_veiculo", referenciando a chave primária "placa" da tabela "Veículo".
+"cpf_cliente", referenciando a chave primária "cpf" da tabela "Cliente".
+Portanto, com base nos dados fornecidos, as chaves primárias são:
+
+"placa" na tabela "Veículo"
+"cpf" na tabela "Cliente"
+"id" na tabela "Reserva"
+E as chaves estrangeiras são:
+
+"placa_veiculo" na tabela "Reserva", referenciando "placa" na tabela "Veículo"
+"cpf_cliente" na tabela "Reserva", referenciando "cpf" na tabela "Cliente"
+
+A tabela "Telefone" pode ser considerada uma tabela auxiliar, que armazena informações relacionadas aos clientes, especificamente seus números de telefone. Portanto, ela não é uma entidade principal como "Veículo", "Cliente" ou "Reserva", mas sim uma tabela de apoio para a entidade "Cliente".
+
+Se estivéssemos projetando um diagrama de entidade-relacionamento (DER) ou um modelo conceitual, a tabela "Telefone" estaria conectada à tabela "Cliente" por meio de uma relação de um-para-muitos, indicando que um cliente pode ter vários números de telefone.
+
+No dicionário de dados, você poderia mencionar a tabela "Telefone" e sua relação com a tabela "Cliente" da seguinte maneira:
+
+Tabela Telefone:
+id: Identificador único do número de telefone (chave primária)
+cpf_cliente: CPF do cliente associado ao número de telefone (chave estrangeira referenciando Cliente(cpf))
+telefone: Número de telefone do cliente
+Essa seria uma forma de representar a tabela "Telefone" no dicionário de dados, indicando sua relação com a tabela "Cliente" por meio da chave estrangeira "cpf_cliente".
