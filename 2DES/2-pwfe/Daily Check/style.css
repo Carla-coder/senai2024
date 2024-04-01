@@ -1,0 +1,80 @@
+/* Estilo para todos os elementos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilo para o contêiner principal */
+.container {
+  width: 80%; /* Defina a largura do contêiner conforme necessário */
+  margin: 0 auto; /* Centralize o contêiner horizontalmente */
+}
+
+/* Estilo para a navbar */
+.navbar {
+    background-color: #343a40; /* Cor de fundo da navbar */
+  }
+  
+  .navbar-brand,
+  .navbar-nav .nav-link {
+    color: #ffffff; /* Cor do texto da navbar */
+  }
+  
+  .navbar-brand:hover,
+  .navbar-nav .nav-link:hover {
+    color: #ffffff ; /* Cor do texto da navbar ao passar o mouse */
+  }
+  
+  /* Estilo para os cards na página Home */
+  .card {
+    margin-bottom: 20px;
+    background-color: #f8f9fa; /* Cor de fundo dos cards */
+    border: 1px solid rgba(0, 0, 0, 0.125); /* Borda dos cards */
+    border-radius: 0.25rem; /* Cor de fundo dos cards */
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* Cor de fundo dos cards */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transição dos cards */
+  }
+
+  /* Estilo para o campo de pesquisa de temperatura */
+  #inputLocal {
+    width: 300px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.125); /* Borda do campo de pesquisa de temperatura */
+    border-radius: 0.25rem; /* Cor de fundo do campo de pesquisa de temperatura */
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* Cor de fundo do campo de pesquisa de temperatura */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transição do campo de pesquisa de temperatura */
+    outline: none; /* Cor de fundo do campo de pesquisa de temperatura */
+    font-size: 16px; /* Tamanho do campo de pesquisa de temperatura */
+    font-weight: 400; /* Fonte do campo de pesquisa de temperatura */
+    color: #495057; /* Cor do campo de pesquisa de temperatura */
+  }
+  
+  /* Estilo para o modal de contato */
+  .modal-content {
+    border-radius: 0;
+  }
+  
+  /* Estilo para o modal de adicionar tarefa */
+  .modal-header {
+    background-color: #343a40;
+    color: #ffffff;
+    border-bottom: none;
+  }
+  
+  .modal-footer {
+    border-top: none;
+  }
+  
+  /* Estilo para os botões dentro dos modais */
+  .modal-content button {
+    border: none;
+    outline: none;
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
