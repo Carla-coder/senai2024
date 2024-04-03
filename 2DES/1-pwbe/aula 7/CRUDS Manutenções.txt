@@ -1,0 +1,259 @@
+
+Para testar as rotas no Insomnia, siga estas etapas:
+
+Abra o Insomnia e crie um novo workspace ou abra um existente onde você deseja adicionar suas solicitações.
+Crie uma nova solicitação para cada uma das operações CRUD (Create, Read, Update, Delete) que você implementou.
+Para cada solicitação, defina o método HTTP apropriado (POST, GET, PUT, DELETE) e a URL da rota correspondente.
+Se necessário, adicione os parâmetros de consulta, cabeçalhos e corpo da solicitação conforme necessário para simular diferentes cenários.
+Envie a solicitação e observe a resposta do servidor para garantir que tudo funcione conforme esperado.
+Repita o processo para cada uma das operações CRUD e para cada uma das rotas adicionais que você implementou.
+Aqui está um exemplo de como você pode configurar uma solicitação GET para listar todas as manutenções em andamento:
+
+Crie uma nova solicitação no Insomnia.
+Defina o método HTTP como GET.
+Insira a URL da rota para listar manutenções em andamento, por exemplo: http://localhost:3000/manutencoes/em-andamento.
+Se necessário, adicione quaisquer parâmetros de consulta ou cabeçalhos necessários.
+Envie a solicitação e verifique a resposta do servidor para garantir que as manutenções em andamento sejam retornadas corretamente.
+Repita este processo para cada uma das operações CRUD e para cada uma das rotas adicionais que você implementou no seu aplicativo. 
+Isso ajudará você a verificar se todas as suas rotas estão funcionando conforme esperado.
+******************************************************************************************
+
+Para testar os CRUDs de Funcionários, Telefones, Veículos e Manutenções no Insomnia, você precisa criar solicitações para cada uma das operações CRUD em suas respectivas rotas.
+
+Aqui está um exemplo de como você pode criar solicitações para testar cada CRUD no Insomnia:
+
+Funcionários:
+
+Crie uma solicitação POST para a rota /funcionarios com o corpo contendo os dados necessários para adicionar um funcionário.
+Crie uma solicitação GET para a rota /funcionarios para listar todos os funcionários.
+Crie uma solicitação GET para a rota /funcionarios/:id para obter um funcionário específico por ID.
+Crie uma solicitação PUT para a rota /funcionarios/:id com o corpo contendo os dados atualizados para atualizar um funcionário por ID.
+Crie uma solicitação DELETE para a rota /funcionarios/:id para remover um funcionário por ID.
+Telefones:
+
+Crie uma solicitação POST para a rota /telefones com o corpo contendo os dados necessários para adicionar um telefone.
+Crie uma solicitação GET para a rota /telefones/:id para obter um telefone específico por ID.
+Crie uma solicitação PUT para a rota /telefones/:id com o corpo contendo os dados atualizados para atualizar um telefone por ID.
+Crie uma solicitação DELETE para a rota /telefones/:id para remover um telefone por ID.
+Veículos:
+
+Crie uma solicitação POST para a rota /veiculos com o corpo contendo os dados necessários para adicionar um veículo.
+Crie uma solicitação GET para a rota /veiculos para listar todos os veículos.
+Crie uma solicitação GET para a rota /veiculos/:placa para obter um veículo específico por placa.
+Crie uma solicitação PUT para a rota /veiculos/:id com o corpo contendo os dados atualizados para atualizar um veículo por ID.
+Crie uma solicitação DELETE para a rota /veiculos/:id para remover um veículo por ID.
+Manutenções:
+
+Crie uma solicitação POST para a rota /manutencoes com o corpo contendo os dados necessários para adicionar uma manutenção.
+Crie uma solicitação GET para a rota /manutencoes para listar todas as manutenções.
+Crie uma solicitação GET para a rota /manutencoes/:id para obter uma manutenção específica por ID.
+Crie uma solicitação PUT para a rota /manutencoes/:id com o corpo contendo os dados atualizados para atualizar uma manutenção por ID.
+Crie uma solicitação DELETE para a rota /manutencoes/:id para remover uma manutenção por ID.
+**************************************************************************************************************************************
+CRUD Telefones corrijido
+
+const express = require('express');
+const router = express.Router();
+const con = require('../connection/mysql');
+
+// CREATE - Adicionar Telefone
+const addTelefone = (req, res) => {
+    if (req.body != null && req.body.matricula != null && req.body.numero != null) {
+        const { matricula, numero } = req.body;
+        con.query('INSERT INTO telefone (matricula, numero) VALUES (?, ?)', [matricula, numero], (err, result) => {
+            if (err) {
+                res.status(500).json({ error: 'Erro ao adicionar telefone' });
+            } else {
+                req.body.id = result.insertId;
+                res.status(201).json(req.body);
+            }
+        });
+    } else {
+        res.status(400).json({ error: 'Favor enviar todos os campos obrigatórios' });
+    }
+}
+
+// READ - Listar todos os Telefones
+const getTelefones = (req, res) => {
+    con.query('SELECT * FROM telefone', (err, result) => {
+        if (err) {
+            res.status(500).json({ error: 'Erro ao listar telefones' });
+        } else {
+            res.json(result);
+        }
+    });
+}
+
+// READ - Obter Telefone por ID
+const getTelefoneById = (req, res) => {
+    const { id } = req.params;
+    con.query('SELECT * FROM telefone WHERE idTelefone = ?', [id], (err, result) => {
+        if (err) {
+            res.status(500).json({ error: 'Erro ao obter telefone' });
+        } else {
+            if (result.length > 0) {
+                res.json(result[0]); // Retorna o primeiro (e único) resultado encontrado
+            } else {
+                res.status(404).json({ error: 'Telefone não encontrado' });
+            }
+        }
+    });
+}
+
+// UPDATE - Atualizar Telefone por ID
+const updateTelefone = (req, res) => {
+    if (req.body != null && req.body.id != null && req.body.matricula != null && req.body.numero != null) {
+        const { id, matricula, numero } = req.body;
+        con.query('UPDATE telefone SET matricula = ?, numero = ? WHERE idTelefone = ?', [matricula, numero, id], (err, result) => {
+            if (err) {
+                res.status(500).json({ error: err });
+            } else {
+                res.status(200).json(req.body);
+            }
+        });
+    } else {
+        res.status(400).json({ error: 'Favor enviar todos os campos obrigatórios' });
+    }
+}
+
+// DELETE - Remover Telefone por ID
+const deleteTelefone = (req, res) => {
+    const { id } = req.params;
+    con.query('DELETE FROM telefone WHERE idTelefone = ?', [id], (err, result) => {
+        if (err) {
+            res.status(500).json({ error: err });
+        } else {
+            if (result.affectedRows == 0) {
+                res.status(404).json({ error: 'Telefone não encontrado' });
+            } else {
+                res.status(200).json({ message: 'Telefone removido com sucesso' });
+            }
+        }
+    });
+}
+
+module.exports = {
+    addTelefone,
+    getTelefones,
+    getTelefoneById,
+    updateTelefone,
+    deleteTelefone
+};
+***************************************************************************************
+
+CRUD Manutenções corrijido
+
+const express = require('express');
+const router = express.Router();
+const con = require('../connection/mysql');
+
+// CREATE - Adicionar Manutenção
+const addManutencao = (req, res) => {
+    if (req.body != null && req.body.inicio != null && req.body.fim != null && req.body.descricao != null && req.body.placa != null) {
+        const { inicio, fim, descricao, placa } = req.body;
+        con.query('INSERT INTO manutencao (inicio, fim, descricao, placa) VALUES (?, ?, ?, ?)', [inicio, fim, descricao, placa], (err, result) => {
+            if (err) {
+                res.status(500).json({ error: 'Erro ao adicionar manutencao' });
+            } else {
+                req.body.id = result.insertId;
+                res.status(201).json(req.body);
+            }
+        });
+    } else {
+        res.status(400).json({ error: 'Favor enviar todos os campos obrigatórios' });
+    }
+}
+
+// READ - Listar todas as Manutenções
+const getManutencoes = (req, res) => {
+    con.query('SELECT * FROM manutencao', (err, result) => {
+        if (err) {
+            res.status(500).json({ error: 'Erro ao listar manutencoes' });
+        } else {
+            res.json(result);
+        }
+    });
+}
+
+// READ - Obter Manutenção por ID
+const getManutencaoById = (req, res) => {
+    const { id } = req.params;
+    con.query('SELECT * FROM manutencao WHERE idManutencao = ?', [id], (err, result) => {
+        if (err) {
+            res.status(500).json({ error: 'Erro ao obter manutencao' });
+        } else {
+            if (result.length > 0) {
+                res.json(result[0]); // Retorna o primeiro (e único) resultado encontrado
+            } else {
+                res.status(404).json({ error: 'Manutencao não encontrada' });
+            }
+        }
+    });
+}
+
+// READ - Listar apenas veículos em manutenção
+const getVeiculosEmManutencao = (req, res) => {
+    con.query('SELECT * FROM manutencao WHERE fim IS NULL OR fim = ""', (err, result) => {
+        if (err) {
+            res.status(500).json({ error: 'Erro ao listar veículos em manutenção' });
+        } else {
+            res.json(result);
+        }
+    });
+}
+
+// UPDATE - Atualizar Manutenção por ID
+const updateManutencao = (req, res) => {
+    if (req.body != null && req.body.id != null && req.body.inicio != null && req.body.fim != null && req.body.descricao != null && req.body.placa != null) {
+        const { id, inicio, fim, descricao, placa } = req.body;
+        con.query('UPDATE manutencao SET inicio = ?, fim = ?, descricao = ?, placa = ? WHERE idManutencao = ?', [inicio, fim, descricao, placa, id], (err, result) => {
+            if (err) {
+                res.status(500).json({ error: err });
+            } else {
+                res.status(200).json(req.body);
+            }
+        });
+    } else {
+        res.status(400).json({ error: 'Favor enviar todos os campos obrigatórios' });
+    }
+}
+
+// DELETE - Remover Manutenção por ID
+const deleteManutencao = (req, res) => {
+    const { id } = req.params;
+    con.query('DELETE FROM manutencao WHERE idManutencao = ?', [id], (err, result) => {
+        if (err) {
+            res.status(500).json({ error: err });
+        } else {
+            if (result.affectedRows == 0) {
+                res.status(404).json({ error: 'Manutencao não encontrada' });
+            } else {
+                res.status(200).json({ message: 'Manutencao removida com sucesso' });
+            }
+        }
+    });
+}
+
+module.exports = {
+    addManutencao,
+    getManutencoes,
+    getManutencaoById,
+    getVeiculosEmManutencao,
+    updateManutencao,
+    deleteManutencao
+};
+
+*************************************************************************
+// Rotas de Manutencao
+routes.post('/manutencao', Manutencao.addManutencao); // Adiciona uma nova manutencao.
+routes.get('/manutencao', Manutencao.getManutencoes); // Retorna todas as manutencaos.
+routes.get('/manutencao/:id', Manutencao.getManutencaoById); // Retorna uma manutencao específica com base no ID fornecido.
+routes.put('/manutencao/:id', Manutencao.updateManutencao); // Atualiza as informações de uma manutencao específica com base no ID fornecido.
+routes.delete('/manutencao/:id', Manutencao.deleteManutencao); // Remove uma manutencao específica com base no ID fornecido.
+
+// Rotas de Telefone
+routes.post('/telefone/:id_funcionario/add', Telefone.addTelefone); // Adiciona um telefone a um determinado funcionario.
+routes.get('/telefone/:id_funcionario', Telefone.getTelefonesByFuncionarioId); // Busca os telefones de um funcionário pelo ID.
+routes.put('/telefone/:id_funcionario', Telefone.updateTelefone); // Define o telefone do Funcionário com o id informado.
+routes.delete('/telefone/:idTelefone', Telefone.deleteTelefone); // Deleta o telefone com aquele id.
+**************************************************************************
