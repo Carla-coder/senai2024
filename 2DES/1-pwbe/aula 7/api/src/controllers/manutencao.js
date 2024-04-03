@@ -4,7 +4,7 @@ const con = require('../connection/mysql');
 //  CRUD CREATE - Adicionar Manutenção
 const addManutencao = (req, res) => {
     const { inicio, fim, descricao, placa } = req.body;
-    if (!inicio || !descricao || !placa) {
+    if (!inicio || !fim || !descricao || !placa) {
         return res.status(400).json({ message: 'Favor fornecer todos os campos obrigatórios.' });
     }
     con.query('INSERT INTO manutencao (inicio, fim, descricao, placa) VALUES (?, ?, ?, ?)', [inicio, fim, descricao, placa], (err, result) => {
@@ -35,7 +35,7 @@ const getManutencoes = (req, res) => {
 // CRUD READ - Obter Manutenção por ID
 const getManutencaoById = (req, res) => {
     const { id } = req.params;
-    con.query('SELECT * FROM manutencao WHERE id_manutencao = ?', [id], (err, result) => {
+    con.query('SELECT * FROM manutencao WHERE idManutencao = ?', [id], (err, result) => {
         if (err) {
             res.status(500).json({ message: 'Erro ao obter manutenção.' });
         } else {
@@ -52,7 +52,7 @@ const getManutencaoById = (req, res) => {
 const updateManutencao = (req, res) => {
     const { id } = req.params;
     const { inicio, fim, descricao, placa } = req.body;
-    if (!inicio || !placa) {
+    if (!inicio || !fim || !descricao || !placa) {
         return res.status(400).json({ message: 'Favor fornecer todos os campos obrigatórios.' });
     }
     con.query('UPDATE manutencao SET inicio = ?, fim = ?, descricao = ?, placa = ? WHERE id_manutencao = ?', [inicio, fim, descricao, placa, id], (err, result) => {

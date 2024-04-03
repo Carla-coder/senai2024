@@ -8,7 +8,7 @@ const addTelefone = (req, res) => {
     if (!numero) {
         return res.status(400).json({ message: 'Favor fornecer o número do telefone.' });
     }
-    con.query('INSERT INTO telefone (id_funcionario, numero) VALUES (?, ?)', [id, numero], (err, result) => {
+    con.query('INSERT INTO telefone (idFuncionario, numero) VALUES (?, ?)', [id, numero], (err, result) => {
         if (err) {
             res.status(500).json({ message: 'Erro ao adicionar telefone.' });
         } else {
@@ -20,7 +20,7 @@ const addTelefone = (req, res) => {
 // CRUD READ - Atualizar Telefone de um Funcionário
 const getTelefonesByFuncionarioId = (req, res) => {
     const { id } = req.params;
-    con.query('SELECT * FROM telefone WHERE id_funcionario = ?', [id], (err, result) => {
+    con.query('SELECT * FROM telefone WHERE idFuncionario = ?', [id], (err, result) => {
         if (err) {
             res.status(500).json({ message: 'Erro ao obter telefones.' });
         } else {
@@ -36,7 +36,7 @@ const updateTelefone = (req, res) => {
     if (!numero) {
         return res.status(400).json({ message: 'Favor fornecer o número do telefone.' });
     }
-    con.query('UPDATE telefone SET numero = ? WHERE id_telefone = ? AND id_funcionario = ?', [numero, idTelefone, id], (err, result) => {
+    con.query('UPDATE telefone SET numero = ? WHERE idTelefone = ? AND idFuncionario = ?', [numero, idTelefone, id], (err, result) => {
         if (err) {
             res.status(500).json({ message: 'Erro ao atualizar telefone.' });
         } else {
@@ -48,7 +48,7 @@ const updateTelefone = (req, res) => {
 // CRUD DELETE - Excluir Telefone de um Funcionário
 const deleteTelefone = (req, res) => {
     const { idTelefone } = req.params;
-    con.query('DELETE FROM telefone WHERE id_telefone = ?', [idTelefone], (err, result) => {
+    con.query('DELETE FROM telefone WHERE idTelefone = ?', [idTelefone], (err, result) => {
         if (err) {
             res.status(500).json({ message: 'Erro ao excluir telefone.' });
         } else {

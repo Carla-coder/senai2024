@@ -25,9 +25,9 @@ routes.put('/manutencao/:id', Manutencao.updateManutencao); // Atualiza as infor
 routes.delete('/manutencao/:id', Manutencao.deleteManutencao); // Remove uma manutencao específica com base no ID fornecido.
 
 // Rotas de Telefone
-routes.post('/telefone/:id_funcionario/add', Telefone.addTelefone); // Adiciona um telefone a um determinado funcionario.
-routes.get('/telefone/:id_funcionario', Telefone.getTelefonesByFuncionarioId); // Busca os telefones de um funcionário pelo ID.
-routes.put('/telefone/:id_funcionario', Telefone.updateTelefone); // Define o telefone do Funcionário com o id informado.
+routes.post('/telefone/:idFuncionario/add', Telefone.addTelefone); // Adiciona um telefone a um determinado funcionario.
+routes.get('/telefone/:idFuncionario', Telefone.getTelefonesByFuncionarioId); // Busca os telefones de um funcionário pelo ID.
+routes.put('/telefone/:idFuncionario', Telefone.updateTelefone); // Define o telefone do Funcionário com o id informado.
 routes.delete('/telefone/:idTelefone', Telefone.deleteTelefone); // Deleta o telefone com aquele id.
 
 // Rotas de Veículos
