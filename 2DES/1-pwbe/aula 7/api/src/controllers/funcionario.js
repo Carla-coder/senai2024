@@ -18,8 +18,8 @@ const addFuncionario = (req, res) => {
 
 // READ - Obter Funcionário por Matrícula
 const getFuncionarios = (req, res) => {
-    const { matricula } = req.params;
-    con.query('SELECT * FROM funcionario WHERE matricula = ?', [matricula], (err, result) => {
+    // const { matricula } = req.params;
+    con.query('SELECT * FROM funcionario', (err, result) => {
         if (err) {
             console.error(err);
             res.status(500).json({ message: 'Erro ao obter funcionário.' });
@@ -31,6 +31,22 @@ const getFuncionarios = (req, res) => {
             }
         }
     });
+};
+
+// READ - Obter Funcionário por Matrícula individual
+ const getFuncionario = (req, res) => {
+     con.query('SELECT * FROM funcionario WHERE matricula like ?',`%${[req.params.matricula]}%`, (err, result) => {
+    if (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Erro ao obter funcionário.' });
+    } else {
+        if (result.length > 0) {
+            res.status(200).json(result);
+        } else {
+            res.status(404).json({ message: 'Funcionário não encontrado.' });
+        }
+    }
+});
 };
 
 // UPDATE - Atualizar Funcionário por Matrícula
@@ -66,6 +82,7 @@ const deleteFuncionario = (req, res) => {
 module.exports = {
     addFuncionario,
     getFuncionarios,
+    getFuncionario,
     updateFuncionario,
     deleteFuncionario
 };

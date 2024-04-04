@@ -18,20 +18,36 @@ const addVeiculo = (req, res) => {
 
 // READ - Obter Veículo por Placa
 const getVeiculos = (req, res) => {
-    const { placa } = req.params;
-    con.query('SELECT * FROM veiculo WHERE placa = ?', [placa], (err, result) => {
+    con.query('SELECT * FROM veiculo', (err, result) => {
         if (err) {
             console.error(err);
             res.status(500).json({ message: 'Erro ao obter veículo.' });
         } else {
             if (result.length > 0) {
-                res.status(200).json(result[0]);
+                res.status(200).json(result);
             } else {
                 res.status(404).json({ message: 'Veículo não encontrado.' });
             }
         }
     });
 };
+
+// READ - Obter Veículo por placa individual
+const getVeiculo = (req, res) => {
+    con.query('SELECT * FROM veiculo WHERE placa like ?',`%${[req.params.placa]}%`, (err, result) => {
+        if (err) {
+            console.error(err);
+            res.status(500).json({ message: 'Erro ao obter veículo.' });
+        } else {
+            if (result.length > 0) {
+                res.status(200).json(result);
+            } else {
+                res.status(404).json({ message: 'Veículo não encontrado.' });
+            }
+        }
+    });
+};
+
 
 // UPDATE - Atualizar Veículo por Placa
 const updateVeiculo = (req, res) => {
@@ -66,6 +82,7 @@ const deleteVeiculo = (req, res) => {
 module.exports = {
     addVeiculo,
     getVeiculos,
+    getVeiculo,
     updateVeiculo,
     deleteVeiculo
 };
