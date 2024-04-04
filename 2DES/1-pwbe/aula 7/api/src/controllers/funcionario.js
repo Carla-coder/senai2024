@@ -1,103 +1,72 @@
-const e = require('express');
 const con = require('../connection/mysql');
 
-//CRUD - CREATE - Adicionar Funcionário
+// CREATE - Adicionar Funcionário
 const addFuncionario = (req, res) => {
-    if (req.body != null && req.body.matricula != null && req.body.nome != null) {
-        const { matricula, nome } = req.body;
-        con.query('INSERT INTO funcionario (matricula, nome) VALUES (?, ?)', [matricula, nome], (err, result) => {
-            if (err) {
-                res.status(500).json('Erro ao adicionar funcionario');
-            } else {
-                req.body.id = result.insertId;
-                res.status(201).json(req.body);
-            }
-        });
-    } else {
-        res.status(400).json('Favor enviar todos os campos obrigatórios');
+    const { matricula, nome } = req.body;
+    if (!matricula || !nome) {
+        return res.status(400).json({ message: 'Favor fornecer a matrícula e o nome do funcionário.' });
     }
-}
+    con.query('INSERT INTO funcionario (matricula, nome) VALUES (?, ?)', [matricula, nome], (err, result) => {
+        if (err) {
+            console.error(err);
+            res.status(500).json({ message: 'Erro ao adicionar funcionário.' });
+        } else {
+            res.status(201).json({ message: 'Funcionário adicionado com sucesso.' });
+        }
+    });
+};
 
-//CRUD - READ - Listar todos os Funcionários
+// READ - Obter Funcionário por Matrícula
 const getFuncionarios = (req, res) => {
-    if (req.params.id != null) {
-        con.query('SELECT * FROM funcionario WHERE idFuncionario ='+req.params.id, (err, result) => {
-            if (err) {
-                res.status(500).send('Erro ao listar funcionarios');
-            }
-            res.json(result);
-        });
-    } else {
-        con.query('SELECT * FROM funcionario', (err, result) => {
-            if (err) {
-                res.status(500).send('Erro ao listar funcionarios');
-            }
-            res.json(result);
-        });
-    }
-}
-
-//CRUD - READ - Obter Funcionario por ID
-const getFuncionarioById = (req, res) => {
-    if (req.params.id != null) {
-        const { id } = req.params;
-        con.query('SELECT * FROM funcionario WHERE idFuncionario = ?', [id], (err, result) => {
-            if (err) {
-                res.status(500).send('Erro ao obter funcionário');
+    const { matricula } = req.params;
+    con.query('SELECT * FROM funcionario WHERE matricula = ?', [matricula], (err, result) => {
+        if (err) {
+            console.error(err);
+            res.status(500).json({ message: 'Erro ao obter funcionário.' });
+        } else {
+            if (result.length > 0) {
+                res.status(200).json(result[0]);
             } else {
-                if (result.length > 0) {
-                    res.json(result[0]); // Retorna o primeiro (e único) resultado encontrado
-                } else {
-                    res.status(404).json('Funcionário não encontrado');
-                }
+                res.status(404).json({ message: 'Funcionário não encontrado.' });
             }
-        });
-    } else {
-        res.status(400).json('Favor enviar o ID do funcionário');
-    }
-}
+        }
+    });
+};
 
-
-//CRUD - UPDATE - Atualizar funcionário por ID
+// UPDATE - Atualizar Funcionário por Matrícula
 const updateFuncionario = (req, res) => {
-    if (req.body != null && req.body.id != null && req.body.matricula != null && req.body.nome != null) {
-        const { id, matricula, nome} = req.body;
-        con.query('UPDATE funcionario SET matricula = ?, nome = ? WHERE idFuncionario = ?', [matricula, nome,id], (err, result) => {
-            if (err) {
-                res.status(500).json(err);
-            } else {
-                res.status(200).json(req.body);
-            }
-        });
-    } else {
-        res.status(400).json('Favor enviar todos os campos obrigatórios');
+    const { matricula } = req.params;
+    const { nome } = req.body;
+    if (!nome) {
+        return res.status(400).json({ message: 'Favor fornecer o novo nome do funcionário.' });
     }
-}
+    con.query('UPDATE funcionario SET nome = ? WHERE matricula = ?', [nome, matricula], (err, result) => {
+        if (err) {
+            console.error(err);
+            res.status(500).json({ message: 'Erro ao atualizar funcionário.' });
+        } else {
+            res.status(200).json({ message: 'Funcionário atualizado com sucesso.' });
+        }
+    });
+};
 
-//CRUD - DELETE - Remover Funcionáriompor ID
+// DELETE - Excluir Funcionário por Matrícula
 const deleteFuncionario = (req, res) => {
-    if (req.params != null && req.params.id != null) {
-        const { id } = req.params;
-        con.query('DELETE FROM funcionario WHERE idFuncionario = ?', [id], (err, result) => {
-            if (err) {
-                res.status(500).json(err);
-            } else {
-                if (result.affectedRows == 0) {
-                    res.status(404).json('Funcionario não encontrado');
-                } else {
-                    res.status(200).json('Funcionario removido com sucesso');
-                }
-            }
-        });
-    } else {
-        res.status(400).json('Favor enviar todos os campos obrigatórios');
-    }
-}
+    const { matricula } = req.params;
+    con.query('DELETE FROM funcionario WHERE matricula = ?', [matricula], (err, result) => {
+        if (err) {
+            console.error(err);
+            res.status(500).json({ message: 'Erro ao excluir funcionário.' });
+        } else {
+            res.status(200).json({ message: 'Funcionário excluído com sucesso.' });
+        }
+    });
+};
 
 module.exports = {
     addFuncionario,
     getFuncionarios,
-    getFuncionarioById,
     updateFuncionario,
     deleteFuncionario
-}
+};
+
