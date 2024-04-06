@@ -16,22 +16,37 @@ const addManutencao = (req, res) => {
     });
 };
 
-// READ - Obter Manutenção por ID
+// READ - Obter todas as Manutenção por ID
 const getManutencoes = (req, res) => {
-    const { id } = req.params;
-    con.query('SELECT * FROM manutencao WHERE id = ?', [id], (err, result) => {
+   con.query('SELECT * FROM manutencao', (err, result) => {
         if (err) {
             console.error(err);
             res.status(500).json({ message: 'Erro ao obter manutenção.' });
         } else {
             if (result.length > 0) {
-                res.status(200).json(result[0]);
+                res.status(200).json(result);
             } else {
                 res.status(404).json({ message: 'Manutenção não encontrada.' });
             }
         }
     });
 };
+
+// READ - Obter Manutenção por ID individual
+const getManutencao = (req, res) => {
+    con.query('SELECT * FROM manutencao WHERE id like ?',`%${[req.params.id]}%`, (err, result) => {
+         if (err) {
+             console.error(err);
+             res.status(500).json({ message: 'Erro ao obter manutenção.' });
+         } else {
+             if (result.length > 0) {
+                 res.status(200).json(result[0]);
+             } else {
+                 res.status(404).json({ message: 'Manutenção não encontrada.' });
+             }
+         }
+     });
+ };
 
 // UPDATE - Atualizar Manutenção por ID
 const updateManutencao = (req, res) => {
@@ -66,6 +81,7 @@ const deleteManutencao = (req, res) => {
 module.exports = {
     addManutencao,
     getManutencoes,
+    getManutencao,
     updateManutencao,
     deleteManutencao
 };

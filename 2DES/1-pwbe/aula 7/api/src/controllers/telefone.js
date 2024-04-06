@@ -17,15 +17,34 @@ const addTelefone = (req, res) => {
     });
 };
 
-// READ - Obter Telefones de um Funcionário
-const getTelefones = (req, res) => {
-    const { matricula } = req.params;
-    con.query('SELECT * FROM telefone WHERE matricula = ?', [matricula], (err, result) => {
+// READ - Obter todos os telefones
+const getTelefone = (req, res) => {
+    con.query('SELECT * FROM telefone', (err, result) => {
         if (err) {
             console.error(err);
-            res.status(500).json({ message: 'Erro ao obter telefones.' });
+            res.status(500).json({ message: 'Erro ao obter telefone.' });
         } else {
-            res.status(200).json(result);
+            if (result.length > 0) {
+                res.status(200).json(result);
+            } else {
+                res.status(404).json({ message: 'Telefone não encontrado.' });
+            }
+        }
+    });
+};
+
+// READ - Obter Telefones de um Funcionário por vez
+const getTelefones = (req, res) => {
+    con.query('SELECT * FROM telefone WHERE matricula like ?',`%${[req.params.matricula]}%`, (err, result) => {
+        if (err) {
+            console.error(err);
+            res.status(500).json({ message: 'Erro ao obter telefone.' });
+        } else {
+            if (result.length > 0) {
+                res.status(200).json(result);
+            } else {
+                res.status(404).json({ message: 'Telefone não encontrado.' });
+            }
         }
     });
 };
@@ -62,6 +81,7 @@ const deleteTelefone = (req, res) => {
 
 module.exports = {
     addTelefone,
+    getTelefone,
     getTelefones,
     updateTelefone,
     deleteTelefone

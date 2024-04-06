@@ -13,14 +13,14 @@ router.get('/', (req, res) => {
 // Rotas para funcionários
 router.post('/funcionarios', Funcionario.addFuncionario);
 router.get('/funcionarios', Funcionario.getFuncionarios);
-router.get('/funcionarios/:matricula', Funcionario.getFuncionarios);
+router.get('/funcionarios/:nome', Funcionario.getFuncionario);
 router.put('/funcionarios/:matricula', Funcionario.updateFuncionario);
 router.delete('/funcionarios/:matricula', Funcionario.deleteFuncionario);
 
 //Rotas para telefones
 router.post('/telefones', Telefone.addTelefone);
 router.get('/telefones', Telefone.getTelefones);
-router.get('/telefones/:matricula', Telefone.getTelefones);
+router.get('/telefones/:matricula', Telefone.getTelefone);
 router.put('/telefones/:matricula', Telefone.updateTelefone);
 router.delete('/telefones/:matricula', Telefone.deleteTelefone);
 
@@ -33,7 +33,8 @@ router.delete('/veiculos/:placa', Veiculo.deleteVeiculo);
 
 //Rotas para manutenções
 router.post('/manutencoes', Manutencao.addManutencao);
-router.get('/manutencoes/:id', Manutencao.getManutencoes);
+router.get('/manutencoes', Manutencao.getManutencoes);
+router.get('/manutencoes/:id', Manutencao.getManutencao);
 router.put('/manutencoes/:id', Manutencao.updateManutencao);
 router.delete('/manutencoes/:id', Manutencao.deleteManutencao);
 

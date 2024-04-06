@@ -37,12 +37,12 @@ const getVeiculo = (req, res) => {
     con.query('SELECT * FROM veiculo WHERE placa like ?',`%${[req.params.placa]}%`, (err, result) => {
         if (err) {
             console.error(err);
-            res.status(500).json({ message: 'Erro ao obter veículo.' });
+            res.status(500).json({ message: 'Erro ao obter placa do veículo.' });
         } else {
             if (result.length > 0) {
                 res.status(200).json(result);
             } else {
-                res.status(404).json({ message: 'Veículo não encontrado.' });
+                res.status(404).json({ message: 'Placa do veículo não encontrada.' });
             }
         }
     });
