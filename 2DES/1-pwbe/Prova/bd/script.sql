@@ -9,20 +9,18 @@ CREATE TABLE Veiculos (
     Placa VARCHAR(10) PRIMARY KEY,
     Modelo VARCHAR(50),
     Marca VARCHAR(50),
-    Tipo VARCHAR(50)
+    Tipo VARCHAR(50),
 );
 
--- Inserção dos dados na tabela de Veículos
-INSERT INTO Veiculos (Placa, Modelo, Marca, Tipo, Diaria)
-VALUES 
+-- Inserção dos dados na tabela de Veículos sem repetições
+INSERT INTO Veiculos (Placa, Modelo, Marca, Tipo, Diaria) VALUES
 ('DEA-7981', 'Uno', 'Fiat', 'standart', 100.00),
 ('CBC-4945', 'Fiorino', 'Fiat', 'utilitario', 120.00),
 ('BEE-7735', 'Saveiro', 'VW', 'standart', 100.00),
 ('CBA-4403', 'Sandeiro', 'Renaut', 'standart', 100.00),
 ('BBC-8504', 'Palio', 'Fiat', 'standart', 100.00),
 ('BEB-5885', 'Gol', 'VW', 'standart', 100.00),
-('EDB-2475', 'Ranger', 'Ford', 'esportivo', 200.00),
-('CBC-4901', 'Fiorino', 'Fiat', 'utilitario', 120.00);
+('EDB-2475', 'Ranger', 'Ford', 'esportivo', 200.00);
 
 -- Criação da tabela de Clientes
 CREATE TABLE Clientes (
@@ -60,8 +58,7 @@ VALUES
 
 -- Criação da tabela de Aluguéis
 CREATE TABLE Alugueis (
-    ID INT PRIMARY KEY AUTO_INCREMENT,
-    Placa VARCHAR(15),
+    Placa VARCHAR(10),
     Reserva DATE,
     Retirada DATE,
     Devolucao DATE,
@@ -69,9 +66,10 @@ CREATE TABLE Alugueis (
     Status VARCHAR(20),
     Subtotal DECIMAL(10, 2),
     CPF_Cliente VARCHAR(15),
+    PRIMARY KEY (Placa, CPF_Cliente, Reserva),
+    FOREIGN KEY (Placa) REFERENCES Veiculos(Placa),
     FOREIGN KEY (CPF_Cliente) REFERENCES Clientes(CPF_Cliente)
 );
-
 -- Inserção dos dados na tabela de Aluguéis
 INSERT INTO Alugueis (Placa, Reserva, Retirada, Devolucao, Dias, Status, Subtotal, CPF_Cliente)
 VALUES 
@@ -97,20 +95,28 @@ VALUES
 ('EDB-2475', '2024-03-25', '2024-03-25', NULL, 8, 'alugado', 1600.00, '555.555.555-55'),
 ('CBC-4945', '2024-03-28', '2024-03-28', NULL, 5, 'alugado', 500.00, '444.444.444-44'),
 ('BEB-5885', '2024-03-23', '2024-03-23', NULL, 10, 'alugado', 1000.00, '333.333.333-33'),
-('NULL', '2024-05-01', NULL, NULL, 0, 'reservado', NULL, NULL),
-('NULL', '2024-05-10', NULL, NULL, 0, 'reservado', NULL, NULL),
-('NULL', '2024-05-19', NULL, NULL, 0, 'reservado', NULL, NULL);
+(NULL, '2024-05-01', NULL, NULL, 0, 'reservado', NULL, NULL),
+(NULL, '2024-05-10', NULL, NULL, 0, 'reservado', NULL, NULL),
+(NULL, '2024-05-19', NULL, NULL, 0, 'reservado', NULL, NULL);
 
-select * from Veiculos;
+-- Verificar as tabelas criadas
+SELECT * FROM Veiculos;
+SELECT * FROM Clientes;
+SELECT * FROM Telefones;
+SELECT * FROM Alugueis;
 
-select * from Clientes;
+-- Mostra todas as tabelas
+SHOW TABLES;
 
-select * from Telefones;
+-- Descrição das tabelas
+DESCRIBE Veiculos;
+DESCRIBE Clientes;
+DESCRIBE Telefones;
+DESCRIBE Alugueis;
 
-select * from Alugueis;
+-- Adiciona a coluna 'Diaria' à tabela Veiculos
+-- ALTER TABLE Veiculos ADD COLUMN Diaria DECIMAL(10, 2);
 
+-- Remove o ID da Tabela Alugueis
+-- ALTER TABLE Alugueis DROP COLUMN ID;
 
-describe Veiculos;
-describe Clientes;
-describe Telefones;
-describe Alugueis;
