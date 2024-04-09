@@ -10,6 +10,7 @@ CREATE TABLE Veiculos (
     Modelo VARCHAR(50),
     Marca VARCHAR(50),
     Tipo VARCHAR(50),
+    Diaria DECIMAL(10,2)
 );
 
 -- Inserção dos dados na tabela de Veículos sem repetições
@@ -39,14 +40,14 @@ VALUES
 
 -- Criação da tabela de Telefones
 CREATE TABLE Telefones (
-    ID INT PRIMARY KEY AUTO_INCREMENT,
     CPF_Cliente VARCHAR(15),
     Telefone VARCHAR(50),
+    PRIMARY KEY (CPF_Cliente, Telefone),
     FOREIGN KEY (CPF_Cliente) REFERENCES Clientes(CPF_Cliente)
 );
 
 -- Inserção dos dados na tabela de Telefones
-INSERT INTO Telefones (CPF_Cliente, Telefone)
+INSERT IGNORE INTO Telefones (CPF_Cliente, Telefone)
 VALUES 
 ('111.111.111-11', '19-72077-0521'),
 ('111.111.111-11', '19-06078-6843'),
@@ -71,7 +72,7 @@ CREATE TABLE Alugueis (
     FOREIGN KEY (CPF_Cliente) REFERENCES Clientes(CPF_Cliente)
 );
 -- Inserção dos dados na tabela de Aluguéis
-INSERT INTO Alugueis (Placa, Reserva, Retirada, Devolucao, Dias, Status, Subtotal, CPF_Cliente)
+INSERT IGNORE INTO Alugueis (Placa, Reserva, Retirada, Devolucao, Dias, Status, Subtotal, CPF_Cliente)
 VALUES 
 ('DEA-7981', '2024-01-25', '2024-01-25', '2024-02-04', 10, 'concluido', 1000.00, '111.111.111-11'),
 ('CBC-4945', '2024-03-13', '2024-03-13', '2024-03-21', 8, 'concluido', 960.00, '222.222.222-22'),
@@ -94,10 +95,7 @@ VALUES
 ('EDB-2475', '2024-03-16', '2024-03-17', NULL, 16, 'alugado', 1600.00, '555.555.555-55'),
 ('EDB-2475', '2024-03-25', '2024-03-25', NULL, 8, 'alugado', 1600.00, '555.555.555-55'),
 ('CBC-4945', '2024-03-28', '2024-03-28', NULL, 5, 'alugado', 500.00, '444.444.444-44'),
-('BEB-5885', '2024-03-23', '2024-03-23', NULL, 10, 'alugado', 1000.00, '333.333.333-33'),
-(NULL, '2024-05-01', NULL, NULL, 0, 'reservado', NULL, NULL),
-(NULL, '2024-05-10', NULL, NULL, 0, 'reservado', NULL, NULL),
-(NULL, '2024-05-19', NULL, NULL, 0, 'reservado', NULL, NULL);
+('BEB-5885', '2024-03-23', '2024-03-23', NULL, 10, 'alugado', 1000.00, '333.333.333-33');
 
 -- Verificar as tabelas criadas
 SELECT * FROM Veiculos;
@@ -106,7 +104,7 @@ SELECT * FROM Telefones;
 SELECT * FROM Alugueis;
 
 -- Mostra todas as tabelas
-SHOW TABLES;
+-- SHOW TABLES;
 
 -- Descrição das tabelas
 DESCRIBE Veiculos;
@@ -115,8 +113,10 @@ DESCRIBE Telefones;
 DESCRIBE Alugueis;
 
 -- Adiciona a coluna 'Diaria' à tabela Veiculos
--- ALTER TABLE Veiculos ADD COLUMN Diaria DECIMAL(10, 2);
+--  ALTER TABLE Veiculos ADD COLUMN Diaria DECIMAL(10, 2);
 
 -- Remove o ID da Tabela Alugueis
--- ALTER TABLE Alugueis DROP COLUMN ID;
+ ALTER TABLE Alugueis DROP COLUMN ID;
 
+-- Remover a coluna ID da tabela Telefones
+-- ALTER TABLE Telefones DROP COLUMN ID;

@@ -4,16 +4,16 @@ const con = require('../connect/mysql');
 
 const addCliente = (req, res) => {
     
-    const {CPF_Cliente, Telefone } = req.body;
-    if (CPF_Cliente && Telefone) {
-        con.query('INSERT INTO Clientes (CPF_Cliente, Telefone) VALUES (?, ?)',
-            [CPF_Cliente, Telefone],
+    const {CPF_Cliente, Nome_Cliente } = req.body;
+    if (CPF_Cliente && Nome_Cliente) {
+        con.query('INSERT INTO Clientes (CPF_Cliente, Nome_Cliente) VALUES (?, ?)',
+            [CPF_Cliente, Nome_Cliente],
             (err, result) => {
                 if (err) {
                     console.error('Erro ao adicionar Cliente:', err);
                     res.status(500).json({ error: 'Erro ao adicionar Cliente' });
                 } else {
-                    const newCliente = { CPF_Cliente, Telefone };
+                    const newCliente = { CPF_Cliente, Nome_Cliente };
                     res.status(201).json(newCliente);
                 }
             });
@@ -41,24 +41,26 @@ const getCliente = (req, res) => {
 
 
 const updateCliente = (req, res) => {
-
-    const { CPF_Cliente } = req.params;
-    const { Telefone } = req.body;
-    if (CPF_Cliente && Telefone) {
-        con.query('UPDATE Clientes SET Telefone = ? WHERE CPF_Cliente = ?', 
-        [CPF_Cliente, Telefone], 
-        (err, result) => {
-            if (err) {
-                res.status(500).json({ error: err });
-            } else {
-                res.status(200).json({ CPF_Cliente, Telefone });
+    // const { CPF_Cliente } = req.params;
+    const { Nome_Cliente, CPF_Cliente } = req.body;
+    
+    if (CPF_Cliente && Nome_Cliente) {
+        con.query(
+            'UPDATE Clientes SET Nome_Cliente = ? WHERE CPF_Cliente = ?', 
+            [Nome_Cliente, CPF_Cliente], 
+            (err, result) => {
+                if (err) {
+                    res.status(500).json({ error: err });
+                } else {
+                    res.status(200).json({ CPF_Cliente, Nome_Cliente });
+                }
             }
-        });
+        );
     } else {
         res.status(400).json({ error: 'Por favor, envie todos os campos obrigatórios' });
     }
-
 }
+
 
 const deleteCliente = (req, res) => {
     

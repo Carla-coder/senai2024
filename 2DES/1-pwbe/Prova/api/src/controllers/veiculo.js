@@ -39,8 +39,8 @@ const getVeiculo = (req, res) => {
 const updateVeiculo = (req, res) => {
     const { Placa, Modelo, Marca, Tipo, Diaria } = req.body;
     if (Placa && Modelo && Marca && Tipo && Diaria) {
-        con.query('update Veiculos set Placa =?, Modelo =?, Marca =?, Tipo =?, Diaria =? WHERE Placa =?',
-            [Placa, Modelo, Marca, Tipo, Diaria], (err, result) => {
+        con.query('update Veiculos set Modelo =?, Marca =?, Tipo =?, Diaria =? WHERE Placa =?',
+            [Modelo, Marca, Tipo, Diaria, Placa], (err, result) => {
                 if (err) {
                     res.status(500).json({ error: 'Erro ao atualizar Veículo' });
                 } else {
