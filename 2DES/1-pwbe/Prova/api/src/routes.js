@@ -28,7 +28,7 @@ routes.get('/veiculos/:placa', Veiculos.getVeiculo);
 routes.put('/veiculos/:placa', Veiculos.updateVeiculo);
 routes.delete('/veiculos/:placa', Veiculos.deleteVeiculo);
 
-// Rotas para reservas
+// Rotas para reserva
 routes.post('/alugueis', Alugueis.addAlugueis);
 routes.get('/alugueis', Alugueis.getAlugueis);
 routes.put('/alugueis/:Placa/:CPF_Cliente/:Reserva', Alugueis.updateAlugueis);

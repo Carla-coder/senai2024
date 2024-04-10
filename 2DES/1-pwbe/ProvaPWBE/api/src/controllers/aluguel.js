@@ -3,18 +3,18 @@ const con = require('../connect/mysql');
 
 // CRUD - CREATE
 
-const addAlugueis = (req, res) => {
-    const { Placa, Reserva, Retirada, Devolucao, Dias, Status, Subtotal, CPF_Cliente } = req.body;
-    if (Placa && Reserva && Retirada && Devolucao && Dias && Status && Subtotal && CPF_Cliente) {
-        con.query('INSERT INTO Alugueis (Placa, Reserva, Retirada, Devolucao, Dias, Status, Subtotal, CPF_Cliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-            [Placa, Reserva, Retirada, Devolucao, Dias, Status, Subtotal, CPF_Cliente],
+const addAluguel = (req, res) => {
+    const { placa, cpf, reserva, retirada, devolucao, subtotal } = req.body;
+    if (placa && cpf && reserva && retirada && devolucao && subtotal) {
+        con.query('INSERT INTO Aluguel (placa, cpf, reserva, retirada, devolucao, subtotal) VALUES (?, ?, ?, ?, ?, ?)',
+            [placa, cpf, reserva, retirada, devolucao, subtotal],
             (err, result) => {
                 if (err) {
                     console.error('Erro ao adicionar alugueis:', err);
                     res.status(500).json({ error: 'Erro ao adicionar alugueis' });
                 } else {
-                    const newAlugueis = { Placa, Reserva, Retirada, Devolucao, Dias, Status, Subtotal, CPF_Cliente };
-                    res.status(201).json(newAlugueis);
+                    const newAluguel = { placa, cpf, reserva, retirada, devolucao, subtotal };
+                    res.status(201).json(newAluguel);
                 }
             });
     } else {
@@ -25,8 +25,8 @@ const addAlugueis = (req, res) => {
 
 // CRUD - READ
 
-const getAlugueis = (req, res) => {
-    con.query('SELECT * FROM Alugueis', (err, result) => {
+const getAluguel = (req, res) => {
+    con.query('SELECT * FROM Aluguel', (err, result) => {
         if (err) {
             res.status(500).json({ error: 'Erro ao buscar reservas' });
         } else {
@@ -40,13 +40,13 @@ const getAlugueis = (req, res) => {
 }
 
 // CRUD - UPDATE
-const updateAlugueis = (req, res) => {
-    const { Placa, CPF_Cliente, Reserva, Retirada, Devolucao, Dias, Status, Subtotal } = req.body;
+const updateAluguel = (req, res) => {
+    const { placa, cpf, reserva, retirada, devolucao, subtotal } = req.body;
 
-    if (Placa && CPF_Cliente && Reserva && Retirada && Devolucao && Dias && Status && Subtotal) {
+    if (placa && cpf && reserva && retirada && devolucao && subtotal) {
         con.query(
-            'update Alugueis set Retirada = ?, Devolucao = ?, Dias = ?, Status = ?, Subtotal = ? WHERE Placa = ? AND CPF_Cliente = ? AND Reserva = ?', 
-            [Retirada, Devolucao, Dias, Status, Subtotal, Placa, CPF_Cliente, Reserva], 
+            'update Aluguel set retirada = ?, devolucao = ?, subtotal = ? WHERE placa = ? AND cpf = ? AND reserva = ?', 
+            [placa, cpf, reserva, retirada, devolucao, subtotal], 
             (err, result) => {
                 if (err) {
                     res.status(500).json({ error: 'Erro ao atualizar Aluguéis' });
@@ -64,13 +64,13 @@ const updateAlugueis = (req, res) => {
 
 // CRUD - DELETE
 
-const deleteAlugueis = (req, res) => {    
-    const { Placa, CPF_Cliente, Reserva } = req.body;
+const deleteAluguel = (req, res) => {    
+    const { placa, cpf, reserva } = req.body;
     
-    if (Placa && CPF_Cliente && Reserva) {
+    if (placa && cpf && reserva) {
         con.query(
-            'DELETE FROM Alugueis WHERE Placa = ? AND CPF_Cliente = ? AND Reserva = ?', 
-            [Placa, CPF_Cliente, Reserva], 
+            'DELETE FROM Aluguel WHERE placa = ? AND cpf = ? AND reserva = ?', 
+            [ placa, cpf, reserva], 
             (err, result) => {
                 if (err) {
                     res.status(500).json({ error: err });
@@ -90,7 +90,7 @@ const deleteAlugueis = (req, res) => {
 
 
 const getVeiculosReservados = (req, res) => {
-    con.query('SELECT * FROM Veiculos WHERE Placa IN (SELECT Placa FROM Alugueis WHERE Status = "reservado")', (err, veiculos) => {
+    con.query('SELECT * FROM Veiculos WHERE placa IN (SELECT placa FROM Aluguel WHERE Status = "reservado")', (err, veiculos) => {
         if (err) {
             res.status(500).json({ error: 'Erro ao buscar veículos reservados' });
         } else {
@@ -100,9 +100,9 @@ const getVeiculosReservados = (req, res) => {
 };
 
 module.exports = {
-    addAlugueis,
-    getAlugueis,
-    updateAlugueis,
-    deleteAlugueis,
+    addAluguel,
+    getAluguel,
+    updateAluguel,
+    deleteAluguel,
     getVeiculosReservados
 }

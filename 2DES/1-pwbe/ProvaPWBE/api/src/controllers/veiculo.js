@@ -3,17 +3,17 @@ const con = require('../connect/mysql');
 //CRUD - CREATE
 
 const addVeiculo = (req, res) => {
-    const { Placa, Modelo, Marca, Tipo, Diaria} = req.body;
+    const { placa, modelo, marca, tipo, diaria} = req.body;
 
-    if (Placa && Modelo && Marca && Tipo && Diaria) {
-        con.query('insert into Veiculos (Placa, Modelo, Marca, Tipo, Diaria) VALUES (?, ?, ?, ?, ?)',
-            [Placa, Modelo, Marca, Tipo, Diaria], (err, result) => {
+    if (placa && modelo && marca && tipo && diaria) {
+        con.query('insert into Veiculo (placa, modelo, marca, tipo, diaria) VALUES (?, ?, ?, ?, ?)',
+            [placa, modelo, marca, tipo, diaria], (err, result) => {
                 if (err) {
                     console.error('Erro ao adicionar Veiculo', err);
                     res.status(500).json({ error: 'Erro ao adicionar Veículo' });
 
                 } else {
-                    const newVeiculo = { Placa, Modelo, Marca, Tipo, Diaria };
+                    const newVeiculo = { placa, modelo, marca, tipo, diaria };
                     res.status(201).json(newVeiculo);
                 }
             });
@@ -25,7 +25,7 @@ const addVeiculo = (req, res) => {
 //CRUD - READ
 
 const getVeiculo = (req, res) => {
-    con.query('select * from Veiculos', (err, result) => {
+    con.query('select * from Veiculo', (err, result) => {
         if (err) {
             res.status(500).json({ error: 'Erro ao listar Veículo' });
         } else {
@@ -37,10 +37,10 @@ const getVeiculo = (req, res) => {
 //CRUD - UPDATE
 
 const updateVeiculo = (req, res) => {
-    const { Placa, Modelo, Marca, Tipo, Diaria } = req.body;
-    if (Placa && Modelo && Marca && Tipo && Diaria) {
-        con.query('update Veiculos set Modelo =?, Marca =?, Tipo =?, Diaria =? WHERE Placa =?',
-            [Modelo, Marca, Tipo, Diaria, Placa], (err, result) => {
+    const { placa, modelo, marca, tipo, diaria } = req.body;
+    if (placa && modelo && marca && tipo && diaria) {
+        con.query('update Veiculo set modelo =?, marca =?, tipo =?, diaria =? WHERE placa =?',
+            [modelo, marca, tipo, diaria, placa], (err, result) => {
                 if (err) {
                     res.status(500).json({ error: 'Erro ao atualizar Veículo' });
                 } else {
@@ -56,9 +56,9 @@ const updateVeiculo = (req, res) => {
 //CRUD - DELETE
 
 const deleteVeiculo = (req, res) => {
-const { Placa } = req.body;
-if (Placa) {
-    con.query('DELETE FROM Veiculos WHERE Placa = ?', [Placa], (err, result) => {
+const { placa } = req.body;
+if (placa) {
+    con.query('DELETE FROM Veiculo WHERE placa = ?', [placa], (err, result) => {
         if (err) {
             res.status(500).json({ error: err });
         } else {

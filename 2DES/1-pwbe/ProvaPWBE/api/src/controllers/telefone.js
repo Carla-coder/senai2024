@@ -4,16 +4,16 @@ const con = require('../connect/mysql');
 
 const addTelefone = (req, res) => {
     
-    const { CPF_Cliente, Telefone } = req.body;
-    if (CPF_Cliente && Telefone) {
-        con.query('INSERT INTO Telefones (CPF_Cliente, Telefone) VALUES (?, ?)',
-            [CPF_Cliente, Telefone],
+    const { cpf, numero } = req.body;
+    if (cpf && numero) {
+        con.query('INSERT INTO Telefone (cpf, numero) VALUES (?, ?)',
+            [cpf, numero],
             (err, result) => {
                 if (err) {
                     console.error('Erro ao adicionar telefone:', err);
                     res.status(500).json({ error: 'Erro ao adicionar telefone' });
                 } else {
-                    const newPhone = { CPF_Cliente, Telefone };
+                    const newPhone = { cpf, numero };
                     res.status(201).json(newPhone);
                 }
             });
@@ -25,9 +25,9 @@ const addTelefone = (req, res) => {
 
 // CRUD - READ
 
-const getTelefones = (req, res) => {
+const getTelefone = (req, res) => {
 
-    con.query('SELECT * FROM Telefones', (err, result) => {
+    con.query('SELECT * FROM Telefone', (err, result) => {
         if (err) {
             res.status(500).json({ error: 'Erro ao listar telefones' });
         } else {
@@ -41,15 +41,15 @@ const getTelefones = (req, res) => {
 
 const updateTelefone = (req, res) => {
 
-    const { CPF_Cliente, Telefone } = req.body;
-    if (CPF_Cliente && Telefone) {
-        con.query('UPDATE Telefones SET Telefone = ? WHERE CPF_Cliente = ?', 
-        [Telefone, CPF_Cliente], 
+    const { cpf, numero } = req.body;
+    if (cpf && numero) {
+        con.query('UPDATE Telefone SET numero = ? WHERE cpf = ?', 
+        [cpf, numero], 
         (err, result) => {
             if (err) {
                 res.status(500).json({ error: err });
             } else {
-                res.status(200).json(req.body);
+                res.status(200).json({ message: 'Telefone atualizado com sucesso' });
             }
         });
     } else {
@@ -62,9 +62,9 @@ const updateTelefone = (req, res) => {
 
 const deleteTelefone = (req, res) => {
     
-    const {CPF_Cliente } = req.body;
-    if (CPF_Cliente) {
-        con.query('DELETE FROM Telefones WHERE CPF_Cliente = ?', [CPF_Cliente], (err, result) => {
+    const {cpf } = req.body;
+    if (cpf) {
+        con.query('DELETE FROM Telefone WHERE cpf = ?', [cpf], (err, result) => {
             if (err) {
                 res.status(500).json({ error: err });
             } else {
@@ -83,7 +83,7 @@ const deleteTelefone = (req, res) => {
 
 module.exports = {
     addTelefone,
-    getTelefones,
+    getTelefone,
     updateTelefone,
     deleteTelefone
 }

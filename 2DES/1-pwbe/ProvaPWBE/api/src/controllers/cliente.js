@@ -4,16 +4,16 @@ const con = require('../connect/mysql');
 
 const addCliente = (req, res) => {
     
-    const {CPF_Cliente, Nome_Cliente } = req.body;
-    if (CPF_Cliente && Nome_Cliente) {
-        con.query('INSERT INTO Clientes (CPF_Cliente, Nome_Cliente) VALUES (?, ?)',
-            [CPF_Cliente, Nome_Cliente],
+    const {cpf, nome_cliente } = req.body;
+    if (cpf && nome_cliente) {
+        con.query('INSERT INTO Cliente (cpf, nome_cliente) VALUES (?, ?)',
+            [cpf, nome_cliente],
             (err, result) => {
                 if (err) {
                     console.error('Erro ao adicionar Cliente:', err);
                     res.status(500).json({ error: 'Erro ao adicionar Cliente' });
                 } else {
-                    const newCliente = { CPF_Cliente, Nome_Cliente };
+                    const newCliente = { cpf, nome_cliente };
                     res.status(201).json(newCliente);
                 }
             });
@@ -26,7 +26,7 @@ const addCliente = (req, res) => {
 // CRUD - READ
 
 const getCliente = (req, res) => {
-    con.query('SELECT * FROM Clientes', (err, result) => {
+    con.query('SELECT * FROM Cliente', (err, result) => {
         if (err) {
             res.status(500).json({ error: 'Erro ao buscar clientes' });
         } else {
@@ -42,17 +42,17 @@ const getCliente = (req, res) => {
 
 const updateCliente = (req, res) => {
     // const { CPF_Cliente } = req.params;
-    const { Nome_Cliente, CPF_Cliente } = req.body;
+    const { cpf, nome_cliente } = req.body;
     
-    if (CPF_Cliente && Nome_Cliente) {
+    if (cpf && nome_cliente) {
         con.query(
-            'UPDATE Clientes SET Nome_Cliente = ? WHERE CPF_Cliente = ?', 
-            [Nome_Cliente, CPF_Cliente], 
+            'UPDATE Cliente SET nome_cliente = ? WHERE cpf = ?', 
+            [nome_cliente, cpf], 
             (err, result) => {
                 if (err) {
                     res.status(500).json({ error: err });
                 } else {
-                    res.status(200).json({ CPF_Cliente, Nome_Cliente });
+                    res.status(200).json({ cpf, nome_cliente });
                 }
             }
         );
@@ -64,9 +64,9 @@ const updateCliente = (req, res) => {
 
 const deleteCliente = (req, res) => {
     
-    const { CPF_Cliente } = req.body;
-    if (CPF_Cliente) {
-        con.query('DELETE FROM Clientes WHERE CPF_Cliente = ?', [CPF_Cliente], (err, result) => {
+    const { cpf } = req.body;
+    if (cpf) {
+        con.query('DELETE FROM Cliente WHERE cpf = ?', [cpf], (err, result) => {
             if (err) {
                 res.status(500).json({ error: err });
             } else {

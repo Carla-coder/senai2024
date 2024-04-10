@@ -1,6 +1,6 @@
--- Criação do banco de dados
-CREATE DATABASE aluguel_veiculos;
-
+DROP DATABASE IF EXISTS aluguel_veiculos;
+ -- Criação do banco de dados
+CREATE DATABASE aluguel_veiculos CHARSET=UTF8 COLLATE utf8_general_ci;
 -- Seleção do banco de dados
 USE aluguel_veiculos;
 
@@ -104,7 +104,7 @@ SELECT * FROM Telefones;
 SELECT * FROM Alugueis;
 
 -- Mostra todas as tabelas
--- SHOW TABLES;
+ SHOW TABLES;
 
 -- Descrição das tabelas
 DESCRIBE Veiculos;
