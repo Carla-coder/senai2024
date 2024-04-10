@@ -32,9 +32,12 @@ routes.delete('/veiculo/:placa', Veiculo.deleteVeiculo);
 routes.post('/aluguel', Aluguel.addAluguel);
 routes.get('/aluguel', Aluguel.getAluguel);
 routes.put('/aluguel/:placa/:cpf/:reserva', Aluguel.updateAluguel);
-routes.delete('/aluguel/:placa/:cpf/:reserva', Aluguel.deleteAluguel);
+routes.delete('/aluguel/:id', Aluguel.deleteAluguel);
 
-routes.get('/aluguel/veiculos-reservados', Aluguel.getVeiculosReservados);
+// Rotas adicionais para visualizar aluguéis específicos
+routes.get('/aluguel/reservados', Aluguel.getAlugueisReservados);
+routes.get('/aluguel/alugados', Aluguel.getAlugueisAlugados);
+routes.get('/aluguel/relatorio', Aluguel.getRelatorioCompleto);
 
 module.exports = routes;
 

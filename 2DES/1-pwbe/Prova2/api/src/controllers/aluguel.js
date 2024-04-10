@@ -60,17 +60,14 @@ const updateAluguel = (req, res) => {
     }
 }
 
-
-
 // CRUD - DELETE
-
 const deleteAluguel = (req, res) => {    
-    const { placa, cpf, reserva } = req.body;
+    const { id } = req.body; 
     
-    if (placa && cpf && reserva) {
+    if (id) {
         con.query(
-            'DELETE FROM Aluguel WHERE placa = ? AND cpf = ? AND reserva = ?', 
-            [ placa, cpf, reserva], 
+            'DELETE FROM Aluguel WHERE id = ?', // Alterado para deletar pelo ID
+            [id], 
             (err, result) => {
                 if (err) {
                     res.status(500).json({ error: err });
@@ -88,13 +85,46 @@ const deleteAluguel = (req, res) => {
     }
 }
 
-
-const getVeiculosReservados = (req, res) => {
-    con.query('SELECT * FROM Veiculos WHERE placa IN (SELECT placa FROM Aluguel WHERE Status = "reservado")', (err, veiculos) => {
+const getAlugueisReservados = (req, res) => {
+    con.query('SELECT * FROM vw_alugueis_reservados', (err, result) => {
         if (err) {
-            res.status(500).json({ error: 'Erro ao buscar veículos reservados' });
+            res.status(500).json({ error: 'Erro ao buscar aluguéis reservados' });
         } else {
-            res.status(200).json(veiculos);
+            if (result.length > 0) {
+                res.status(200).json(result);
+            } else {
+                res.status(404).json({ error: 'Nenhum aluguel reservado encontrado' });
+            }
+        }
+    });
+};
+
+// Rota para buscar aluguéis alugados
+const getAlugueisAlugados = (req, res) => {
+    con.query('SELECT * FROM vw_alugueis_em_andamento', (err, result) => {
+        if (err) {
+            res.status(500).json({ error: 'Erro ao buscar aluguéis alugados' });
+        } else {
+            if (result.length > 0) {
+                res.status(200).json(result);
+            } else {
+                res.status(404).json({ error: 'Nenhum aluguel alugado encontrado' });
+            }
+        }
+    });
+};
+
+// Rota para buscar o relatório completo de todos os aluguéis
+const getRelatorioCompleto = (req, res) => {
+    con.query('SELECT * FROM vw_todos_os_alugueis_com_status', (err, result) => {
+        if (err) {
+            res.status(500).json({ error: 'Erro ao buscar o relatório completo de aluguéis' });
+        } else {
+            if (result.length > 0) {
+                res.status(200).json(result);
+            } else {
+                res.status(404).json({ error: 'Nenhum aluguel encontrado no relatório completo' });
+            }
         }
     });
 };
@@ -104,5 +134,7 @@ module.exports = {
     getAluguel,
     updateAluguel,
     deleteAluguel,
-    getVeiculosReservados
+    getAlugueisReservados,
+    getAlugueisAlugados,
+    getRelatorioCompleto
 }
