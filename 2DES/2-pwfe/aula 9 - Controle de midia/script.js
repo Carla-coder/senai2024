@@ -9,10 +9,10 @@ let currentSongIndex = 0;
 function playPause() {
     if (audioPlayer.paused){
         audioPlayer.play();
-        PlayPauseButton.src = "Pause";
+        PlayPauseButton.innerText = "Pause";
     }else{
         audioPlayer.pause();
-        PlayPauseButton.src = "Play";
+        PlayPauseButton.innerText = "Play";
     }
 }
 
@@ -22,14 +22,14 @@ function playNext() {
 }
 
 function playPrev() {
-    currentSongIndex = (currentSongIndex + playlist.children.length - 1) % playlist.children.length;
+    currentSongIndex = (currentSongIndex - 1 + playlist.children.length) % playlist.children.length;
     loadSong();
 }
 
 function loadSong() {
     const songItem = playlist.children[currentSongIndex];
-    const songSrc = songItem.dataset.src;
-    const coverSrc = coverItem.dataset.cover;
+    const songSrc = "./song/" + songItem.dataset.src;
+    const coverSrc = songItem.querySelector('.coverImage').src;
 
         audioPlayer.src = songSrc;
         coverImage.src = coverSrc;
@@ -37,9 +37,7 @@ function loadSong() {
 }
 
 PlayPauseButton.addEventListener('click', playPause);
-
 nextButton.addEventListener('click', playNext);
-
 prevButton.addEventListener('click', playPrev);
 
 playlist.addEventListener('click', (event) => {
