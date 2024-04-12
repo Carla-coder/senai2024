@@ -1,0 +1,40 @@
+Resumo aula # 08 - 12/04/2024 Prof. Robson INDMO
+
+React Navigation ( reactnavigation.org ) Navegando entre abas e não mais entre telas.
+O Menu fica na parte inferior da página.
+
+instalando as dependências:
+
+* Abrir uma nova pasta
+* Abrir a pasta com o Visual Code
+
+* No Terminal executar o comando:
+1. npm install -g expo
+2. px create-expo-app [nome do projeto sem espaço, ou usar underline]
+3. cd/[nome do projeto]
+4. npm run web
+5. se der erro instale: npx expo install react-native-web react-dom @expo/metro-runtime
+6. Desenvolver a aplicação no arquivo App.js 
+
+Navegador de guias inferiores de materiais: Uma barra de guias com tema de design de material na parte inferior da tela 
+que permite alternar entre diferentes rotas com animação. 
+As rotas são inicializadas lentamente - seus componentes de tela não são montados até que sejam focados primeiro.
+
+*****************************************************************************************************************
+
+Para verificar a versão do yarn instalado , digite no prompt yarn --version => precisa aparecer 1.22.19
+Instalador de pacotes ( homebrew ) ou pesquise docs.brew.sh/installation
+
+*****************************************************************************************************************
+
+Caso não consiga instalar pelo 'yarn add' digite só 'yarn' e complete com as dependências uma de cada vez: 
+@react-navigation/native
+@react-navigation/material-bottom-tabs
+@expo/vector-icons
+
+npm install react-native-screens react-native-safe-area-context
+yarn add @expo/vector-icons
+reactnavigation>yarn add @react-navigation/material-botton-tabs
+yarn add react-native-paper
+npx expo install react-native-screens
+npm run web para inicializar o navegador (Starting Metro Bumbler)
