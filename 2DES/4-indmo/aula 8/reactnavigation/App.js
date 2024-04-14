@@ -15,9 +15,9 @@ export default function App() {
 
       <Tab.Navigator
         initialRouteName="Home"
-        activeColor="#052a2a"
-        inactiveColor="#3e2465"
-        barStyle={{ backgroundColor: '#c1ffc1' }}
+        activeColor="#3b5998"
+        inactiveColor="#fff"
+        barStyle={{ backgroundColor: '#5d8aa8' }}
       >
         <Tab.Screen
           name="Home"
@@ -34,7 +34,7 @@ export default function App() {
           name="Search"
           component={BuscarScreen}
           options={{
-            tabBarLabel: 'Buscar',
+            tabBarLabel: 'Links',
             tabBarIcon: ({ color }) => (
               <Ionicons name="search" color={color} size={26} />
             ),
