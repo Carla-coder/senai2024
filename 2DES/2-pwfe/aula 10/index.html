@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Escuta Aí! LTDA</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,13 +20,13 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="#" id="playerLink">Player</a>
+                <a class="nav-link" href="#" id="playerLink">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" id="quemSomosLink">Quem Somos</a>
+                <a class="nav-link" href="#" id="quemSomosLink" data-bs-toggle="modal" data-bs-target="#quemSomosModal">Quem Somos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" id="pecaSuaMusicaLink">Peça sua Música</a>
+                <a class="nav-link" href="#" id="pecaSuaMusicaLink" data-bs-toggle="modal" data-bs-target="#pecaSuaMusicaModal">Peça sua Música</a>
               </li>
             </ul>
           </div>
@@ -35,65 +35,66 @@
 
   <div class="container">
     <!-- Header -->
-    <header>
+    <header class="text-center my-5">
       <h1>Escuta Aí! LTDA</h1>
-      <p>Descubra novas músicas</p>
+      <p class="lead">Descubra novas músicas</p>
     </header>
-
-    <!-- Botão "Quem Somos" -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#quemSomosModal">
-        Quem Somos
-    </button>
-
-    <!-- Botão "Peça sua Música" -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pecaSuaMusicaModal">
-    Peça sua Música
-    </button>
-
 
     <!-- Playlists -->
     <section id="playlists">
-      <h2>Playlists</h2>
+      <h2 class="text-center mb-4">Playlists</h2>
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 mb-4">
           <h3>Playlist 1</h3>
-          <ul>
-            <li>Queen - Queen - I want to break free</li>
-            <li>Queen - Música 2</li>
-            <li>Queen - Música 3</li>
+          <ul class="list-unstyled">
+            <li data-src="./musica/Queen - I want to break free.mp3" class="song-item">
+              <img src="./album/imagem1.jpg" class="cover-img" alt="album cover">
+              Queen - I want to break free
+            </li>
+            <li>Queen - We Are The Champions (Live Aid 1985).mp3 </li>
+            <li>Queen - Bohemian Rhapsody (Official Video Remastered).mp3</li>
           </ul>
-          <button class="btn btn-primary" onclick="playMusic('./musica/Queen - I want to break free.mp3')">Reproduzir</button>
+          <button class="btn btn-primary btn-block" onclick="playMusic('./musica/Queen - I want to break free.mp3')">Reproduzir</button>
         </div>
        
-        <div class="col-md-4">
+        <div class="col-md-4 mb-4">
           <h3>Playlist 2</h3>
-          <ul>
+          <ul class="list-unstyled">
             <li>Artista 4 - Música 4</li>
             <li>Artista 5 - Música 5</li>
             <li>Artista 6 - Música 6</li>
           </ul>
-          <button class="btn btn-primary" onclick="playMusic('caminho/para/sua/musica2.mp3')">Reproduzir</button> 
+          <button class="btn btn-primary btn-block" onclick="playMusic('caminho/para/sua/musica2.mp3')">Reproduzir</button> 
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 mb-4">
           <h3>Playlist 3</h3>
-          <ul>
+          <ul class="list-unstyled">
             <li>Artista 7 - Música 7</li>
             <li>Artista 8 - Música 8</li>
             <li>Artista 9 - Música 9</li>
           </ul>
-          <button class="btn btn-primary" onclick="playMusic('caminho/para/sua/musica3.mp3')">Reproduzir</button>
+          <button class="btn btn-primary btn-block" onclick="playMusic('caminho/para/sua/musica3.mp3')">Reproduzir</button>
         </div>
       </div>
     </section>
 
     <!-- Player de música -->
-    <section id="player">
+    <section id="player" class="text-center my-5">
       <h2>Player de Música</h2>
-      <audio id="playerAudio" controls>
-        <source src="" type="audio/mp3">
+      <audio id="playerAudio" controls class="mb-4">
+        <source src="./musica/Queen - I want to break free.mp3" type="audio/mp3">
         Seu navegador não suporta o elemento de áudio.
       </audio>
+      <!-- Capa do álbum -->
+      <img id="albumImg" src="./album/imagem1.jpg" alt="Capa do Álbum" class="mb-4">
+      <!-- Botões de controle -->
+      <div class="btn-group" role="group" aria-label="Controles de Reprodução">
+        <button id="playPauseButton" class="btn btn-primary">Play/Pause</button>
+        <button id="previewButton" class="btn btn-primary">Preview</button>
+        <button id="nextButton" class="btn btn-primary">Next</button>
+        <button id="randomButton" class="btn btn-primary">Random</button>
+      </div>
     </section>
 </div>
 
@@ -149,5 +150,8 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <script src="script.js"></script>
+
 </body>
 </html>
