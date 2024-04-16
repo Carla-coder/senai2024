@@ -1,30 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: #191414;
+  color: #fff;
+}
+
+/* Adicione estas regras CSS */
+.navbar-nav {
+  width: 100%;
+  justify-content: space-around;
+}
+
+.nav-item {
+  flex: 0 1 auto;
+  text-align: center;
+}
+
+.navbar-link {
+  color: white;
+}
+
+/* Estilos para o título do modal */
+.modal-title {
+  color: #000;
+  /* Cor do texto para o título do modal */
+}
+
+/* Estilos para o corpo do modal */
+.modal-body {
+  color: #333;
+  /* Cor mais escura para o texto */
+}
+
+.bg-spotify {
+  background-color: #1DB954;
+  /* Cor semelhante à da Spotify */
+}
+
+/* Estilos para centralizar os elementos principais */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Estilos para o título da seção de playlists */
+.container h2 {
+  text-align: center;
+  /* Centraliza o texto */
+  margin-top: 20px;
+  /* Adiciona espaço superior */
+}
+
+/* Estilos para cada item de música na playlist */
+.song-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* Estilos para as imagens das músicas na playlist */
+.song-item img {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para a capa de cada música */
+.cover-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+
 /* Estilos para o player de música */
 #player {
+  max-width: 600px;
+  /* Define uma largura máxima para o player */
   margin-top: 50px;
 }
 
+/* Estilos para o título do player */
 #player h2 {
-  font-size: 1.5rem;
+  font-size: 24px;
   margin-bottom: 20px;
 }
 
-#player audio {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
+/* Estilos para o álbum de música no player */
 #albumImg {
   display: block;
   margin: 0 auto;
-  width: 200px; /* Ajuste conforme necessário */
-  height: 200px; /* Ajuste conforme necessário */
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
 
+/* Efeito de hover na imagem do álbum */
 #albumImg:hover {
   transform: scale(1.1);
+  /* Aumenta o tamanho em 10% */
+}
+
+/* Estilos para os botões de controle */
+#player .btn-primary {
+  border-radius: 20px;
+  /* Define um raio de 20px para arredondar as bordas */
+  margin-right: 10px;
+  /* Adiciona margem à direita de cada botão */
+}
+
+/* Remove a margem do último botão */
+#player .btn-primary:last-child {
+  margin-right: 0;
+  /* Remove a margem do último botão para evitar espaçamento extra */
 }
 
 /* Estilos para os botões de controle */
@@ -33,11 +131,13 @@
   border-color: #1db954;
 }
 
+/* Efeito de hover nos botões primários */
 .btn-primary:hover {
   background-color: #1ed760;
   border-color: #1ed760;
 }
 
+/* Efeito de foco nos botões primários */
 .btn-primary:focus {
   box-shadow: 0 0 0 0.2rem rgba(29, 185, 84, 0.5);
 }
