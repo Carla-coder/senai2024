@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Move</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#quemsomos" id="quemSomosBtn">Quem Somos</a>
+        <a href="#clientes">Clientes</a>
+        <a href="#alugueis">Aluguéis</a>
+        <a href="#veiculos">Veículos</a>
+        <a href="#contato">Contato</a>
+    </div>
+
+    <div class="content">
+        <!-- Seu conteúdo aqui -->
+        <img src="./image/carros_logo.png" alt="Locadora de Carros"
+            style="width:100%; max-width: 1000px; display: block; margin: auto;">
+        <h1>Bem-vindo à Happy Move - Locadora de Veículos</h1>
+        <p>Uma locadora de carros dedicada a proporcionar uma experiência excepcional de aluguel de veículos. Com uma
+            frota diversificada de veículos de alta qualidade e um atendimento ao cliente de primeira linha, estamos
+            aqui para tornar sua jornada mais agradável.Seja para viagens de lazer ou negócios, escolha a Happy Movie
+            para uma experiência de aluguel de carros verdadeira.</p>
+    </div>
+
+    <!-- Modal Quem Somos -->
+    <div id="quemSomosModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>Quem Somos</h1>
+            <p>Somos a Happy Move, comprometidos em fornecer os melhores serviços de aluguel de veículos para tornar sua
+                experiência de viagem ainda mais agradável. Nossa equipe está aqui para atendê-lo com profissionalismo e
+                cortesia.</p>
+            <h1>Bem-vindo à Happy Move - Locadora de Carros</h1>
+            <p>Esta é uma locadora de carros dedicada a proporcionar uma experiência excepcional de aluguel de veículos.
+                Com uma ampla gama de carros para escolher, estamos aqui para tornar sua jornada mais feliz.</p>
+        </div>
+    </div>
+
+    <!-- Adicionando informações de contato -->
+    <div class="content" id="contato">
+        <h2>Contato</h2>
+        <p>Entre em contato conosco para mais informações:</p>
+        <p>Endereço: Av. Principal, 123 - Cidade Feliz</p>
+        <p>Telefone: (12) 3456-7890</p>
+        <p>Email: contato@happymovie.com</p>
+    </div>
+
+     <!-- Página de Listagem de Veículos Disponíveis -->
+<div id="veiculos-disponiveis" class="content">
+    <h2>Veículos Disponíveis</h2>
+    <ul id="lista-veiculos" class="veiculos-list">
+        <li class="veiculo-item">
+            <img src="./image/car1.png" alt="Carro">
+            <div class="veiculo-info">
+                <h3>Veículo 1</h3>
+                <p>Modelo: ABC</p>
+                <p>Placa: XYZ-123</p>
+            </div>
+        </li>
+        <li class="veiculo-item">
+            <img src="./image/car2.png" alt="Carro">
+            <div class="veiculo-info">
+                <h3>Veículo 2</h3>
+                <p>Modelo: DEF</p>
+                <p>Placa: UVW-456</p>
+            </div>
+        </li>
+        <li class="veiculo-item">
+            <img src="./image/car3.png" alt="Carro">
+            <div class="veiculo-info">
+                <h3>Veículo 3</h3>
+                <p>Modelo: GHI</p>
+                <p>Placa: RST-789</p>
+            </div>
+        </li>
+        <li class="veiculo-item">
+            <img src="./image/car4.png" alt="Carro">
+            <div class="veiculo-info">
+                <h3>Veículo 3</h3>
+                <p>Modelo: GHI</p>
+                <p>Placa: RST-789</p>
+            </div>
+        </li>  
+        <li class="veiculo-item">
+            <img src="./image/car5.png" alt="Carro">
+            <div class="veiculo-info">
+                <h3>Veículo 3</h3>
+                <p>Modelo: GHI</p>
+                <p>Placa: RST-789</p>
+            </div>
+        </li>  
+        <li class="veiculo-item">
+            <img src="./image/car6.jfif" alt="Carro">
+            <div class="veiculo-info">
+                <h3>Veículo 3</h3>
+                <p>Modelo: GHI</p>
+                <p>Placa: RST-789</p>
+            </div>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- Página de Cadastro de Clientes -->
+<div id="cadastro-clientes" class="content">
+    <h2>Cadastro de Clientes</h2>
+    <form id="form-cadastro-cliente">
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" name="cpf" required><br>
+        
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br>
+        
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone" required><br>
+        
+        <button type="button" onclick="cadastrarCliente()">Cadastrar Cliente</button>
+    </form>
+</div>
+
+<!-- Página de Reserva de Veículos -->
+<div id="reserva-veiculos" class="content">
+    <h2>Reserva de Veículos</h2>
+    <form id="form-reserva-veiculo">
+        <label for="placa">Placa:</label>
+        <input type="text" id="placa" name="placa" required><br>
+        
+        <label for="cpfCliente">CPF do Cliente:</label>
+        <input type="text" id="cpfCliente" name="cpfCliente" required><br>
+        
+        <label for="dataRetirada">Data de Retirada:</label>
+        <input type="date" id="dataRetirada" name="dataRetirada" required><br>
+        
+        <label for="dataDevolucao">Data de Devolução:</label>
+        <input type="date" id="dataDevolucao" name="dataDevolucao" required><br>
+        
+        <button type="button" onclick="reservarVeiculo()">Reservar Veículo</button>
+    </form>
+</div>
+
+<!-- Página de Registro de Aluguéis -->
+<div id="registro-alugueis" class="content">
+    <h2>Registro de Aluguéis</h2>
+    <table id="tabela-alugueis">
+        <thead>
+            <tr>
+                <th>Placa do Veículo</th>
+                <th>CPF do Cliente</th>
+                <th>Data de Reserva</th>
+                <th>Data de Retirada</th>
+                <th>Data de Devolução</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aqui serão inseridas as linhas da tabela com os dados dos aluguéis -->
+            <tr>
+                <td>DEA-7981</td>
+                <td>111.111.111-11</td>
+                <td>2024-01-01</td>
+                <td>2024-01-02</td>
+                <td>2024-01-05</td>
+                <td>R$ 400,00</td>
+            </tr>
+            <!-- Adicione mais linhas conforme necessário -->
+        </tbody>
+    </table>
+</div>
+
+    <!-- Rodapé -->
+    <footer>
+        &copy; 2024 Happy Move - Locadora de Veículos - Todos direitos reservados.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
