@@ -6,75 +6,213 @@
   font-family: Arial, sans-serif;
 }
 
+body {
+  background-image: linear-gradient(to bottom, #ffeb3b, #ff9800, #64b5f6, #2196f3, #9c27b0, #673ab7);
+}
+
 /* Estilo para o contêiner principal */
 .container {
-  width: 80%; /* Defina a largura do contêiner conforme necessário */
-  margin: 0 auto; /* Centralize o contêiner horizontalmente */
+  width: 80%;
+  /* Defina a largura do contêiner conforme necessário */
+  margin: 0 auto;
+  /* Centralize o contêiner horizontalmente */
+  text-align: center;
+  /* Centralize todo o texto dentro do contêiner */
 }
 
 /* Estilo para a navbar */
-.navbar {
-    background-color: #343a40; /* Cor de fundo da navbar */
-  }
-  
-  .navbar-brand,
-  .navbar-nav .nav-link {
-    color: #ffffff; /* Cor do texto da navbar */
-  }
-  
-  .navbar-brand:hover,
-  .navbar-nav .nav-link:hover {
-    color: #ffffff ; /* Cor do texto da navbar ao passar o mouse */
-  }
-  
-  /* Estilo para os cards na página Home */
-  .card {
-    margin-bottom: 20px;
-    background-color: #f8f9fa; /* Cor de fundo dos cards */
-    border: 1px solid rgba(0, 0, 0, 0.125); /* Borda dos cards */
-    border-radius: 0.25rem; /* Cor de fundo dos cards */
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* Cor de fundo dos cards */
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transição dos cards */
-  }
+.bg-custom {
+  background-color: #7986cb;
+  /* Cor de fundo da navbar */
+}
 
-  /* Estilo para o campo de pesquisa de temperatura */
-  #inputLocal {
-    width: 300px;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.125); /* Borda do campo de pesquisa de temperatura */
-    border-radius: 0.25rem; /* Cor de fundo do campo de pesquisa de temperatura */
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* Cor de fundo do campo de pesquisa de temperatura */
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transição do campo de pesquisa de temperatura */
-    outline: none; /* Cor de fundo do campo de pesquisa de temperatura */
-    font-size: 16px; /* Tamanho do campo de pesquisa de temperatura */
-    font-weight: 400; /* Fonte do campo de pesquisa de temperatura */
-    color: #495057; /* Cor do campo de pesquisa de temperatura */
-  }
-  
-  /* Estilo para o modal de contato */
-  .modal-content {
-    border-radius: 0;
-  }
-  
-  /* Estilo para o modal de adicionar tarefa */
-  .modal-header {
-    background-color: #343a40;
-    color: #ffffff;
-    border-bottom: none;
-  }
-  
-  .modal-footer {
-    border-top: none;
-  }
-  
-  /* Estilo para os botões dentro dos modais */
-  .modal-content button {
-    border: none;
-    outline: none;
-    background-color: #343a40;
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 3px;
-    cursor: pointer;
-  }
+.navbar-nav {
+  margin: 0 auto;
+  /* Define as margens esquerda e direita como 'auto' para centralizar */
+  display: flex;
+  justify-content: center;
+  /*Alinha os itens ao centro */
+}
+
+.navbar-brand {
+  padding: 0 15px;
+  /* Adiciona um preenchimento à esquerda e à direita do título */
+  margin-right: 20px;
+  /* Adiciona um espaçamento à direita do título */
+  margin-left: 20px;
+  /* Adiciona um espaçamento à esquerda do título */
+}
+
+.navbar-nav .nav-item {
+  margin-right: 100px;
+  /* Adiciona um espaçamento à direita de cada link */
+}
+
+.navbar-nav .nav-item:last-child {
+  margin-right: 0;
+  /* Remove o espaçamento à direita do último link */
+}
+
+.navbar-dark,
+.navbar-nav .nav-link {
+  color: #ffffff;
+  /* Cor do texto da navbar */
+}
+
+.navbar-brand:hover,
+.navbar-nav .nav-link:hover {
+  color: #dbd3d3;
+  /* Cor do texto da navbar ao passar o mouse */
+}
+
+/* Estilo para os cards na página Home */
+.card {
+  margin-bottom: 20px;
+  background-color: #f8f9fa;
+  /* Cor de fundo dos cards */
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  /* Borda dos cards */
+  border-radius: 10px;
+  /* Cor de fundo dos cards */
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  /* Cor de fundo dos cards */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  /* Transição dos cards */
+  display: inline-block;
+  /* Certifique-se de que os cards são exibidos em linha */
+}
+
+.card-title,
+.card-text {
+  height: 20px;
+  /* Defina a altura desejada */
+  overflow: hidden;
+  /* Oculte o texto que exceder a altura definida */
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Estilo para o campo de pesquisa de temperatura */
+#inputLocal {
+  width: 300px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  /* Borda do campo de pesquisa de temperatura */
+  border-radius: 0.25rem;
+  /* Cor de fundo do campo de pesquisa de temperatura */
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  /* Cor de fundo do campo de pesquisa de temperatura */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  /* Transição do campo de pesquisa de temperatura */
+  outline: none;
+  /* Cor de fundo do campo de pesquisa de temperatura */
+  font-size: 16px;
+  /* Tamanho do campo de pesquisa de temperatura */
+  font-weight: 400;
+  /* Fonte do campo de pesquisa de temperatura */
+  color: #495057;
+  /* Cor do campo de pesquisa de temperatura */
+  margin: 0 auto;
+  /* Centralize o campo horizontalmente */
+  display: block;
+  /* Certifique-se de que o campo de entrada é exibido como um bloco */
+  text-align: center;
+  /* Centralize o texto dentro do campo */
+}
+
+/* Estilo para o resultado da temperatura */
+#temperaturaResultado {
+  margin-top: 20px;
+  /* Adicione uma margem superior para separar do campo de entrada */
+  min-height: 50px;
+  /* Defina uma altura mínima para o resultado da temperatura */
+}
+
+/* Estilo para o botão de pesquisa */
+#temperatura button {
+  margin-top: 20px;
+  /* Adicione uma margem superior para separar do resultado da temperatura */
+}
+
+/* Estilo para o modal de contato */
+.modal-content {
+  border-radius: 0;
+  margin: 0 auto;
+  /* Centralize o modal horizontalmente */
+  text-align: center;
+}
+
+/* Estilo para o modal de adicionar tarefa */
+#modalTarefa .modal-content {
+  background: linear-gradient(to right, #007bff, #3f9fff, #66b3ff);
+  border-radius: 10px;
+  border: none;
+}
+
+#modalTarefa .modal-header {
+  background: linear-gradient(to right, #007bff, #3f9fff, #66b3ff);
+  color: #fff;
+}
+
+#modalTarefa .modal-body,
+#modalTarefa .modal-footer {
+  background-color: #f8f9fa;
+}
+
+/* Estilo para o modal de contato */
+#modalContato .modal-content {
+  border-radius: 10px;
+  border: none;
+}
+
+/* Estilo para os botões dentro dos modais */
+.modal-content button {
+  border: none;
+  outline: none;
+  background-color: #343a40;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.modal-custom .modal-content {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.modal-custom .modal-header {
+  background: linear-gradient(to right, #66ccff, #3399ff, #0066cc);
+  color: #fff;
+}
+
+/* Alinhar os labels à esquerda */
+.modal-body form .form-group label {
+  text-align: left;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Alinhar os inputs à esquerda */
+.modal-body form .form-group input,
+.modal-body form .form-group textarea {
+  text-align: left;
+}
+
+.modal-custom .modal-footer {
+  background-color: #f0f0f0;
+}
+
+.modal-custom .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.modal-custom .btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
