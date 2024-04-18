@@ -1,0 +1,25 @@
+Resumo explicando objetos complexos nas classes
+
+// Criando um objeto complexo
+const argos = [];
+for(i = 0; i < 10; i++) {   
+    if(i % 2 == 0) {
+        const argo = new Argo(2010+i);
+        argos.push(argo);
+    } else {
+        const argo = new Argo();
+        argos.push(argo);
+    }
+}
+
+// Explicando linha por linha
+
+const argos = [];: Esta linha cria uma nova variável chamada argos e a inicializa como uma matriz vazia. Presumivelmente, esta matriz será preenchida posteriormente com objetos da classe Argo.
+for(i = 0; i < 10; i++) {: Esta linha inicia um loop for que iterará 10 vezes, começando com i igual a 0 e incrementando i em 1 a cada iteração.
+if(i % 2 == 0) {: Este é um bloco condicional que verifica se o valor de i é par. O operador % calcula o resto da divisão de i por 2. Se o resto for igual a 0, isso significa que i é par.
+const argo = new Argo(2010+i);: Aqui, um novo objeto da classe Argo está sendo instanciado. Se o valor de i for par, o ano de construção do objeto é definido como 2010 mais o valor de i. Caso contrário, se i for ímpar, o objeto é instanciado com o ano de construção não especificado.
+argos.push(argo);: Esta linha adiciona o objeto argo à matriz argos.
+} else {: Este bloco é executado se o valor de i não for par.
+const argo = new Argo();: Aqui, um novo objeto da classe Argo é instanciado, sem especificar o ano de construção.
+argos.push(argo);: Mais uma vez, este objeto argo é adicionado à matriz argos.
+Essencialmente, este código cria uma série de objetos da classe Argo e os armazena em uma matriz chamada argos. Os objetos são criados com anos de construção diferentes, sendo alguns especificados com base no valor de i e outros sem especificação de ano de construção
