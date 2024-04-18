@@ -1,3 +1,42 @@
+/* Estilos para a tabela de clientes */
+#clientesTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#clientesTable th,
+#clientesTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#clientesTable th {
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+/* Estilos para a tabela de veículos */
+#veiculosTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#veiculosTable th,
+#veiculosTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#veiculosTable th {
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+/* Estilos gerais */
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +47,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #cccccc; 
+    background-color: #cccccc;
 }
 
 .navbar {
@@ -31,8 +70,8 @@ body {
     border-radius: 5px;
 }
 
-   /* Estilos para o modal */
-   .modal {
+/* Estilos para o modal */
+.modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -41,58 +80,90 @@ body {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-    padding-top: 60px;
+    /* background-color: rgb(0,0,0); */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* padding-top: 60px; */
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 5% auto;
+    /* margin: 5% auto; */
+    margin: 20% auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+    /* border: 1px solid #888; */
+    /* width: 80%; */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    max-width: 80%;
 }
 
 .close {
-    color: #aaa;
+    /* color: #aaa;
     float: right;
     font-size: 28px;
-    font-weight: bold;
+    font-weight: bold; */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
 }
 
-.close:hover,
+/* .close:hover,
 .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
+} */
+
+/* Outros Estilos */
+.modal-content h2 {
+    color: #333;
+}
+
+.modal-content p {
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Estilo do Botão de Fechar */
+.close:hover {
+    color: #999;
 }
 
 /* Estilos para centralizar o conteúdo */
 .content {
     text-align: center;
     margin: auto;
-    max-width: 800px; /* Definindo a largura máxima do conteúdo */
-    padding: 20px; /* Adicionando um espaçamento interno */
-    margin-top: 50px; /* Adicionando margem superior */
+    max-width: 800px;
+    /* Definindo a largura máxima do conteúdo */
+    padding: 20px;
+    /* Adicionando um espaçamento interno */
+    margin-top: 50px;
+    /* Adicionando margem superior */
 }
 
- /* Estilos para o título */
- .content h1 {
-    margin-top: 20px; /* Adicionando margem superior ao título */
+/* Estilos para o título */
+.content h1 {
+    margin-top: 20px;
+    /* Adicionando margem superior ao título */
     color: #333;
 }
 
- /* Estilos para o parágrafo */
- .content p {
-    margin-top: 20px; /* Adicionando margem superior ao parágrafo */
-    text-align: center; /* Centralizando o parágrafo */
+/* Estilos para o parágrafo */
+.content p {
+    margin-top: 20px;
+    /* Adicionando margem superior ao parágrafo */
+    text-align: center;
+    /* Centralizando o parágrafo */
     color: #333;
 }
 
 /* Estilos para ajustar o contato da Home */
 #contato {
-    margin-bottom: 50px; /* Adicionando margem inferior ao contato da Home */
+    margin-bottom: 50px;
+    /* Adicionando margem inferior ao contato da Home */
 }
 
 /* Estilos para a seção de Veículos Disponíveis */
@@ -136,7 +207,6 @@ body {
     margin: 5px 0;
 }
 
-
 /* Estilos para as páginas de Cadastro de Clientes, Reserva de Veículos e Registro de Aluguéis */
 .content {
     text-align: center;
@@ -165,7 +235,7 @@ body {
     box-sizing: border-box;
 }
 
-.formulario input[type="submit"] {
+.formulario button[type="button"] {
     width: 100%;
     background-color: #4CAF50;
     color: white;
@@ -176,7 +246,7 @@ body {
     cursor: pointer;
 }
 
-.formulario input[type="submit"]:hover {
+.formulario button[type="button"]:hover {
     background-color: #45a049;
 }
 
@@ -184,6 +254,7 @@ body {
 #registro-alugueis {
     text-align: center;
     margin-top: 50px;
+    /* margin-bottom: 100px; */
 }
 
 #tabela-alugueis {
@@ -257,7 +328,7 @@ body {
     box-sizing: border-box;
 }
 
-#form-cadastro-cliente input[type="submit"] {
+#form-cadastro-cliente button[type="button"] {
     width: calc(100% - 24px);
     background-color: #4CAF50;
     color: white;
@@ -268,7 +339,7 @@ body {
     cursor: pointer;
 }
 
-#form-cadastro-cliente input[type="submit"]:hover {
+#form-cadastro-cliente button[type="button"]:hover {
     background-color: #45a049;
 }
 
@@ -298,7 +369,7 @@ body {
     box-sizing: border-box;
 }
 
-#form-reserva-veiculo input[type="submit"] {
+#form-reserva-veiculo button[type="button"] {
     width: calc(100% - 24px);
     background-color: #4CAF50;
     color: white;
@@ -309,17 +380,38 @@ body {
     cursor: pointer;
 }
 
-#form-reserva-veiculo input[type="submit"]:hover {
+#form-reserva-veiculo button[type="button"]:hover {
     background-color: #45a049;
 }
 
 /* Estilos para o rodapé */
- footer {
-    background: linear-gradient(to right, #333333, #666666, #999999, #CCCCCC); 
+footer {
+    background: linear-gradient(to right, #333333, #666666, #999999, #CCCCCC);
     color: white;
     text-align: center;
-    padding: 20px 0;
+    padding: 10px 0;
     position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
+}
+
+#scrollBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+}
+
+#scrollBtn:hover {
+    background-color: #555;
 }
