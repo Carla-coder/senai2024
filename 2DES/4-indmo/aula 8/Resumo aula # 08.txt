@@ -11,8 +11,7 @@ instalando as dependências:
 * No Terminal executar o comando:
 1. npm install -g expo
 2. npx create-expo-app [nome do projeto sem espaço, ou usar underline]
-3. cd npm run web
-[nome do projeto]
+3. cd [nome do projeto]
 4. npm run web
 5. se der erro instale: npx expo install react-native-web react-dom @expo/metro-runtime
 6. Desenvolver a aplicação no arquivo App.js 
@@ -29,12 +28,13 @@ Instalador de pacotes ( homebrew ) ou pesquise docs.brew.sh/installation
 *****************************************************************************************************************
 
 Caso não consiga instalar pelo 'yarn add' digite só 'yarn' e complete com as dependências uma de cada vez: 
+
 yarn add@react-navigation/native
 yarn add @react-navigation/native-stack
-yarn add @expo/vector-icons 
+yarn add @expo/vector-icons
+yarn add @react-navigation/material-botton-tabs 
+npx expo install react-native-screens
 npm install react-native-screens react-native-safe-area-context
 yarn add react-navigation-material-bottom-tabs
-yarn add @react-navigation/material-botton-tabs
 yarn add react-native-paper
-npx expo install react-native-screens
-npm run web [para inicializar o navegador (Starting Metro Bumbler)]
+npm run web [ comando para inicializar o navegador (Starting Metro Bumbler)]
