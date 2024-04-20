@@ -1,12 +1,12 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
-import logo from '../image/Logo Escuta ai.png';
+import React from 'react'
+import { View, Text, StyleSheet, Image, ScrollView } from 'react-native'
+import logo from '../image/Logo Escuta ai.png'
 
-export default function QuemSomosScreen() {
+export default function QuemSomosScreen () {
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContainer}>
       <View style={styles.container}>
-        <Image source={logo} style={styles.logo} resizeMode="contain" />
+        <Image source={logo} style={styles.logo} resizeMode='contain' />
         <Text style={styles.description}>
           {`Escuta Aí!
 
@@ -20,7 +20,7 @@ Junte-se a nós na jornada de descoberta musical e compartilhe sua paixão pela 
         </Text>
       </View>
     </ScrollView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -28,24 +28,24 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'black',
+    backgroundColor: 'black'
   },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    backgroundColor: 'black',
+    backgroundColor: 'black'
   },
   logo: {
     width: 400,
     height: 400,
-    marginBottom: 20,
+    marginBottom: 20
   },
   description: {
     fontSize: 18,
     textAlign: 'center',
     marginTop: 10,
-    color: '#f2f2f2',
-  },
-});
+    color: '#f2f2f2'
+  }
+})

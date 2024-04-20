@@ -29,13 +29,12 @@ Instalador de pacotes ( homebrew ) ou pesquise docs.brew.sh/installation
 *****************************************************************************************************************
 
 Caso não consiga instalar pelo 'yarn add' digite só 'yarn' e complete com as dependências uma de cada vez: 
-@react-navigation/native
-yarn add 
-@expo/vector-icons
-
+yarn add@react-navigation/native
+yarn add @react-navigation/native-stack
+yarn add @expo/vector-icons 
 npm install react-native-screens react-native-safe-area-context
-yarn add @expo/vector-icons
-reactnavigation>yarn add @react-navigation/material-botton-tabs
+yarn add react-navigation-material-bottom-tabs
+yarn add @react-navigation/material-botton-tabs
 yarn add react-native-paper
 npx expo install react-native-screens
-npm run web para inicializar o navegador (Starting Metro Bumbler)
+npm run web [para inicializar o navegador (Starting Metro Bumbler)]
