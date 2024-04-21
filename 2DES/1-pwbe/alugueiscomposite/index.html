@@ -170,6 +170,13 @@
         <div id="reservadeveiculos" class="content">
             <h2>Reserva de Veículos</h2>
             <form id="form-reserva-veiculo">
+                <label for="modelo">Modelo:</label>
+                <select id="modelo" name="modelo" required>
+                    <option value="" selected disabled>Selecione modelo do veículo</option>
+                    <!-- Opções dos modelos de veículos serão adicionadas aqui dinamicamente -->
+                </select>
+                <br>
+
                 <label for="placa">Placa:</label>
                 <input type="text" id="placa" name="placa" required><br>
 
@@ -203,30 +210,25 @@
             </table>
 
             <!-- Página de Registro de Aluguéis -->
-            <div id="registrodealugueis" class="content">
+            <div class="content" id="registrodealugueis">
                 <h2>Registro de Aluguéis</h2>
                 <table id="tabela-alugueis">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Placa do Veículo</th>
-                            <th>CPF do Cliente</th>
+                            <th>CPF</th>
+                            <th>Nome do Cliente</th>
                             <th>Data de Reserva</th>
                             <th>Data de Retirada</th>
                             <th>Data de Devolução</th>
+                            <th>Modelo</th>
+                            <th>Marca</th>
                             <th>Subtotal</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Aqui serão inseridas as linhas da tabela com os dados dos aluguéis -->
-                        <tr>
-                            <td>DEA-7981</td>
-                            <td>111.111.111-11</td>
-                            <td>2024-01-01</td>
-                            <td>2024-01-02</td>
-                            <td>2024-01-05</td>
-                            <td>R$ 400,00</td>
-                        </tr>
-                        <!-- Adicione mais linhas conforme necessário -->
+                        
                     </tbody>
                 </table>
             </div>
@@ -278,8 +280,9 @@
 
         <script src="script.js"></script>
 
-</body>
-
         <button onclick="scrollToTop()" id="scrollBtn" title="Voltar ao topo">Topo</button>
 
+</body>
+
+       
 </html>

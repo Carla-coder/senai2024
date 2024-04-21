@@ -1,40 +1,5 @@
 /* Estilos para a tabela de clientes */
-#clientesTable {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
 
-#clientesTable th,
-#clientesTable td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
-#clientesTable th {
-    background-color: #f2f2f2;
-    text-align: center;
-}
-
-/* Estilos para a tabela de veículos */
-#veiculosTable {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-#veiculosTable th,
-#veiculosTable td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
-#veiculosTable th {
-    background-color: #f2f2f2;
-    text-align: center;
-}
 
 /* Estilos gerais */
 * {
@@ -207,7 +172,7 @@ body {
     margin: 5px 0;
 }
 
-/* Estilos para as páginas de Cadastro de Clientes, Reserva de Veículos e Registro de Aluguéis */
+/* Estilos para Cadastro de Clientes, Reserva de Veículos */
 .content {
     text-align: center;
     margin-top: 50px;
@@ -250,23 +215,78 @@ body {
     background-color: #45a049;
 }
 
-/* Estilos para a tabela de registro de aluguéis */
-#registro-alugueis {
-    text-align: center;
-    margin-top: 50px;
-    /* margin-bottom: 100px; */
-}
-
-#tabela-alugueis {
+#clientesTable {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-#tabela-alugueis th,
-#tabela-alugueis td {
+#clientesTable th,
+#clientesTable td {
     border: 1px solid #ddd;
     padding: 8px;
+    text-align: left;
+}
+
+#clientesTable th {
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+#clientesTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#clientesTable tr:hover {
+    background-color: #ddd;
+}
+
+/* Estilos para a tabela de veículos */
+#veiculosTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#veiculosTable th,
+#veiculosTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#veiculosTable th {
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+#veiculosTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#veiculosTable tr:hover {
+    background-color: #ddd;
+}
+
+/* Estilos para a tabela de registro de aluguéis */
+#registrodealugueis {
+    margin-top: 50px;
+} 
+
+#tabela-alugueis {
+    width: 100%;
+    margin: auto;
+    border-collapse: collapse;
+    margin-top: 20px;
+} 
+
+#tabela-alugueis th,
+#tabela-alugueis td {
+    font-size: 16px;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    white-space: nowrap; /* Impede a quebra de texto */
 }
 
 #tabela-alugueis th {
@@ -356,6 +376,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
+
 }
 
 #form-reserva-veiculo input[type="text"],
@@ -371,7 +392,7 @@ body {
 
 #form-reserva-veiculo button[type="button"] {
     width: calc(100% - 24px);
-    background-color: #4CAF50;
+     background-color: #4CAF50; 
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -382,7 +403,39 @@ body {
 
 #form-reserva-veiculo button[type="button"]:hover {
     background-color: #45a049;
-}
+} 
+
+/* Estilo para o select */
+select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 12px;
+    margin: 8px 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilo para as opções do select */
+  select option {
+    padding: 8px;
+    font-size: 16px;
+  }
+  
+  /* Estilo para quando o select estiver focado */
+  /* select:focus {
+    outline: none;
+    border-color: #4CAF50;
+  } */
+  
+  /* Estilo para quando o select estiver aberto */
+  /* select:focus option:checked {
+    background-color: #45a049;
+    color: white;
+  } */
+  
 
 /* Estilos para o rodapé */
 footer {
