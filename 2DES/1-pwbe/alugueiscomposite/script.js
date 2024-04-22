@@ -20,26 +20,26 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 // Abrir o modal ao clicar no botão "Contato"
-var contatoModal = document.getElementById('contatoModal');
-var abrirContatoModalBtn = document.getElementById('abrirContatoModal');
-var spanContatoModal = document.getElementsByClassName('close')[1];
+var contatoModal = document.getElementById('abrirContatoModal')
+var ContatoBtn = document.getElementById('contatoBtn')
+var spanContatoModal = document.getElementsByClassName('close')[1]
 
-abrirContatoModalBtn.onclick = function () {
-    contatoModal.style.display = 'block';
+contatoBtn.onclick = function () {
+  contatoModal.style.display = 'block'
 }
 
 spanContatoModal.onclick = function () {
-    contatoModal.style.display = 'none';
+  contatoModal.style.display = 'none'
 }
 
 window.onclick = function (event) {
-    if (event.target == contatoModal) {
-        contatoModal.style.display = 'none';
-    }
+  if (event.target == contatoModal) {
+    contatoModal.style.display = 'none'
+  }
 }
 
 // Função para cadastrar um novo cliente
-function cadastrarCliente() {
+function cadastrarCliente () {
   var cpf = document.getElementById('cpf').value
   var nome = document.getElementById('nome').value
   var telefone = document.getElementById('telefone').value
@@ -63,8 +63,7 @@ function cadastrarCliente() {
 }
 
 // Função para reservar um veículo
-function reservarVeiculo() {
-
+function reservarVeiculo () {
   // Obter os dados do formulário
   var placa = document.getElementById('placa').value
   var cpfCliente = document.getElementById('cpfCliente').value
@@ -88,7 +87,7 @@ function reservarVeiculo() {
 }
 
 // Função para registrar um aluguel
-function registrarAluguel() {
+function registrarAluguel () {
   // Obter os dados do formulário
   var placa = document.getElementById('placa').value
   var cpfCliente = document.getElementById('cpfCliente').value
@@ -120,12 +119,12 @@ document.addEventListener('DOMContentLoaded', function () {
   console.log('O DOM foi totalmente carregado.')
 
   // Função para buscar e exibir clientes
-  function buscarClientes() {
+  function buscarClientes () {
     console.log('Iniciando busca por clientes...')
     fetch('http://localhost:3000/clientes')
       .then(response => response.json())
       .then(clientes => {
-        console.log("Clientes encontrados:", clientes);
+        console.log('Clientes encontrados:', clientes)
 
         // Limpar tabela de clientes
         const clientesTableBody = document
@@ -151,27 +150,34 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Função para buscar e exibir os telefones de um cliente
-  function buscarTelefonesCliente(cpfCliente) {
+  function buscarTelefonesCliente (cpfCliente) {
     fetch(`http://localhost:3000/telefones/${cpfCliente}`)
       .then(response => response.json())
       .then(telefones => {
-
         // Montar a lista de telefones do cliente
-        const telefonesCliente = telefones.map(telefone => telefone.numero).join(', ')
+        const telefonesCliente = telefones
+          .map(telefone => telefone.numero)
+          .join(', ')
 
         // Atualizar a célula na tabela com os telefones do cliente
-        const telefonesCell = document.getElementById(`telefonesCliente-${cpfCliente}`)
+        const telefonesCell = document.getElementById(
+          `telefonesCliente-${cpfCliente}`
+        )
         telefonesCell.textContent = telefonesCliente
       })
-      .catch(error => console.error(`Erro ao buscar telefones do cliente ${cpfCliente}:`, error))
+      .catch(error =>
+        console.error(
+          `Erro ao buscar telefones do cliente ${cpfCliente}:`,
+          error
+        )
+      )
   }
 
   // Função para buscar e exibir veículos
-  function buscarVeiculos() {
+  function buscarVeiculos () {
     fetch('http://localhost:3000/veiculos')
       .then(response => response.json())
       .then(veiculos => {
-
         // Limpar tabela de veículos
         const veiculosTableBody = document
           .getElementById('veiculosTable')
@@ -190,24 +196,24 @@ document.addEventListener('DOMContentLoaded', function () {
         })
 
         // Preencher as opções do select com os modelos de veículos disponíveis
-        const modelosSelect = document.getElementById('modelo');
+        const modelosSelect = document.getElementById('modelo')
         veiculos.forEach(veiculo => {
-          const option = document.createElement('option');
-          option.textContent = veiculo.modelo;
-          option.value = veiculo.modelo;
-          modelosSelect.appendChild(option);
-        });
+          const option = document.createElement('option')
+          option.textContent = veiculo.modelo
+          option.value = veiculo.modelo
+          modelosSelect.appendChild(option)
+        })
       })
       .catch(error => console.error('Erro ao buscar veículos:', error))
   }
 
   // Função para buscar e exibir aluguéis
-  function buscarAlugueis() {
+  function buscarAlugueis () {
     console.log('Iniciando busca por aluguéis...')
     fetch('http://localhost:3000/alugueis')
       .then(response => response.json())
       .then(alugueis => {
-        console.log("Aluguéis encontrados:", alugueis);
+        console.log('Aluguéis encontrados:', alugueis)
 
         // Limpar tabela de aluguéis
         const alugueisTableBody = document
@@ -224,8 +230,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 <td>${aluguel.cpf}</td>
                 <td>${aluguel.nome_cliente}</td>
                 <td>${aluguel.reserva.split('T')[0]}</td>
-                <td>${aluguel.retirada != null ? aluguel.retirada.split('T')[0] : ""}</td>
-                <td>${aluguel.devolucao != null ? aluguel.devolucao.split('T')[0] : ""}</td>
+                <td>${
+                  aluguel.retirada != null ? aluguel.retirada.split('T')[0] : ''
+                }</td>
+                <td>${
+                  aluguel.devolucao != null
+                    ? aluguel.devolucao.split('T')[0]
+                    : ''
+                }</td>
                 <td>${aluguel.modelo}</td>
                 <td>${aluguel.marca}</td>
                 <td>${aluguel.subtotal}</td>
@@ -240,4 +252,4 @@ document.addEventListener('DOMContentLoaded', function () {
   buscarClientes()
   buscarVeiculos()
   buscarAlugueis()
-});
+})

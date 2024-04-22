@@ -36,7 +36,7 @@
         <a href="#cadastrodeclientes">Cadastro de Clientes</a>
         <a href="#reservadeveiculos">Reserva de Veículos</a>
         <a href="#registrodealugueis">Registro de Aluguéis</a>
-        <a href="#contato">Contato</a>
+        <a href="#contato" id="contatoBtn">Contato</a>
     </div>
 
     <!-- Modal Quem Somos -->
@@ -53,15 +53,15 @@
     </div>
 
     <!-- Adicionando informações de contato -->
-    <button id="abrirContatoModal">Contato</button>
-    <div id="contatoModal" class="modal">
+    <div id="abrirContatoModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-        <h2>Contato</h2>
-        <p>Entre em contato conosco para mais informações:</p>
-        <p>Endereço: Av. Principal, 123 - Cidade Feliz</p>
-        <p>Telefone: (12) 3456-7890</p>
-        <p>Email: contato@happymove.com</p>
+            <h2>Contato</h2>
+            <p>Entre em contato conosco para mais informações:</p>
+            <p>Endereço: Av. Principal, 123 - Cidade Feliz</p>
+            <p>Telefone: (12) 3456-7890</p>
+            <p>Email: contato@happymove.com</p>
+        </div>
     </div>
 
     <!-- Página de Listagem de Veículos Disponíveis -->
@@ -216,6 +216,39 @@
             </table>
 
             <!-- Página de Registro de Aluguéis -->
+            <!-- Página de Registro de Aluguéis -->
+            <div id="registrodealugueis" class="content">
+                <h2>Registro de Aluguéis</h2>
+                <form id="form-registro-aluguel">
+                    <label for="placa">Placa do Veículo:</label>
+                    <input type="text" id="placa" name="placa" required><br>
+
+                    <label for="cpfCliente">CPF do Cliente:</label>
+                    <input type="text" id="cpfCliente" name="cpfCliente" required><br>
+
+                    <label for="dataReserva">Data de Reserva:</label>
+                    <input type="date" id="dataReserva" name="dataReserva" required><br>
+
+                    <label for="dataRetirada">Data de Retirada:</label>
+                    <input type="date" id="dataRetirada" name="dataRetirada" required><br>
+
+                    <label for="dataDevolucao">Data de Devolução:</label>
+                    <input type="date" id="dataDevolucao" name="dataDevolucao" required><br>
+
+                    <label for="modelo">Modelo:</label>
+                    <input type="text" id="modelo" name="modelo" required><br>
+
+                    <label for="marca">Marca:</label>
+                    <input type="text" id="marca" name="marca" required><br>
+
+                    <label for="subtotal">Subtotal:</label>
+                    <input type="text" id="subtotal" name="subtotal" readonly><br>
+
+                    <button type="button" onclick="registrarAluguel()">Registrar Aluguel</button>
+                </form>
+            </div>
+
+            <!-- Tabela Registro de Aluguéis -->
             <div class="content" id="registrodealugueis">
                 <h2>Registro de Aluguéis</h2>
                 <table id="tabela-alugueis">
@@ -234,7 +267,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -264,35 +297,35 @@
                 });
 
                 // Função para rolar a página até o topo suavemente
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-                 // Adiciona um observador de evento de scroll para mostrar ou ocultar o botão dependendo da posição da página
-    window.addEventListener('scroll', () => {
-        const scrollBtn = document.getElementById('scrollBtn');
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            scrollBtn.style.display = 'block';
-        } else {
-            scrollBtn.style.display = 'none';
-        }
-    });
+                function scrollToTop() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
+                // Adiciona um observador de evento de scroll para mostrar ou ocultar o botão dependendo da posição da página
+                window.addEventListener('scroll', () => {
+                    const scrollBtn = document.getElementById('scrollBtn');
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                        scrollBtn.style.display = 'block';
+                    } else {
+                        scrollBtn.style.display = 'none';
+                    }
+                });
 
-    
-        </script>
 
-        <button onclick="scrollToTop()" id="scrollBtn" title="Voltar ao topo">Topo</button>
+            </script>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            <button onclick="scrollToTop()" id="scrollBtn" title="Voltar ao topo">Topo</button>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
                 crossorigin="anonymous"></script>
 
-        <script src="script.js"></script>
+            <script src="script.js"></script>
 
-       
+
 </body>
 
-       
+
 </html>
