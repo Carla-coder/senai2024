@@ -53,7 +53,10 @@
     </div>
 
     <!-- Adicionando informações de contato -->
-    <div class="content" id="contato">
+    <button id="abrirContatoModal">Contato</button>
+    <div id="contatoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
         <h2>Contato</h2>
         <p>Entre em contato conosco para mais informações:</p>
         <p>Endereço: Av. Principal, 123 - Cidade Feliz</p>
@@ -171,7 +174,7 @@
             <h2>Reserva de Veículos</h2>
             <form id="form-reserva-veiculo">
                 <label for="modelo">Modelo:</label>
-                <select id="modelo" name="modelo" required>
+                <select id="modelo" name="modelo" required onchange="calcularSubtotal()">
                     <option value="" selected disabled>Selecione modelo do veículo</option>
                     <!-- Opções dos modelos de veículos serão adicionadas aqui dinamicamente -->
                 </select>
@@ -188,6 +191,9 @@
 
                 <label for="dataDevolucao">Data de Devolução:</label>
                 <input type="date" id="dataDevolucao" name="dataDevolucao" required><br>
+
+                <label for="subtotal">Subtotal:</label>
+                <input type="text" id="subtotal" name="subtotal" readonly><br>
 
                 <button type="button" onclick="reservarVeiculo()">Reservar Veículo</button>
             </form>
@@ -239,6 +245,7 @@
             </footer>
 
             <script>
+
                 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                     anchor.addEventListener('click', function (e) {
                         e.preventDefault();
@@ -272,7 +279,11 @@
             scrollBtn.style.display = 'none';
         }
     });
+
+    
         </script>
+
+        <button onclick="scrollToTop()" id="scrollBtn" title="Voltar ao topo">Topo</button>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -280,8 +291,7 @@
 
         <script src="script.js"></script>
 
-        <button onclick="scrollToTop()" id="scrollBtn" title="Voltar ao topo">Topo</button>
-
+       
 </body>
 
        

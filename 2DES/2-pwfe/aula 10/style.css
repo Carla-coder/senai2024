@@ -10,6 +10,43 @@ body {
   color: #fff;
 }
 
+.containerlogin {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 300px;
+  padding-bottom: 50px;
+}
+
+/* Estilo do botão de Login GitHub */
+button {
+  background-color: #1db954;
+  border-color: #1db954;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: #1ed760;
+  border-color: #1ed760;
+}
+
+button:focus {
+  box-shadow: 0 0 0 0.2rem rgba(29, 185, 84, 0.5);
+}
+
 /* Adicione estas regras CSS */
 .navbar-nav {
   width: 100%;
