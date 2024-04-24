@@ -1,0 +1,35 @@
+Resultado no Terminal - Tarefa aula # 10 - Back-end
+
+Builder - comida
+
+[Running] node "g:\senai2024\2DES\1-pwbe\aula 10 - Soluções Práticas\patterns\criacao\builder\comida\comida.js"
+
+Nome: Pizza, Tipo: Salgada, Peso: 300, Ingredientes: Queijo, Presunto
+Nome: Hambúrguer, Tipo: Salgada, Peso: 200, Ingredientes: Carne, Alface, Tomate
+Nome: Lasanha, Tipo: Salgada, Peso: 350, Ingredientes: Massa, Molho de Tomate, Queijo
+Nome: Sopa de Legumes, Tipo: Salgada, Peso: 200, Ingredientes: Batata, Cenoura, Abobrinha
+Nome: Sushi, Tipo: Salgada, Peso: 150, Ingredientes: Arroz, Peixe, Alga Nori
+Nome: Bolo de Chocolate, Tipo: Doce, Peso: 400, Ingredientes: Chocolate, Farinha, Açúcar
+Nome: Sorvete de Morango, Tipo: Doce, Peso: 250, Ingredientes: Morango, Leite, Açúcar
+Nome: Torta de Limão, Tipo: Doce, Peso: 350, Ingredientes: Limão, Leite Condensado, Bolacha
+Nome: Pudim de Leite, Tipo: Doce, Peso: 300, Ingredientes: Leite, Açúcar, Ovos
+Nome: Cupcake de Baunilha, Tipo: Doce, Peso: 120, Ingredientes: Farinha de Trigo, Açúcar, Ovos, Baunilha
+
+Explicações extras
+
+// Interface ComidaBuilder
+class ComidaBuilder {
+    constructor(nome, tipo, peso) {
+        this.comida = new Comida(nome, tipo, peso);
+    }
+
+
+No contexto da linguagem de programação JavaScript:
+
+extends: É uma palavra-chave que permite que uma classe herde de outra classe. Quando uma classe estende outra classe usando extends, ela herda todos os métodos 
+e propriedades da classe pai (também chamada de superclasse ou classe base). A classe que está sendo definida é chamada de subclasse ou classe filha. 
+No exemplo fornecido, ComidaSalgadaBuilder é uma subclasse que herda de ComidaBuilder.
+super: É uma palavra-chave que é usada dentro do construtor de uma classe filha para chamar o construtor da classe pai. 
+No contexto do exemplo, super(nome, 'Salgada', peso) está chamando o construtor da classe pai (ComidaBuilder) com os argumentos nome, 
+'Salgada' e peso, passando esses valores para o construtor da classe pai. Isso permite que a classe filha inicialize sua própria parte da inicialização, bem como a parte da classe pai.
+
