@@ -1,0 +1,189 @@
+GCE- 0 - Teste de Avaliação - 2024
+
+Google Cloud Engineer
+
+Os modelos de instância são usados ​​para criar um grupo de VMs idênticas. Os modelos de instância incluem:
+
+*A. Tipo de máquina, imagem de disco de inicialização ou imagem de contêiner, zona e rótulos
+B. Definições de intervalo do Cloud Storage
+C. Uma descrição do balanceador de carga
+D. Arquivo de configuração do App Engine
+ 
+O comando de linha de comando para criar um bucket do Cloud Storage é:
+
+A.gcloudmb
+*B. gsutil mb
+C. gcloud mkbucket
+D. gsutil mkbucket
+ 
+Sua empresa tem uma política de gerenciamento de objetos que exige que os objetos armazenados no Cloud Storage sejam migrados do armazenamento regional para o armazenamento nearline 90 dias após a criação do objeto. A maneira mais eficiente de fazer isso é:
+
+A. Crie uma função de nuvem para copiar objetos do armazenamento regional para o armazenamento nearline.
+B. Defina a propriedade MigrateObjectAfter no objeto armazenado para 90 dias.
+C. Copie o objeto para o armazenamento persistente anexado a uma VM e, em seguida, copie o objeto para um bucket criado no armazenamento nearline.
+*D. Crie uma política de configuração de gerenciamento de ciclo de vida especificando uma idade de 90 dias e SetStorageClass como quase limite.
+ 
+Um cliente educacional mantém um site onde os usuários podem enviar vídeos, e seu cliente precisa garantir redundância para os arquivos; portanto, você criou dois buckets para o Cloud Storage. Qual comando você usa para sincronizar o conteúdo dos dois buckets?
+
+*A.gsutil rsync
+B. sincronização gcloud cp
+C. gcloud rsync
+D. sincronização gsutil cp
+ 
+VPCs são _____________ recursos.
+
+A. Regionais
+B. Zonal
+*C. Global
+D. Sub-rede
+
+Um componente remoto da sua rede falhou, o que resulta em um erro transitório de rede.
+Quando você envia um comando gsutil, ele falha devido a um erro temporário. Por padrão, o
+comando irá:
+
+A. Encerrar e registrar uma mensagem no Stackdriver
+*B. Tente novamente usando uma estratégia de retirada exponencial binária truncada
+C. Solicitar ao usuário que decida tentar novamente ou sair
+D. Encerrar e registrar uma mensagem no Cloud Shell
+ 
+Todos os itens a seguir são componentes de regras de firewall, exceto qual?
+
+A. Direção do tráfego
+B. Ação na partida
+*C. Hora de viver (TTL)
+D. Protocolo
+ 
+A adição de máquinas virtuais a um grupo de instâncias pode ser acionada em uma política de escalonamento automático por todos os itens a seguir, exceto qual?
+
+A. Utilização da CPU
+B. Métricas do Stackdriver
+*C. Violação da política do IAM
+D. Capacidade de serviço de balanceamento de carga
+ 
+O departamento financeiro da sua empresa está desenvolvendo um novo aplicativo de gerenciamento de contas que requer transações e a capacidade de executar operações de banco de dados relacional usando SQL totalmente compatível. As opções de armazenamento de dados no GCP incluem:
+
+*A. Spanner e Cloud SQL 
+B. Datastore e Bigtable
+C. Spanner e armazenamento em nuvem
+D. Armazenamento de dados e Cloud SQL
+ 
+O departamento de marketing da sua empresa deseja implantar um aplicativo Web, mas
+não quer gerenciar servidores ou clusters. Uma boa opção para eles é:
+
+A. Mecanismo de computação
+B. Motor Kubernetes
+*C. App Engine
+D. Funções de nuvem
+ 
+Sua empresa está construindo um data warehouse corporativo e deseja recursos de consulta SQL em petabytes de dados, mas não deseja gerenciar servidores ou clusters. Uma boa opção para eles é:
+
+A. Armazenamento em nuvem
+*B.BigQuery
+C. Mesa grande
+D. Armazenamento de dados
+ 
+Você foi contratado como consultor para uma startup na área de Internet das Coisas (IoT). A
+inicialização transmitirá grandes volumes de dados para o GCP. Os dados precisam ser filtrados, transformados e analisados ​​antes de serem armazenados no GCP Datastore. Uma boa opção para o componente de processamento de fluxo é:
+
+A.Proc de dados
+*B. Fluxo de dados em nuvem
+C. Terminais de nuvem
+D. Interconexão em nuvem
+ 
+Máquinas virtuais preemptivas podem ser desligadas a qualquer momento, mas sempre serão desligadas após a execução:
+
+R. 6 horas
+B. 12 horas
+*C. 24 horas
+D. 48 horas
+ 
+Você foi encarregado de projetar uma hierarquia organizacional para gerenciar departamentos e seus recursos de nuvem. Quais componentes de organização estão disponíveis no GCP?
+
+*A. Organização, pastas, projetos
+B. Buckets, diretórios, subdiretórios
+C. Organizações, grupos, projetos
+D. Pastas, buckets, projetos
+ 
+Durante um incidente que causou a falha de um aplicativo, você suspeita que algum recurso pode não ter as funções apropriadas concedidas. O comando para listar funções concedidas a um recurso é:
+
+A. gsutil iam papéis que podem ser concedidos na lista
+*B. gcloud iam list-grantable-roles
+C. papéis que podem ser concedidos na lista gcloud
+D. Recursos concedíveis do gcloud
+ 
+A disponibilidade de plataformas de CPU pode variar entre zonas. Para obter uma lista de todos os tipos de CPU disponíveis em uma zona específica, você deve usar:
+
+*A. As zonas de computação gcloud descrevem
+B. As zonas gcloud iam descrevem
+C. As zonas gsutil descrevem
+D. Lista de regiões de computação gcloud
+ 
+Para criar uma função personalizada, um usuário deve possuir qual função?
+
+A. iam.criar
+B. computar.roles.create
+*C.iam.roles.create
+D. Compute.roles.add
+ 
+Você foi solicitado a criar uma rede com 1.000 endereços IP. No interesse de minimizar endereços IP não utilizados, qual sufixo CIDR você usaria para criar uma rede com pelo menos 1.000 endereços, mas não mais do que o necessário?
+
+A./20
+*B./22
+C./28
+D./32
+ 
+Uma equipe de cientistas de dados pediu sua ajuda para configurar um cluster Apache Spark.
+Você sugere que eles usem um serviço gerenciado do GCP em vez de gerenciarem eles próprios um cluster no Compute Engine. O serviço que eles usariam é:
+
+*A. Cloud Dataproc
+B. Fluxo de dados em nuvem
+C. Nuvem Hadoop
+D.BigQuery
+ 
+Você criou um aplicativo Web que permite aos usuários fazer upload de arquivos para o Cloud Storage. Quando os arquivos são carregados, você deseja verificar o tamanho do arquivo e atualizar o armazenamento total do usuário
+usado em sua conta. Uma opção sem servidor para executar esta ação durante o carregamento é:
+
+A. Fluxo de dados em nuvem
+B. Cloud DataProc
+C. Armazenamento em nuvem
+*D. Funções de nuvem
+ 
+ 
+Sua empresa acaba de começar a usar o GCP, e os executivos desejam ter uma conexão dedicada do seu data center ao GCP para permitir grandes transferências de dados. Qual
+serviço de rede você recomendaria?
+
+A. Peering de Internet da operadora de nuvem do Google
+*B. Google Cloud Interconnect – Dedicado 
+C. Peering de Internet do Google Cloud
+D. DNS do Google Cloud
+ 
+Você deseja que o GCP gerencie chaves criptográficas, então decidiu usar o Cloud Key
+Management Services. Antes de começar a criar chaves criptográficas, você deve:
+
+*A. Ative a API Google Cloud Key Management Service (KMS) e configure o faturamento
+B. Ative a API Google Cloud KMS e crie pastas
+C. Crie pastas e configure o faturamento
+D. Dê a todos os usuários funções concedíveis para criar chaves
+ 
+No Kubernetes Engine, um pool de nós é:
+
+A. Um subconjunto de nós em clusters
+B. Um conjunto de VMs gerenciadas fora do Kubernetes Engine
+C. Um conjunto de VMs preemptivas
+*D. Um subconjunto de instâncias de nós em um cluster em que todas têm a mesma configuração
+ 
+ 
+O serviço GCP para armazenar e gerenciar contêineres Docker é:
+
+A. Repositórios de origem em nuvem
+B. Construção em nuvem
+*C. Registro de Contêiner
+D. Repositório Docker
+ 
+O código para Cloud Functions pode ser escrito em:
+
+A. Somente Node.js
+*B. Node.js, Python e Go
+C. Python e HTML
+D. Somente Python
+
