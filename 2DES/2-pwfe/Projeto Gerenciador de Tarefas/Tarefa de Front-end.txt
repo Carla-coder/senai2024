@@ -1,0 +1,40 @@
+Aula06 - Projeto Bootstrap - 18/03/2024 - PWFE - Prof: Robson
+
+Conhecimentos:
+
+* Bootstrap
+* Inserção de modal
+* JavaScript
+
+## Atividade
+Utilizando a idéia Back-end, faça e crie o Front-end do Sistema de Gerenciamento de Tarefas utilizando Bootstrap, onde o projeto deve consistir:
+
+* Home Page
+* Tela de Login
+* Visualizador de Tarefas
+* Tela para Cadastrar uma nova Tarefa
+* Contato
+
+1. Home Page
+   Página deve conter informações sobre seu sistema, tendo uma navbar e uma homepage divulgando seu produto.
+
+2. Tela de Login:
+   Essa página pode ser em html ou modal onde sera feito o login de pessoas credenciadas no site.
+
+3. Visualizador de Tarefas:
+   Esta página em html, deve contar as tarefas já cadastradas para visualização as identificando por data ou por postitis na página.
+
+4. Tela para Cadastrar uma nova Tarefa:
+   Modal que ao abrir deve se inserir as informações de uma nova tarefa.
+
+*. Essas tarefas são:
+
+- Descrição
+- Data de Vencimento
+- Status
+- ID do Usuário
+- Contato
+- Modal para entrar em contato com a empresa por nome, telefone, email e descrição.
+
+## Enviar
+   https://forms.gle/jdccjukeydek6qcU9
