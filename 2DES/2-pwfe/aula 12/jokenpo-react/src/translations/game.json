@@ -1,0 +1,38 @@
+{
+    "ptBR":{
+        "Game":{
+            "title": "Pedra Papel Tesoura",
+            "score": "Placar",
+            "rules": "Regras",
+            "your_pick": "Você Escolheu",
+            "house_pick": "A Máquina Escolheu",
+            "win": "Você Venceu!",
+            "lose": "Você Perdeu!",
+            "draw": "Empate!",
+            "replay": "Jogar Novamente"
+        },
+        "Rules": {
+            "title": "Regras",
+            "imgAlt": "Descrição das Regras",
+            "beats": "Vence"
+        }
+    },
+    "enUS": {
+        "Game": {
+            "title": "Rock Papers Scissors",
+            "score": "Score",
+            "rules": "Rules",
+            "your_pick": "You Picked",
+            "house_pick": "The House Picked",
+            "win": "You Win!",
+            "lose": "You Lose!",
+            "draw": "Draw!",
+            "replay": "Play Again"
+        },
+        "Rules": {
+            "title": "Rules",
+            "imgAlt" : "Rules description",
+            "beats": "Beats"
+        }
+    }
+}

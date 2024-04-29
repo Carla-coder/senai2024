@@ -1,0 +1,135 @@
+@keyframes fade-in{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.game-container{
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+    max-width:500px;
+    height: auto;
+    margin: auto;
+    padding: 30px;
+    z-index: -0;
+    animation: fade-in 0.5s forwards;
+}
+.rock{
+    background: radial-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+}
+.paper{
+    background: radial-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+}
+.scissor{
+    background: radial-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+}
+.game-option-wrap{
+    cursor: pointer;
+    float: left;
+    position: relative;
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    margin: 15px 30px;
+    z-index: -0;
+    box-shadow: inset  0 -7px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+.game-option-wrap:hover{
+    box-shadow: inset  0 -10px 0 rgba(0,0,0,0.2);
+}
+.game-option{
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    top: 12.5%;
+    left: 12.5%;
+    clip-path: circle(65px at 50% 50%);
+    border-radius: 50%;
+    background: #DDD;
+    z-index: -2;
+    box-shadow: inset  0 7px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+.game-option:hover{
+    box-shadow: inset  0 10px 0 rgba(0,0,0,0.2);
+}
+.game-option > img{
+    position: absolute;
+    left: 30%;
+    top: 30%;
+}
+.game-option-border{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+}
+.game-background{
+    display: none;
+    user-select: none;
+    position: absolute;
+    max-width:500px;
+    height: auto;
+}
+.bar-container{
+    position: relative;
+    margin: auto;
+    max-width:500px;
+    z-index: -7;
+}
+.game-bar{
+    margin: 15px 30px;
+    height: 175px;
+}
+.bar-1{
+    flex: 1;
+    flex-grow: 2;
+    position: absolute;
+    width: 100%;
+    height: 15px;
+    background: rgba(0,0,0,0.2);
+    z-index: -5;
+}
+.bar-2{
+    position: absolute;
+    width: 50%;
+    height: 15px;
+    bottom: 0;
+    left: 0;
+    transform: rotate(45deg);
+    background: rgba(0,0,0,0.2);
+    z-index: -5;
+}
+.bar-3{
+    position: absolute;
+    width: 50%;
+    height: 15px;
+    bottom: 0;
+    right: 0;
+    transform: rotate(-45deg);
+    background: rgba(0,0,0,0.2);
+    z-index: -5;
+}
+
+@media only screen and (max-width: 620px) {
+    .game-container{
+        width: 100%;
+        padding: 0;
+    }
+    .game-option-wrap{
+        width: 120px;
+        height: 120px;
+    }
+
+    .game-option{
+        width: 90px;
+        height: 90px;
+    }
+    .game-option img{
+        left: 20%;
+        top: 20%;   
+    }
+}

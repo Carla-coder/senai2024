@@ -1,0 +1,15 @@
+{
+  "short_name": "Rock Paper Scissors",
+  "name": "Rock Papers Scissors made with ReactJS",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

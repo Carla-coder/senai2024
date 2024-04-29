@@ -1,0 +1,125 @@
+.rules-container {
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 700;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    border: 1px solid #BBB;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 20px 40px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.rules-container:hover {
+    background-color: #EEE;
+    color: #222;
+}
+
+.github-link {
+    display: inline-block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #EEE;
+    color: #333;
+    border: 1px solid #BBB;
+    border-radius: 0 10px 0 0;
+    padding: 0 20px;
+    transition: 0.4s;
+}
+
+.github-link:hover {
+    cursor: pointer;
+    background-color: RGBA(0, 0, 0, 0.4);
+    color: #EEE;
+}
+
+.modalBody {
+    margin: auto;
+    width: 304px;
+}
+
+.rules-close {
+    cursor: pointer;
+    float: right;
+    color: hsl(217, 16%, 45%);
+}
+
+.Modal {
+    text-transform: uppercase;
+    font-weight: 700;
+    max-width: 400px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 400px;
+    margin: auto;
+    background-color: #EEE;
+    color: #222;
+    border: 1px solid #DDD;
+    border-radius: 7px;
+    padding: 0 10px;
+}
+
+.Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: RGBA(0, 0, 0, 0.5);
+}
+
+.ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+    opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+    opacity: 0;
+}
+
+@media only screen and (max-width: 620px) {
+    .rules-container {
+        font-size: 14px;
+        text-align: center;
+        left: 0;
+        bottom: 5px;
+    }
+
+    .Modal {
+        padding: 0;
+        border-radius: 0;
+        width: 100%;
+        max-height: 100%;
+    }
+
+    .modalBody {
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .modalHeader {
+        text-align: center;
+        margin: 10px;
+    }
+
+    .rules-close {
+        position: fixed;
+        bottom: 20px;
+        text-align: center;
+        width: 100%;
+        margin: 0 -10px;
+        cursor: pointer;
+        color: hsl(217, 16%, 45%);
+    }
+}

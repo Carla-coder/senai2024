@@ -1,0 +1,212 @@
+@keyframes appearAnimation{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.8;
+    }
+    75%{
+        opacity: 0.9;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes appearHousePick{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes appearResult{
+    0%{
+        flex: unset;
+        max-width: 0;
+        opacity: 0;
+    }
+    80%{
+        opacity: 0.0;
+    }
+    100%{
+        max-width: 300px;
+        opacity: 1;
+    }
+}
+
+.game-container-results{
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+    max-width:100%;
+    height: auto;
+    margin: auto;
+    padding: 30px;
+    z-index: -0;
+    animation: appearAnimation 1s;
+}
+.rock{
+    background: radial-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+}
+.paper{
+    background: radial-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+}
+.scissor{
+    background: radial-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+}
+.game-option-wrap-results{
+    float: left;
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin: 15px 30px;
+    z-index: -0;
+    box-shadow: inset  0 -10px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+.game-option-wrap-results:hover{
+    box-shadow: inset  0 -13px 0 rgba(0,0,0,0.2);
+}
+.game-option-container-results{
+    position: relative;
+}
+.win{
+}
+.game-option-results{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 10%;
+    clip-path: circle(100px at 50% 50%);
+    border-radius: 50%;
+    background: #DDD;
+    z-index: -2;
+    box-shadow: inset  0 10px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+.game-option-results:hover{
+    box-shadow: inset  0 13px 0 rgba(0,0,0,0.2);
+}
+.game-option-results > img{
+    position: absolute;
+    width: 90px;
+    left: 27%;
+    top: 25%;
+}
+.game-option-border{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+}
+.pick{
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+}
+.title{
+    margin: 30px 0;
+}
+.house{
+    opacity: 0;
+    animation: appearHousePick 1s 1s forwards;
+}
+.bg-housepick{
+    opacity: 0.2;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 40px;
+    left: 55px;
+    border-radius: 50%;
+    background: #DDD;
+    z-index: -2;
+    box-shadow: inset  0 10px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    background: rgb(0,0,0);
+}
+.game-result{
+    margin-top: 40px;
+    display:flex;
+    flex-flow: column;
+    justify-content: center;
+    flex: 1;
+    text-align:center;
+    text-transform: uppercase;
+    max-width: 0;
+    opacity: 0;
+    animation: appearResult 1.5s 1.2s forwards;
+}
+.text-result{
+    margin: 10px 0;
+    font-size: 42px;
+    font-weight: 700;
+}
+.replay-button{
+    user-select: none;
+    margin: 10px 0;
+    background: #FFF;
+    border-radius: 10px;
+    color: hsl(349, 70%, 56%);
+    font-weight: 700;
+    padding: 15px;
+    transition: 0.3s;
+}
+.replay-button:hover{
+    cursor: pointer;
+    color: hsl(177, 65%, 36%);
+    background: #FFF;
+}
+
+@media only screen and (max-width: 620px) {
+    .game-container-results{
+        width: 100%;
+        padding: 0;
+    }
+    .game-option-wrap-results{
+        box-shadow: inset  0 -5px 0 rgba(0,0,0,0.2);
+        width: 120px;
+        height: 120px;
+    }
+
+    .bg-housepick{
+        width: 120px;
+        height: 120px;
+        top: 15px;
+        left: 30px;
+    }
+    .game-option-results{
+        box-shadow: inset  0 5px 0 rgba(0,0,0,0.2);
+        width: 95px;
+        height: 95px;
+    }
+    .game-option-results img{
+        left: 20%;
+        width: unset;
+        top: 20%;   
+    }
+    .pick{
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 700;
+        font-size: 16px;
+    }
+    .title{
+        justify-content: center;
+        position: fixed;
+        top: 260px;
+        margin-left: -5px;
+        width: 50%;
+    }
+    .game-result{
+        position: fixed;
+        top:300px;
+    }
+    .replay-button{
+        color: hsl(229, 25%, 31%);
+    }
+}
