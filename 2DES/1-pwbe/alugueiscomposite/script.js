@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
   // Abrir o modal ao clicar no botão "Quem Somos"
-  var modal = document.getElementById('quemSomosModal')
-  var btn = document.getElementById('quemSomosBtn')
-  var span = document.getElementsByClassName('close')[0]
+ var modal = document.getElementById('quemSomosModal')
+ var btn = document.getElementById('quemSomosBtn')
+ var span = document.getElementsByClassName('close')[0]
 
   btn.onclick = function () {
     modal.style.display = 'block'
@@ -33,16 +33,18 @@ spanContatoModal.onclick = function () {
 }
 
 window.onclick = function (event) {
-  if (event.target == contatoModal) {
-    contatoModal.style.display = 'none'
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  } else if (event.target == contatoModal) {
+    contatoModal.style.display = 'none';
   }
 }
 
 // Função para cadastrar um novo cliente
 function cadastrarCliente () {
-  var cpf = document.getElementById('cpf').value
-  var nome = document.getElementById('nome').value
-  var telefone = document.getElementById('telefone').value
+ var cpf = document.getElementById('cpf').value
+ var nome = document.getElementById('nome').value
+ var telefone = document.getElementById('telefone').value
 
   // Validação dos dados
   if (!cpf || !nome || !telefone) {
@@ -50,7 +52,7 @@ function cadastrarCliente () {
     return
   }
 
-  var novoCliente = {
+ var novoCliente = {
     cpf: cpf,
     nome: nome,
     telefone: telefone
@@ -65,15 +67,15 @@ function cadastrarCliente () {
 // Função para reservar um veículo
 function reservarVeiculo () {
   // Obter os dados do formulário
-  var placa = document.getElementById('placa').value
-  var cpfCliente = document.getElementById('cpfCliente').value
-  var dataRetirada = document.getElementById('dataRetirada').value
-  var dataDevolucao = document.getElementById('dataDevolucao').value
+ var placa = document.getElementById('placa').value
+ var cpfCliente = document.getElementById('cpfCliente').value
+ var dataRetirada = document.getElementById('dataRetirada').value
+ var dataDevolucao = document.getElementById('dataDevolucao').value
 
   // Validar os dados (adicionar validações conforme necessário)
 
   // Criar um objeto reserva com os dados
-  var novaReserva = {
+ var novaReserva = {
     placa: placa,
     cpfCliente: cpfCliente,
     dataRetirada: dataRetirada,
@@ -89,11 +91,11 @@ function reservarVeiculo () {
 // Função para registrar um aluguel
 function registrarAluguel () {
   // Obter os dados do formulário
-  var placa = document.getElementById('placa').value
-  var cpfCliente = document.getElementById('cpfCliente').value
-  var dataRetirada = document.getElementById('dataRetirada').value
-  var dataDevolucao = document.getElementById('dataDevolucao').value
-  var subtotal = document.getElementById('subtotal').value
+ var placa = document.getElementById('placa').value
+ var cpfCliente = document.getElementById('cpfCliente').value
+ var dataRetirada = document.getElementById('dataRetirada').value
+ var dataDevolucao = document.getElementById('dataDevolucao').value
+ var subtotal = document.getElementById('subtotal').value
 
   // Validação dos dados
   if (!placa || !cpfCliente || !dataRetirada || !dataDevolucao || !subtotal) {
@@ -101,7 +103,7 @@ function registrarAluguel () {
     return
   }
 
-  var novoAluguel = {
+ var novoAluguel = {
     placa: placa,
     cpfCliente: cpfCliente,
     dataRetirada: dataRetirada,
@@ -120,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Função para buscar e exibir clientes
   function buscarClientes () {
-    console.log('Iniciando busca por clientes...')
+    // console.log('Iniciando busca por clientes...')
     fetch('http://localhost:3000/clientes')
       .then(response => response.json())
       .then(clientes => {
@@ -209,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Função para buscar e exibir aluguéis
   function buscarAlugueis () {
-    console.log('Iniciando busca por aluguéis...')
+    // console.log('Iniciando busca por aluguéis...')
     fetch('http://localhost:3000/alugueis')
       .then(response => response.json())
       .then(alugueis => {
@@ -225,23 +227,17 @@ document.addEventListener('DOMContentLoaded', function () {
         alugueis.forEach(aluguel => {
           const row = document.createElement('tr')
           row.innerHTML = `
-                <td>${aluguel.id}</td>
-                <td>${aluguel.placa}</td>
-                <td>${aluguel.cpf}</td>
-                <td>${aluguel.nome_cliente}</td>
-                <td>${aluguel.reserva.split('T')[0]}</td>
-                <td>${
-                  aluguel.retirada != null ? aluguel.retirada.split('T')[0] : ''
-                }</td>
-                <td>${
-                  aluguel.devolucao != null
-                    ? aluguel.devolucao.split('T')[0]
-                    : ''
-                }</td>
-                <td>${aluguel.modelo}</td>
-                <td>${aluguel.marca}</td>
-                <td>${aluguel.subtotal}</td>
-              `
+          <td>${aluguel.id}</td>
+          <td>${aluguel.placa}</td>
+          <td>${aluguel.cpf}</td>
+          <td>${aluguel.nome_cliente}</td>
+          <td>${aluguel.reserva}</td>
+          <td>${aluguel.retirada}</td>
+          <td>${aluguel.devolucao}</td>
+          <td>${aluguel.modelo}</td>
+          <td>${aluguel.marca}</td>
+          <td>${aluguel.subtotal}</td> 
+          `
           alugueisTableBody.appendChild(row)
         })
       })

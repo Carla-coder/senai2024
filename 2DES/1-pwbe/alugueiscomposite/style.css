@@ -263,11 +263,6 @@ body {
 }
 
 /* Estilos para a página de registro de aluguéis */
-#registrodealugueis {
-    text-align: center;
-    margin-top: 50px;
-}
-
 #form-registro-aluguel {
     max-width: 500px;
     margin: auto;
@@ -304,15 +299,16 @@ body {
 }
 
 /* Estilos para a tabela de registro de aluguéis */
-#registrodealugueis {
-    margin-top: 50px;
+#tabelaregistrodealugueis {
+   margin-top: 50px;
+   width: 100%;
+   margin: auto; 
 }
 
 #tabela-alugueis {
-    width: 100%;
-    margin: auto;
-    border-collapse: collapse;
-    margin-top: 20px;
+   border-collapse: collapse;
+   margin-top: 20px;
+ 
 }
 
 #tabela-alugueis th,
