@@ -1,0 +1,100 @@
+exemplo simples do padrão de projeto Proxy em JavaScript. Neste exemplo, criaremos um proxy para controlar o acesso a um objeto RealSubject, que representa um serviço de acesso à internet.
+
+// Interface Subject
+class Subject {
+    request() {}
+}
+
+// RealSubject - Implementação concreta de Subject
+class RealSubject extends Subject {
+    request() {
+        console.log("RealSubject: Requisição feita.");
+    }
+}
+
+// Proxy - Controla o acesso ao RealSubject
+class Proxy extends Subject {
+    constructor(realSubject) {
+        super();
+        this.realSubject = realSubject;
+    }
+
+    request() {
+        if (this.checkAccess()) {
+            this.realSubject.request();
+        } else {
+            console.log("Proxy: Acesso negado.");
+        }
+    }
+
+    checkAccess() {
+        // Verifica se o acesso é permitido
+        return true;
+    }
+}
+
+// Exemplo de uso
+const realSubject = new RealSubject();
+const proxy = new Proxy(realSubject);
+
+proxy.request(); // Acesso permitido
+
+Neste exemplo:
+
+Subject é a interface que define a operação request().
+RealSubject é a implementação concreta de Subject.
+Proxy é o proxy que controla o acesso ao RealSubject. Ele implementa a mesma interface Subject.
+No exemplo de uso, criamos um objeto RealSubject e um Proxy para controlar o acesso a ele. Quando chamamos proxy.request(), ele verifica primeiro se o acesso é permitido antes de encaminhar a solicitação para o RealSubject.
+Este é um exemplo básico do padrão de projeto Proxy em JavaScript, demonstrando como um proxy pode controlar o acesso a um objeto subjacente.
+
+
+Abra um terminal ou prompt de comando e navegue até o diretório onde o arquivo proxy_example.js está localizado.
+node proxy_example.js
+
+Resposta no terminal:
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste do Padrão Proxy</title>
+</head>
+<body>
+    <script src="proxy_example.js"></script>
+</body>
+</html>
+
+Resposta na web:
+
+RealSubject: Requisição feita.
+index.html:38 Live reload enabled.
+
+Diagrama de Classes:
+
++------------------------+           +-----------------------+
+|        Subject         |<--------->|      RealSubject      |
++------------------------+           +-----------------------+
+| - request()            |           | + request()           |
++------------------------+           +-----------------------+
+                   |                         ^
+                   |                         |
+                   |                         |
+                   |                         |
+             +-----+-----+                   |
+             |           |                   |
+             |   Proxy   |                   |
+             |           |                   |
+             +-----------+                   |
+             | + request()|                   |
+             +-----------+                   |
+
+Neste diagrama:
+
+Subject: É uma interface que define a operação request().
+RealSubject: É a implementação concreta de Subject, contendo a lógica real da operação.
+Proxy: É o proxy que controla o acesso ao RealSubject. Ele implementa a mesma interface Subject e possui uma referência para o RealSubject. Quando um método é chamado no Proxy, ele pode executar operações adicionais antes ou depois de encaminhar a chamada para o RealSubject.
+
+
+

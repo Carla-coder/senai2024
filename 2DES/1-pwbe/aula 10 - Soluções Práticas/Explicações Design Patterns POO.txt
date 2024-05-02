@@ -1,0 +1,49 @@
+Aula # 10 - Back-end 02/05/2024
+
+Padrões de design, também conhecidos como design patterns em inglês, são soluções reutilizáveis para problemas comuns encontrados durante o desenvolvimento de software. Eles representam as melhores práticas que os desenvolvedores aprenderam ao longo do tempo.
+
+Em termos de Programação Orientada a Objetos (POO), os padrões de design são especialmente relevantes porque ajudam a estruturar o código de forma mais organizada e flexível, seguindo os princípios da POO, como encapsulamento, herança e polimorfismo.
+
+Existem diferentes tipos de padrões de design, como padrões de criação, padrões estruturais e padrões comportamentais. Alguns exemplos de padrões de design clássicos incluem:
+
+Padrões de Criação:
+Singleton: Garante que uma classe tenha apenas uma instância e fornece um ponto de acesso global para essa instância.
+Factory Method: Define uma interface para criar um objeto, mas permite que as subclasses alterem o tipo de objeto que será criado.
+Abstract Factory: Fornece uma interface para criar famílias de objetos relacionados ou dependentes sem especificar suas classes concretas.
+Padrões Estruturais:
+Adapter: Permite que interfaces incompatíveis trabalhem juntas.
+Composite: Permite que objetos sejam compostos em estruturas de árvore para representar hierarquias parte-todo.
+Decorator: Adiciona comportamentos adicionais a objetos dinamicamente.
+Padrões Comportamentais:
+Observer: Define uma dependência um-para-muitos entre objetos, de modo que quando um objeto muda de estado, todos os seus dependentes são notificados e atualizados automaticamente.
+Strategy: Define uma família de algoritmos, encapsula cada um deles e os torna intercambiáveis. Permite que o algoritmo varie independentemente dos clientes que o usam.
+State: Permite que um objeto altere seu comportamento quando seu estado interno muda. Parece como se o objeto mudasse de classe.
+
+Padrões de design são soluções recorrentes para problemas comuns encontrados durante o desenvolvimento de software. Eles fornecem um conjunto de práticas comprovadas para projetar e estruturar o código de forma eficiente, promovendo a reutilização, flexibilidade e manutenibilidade.
+
+Em programação orientada a objetos (POO), os padrões de design são especialmente relevantes, pois ajudam a organizar e relacionar classes e objetos de maneira eficaz. Existem diversos padrões de design, cada um com um propósito específico. Alguns exemplos incluem:
+
+Padrões de criação: Estes padrões lidam com a criação de objetos, ajudando a encapsular o processo de instanciação. Exemplos incluem o padrão Singleton, Factory Method e Abstract Factory.
+Padrões estruturais: Estes padrões estão preocupados com a composição de classes e objetos para formar estruturas maiores. Exemplos incluem o padrão Adapter, Composite e Decorator.
+Padrões comportamentais: Estes padrões lidam com a comunicação entre objetos e a distribuição de responsabilidades. Exemplos incluem o padrão Observer, Strategy e State.
+*******************************************************************************************************************************************************************************************************************************************************************************************
+Programação
+
+Estrutural
+
+variável = Primitivo ( int, char, float)
+         = Struct ( Cliente {} )
+
+Funções ( parametro)
+         return
+         procedimento
+
+O. Objeto {}
+
+Atributo
+
+Método ()
+
+Classe - Instância - Objeto {}
+
+Passa por princípios = Herança - Encapsulamento e Polimorfismo

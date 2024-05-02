@@ -1,0 +1,95 @@
+exemplo simplificado do padrão de projeto Flyweight em JavaScript. Neste exemplo, vamos criar um "Flyweight Factory" para gerenciar e reutilizar objetos "Flyweight", que representam letras do alfabeto.
+
+// FlyweightFactory - Gerencia os flyweights e garante sua reutilização
+class FlyweightFactory {
+    constructor() {
+        this.flyweights = {};
+    }
+
+    getFlyweight(key) {
+        if (!this.flyweights[key]) {
+            this.flyweights[key] = new Flyweight(key);
+        }
+        return this.flyweights[key];
+    }
+
+    getTotalFlyweights() {
+        return Object.keys(this.flyweights).length;
+    }
+}
+
+// Flyweight - Representa o objeto compartilhado
+class Flyweight {
+    constructor(key) {
+        this.key = key;
+    }
+
+    operation() {
+        console.log(`Operação executada com a chave ${this.key}`);
+    }
+}
+
+// Exemplo de uso
+const factory = new FlyweightFactory();
+
+const flyweightA = factory.getFlyweight('A');
+flyweightA.operation(); // Saída: Operação executada com a chave A
+
+const flyweightB = factory.getFlyweight('B');
+flyweightB.operation(); // Saída: Operação executada com a chave B
+
+console.log(factory.getTotalFlyweights()); // Saída: 2 (total de flyweights criados)
+
+FlyweightFactory é responsável por criar e gerenciar os objetos flyweight. Ele garante que objetos flyweight idênticos sejam compartilhados para minimizar o uso de memória.
+Flyweight representa o objeto compartilhado, que contém o estado intrínseco (nesse caso, apenas a chave).
+No exemplo de uso, criamos objetos flyweight para as letras "A" e "B". Como esses objetos são compartilhados, a segunda vez que solicitamos o mesmo objeto, ele é simplesmente retornado da fábrica, economizando memória.
+Este é um exemplo básico do padrão de projeto Flyweight em JavaScript, demonstrando como ele pode ser usado para economizar recursos ao compartilhar objetos que possuem partes em comum.
+
+Testando no Terminal:
+
+- Vá até o diretório onde o arquivo node flyweight_example.js está localizado
+
+Resposta no terminal:
+
+G:\senai2024\2DES\1-pwbe\aula 10 - Soluções Práticas\patterns\estrutura\flyweight>node flyweight_example.js
+Operação executada com a chave A
+Operação executada com a chave B
+2
+
+Testando na Web:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste do Padrão Flyweight</title>
+</head>
+<body>
+    <script src="flyweight_example.js"></script>
+</body>
+</html>
+
+
+Resposta na web:
+
+Operação executada com a chave A
+flyweight_example.js:26 Operação executada com a chave B
+flyweight_example.js:39 2
+index.html:38 Live reload enabled.
+
+Exemplo de Diagrama de Classes:
+
++---------------------+        +------------------+
+|  FlyweightFactory   |        |    Flyweight     |
++---------------------+        +------------------+
+| - flyweights: {}    |        | - key: string    |
++---------------------+        +------------------+
+| + getFlyweight(key) |        | + operation()    |
+| + getTotalFlyweights()|      +------------------+
++---------------------+
+
+FlyweightFactory é responsável por criar e gerenciar os objetos flyweight. Ele contém um mapa (flyweights) que armazena os flyweights criados. Os métodos getFlyweight(key) e getTotalFlyweights() são fornecidos para obter flyweights específicos e o número total de flyweights, respectivamente.
+Flyweight representa o objeto compartilhado, que contém o estado intrínseco (nesse caso, apenas a chave). O método operation() é fornecido para realizar uma operação com o flyweight.
+
+

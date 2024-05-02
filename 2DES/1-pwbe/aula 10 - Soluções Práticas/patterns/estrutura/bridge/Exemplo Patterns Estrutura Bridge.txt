@@ -1,0 +1,55 @@
+O padrão Bridge é um padrão estrutural que permite separar uma abstração de sua implementação, permitindo que ambas variem independentemente. Ele é útil quando uma classe tem várias dimensões de variação e essas variações precisam ser estendidas de forma independente. Aqui está um exemplo básico de como o padrão Bridge pode ser implementado:
+
+Vamos supor que estamos desenvolvendo um sistema de formas geométricas. Temos diferentes tipos de formas (como círculos e quadrados) e diferentes implementações de como desenhar essas formas (por exemplo, desenho em uma janela ou desenho em um arquivo).
+
+# Implementação da implementação da forma (Bridge)
+class ImplementadorForma:
+    def desenhar_forma(self):
+        pass
+
+# Implementações concretas da implementação da forma
+class ImplementadorJanela(ImplementadorForma):
+    def desenhar_forma(self):
+        print("Desenhando na janela.")
+
+class ImplementadorArquivo(ImplementadorForma):
+    def desenhar_forma(self):
+        print("Desenhando em um arquivo.")
+
+# Abstração da forma (Abstração)
+class Forma:
+    def __init__(self, implementador):
+        self._implementador = implementador
+
+    def desenhar(self):
+        pass
+
+# Abstrações concretas de formas
+class Circulo(Forma):
+    def desenhar(self):
+        print("Desenhando um círculo.")
+        self._implementador.desenhar_forma()
+
+class Quadrado(Forma):
+    def desenhar(self):
+        print("Desenhando um quadrado.")
+        self._implementador.desenhar_forma()
+
+# Exemplo de uso
+if __name__ == "__main__":
+    implementador_janela = ImplementadorJanela()
+    implementador_arquivo = ImplementadorArquivo()
+
+    forma1 = Circulo(implementador_janela)
+    forma1.desenhar()
+
+    forma2 = Quadrado(implementador_arquivo)
+    forma2.desenhar()
+
+Neste exemplo:
+
+ImplementadorForma é a interface que define a implementação das formas.
+ImplementadorJanela e ImplementadorArquivo são implementações concretas dessa interface.
+Forma é a abstração que define a interface para as diferentes formas.
+Circulo e Quadrado são abstrações concretas de formas.
+Cada forma tem uma referência para um objeto ImplementadorForma, que é usado para desenhar a forma. Isso permite que a forma e a implementação sejam variadas independentemente.
