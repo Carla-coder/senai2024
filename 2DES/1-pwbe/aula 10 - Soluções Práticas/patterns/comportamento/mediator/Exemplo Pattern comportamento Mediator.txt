@@ -116,3 +116,297 @@ mediador.bloquearComunicacao();
 
 colega2.enviar("Você está aí?");
 colega3.enviar("Sim, estou aqui!");
+
+
+Resposta no Terminal:
+
+C:\senai2023\senai2024\2DES\1-pwbe\aula 10 - Soluções Práticas\patterns\comportamento\mediator>node mediador_exemplo.js
+Colega 3 recebeu: Oi, tudo bem?
+Comunicação bloqueada!
+Comunicação bloqueada!
+
+Resposta na web:
+
+Colega 3 recebeu: Oi, tudo bem?
+mediador_exemplo.js:31 Comunicação bloqueada!
+2mediador_exemplo.js:25 Comunicação bloqueada!
+
+Exemplo de codigo mediator em javascript
+
+// Mediador
+class Mediador {
+  constructor() {
+    this.colegas = [];
+  }
+
+  adicionarColega(colega) {
+    this.colegas.push(colega);
+  }
+
+  enviar(mensagem, remetente) {
+    this.colegas.forEach(colega => {
+      if (colega !== remetente) {
+        colega.receber(mensagem);
+      }
+    });
+  }
+}
+
+// Colega
+class Colega {
+  constructor(nome, mediador) {
+    this.nome = nome;
+    this.mediador = mediador;
+  }
+
+  enviar(mensagem) {
+    this.mediador.enviar(mensagem, this);
+  }
+
+  receber(mensagem) {
+    console.log(`${this.nome} recebeu: ${mensagem}`);
+  }
+}
+
+// Uso
+const mediador = new Mediador();
+
+const colega1 = new Colega("Colega 1", mediador);
+const colega2 = new Colega("Colega 2", mediador);
+const colega3 = new Colega("Colega 3", mediador);
+
+mediador.adicionarColega(colega1);
+mediador.adicionarColega(colega2);
+mediador.adicionarColega(colega3);
+
+colega1.enviar("Olá a todos!");
+colega2.enviar("Oi colega 1!");
+colega3.enviar("Olá pessoal!");
+
+Neste exemplo, temos duas classes: Mediador e Colega. O Mediador é responsável por gerenciar a comunicação entre os colegas. Cada colega se registra no mediador, e quando um colega envia uma mensagem, o mediador a distribui para todos os outros colegas. Isso permite que os colegas comuniquem entre si sem precisar conhecer uns aos outros diretamente.
+
+A classe Colega representa cada participante da comunicação. Cada colega pode enviar mensagens para os outros colegas através do mediador. Quando um colega recebe uma mensagem, ele imprime no console quem a enviou e qual é a mensagem.
+
+No uso final, criamos um mediador e alguns colegas, os registramos no mediador e enviamos algumas mensagens entre eles para ver como o mediador redistribui essas mensagens para os outros colegas.
+
+Caso eu precise bloquear um dos colegas, como posso fazer isso?
+
+Para bloquear a comunicação de um colega específico, você pode adicionar uma lógica ao mediador para verificar se a mensagem está sendo enviada por um colega bloqueado. Se estiver, o mediador pode optar por não enviar a mensagem para os outros colegas. Aqui está uma maneira de fazer isso no exemplo existente:
+
+// Mediador
+class Mediador {
+  constructor() {
+    this.colegas = [];
+    this.colegaBloqueado = null;
+  }
+
+  adicionarColega(colega) {
+    this.colegas.push(colega);
+  }
+
+  bloquearColega(colega) {
+    this.colegaBloqueado = colega;
+  }
+
+  enviar(mensagem, remetente) {
+    this.colegas.forEach(colega => {
+      if (colega !== remetente && colega !== this.colegaBloqueado) {
+        colega.receber(mensagem);
+      }
+    });
+  }
+}
+
+// Colega
+class Colega {
+  constructor(nome, mediador) {
+    this.nome = nome;
+    this.mediador = mediador;
+  }
+
+  enviar(mensagem) {
+    this.mediador.enviar(mensagem, this);
+  }
+
+  receber(mensagem) {
+    console.log(`${this.nome} recebeu: ${mensagem}`);
+  }
+}
+
+// Uso
+const mediador = new Mediador();
+
+const colega1 = new Colega("Colega 1", mediador);
+const colega2 = new Colega("Colega 2", mediador);
+const colega3 = new Colega("Colega 3", mediador);
+
+mediador.adicionarColega(colega1);
+mediador.adicionarColega(colega2);
+mediador.adicionarColega(colega3);
+
+colega1.enviar("Olá a todos!");
+colega2.enviar("Oi colega 1!");
+colega3.enviar("Olá pessoal!");
+
+// Bloquear o colega 2
+mediador.bloquearColega(colega2);
+
+// Tentativa de envio de mensagem pelo colega 2 bloqueado
+colega2.enviar("Esta mensagem não será entregue!");
+
+// Mensagens adicionais após o bloqueio
+colega1.enviar("Como vocês estão?");
+colega3.enviar("Estou bem, obrigado!");
+
+Neste exemplo, adicionamos um método bloquearColega(colega) ao mediador, que define o colega que deve ser bloqueado. No método enviar(mensagem, remetente) do mediador, adicionamos uma verificação para garantir que o colega bloqueado não envie mensagens para os outros colegas.
+
+Você pode ver que, após bloquear o colega 2, as mensagens enviadas por ele não são entregues aos outros colegas, enquanto as mensagens enviadas pelos outros colegas continuam sendo entregues normalmente.
+
+o whatsapp utiliza este tipo de sistema?
+ChatGPT
+Embora não tenha acesso aos detalhes específicos da arquitetura do WhatsApp, é plausível que o WhatsApp utilize um sistema semelhante ao padrão Mediator para gerenciar a comunicação entre os usuários. Aqui estão algumas razões pelas quais isso poderia ser verdade:
+
+Desacoplamento de Componentes: O WhatsApp é um aplicativo complexo que envolve a troca de mensagens entre milhões de usuários. Para lidar com essa complexidade, é provável que o WhatsApp utilize uma arquitetura que desacople os diferentes componentes envolvidos na troca de mensagens.
+Gerenciamento Centralizado de Comunicação: Um sistema Mediator permite que a lógica de comunicação seja centralizada em um componente (o Mediator), em vez de estar espalhada por vários componentes. Isso simplifica o gerenciamento e a manutenção do sistema.
+Coordenação de Mensagens: O WhatsApp precisa coordenar a entrega de mensagens entre os usuários, lidar com notificações, sincronização de mensagens entre dispositivos, entre outros aspectos. Um sistema Mediator pode ser eficaz para coordenar todas essas interações complexas.
+Escalabilidade e Tolerância a Falhas: Um sistema como o WhatsApp precisa ser altamente escalável e tolerante a falhas para lidar com o grande volume de usuários e manter a disponibilidade do serviço. Um sistema Mediator bem projetado pode ajudar a facilitar essas características.
+
+aonde este tipo de exemplo é aplicado em projetos?
+ChatGPT
+O padrão Mediator é frequentemente aplicado em projetos onde há interações complexas entre múltiplos objetos ou componentes e é necessário desacoplar essas interações. Aqui estão algumas áreas onde o padrão Mediator pode ser útil:
+
+Interfaces Gráficas de Usuário (GUI): Em sistemas com GUIs complexas, como aplicativos de desktop ou aplicações web, o Mediator pode ser usado para gerenciar a comunicação entre diferentes elementos da interface, como botões, campos de entrada e componentes de visualização.
+Sistemas de Chat ou Mensagens: Em sistemas de chat, salas de bate-papo ou aplicativos de mensagens, o Mediator pode gerenciar a troca de mensagens entre os participantes, garantindo que a lógica de comunicação seja centralizada e desacoplada dos próprios participantes.
+Sistemas de Jogo: Em jogos complexos, onde muitos objetos interagem entre si, o Mediator pode ser usado para coordenar a interação entre personagens, elementos do cenário, eventos do jogo e assim por diante.
+Sistemas de Eventos: Em sistemas que envolvem a geração e o processamento de eventos, como em sistemas de automação residencial ou sistemas de monitoramento, o Mediator pode ser usado para coordenar a distribuição e o processamento desses eventos entre os diferentes componentes do sistema.
+Sistemas Distribuídos: Em sistemas distribuídos, onde vários componentes estão espalhados por diferentes máquinas ou nós de rede, o Mediator pode ser usado para facilitar a comunicação entre esses componentes de forma centralizada e desacoplada.
+Esses são apenas alguns exemplos de onde o padrão Mediator pode ser aplicado. Em geral, o Mediator é útil sempre que houver uma complexidade na comunicação entre vários componentes e for desejável ter uma abordagem centralizada e desacoplada para gerenciar essa comuni
+
+Exemplo de aplicativo Chat Connect
+
+// Mediador
+class MediadorChat {
+  constructor() {
+    this.usuarios = [];
+  }
+
+  adicionarUsuario(usuario) {
+    this.usuarios.push(usuario);
+  }
+
+  enviarMensagem(mensagem, remetente) {
+    this.usuarios.forEach(usuario => {
+      if (usuario !== remetente) {
+        usuario.receberMensagem(mensagem, remetente);
+      }
+    });
+  }
+}
+
+// Usuário
+class Usuario {
+  constructor(nome, mediador) {
+    this.nome = nome;
+    this.mediador = mediador;
+  }
+
+  enviarMensagem(mensagem) {
+    this.mediador.enviarMensagem(mensagem, this);
+  }
+
+  receberMensagem(mensagem, remetente) {
+    console.log(`${this.nome} recebeu de ${remetente.nome}: ${mensagem}`);
+  }
+}
+
+// Uso
+const mediador = new MediadorChat();
+
+const usuario1 = new Usuario("Alice", mediador);
+const usuario2 = new Usuario("Bob", mediador);
+const usuario3 = new Usuario("Carol", mediador);
+
+mediador.adicionarUsuario(usuario1);
+mediador.adicionarUsuario(usuario2);
+mediador.adicionarUsuario(usuario3);
+
+usuario1.enviarMensagem("Olá a todos!");
+usuario2.enviarMensagem("Oi pessoal!");
+usuario3.enviarMensagem("Olá!");
+
+Neste exemplo, temos a classe MediadorChat que gerencia a comunicação entre os usuários, e a classe Usuario que representa cada usuário do chat. Ao adicionar um novo usuário, ele é registrado no mediador, e quando um usuário envia uma mensagem, ela é enviada através do mediador para todos os outros usuários.
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatConnect</title>
+</head>
+<body>
+    <div id="chatLog"></div>
+    <input type="text" id="messageInput" placeholder="Digite sua mensagem...">
+    <button onclick="enviarMensagem()">Enviar</button>
+
+    <script>
+        // Mediador
+        class MediadorChat {
+          constructor() {
+            this.usuarios = [];
+          }
+
+          adicionarUsuario(usuario) {
+            this.usuarios.push(usuario);
+          }
+
+          enviarMensagem(mensagem, remetente) {
+            const mensagemFormatada = `${remetente.nome}: ${mensagem}`;
+            this.usuarios.forEach(usuario => {
+              if (usuario !== remetente) {
+                usuario.receberMensagem(mensagemFormatada);
+              }
+            });
+            this.mostrarMensagemNoChat(mensagemFormatada);
+          }
+
+          mostrarMensagemNoChat(mensagem) {
+            document.getElementById('chatLog').innerHTML += `<p>${mensagem}</p>`;
+          }
+        }
+
+        // Usuário
+        class Usuario {
+          constructor(nome, mediador) {
+            this.nome = nome;
+            this.mediador = mediador;
+          }
+
+          enviarMensagem(mensagem) {
+            this.mediador.enviarMensagem(mensagem, this);
+          }
+
+          receberMensagem(mensagem) {
+            this.mediador.mostrarMensagemNoChat(mensagem);
+          }
+        }
+
+        // Criando o Mediador e os Usuários
+        const mediador = new MediadorChat();
+        const usuario1 = new Usuario("Alice", mediador);
+        const usuario2 = new Usuario("Bob", mediador);
+
+        mediador.adicionarUsuario(usuario1);
+        mediador.adicionarUsuario(usuario2);
+
+        // Função para enviar mensagem
+        function enviarMensagem() {
+          const mensagem = document.getElementById('messageInput').value;
+          usuario1.enviarMensagem(mensagem);
+          document.getElementById('messageInput').value = '';
+        }
+    </script>
+</body>
+</html>
+
+
+
