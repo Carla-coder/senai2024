@@ -10,7 +10,7 @@ import Saga3Screen from './screens/Saga3Screen';
 import ContatoScreen from './screens/ContatoScreen';
 
 // imagens dos ícones
-import iconHome from './assets/image/home (2).png';
+import iconHome from './assets/image/home.png';
 import iconSaga1 from './assets/image/sw-1.png';
 import iconSaga2 from './assets/image/sw-2.png';
 import iconSaga3 from './assets/image/sw-4.png';
