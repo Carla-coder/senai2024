@@ -2,12 +2,19 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { Ionicons } from '@expo/vector-icons';
+import { Image } from 'react-native';
 import HomeScreen from './screens/HomeScreen';
 import Saga1Screen from './screens/Saga1Screen';
 import Saga2Screen from './screens/Saga2Screen';
 import Saga3Screen from './screens/Saga3Screen';
 import ContatoScreen from './screens/ContatoScreen';
+
+// imagens dos ícones
+import iconHome from './assets/image/home (2).png';
+import iconSaga1 from './assets/image/sw-1.png';
+import iconSaga2 from './assets/image/sw-2.png';
+import iconSaga3 from './assets/image/sw-4.png';
+import iconContato from './assets/image/contato.png';
 
 // const Stack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -17,9 +24,9 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator
         initialRouteName="HomeScreen"
-        activeColor="#a52a2a"
-        inactiveColor="#3e2465"
-        barStyle={{ backgroundColor: '#C1FFC1' }}
+        activeColor="#FFD700"
+        inactiveColor="#ffffff"
+        barStyle={{ backgroundColor: '#000000' }}
       >
         <Tab.Screen
           name="Home"
@@ -27,51 +34,51 @@ export default function App() {
           options={{
             tabBarLabel: 'Home',
             tabBarIcon: ({ color }) => (
-              <Ionicons name="home" color={color} size={26} />
+              <Image source={iconHome} style={{ tintColor: color, width: 26, height: 26 }} />
             ),
           }}
         />
        
         <Tab.Screen
-          name="Search"
+          name="Saga1"
           component={Saga1Screen}
           options={{
             tabBarLabel: 'Saga1',
             tabBarIcon: ({ color }) => (
-              <Ionicons name="information-circle" color={color} size={26} />
+              <Image source={iconSaga1} style={{ tintColor: color, width: 26, height: 26 }} />
             ),
           }}
         />
 
         <Tab.Screen
-          name="Search"
+          name="Saga2"
           component={Saga2Screen}
-          options={{
-            tabBarLabel: 'Saga3',
-            tabBarIcon: ({ color }) => (
-              <Ionicons name="information-circle" color={color} size={26} />
-            ),
-          }}
-        />
-
-        <Tab.Screen
-          name="Search"
-          component={Saga3Screen}
           options={{
             tabBarLabel: 'Saga2',
             tabBarIcon: ({ color }) => (
-              <Ionicons name="information-circle" color={color} size={26} />
+              <Image source={iconSaga2} style={{ tintColor: color, width: 26, height: 26 }} />
             ),
           }}
         />
 
         <Tab.Screen
-          name="Contact"
+          name="Saga3"
+          component={Saga3Screen}
+          options={{
+            tabBarLabel: 'Saga3',
+            tabBarIcon: ({ color }) => (
+              <Image source={iconSaga3} style={{ tintColor: color, width: 26, height: 26 }} /> 
+            ),
+          }}
+        />
+
+        <Tab.Screen
+          name="Contato"
           component={ContatoScreen}
           options={{
             tabBarLabel: 'Contato',
             tabBarIcon: ({ color }) => (
-              <Ionicons name="information-circle" color={color} size={26} />
+              <Image source={iconContato} style={{ tintColor: color, width: 26, height: 26 }} />
             ),
           }}
         />

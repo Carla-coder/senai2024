@@ -1,29 +1,36 @@
 // HomeScreen.js
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { StyleSheet, ImageBackground, Dimensions } from 'react-native';
+
+const { width, height } = Dimensions.get('window');
 
 const HomeScreen = ({ navigation }) => {
   return (
-    <View>
-      <Text>Home Screen</Text>
-      <Button
-        title="Ir para Saga 1"
-        onPress={() => navigation.navigate('Saga1')}
-      />
-      <Button
-        title="Ir para Saga 2"
-        onPress={() => navigation.navigate('Saga2')}
-      />
-      <Button
-        title="Ir para Saga 3"
-        onPress={() => navigation.navigate('Saga3')}
-      />
-      <Button
-        title="Ir para Contato"
-        onPress={() => navigation.navigate('Contato')}
-      />
-    </View>
+    <ImageBackground source={require('../assets/image/starwars.png')} 
+    style={[styles.background, { width: width, height: height }]}
+    resizeMode="contain">
+    </ImageBackground>
   );
 };
+
+const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    maxWidth: width, // Define a largura máxima para a imagem
+    maxHeight: height, // Define a altura máxima para a imagem
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: 'black',
+  },
+  container: {
+    flex: 1,
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+    paddingTop: 40,
+  },
+});
 
 export default HomeScreen;
