@@ -6,31 +6,49 @@ Portanto, este projeto demonstra bem como o design pattern Controlador Mediator 
 
 Imaginem que estamos construindo um sistema de chat online, onde várias pessoas podem enviar mensagens umas para as outras em tempo real. Para criar esse sistema de forma organizada e eficiente, usamos o design pattern Controlador Mediator.
 
-O que é o Controlador Mediator?O Controlador Mediator é como um "gerente" central que gerencia todas as interações entre os diferentes componentes de um sistema. 
+O que é o Controlador Mediator?
+O Controlador Mediator é como um "gerente" central que gerencia todas as interações entre os diferentes componentes de um sistema. 
 Ele age como um intermediário, facilitando a comunicação entre os componentes, sem que eles precisem saber uns sobre os outros diretamente.
+
 Como aplicamos o Controlador Mediator no nosso projeto de chat?
 Mediador (Mediator): Criamos uma parte do código chamada ChatMediator, que é o nosso mediador central. 
 Ele é responsável por gerenciar todas as mensagens que são enviadas e recebidas no chat.
+
 Componentes independentes: Temos dois componentes principais no nosso chat: a interface do usuário (UI) e a lógica de envio de mensagens. 
 Eles são independentes um do outro e não precisam saber detalhes sobre como o outro funciona.
+
 Desacoplamento: A lógica de envio de mensagens (sendMessage) não precisa se preocupar com a interface do usuário. 
 Ela simplesmente envia a mensagem para o mediador (ChatMediator). Da mesma forma, a interface do usuário não precisa se preocupar com a lógica por trás do envio de mensagens.
+
 Centralização do controle: O mediador (ChatMediator) é como o "cérebro" do nosso chat. 
 Ele controla todas as interações e decide como as mensagens devem ser tratadas e exibidas na interface do usuário.
+
 Por que usamos o Controlador Mediator no nosso projeto de chat?
 Organização: Usar o Controlador Mediator nos ajuda a manter nosso código organizado e fácil de entender. 
 Cada componente do chat tem sua responsabilidade clara e não precisa se preocupar com o funcionamento dos outros componentes.
+
 Flexibilidade: Se quisermos adicionar novos recursos ao chat no futuro, podemos fazer isso facilmente no mediador, sem precisar alterar os outros componentes. 
 Isso nos dá flexibilidade para expandir e modificar nosso sistema conforme necessário.
+
 Manutenção: O Controlador Mediator torna nosso código mais fácil de manter. Se algo precisar ser corrigido ou alterado, 
 geralmente só precisamos fazer isso no mediador, em vez de ter que mexer em vários lugares do código.
 
-Uma situação com muitas interações complexas entre objetos ocorre em sistemas ou aplicativos que envolvem múltiplos componentes ou módulos que precisam se comunicar entre si de maneira eficiente e coordenada. Aqui estão alguns exemplos de situações onde isso pode ocorrer:
+Uma situação com muitas interações complexas entre objetos ocorre em sistemas ou aplicativos que envolvem múltiplos componentes ou módulos que precisam se comunicar entre si de maneira eficiente e coordenada. 
+Aqui estão alguns exemplos de situações onde isso pode ocorrer:
 
-Sistemas de Chat ou Mensagens Instantâneas: Em um sistema de chat, vários usuários podem enviar e receber mensagens em tempo real. Cada mensagem pode precisar ser processada, enviada para os destinatários corretos, exibida na interface do usuário e talvez até mesmo ter ações associadas a ela, como notificações ou respostas automáticas.
-Sistemas de Interface Gráfica Complexa: Em aplicativos com interfaces gráficas complexas, pode haver muitos elementos interativos, como botões, menus, barras de rolagem, campos de entrada, etc. Esses elementos podem precisar se comunicar entre si para responder a eventos do usuário, atualizar o estado da interface do usuário e coordenar o fluxo de dados.
-Jogos Multiplayer Online: Em jogos multiplayer online, há uma grande variedade de interações entre jogadores, personagens, ambientes e objetos do jogo. Os jogadores podem se comunicar uns com os outros, interagir com elementos do jogo, realizar ações que afetam o ambiente do jogo, entre outras coisas.
-Aplicações Web Complexas: Em aplicações web complexas, como sistemas de gerenciamento empresarial (ERP), sistemas de comércio eletrônico ou plataformas de mídia social, pode haver muitos componentes interagindo entre si para fornecer funcionalidades complexas aos usuários. Isso pode incluir processamento de pedidos, gerenciamento de inventário, autenticação de usuários, notificações em tempo real, entre outros recursos.
+Sistemas de Chat ou Mensagens Instantâneas: Em um sistema de chat, vários usuários podem enviar e receber mensagens em tempo real. Cada mensagem pode precisar ser processada, enviada para os destinatários corretos, 
+exibida na interface do usuário e talvez até mesmo ter ações associadas a ela, como notificações ou respostas automáticas.
+
+Sistemas de Interface Gráfica Complexa: Em aplicativos com interfaces gráficas complexas, pode haver muitos elementos interativos, como botões, menus, barras de rolagem, campos de entrada, etc. 
+Esses elementos podem precisar se comunicar entre si para responder a eventos do usuário, atualizar o estado da interface do usuário e coordenar o fluxo de dados.
+
+Jogos Multiplayer Online: Em jogos multiplayer online, há uma grande variedade de interações entre jogadores, personagens, ambientes e objetos do jogo. 
+Os jogadores podem se comunicar uns com os outros, interagir com elementos do jogo, realizar ações que afetam o ambiente do jogo, entre outras coisas.
+
+Aplicações Web Complexas: Em aplicações web complexas, como sistemas de gerenciamento empresarial (ERP), sistemas de comércio eletrônico ou plataformas de mídia social, 
+pode haver muitos componentes interagindo entre si para fornecer funcionalidades complexas aos usuários. Isso pode incluir processamento de pedidos, gerenciamento de inventário, 
+autenticação de usuários, notificações em tempo real, entre outros recursos.
+
 Em todas essas situações, o uso de um design pattern como o Mediator pode ajudar a simplificar e organizar as interações entre os objetos, promovendo um código mais limpo, modular e fácil de manter.
 
 

@@ -1,0 +1,64 @@
+O padrão Mediator é um padrão de projeto comportamental que permite a redução das 
+dependências entre objetos, promovendo o baixo acoplamento e facilitando a reutilização 
+de código. Ele é especialmente útil quando você tem um conjunto de objetos que interagem 
+uns com os outros de maneira complexa, e você deseja simplificar essas interações.
+
+No padrão Mediator, um objeto chamado "mediador" é responsável por coordenar a comunicação
+entre os objetos participantes, conhecidos como "colaboradores". Os colaboradores não se 
+comunicam diretamente entre si, mas sim através do mediador. Isso permite que você altere 
+a interação entre os colaboradores sem precisar modificar os próprios colaboradores.
+
+Neste exemplo, o Mediador ajuda a manter duas pessoas em contato. O mediador fornece um método
+ send() que envia uma mensagem para o outro colega, exceto para para aquele que envia a mensagem.
+Cada colega tem um método notify() que recebe a mensagem do mediador.
+************************************************************************************************
+
+O Cliente que usa os colegas, e o mediador cria os colegas e define o mediador para cada um deles,
+então os colegas podem se comunicar por meio do mediador.
+Ele é especialmente útil quando você tem um conjunto de objetos que interagem uns com os outros de 
+maneira complexa, e você deseja simplificar essas interações. No padrão Mediator, um objeto chamado 
+"mediador" é responsável por coordenar a comunicação entre os objetos participantes, conhecidos como 
+"colaboradores".
+**************************************************************************************************
+
+Mediator Pattern
+Um padrão muito útil para sistemas desacoplados é o mediator. Quando temos várias partes diferentes de 
+um sistema que precisam se comunicar de forma coordenada, um mediador pode ser a melhor opção.
+
+Da mesma forma que na vida real, o mediador é um objeto que vai ser o ponto central de comunicação entre 
+os objetos.
+
+A primeira vista os padrões mediator e publisher/subscriber parecem muito parecidos. E, de fato, os dois 
+servem para gerenciar a comunicação entre elementos. A diferença é que o publisher/subscriber joga os 
+eventos ao vento e esquece, enquanto o mediador vai cuidar para que cada inscrito lide com a mensagem.
+
+Um bom exemplo de uso do mediator é um wizard. Digamos que você tenha longo processo de cadastro no seu 
+sistema. Normalmente é uma boa ideia quebrar em passos um processo que requer muitos dados do usuário.
+
+É uma forma de facilitar a manutenção do código ao mesmo tempo que o usuário não fica soterrado em um 
+formulário gigantesco. Um mediador poderia gerenciar todo o wizard mostrando para o usuário passos diferentes 
+de acordo com o que é imformado em cada etapa do processo de inscrição.
+
+O benefício óbvio desse padrão de projeto é a melhoria na comunicação entre as diferentes partes do sistema. 
+Da mesma forma que em um debate o mediador garante que cada um tenha sua vez de falar e o faça na hora certa.
+
+Por outro lado, o mediador é um ponto crítico de falha, se ele parar, todo o sistema para.
+
+Intenção
+É um padrão de design comportamental que permite reduzir dependências caóticas entre objetos. 
+O padrão restringe as comunicações diretas entre os objetos e os força a colaborar apenas por 
+meio de um objeto mediador.
+
+Solução
+O padrão mediator sugere que você interrompa toda a comunicação direta entre os componentes que deseja 
+tornar independentes um do outro. Em vez disso, esses componentes devem colaborar indiretamente, chamando 
+um objeto mediator especial que redireciona as chamadas para os componentes apropriados. Como resultado, 
+os componentes dependem apenas de uma única classe de mediator em vez de serem acoplados a dezenas de classes.
+
+Mediator
+Essa é uma interface que define operações que podem ser chamadas pelos objetos colegas para comunicação.
+ 
+
+
+
+
