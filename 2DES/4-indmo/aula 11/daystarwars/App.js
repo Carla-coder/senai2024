@@ -8,6 +8,7 @@ import Saga1Screen from './screens/Saga1Screen';
 import Saga2Screen from './screens/Saga2Screen';
 import Saga3Screen from './screens/Saga3Screen';
 import ContatoScreen from './screens/ContatoScreen';
+import DarthVaderScreen from './screens/DarthVaderScreen';
 
 // imagens dos ícones
 import iconHome from './assets/image/home.png';
@@ -15,6 +16,7 @@ import iconSaga1 from './assets/image/sw-1.png';
 import iconSaga2 from './assets/image/sw-2.png';
 import iconSaga3 from './assets/image/sw-4.png';
 import iconContato from './assets/image/contato.png';
+import iconDarthVader from './assets/image/sw-5.png';
 
 // const Stack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -79,6 +81,17 @@ export default function App() {
             tabBarLabel: 'Contato',
             tabBarIcon: ({ color }) => (
               <Image source={iconContato} style={{ tintColor: color, width: 26, height: 26 }} />
+            ),
+          }}
+        />
+
+<Tab.Screen 
+          name="DarthVader" 
+          component={DarthVaderScreen} 
+          options={{
+            tabBarLabel: 'Darth Vader',
+            tabBarIcon: ({ color, size }) => (
+              <Image source={iconDarthVader} style={{ tintColor: color, width: 26, height: 26 }} />
             ),
           }}
         />

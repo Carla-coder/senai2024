@@ -7,8 +7,11 @@ import {
   StyleSheet,
   Alert,
   TouchableOpacity, 
-  ImageBackground
+  ImageBackground,
+  Dimensions
 } from 'react-native'
+
+const { width, height } = Dimensions.get('window');
 
 const ContatoScreen = ({ navigation }) => {
   const [nome, setNome] = useState('')
@@ -85,46 +88,47 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'transparent',
-    paddingHorizontal: 20
+    paddingHorizontal: width * 0.1,
   },
   title: {
-    fontSize: 32,
+    textAlign: 'center',
+    fontSize: width * 0.08,
     fontWeight: 'bold',
-    marginBottom: 20,
-    color: '#FFD700', // Texto branco
+    marginBottom: height * 0.03,
+    color: '#FFD700',
     fontFamily: 'Star Jedi' // Fonte inspirada em Star Wars
   },
   input: {
     width: '100%',
-    height: 40,
+    height: height * 0.05,
     backgroundColor: '#333333',
     paddingHorizontal: 10,
-    marginBottom: 20,
+    marginBottom: height * 0.02,
     borderRadius: 5,
     color: '#FFD700'
   },
   messageInput: {
-    height: 120,
-    fontSize: 14
+    height: height * 0.15, 
+    fontSize: width * 0.04, 
   },
   button: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: 40,
+    height: height * 0.05,
     backgroundColor: '#FFD700',
     borderRadius: 5,
-    marginTop: 10
+    marginTop: height * 0.01,
   },
   buttonText: {
     color: '#333',
-    fontSize: 18,
+    fontSize: width * 0.05,
     fontWeight: 'bold',
     fontFamily: 'Star Jedi'
   },
   successMessage: {
-    marginTop: 10,
+    marginTop: height * 0.01,
     color: 'green',
-    fontSize: 16
+    fontSize: width * 0.04,
   }
 })
 

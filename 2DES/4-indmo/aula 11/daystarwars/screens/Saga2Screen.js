@@ -1,6 +1,8 @@
 // Saga2Screen.js
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, ImageBackground, Dimensions } from 'react-native';
+
+const { width, height } = Dimensions.get('window');
 
 const Saga2Screen = ({ navigation }) => {
   return (
@@ -9,6 +11,7 @@ const Saga2Screen = ({ navigation }) => {
       style={styles.background}
       resizeMode="cover" 
     >
+    <ScrollView contentContainerStyle={styles.scrollContainer}>
     <View style={styles.container}>
       <Text style={styles.title}>Segunda Trilogia</Text>
       <Text style={styles.summary}>
@@ -35,6 +38,7 @@ const Saga2Screen = ({ navigation }) => {
         continua a encantar fãs de todas as idades.
       </Text>
     </View>
+    </ScrollView>
     </ImageBackground>
   )
 }
@@ -45,24 +49,30 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  scrollContainer: {
+    flexGrow: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'transparente',
-    paddingHorizontal: 20,
+    paddingHorizontal: width * 0.05,
   },
   title: {
-    fontSize: 35,
+    fontSize: width * 0.1,
     fontWeight: 'bold',
-    marginBottom: 80,
+    marginBottom: height * 0.05,
     color: '#4169E1', 
     fontFamily: 'Star Jedi', // Fonte inspirada em Star Wars
   },
   summary: {
     textAlign: 'center',
+    marginBottom: height * 0.02,
     color: '#FFD700',
-    fontSize: 20,
+    fontSize: width * 0.04,
     fontWeight: 'bold',
     fontFamily: 'Star Jedi',
   },

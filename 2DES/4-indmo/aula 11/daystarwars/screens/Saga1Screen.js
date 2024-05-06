@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, Dimensions } from 'react-native';
+
+const { width, height } = Dimensions.get('window');
 
 const Saga1Screen = ({ navigation }) => {
   return (
@@ -49,20 +51,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'transparent',
-    paddingHorizontal: '5%',
+    paddingHorizontal: width * 0.05,
   },
   title: {
-    fontSize: 32,
+    fontSize: width * 0.1,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: height * 0.02,
     color: '#4169E1', 
     fontFamily: 'Star Jedi', // Fonte inspirada em Star Wars
   },
   summary: {
     textAlign: 'center',
-    marginBottom: 20,
+    marginBottom: height * 0.02,
     color: '#FFD700',
-    fontSize: 18,
+    fontSize: width * 0.04,
     fontWeight: 'bold',
     fontFamily: 'Star Jedi',
   },

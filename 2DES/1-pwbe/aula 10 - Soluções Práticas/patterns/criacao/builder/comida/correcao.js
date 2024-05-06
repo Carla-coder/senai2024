@@ -73,6 +73,11 @@ const comidas = [
     new ComidaBuilder("Feijao"),
     new ComidaBuilder("Brigadeiro", "Doce"),
     new ComidaBuilder("Bolo", "Doce", 200),
+    new ComidaBuilder("Macarrão", "Salgada", 150),
+    new ComidaBuilder("Sopa"),
+    new ComidaBuilder("Peixe", "Salgada", 300),
+    new ComidaBuilder("Torta de Morango", "Doce", 250),
+    new ComidaBuilder("Salada")
 ];
 
 comidas[1].addIngrediente(new Ingrediente("Sal"));
