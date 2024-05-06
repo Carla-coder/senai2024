@@ -67,7 +67,7 @@ function Resolucao(){
      resultado.innerHTML = "VOCÊ PERDEU";
      test1.style.cssText = "animation: luzDeFundo 1.5s ease infinite;";
    }else{
-    resultado.innerHTML = "DRAW";
+    resultado.innerHTML = "EMPATOU";
     test.style.cssText = "animation: luzDeFundo 1.5s ease infinite;";
     test1.style.cssText = "animation: luzDeFundo 1.5s ease infinite;";
    }
