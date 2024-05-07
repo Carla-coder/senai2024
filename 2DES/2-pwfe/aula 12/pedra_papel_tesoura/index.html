@@ -22,30 +22,39 @@
 
     <!-- inicio -->
     <main class="jogo">
-        <img class="triangulo" src="./images/bg-triangle.svg" alt="">
+        <!-- <img class="triangulo" src="./images/bg-triangle.svg" alt=""> -->
+        <img class="pentagono" src="./images/bg-pentagon.svg" alt="Pentágono">
 
         <!-- Botão Papel -->
-        <div class="conteiner conteiner-papel" onclick="jogar(papel)">
+        <div class="conteiner conteiner-papel papel-position position-absolute" onclick="jogar('papel')">
             <button value="papel" class="papel opcao"><img src="./images/icon-paper.svg" alt=""></button>
         </div>
         <!-- Botão Tesoura -->
-        <div class="conteiner conteiner-tesoura" onclick="jogar(tesoura)">
+        <div class="conteiner conteiner-tesoura tesoura-position position-absolute" onclick="jogar('tesoura')">
             <button value="tesoura" class="tesoura opcao"><img src="./images/icon-scissors.svg" alt=""></button>
         </div>
         <!-- Botão Pedra -->
-        <div class="conteiner conteiner-pedra" onclick="jogar(pedra)">
+        <div class="conteiner conteiner-pedra pedra-position position-absolute" onclick="jogar('pedra')">
             <button value="pedra" class="pedra opcao"><img src="./images/icon-rock.svg" alt=""></button>
+        </div>
+        <!-- Botão Lagarto -->
+        <div class="conteiner conteiner-lagarto lagarto-position position-absolute" onclick="jogar('lagarto')">
+            <button value="lagarto" class="lagarto opcao"><img src="./images/icon-lizard.svg" alt=""></button>
+        </div>
+        <!-- Botão Spock -->
+        <div class="conteiner conteiner-spock spock-position position-absolute" onclick="jogar('spock')">
+            <button value="spock" class="spock opcao"><img src="./images/icon-spock.svg" alt=""></button>
         </div>
 
     </main>
 
-   <!-- regras -->
+    <!-- regras -->
     <div id="regras" class="regras">
         <div class="regras-titulo">
             <h1>REGRAS</h1>
             <button onclick="fecharegras()"><img src="./images/icon-close.svg" alt=""></button>
         </div>
-        <img src="./images/image-rules.svg" alt="">
+        <img src="./images/image-rules-bonus.svg" alt="">
     </div>
 
     <!-- gameplay -->
