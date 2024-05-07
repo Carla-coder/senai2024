@@ -1,0 +1,29 @@
+o que é mediator pattern ? 
+
+	é um padrão de design que ajuda a reduzir o aclopamento entre os objetos,
+promovendo a comunicção indireta entre elas através do objeto mediador.
+
+O que faz o código?
+
+	ChatMediator = nesse código o noso mediador é o 'ChatMediator', que é o 
+objeto que gerencia as mensagens no chat, ele tem a função de envir e obter todas 
+as mensagens 
+
+	ChatUi = controla a interface do chat, atualizando com novas mensagens
+
+	sendMessage = Envia a mensagem da leticia para o chat e simula uma resposta 
+virtual da carla
+
+	simulateReply = Simula a resposta da carla com base na mensagem da leticia
+e envia a mensagem do mediator após 10 segundos
+
+	statTimer = Inicia um temporizador para verificar se houve uma resposta da 
+leticia em 10 segundos e se não estiver a mensagem do mediator entra.
+
+	blockFriend = envia uma mensagem informando qual a função do mediator 
+no chat.
+
+como funciona a UI?
+
+	É utilizada através da função updateChat no ChatUI, que limpa o conteudo atual
+do chat e adicion as mensagens
