@@ -1,0 +1,219 @@
+Título da Apresentação: Entendendo o Padrão Mediator com um Chat em JavaScript
+
+Introdução:
+
+Olá a todos, hoje gostaria de compartilhar com vocês um exemplo prático do padrão de design Mediator usando JavaScript. 
+Vamos explorar como podemos usar esse padrão para criar um chat simples, onde diferentes partes se comunicam de forma indireta 
+através de um mediador central.
+
+Funcionamento do Código:
+
+Primeiramente, vamos entender o que é o padrão Mediator.
+Ele atua como um intermediário entre objetos, permitindo que eles se comuniquem sem precisar conhecer uns aos outros diretamente.
+
+No nosso exemplo, temos três partes principais: o ChatMediator, o ChatUI e as funções de envio de mensagem e simulação de resposta.
+
+O ChatMediator mantém um registro das mensagens e fornece métodos para enviar e obter mensagens.
+
+O ChatUI cuida da interface do usuário, atualizando-a conforme as mensagens são enviadas e recebidas.
+
+Quando um usuário envia uma mensagem, ela é enviada para o ChatMediator, que a distribui para o destinatário correto e simula 
+uma resposta de uma amiga virtual.
+
+Se a amiga virtual não responder dentro do tempo limite, ela é bloqueada temporariamente.
+Importância do Padrão Mediator:
+
+O padrão Mediator é útil em situações onde queremos desacoplar componentes, facilitando a manutenção e extensão do código.
+Ele promove um código mais organizado e modular, já que cada parte do sistema não precisa conhecer todos os detalhes umas das outras.
+
+Conclusão:
+Nesta apresentação, exploramos como o padrão Mediator é implementado em um chat simples em JavaScript. 
+Espero que isso tenha sido esclarecedor e que vocês possam aplicar esse conhecimento em seus próprios projetos. Obrigado!
+
+**************************************************************************************************************************
+
+Esse formato busca simplificar a explicação, destacando os pontos-chave de forma clara e acessível aos colegas de classe.
+
+ChatMediator: Este módulo é responsável por gerenciar as mensagens. Ele mantém uma matriz de mensagens enviadas e fornece 
+métodos para enviar mensagens (sendMessage) e obter todas as mensagens (getMessages).
+
+generateId(): Esta função gera IDs únicos para cada mensagem usando uma abordagem simples baseada em números aleatórios.
+Baseado em números aleatórios: A função utiliza uma abordagem simples que se baseia na geração de números aleatórios para criar IDs únicos. 
+Isso significa que, cada vez que a função é chamada, ela gera um ID diferente.
+Math.random(): O Math.random() é um método em JavaScript que retorna um número pseudoaleatório entre 0 (inclusive) e 1 (exclusivo). 
+Ou seja, ele gera um número aleatório decimal.
+toString(36): O método toString(36) converte o número aleatório gerado em uma string na base 36. 
+Isso significa que ele usa os caracteres de 0 a 9 e as letras de a a z para representar o número.
+substr(2, 9): O método substr(2, 9) é usado para extrair uma parte da string gerada pelo toString(36). 
+Ele começa a extração a partir do índice 2 (ignorando o primeiro caractere que é '_') e pega os próximos 9 caracteres. 
+Isso é feito para garantir que o ID tenha um comprimento fixo e não seja muito longo.
+Prefixo '_': O ID gerado é precedido pelo caractere '_' para garantir que ele comece com um caractere não numérico,
+o que é uma prática comum para identificadores em muitos sistemas.
+Juntando tudo isso, a função generateId() cria uma string única que pode ser usada como ID para cada mensagem no chat. 
+Essa abordagem é simples e eficaz para garantir que não haja colisões de ID, ou seja, que cada ID seja verdadeiramente único.
+
+ChatUI: Este módulo lida com a interface do usuário do chat. Ele atualiza a visualização do chat na tela (updateChat), 
+limpando o conteúdo atual e adicionando novas mensagens conforme necessário.
+
+
+sendMessage(): Esta função é chamada quando o usuário envia uma mensagem. Ela obtém o texto da mensagem do campo de entrada, 
+envia a mensagem usando o ChatMediator, simula uma resposta de uma amiga virtual e limpa o campo de entrada.
+
+simulateReply(): Esta função simula uma resposta de uma amiga virtual com base na mensagem recebida. Dependendo da mensagem 
+recebida, diferentes respostas são geradas. Além disso, ela inicia um temporizador para verificar se uma resposta é recebida 
+dentro de um determinado período.
+
+startTimer(): Esta função inicia um temporizador para verificar se uma resposta é recebida da amiga virtual dentro de um período 
+de tempo especificado. Se não houver resposta, a amiga virtual é bloqueada.
+
+blockFriend(): Esta função é chamada para bloquear a amiga virtual se ela não responder dentro do tempo limite. 
+Ela envia uma mensagem informando sobre o bloqueio.
+
+Event listener: Um ouvinte de eventos é adicionado ao campo de entrada para enviar a mensagem quando a tecla "Enter" é pressionada.
+
+Inicialização: A interface do chat é atualizada inicialmente para exibir todas as mensagens existentes.
+
+Em suma, este código exemplifica como o padrão Mediator pode ser usado para facilitar a comunicação indireta entre objetos em um sistema, 
+como é o caso deste chat, onde o mediador facilita a troca de mensagens entre os usuários e a amiga virtual.
+
+*****************************************************************************************************************************************
+
++----------------+             +-----------------+
+|                | Enviar      |                 |
+|   Usuário      +------------>+  ChatMediator   |
+|   (Envia       | mensagem    |                 |
+|   mensagem)    |             +--------+--------+
+|                |                      |
++--------+-------+                      |
+         |                              |
+         | Simula resposta              |
+         |                              |
+         |                              |
+         v                              v
++-----------------+             +------------------+
+|                 | Enviar      |                  |
+|    ChatUI       +------------>+   Amiga Virtual  |
+|  (Atualiza UI   | mensagem    |    (Simula       |
+|   do chat)      |             |    resposta)     |
+|                 |             |                  |
++-----------------+             +------------------+
+         |                                 |
+         | Atualiza                        |
+         | interface                       |
+         | do chat                         |
+         v                                 v
++----------------+             +-------------------+
+|                |             |                   |
+|   Ouvinte de   | Pressiona  |  Temporizador     |
+|    eventos     +------------>+   (Verifica se    |
+|   (Tecla       | Enter       |   há resposta)    |
+|   "Enter")     |             |                   |
+|                |             +--------+----------+
++----------------+                      |
+                                         |
+                                         |
+                                  Resposta recebida?
+                                         |
+                                         |
+                                         v
+                                +------------------+
+                                |                  |
+                                |    Exibição      |
+                                |    Inicial do    |
+                                |    chat          |
+                                |                  |
+                                +------------------+
+
+Este diagrama de fluxo mostra o fluxo de interação entre as diferentes partes do sistema de chat. Começa com o usuário enviando uma mensagem, 
+que é então passada para o ChatMediator. O ChatMediator atualiza a interface do usuário através do ChatUI, enquanto também envia a mensagem 
+para a "Amiga Virtual" para simular uma resposta. O temporizador verifica se uma resposta é recebida dentro do tempo limite. Finalmente, a 
+exibição inicial do chat é atualizada na tela.
+
+     +---------+                   +--------------+
+     |         |  Enviar mensagem  |              |
+     | Usuário +------------------->+ ChatMediator |
+     |         |                   |              |
+     +----+----+                   +-------+------+
+          |                               |
+          |  Simula resposta              |
+          |                               |
+          v                               v
+     +----+----+                   +-------+------+
+     |         | Atualiza interface  |              |
+     | ChatUI  +------------------->+ Amiga Virtual|
+     |         |       do chat       |  (Simula     |
+     +----+----+                   |  resposta)    |
+          |                       |              |
+          +-----------------------+-------+------+
+                                          |
+                                          |
+                                          |
+                                    Resposta recebida?
+                                          |
+                                          |
+                                          v
+                                +---------+--------+
+                                |                  |
+                                | Temporizador     |
+                                | (Verifica se há  |
+                                | resposta)        |
+                                +---------+--------+
+                                          |
+                                          |
+                                          v
+                                +---------+--------+
+                                |                  |
+                                | Exibição inicial |
+                                | do chat          |
+                                |                  |
+                                +------------------+
+
+Desenhando na lousa uma representação gráfica:
+
+Usuário (Envia mensagem):
+Representação gráfica: Um ícone de uma pessoa ou um avatar de usuário.
+Função: Envia mensagens digitando no campo de entrada e pressionando "Enter".
+ChatMediator:
+Representação gráfica: Um ícone de um hub de comunicação ou um ícone de mensagem centralizada.
+Função: Gerencia todas as mensagens enviadas e recebidas no chat. Coordena a comunicação entre o usuário, o ChatUI e a "Amiga Virtual".
+ChatUI (Atualiza interface do chat):
+Representação gráfica: Uma janela de chat ou uma tela de dispositivo móvel exibindo mensagens.
+Função: Atualiza a interface do usuário exibindo as mensagens enviadas e recebidas no chat.
+Amiga Virtual (Simula resposta):
+Representação gráfica: Um ícone de uma pessoa ou um avatar representando a amiga virtual.
+Função: Simula respostas automáticas em nome de uma amiga virtual, com base nas mensagens recebidas do usuário.
+Temporizador (Verifica se há resposta):
+Representação gráfica: Um ícone de relógio ou um temporizador digital.
+Função: Inicia um temporizador para verificar se uma resposta é recebida da amiga virtual dentro de um determinado período de tempo.
+
++---------------------+              +--------------------------+
+|                     |  Enviar      |                          |
+|       Usuário       +------------->+      ChatMediator        |
+|      (Envia         |  mensagem    |                          |
+|     mensagem)       |              +--------------+-----------+
+|                     |                             |
++----------+----------+                             |
+           |             Simula resposta            |
+           |                                        |
+           |                                        |
+           v                                        v
++----------+----------+              +--------------+-----------+
+|                     | Atualiza     |                          |
+|       ChatUI        +------------->+     Amiga Virtual        |
+|     (Atualiza UI    |  interface   |    (Simula resposta)     |
+|        do chat)     |  do chat     |                          |
++----------+----------+              +--------------+-----------+
+           |                                        |
+           |                                        |
+           +------------------<---------------------+
+           |           Resposta recebida?
+           |                     |
+           |                     |
+           v                     v
++----------+----------+   Sim     +--------------+-----------+
+|                     |           |                          |
+|      Temporizador   +---------->+      Exibição inicial    |
+|   (Verifica se há   |           |         do chat          |
+|      resposta)      |           |                          |
++---------------------+           +--------------------------+
+

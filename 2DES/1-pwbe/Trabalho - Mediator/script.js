@@ -34,7 +34,7 @@ function generateId() {
 
 }
 
-// UI controller
+// UI controller - Bate-papo com a interface do ususário
 
 const ChatUI = (function() {
 
@@ -171,7 +171,7 @@ function blockFriend() {
 
     // Envia uma mensagem informando sobre o bloqueio
 
-    const replyMessage = 'Neste código minha função é facilitar a comunicação entre vocês, gerenciando  suas trocas de mensagens,  garantindo que cada mensagem seja destribuida para o outro indiretamente, sendo assim mais flexivel.';
+    const replyMessage = 'Neste código minha função é facilitar a comunicação entre vocês, gerenciando  suas trocas de mensagens,  garantindo que cada mensagem seja destribuída para o outro indiretamente, sendo assim mais flexível.';
     ChatMediator.sendMessage('Mediator', replyMessage);
 
 }
@@ -188,5 +188,5 @@ document.getElementById('user-input').addEventListener('keypress', function(even
     
 });
 
-// Exibição inicial do chat
+// Exibição inicial do chat - Inerface do usuário
 ChatUI.updateChat();
