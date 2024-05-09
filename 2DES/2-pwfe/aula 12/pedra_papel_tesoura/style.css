@@ -69,11 +69,10 @@ body {
 
 .pentagono {
   position: absolute;
-  width: 100%;
+  width: 80%;
   height: auto;
-  ;
-  top: 0;
-  left: 0;
+  top: 30%;
+  left: 10%;
 }
 
 /* Estilos para os botões dentro do pentágono */
@@ -88,8 +87,8 @@ body {
   background-color: white;
   border-radius: 50%;
   border: 35px solid;
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
   animation: opacidade 2s linear, rotatez 1s linear;
   /* animation: rotatez 1s linear; */
 }
@@ -108,32 +107,32 @@ body {
 }
 
 .papel-position {
-  right: -20px;
-  top: 20%;
+  right: 60px;
+  top: 60%;
 }
 
 .tesoura-position {
-  top: -20px;
-  left: 35%;
+  top: 23px;
+  left: 38%;
 }
 
 .pedra-position {
-  bottom: -10px;
-  right: 20px;
+  bottom: -230px;
+  right: 120px;
 }
 
 .lagarto-position {
-  bottom: -10px;
-  left: 20px;
+  bottom: -230px;
+  left: 100px;
 }
 
 .spock-position {
-  top: 19%;
-  left: -20px;
+  top: 60%;
+  left: 5px;
 }
 
 .opcao img {
-  width: 100px;
+  width: 30px;
   transition: 0.5s;
 }
 
@@ -365,11 +364,13 @@ body {
     margin-top: 20px;
   }
 
+  /* Imagem de fundo Triângulo */
   /* .triangulo {
     margin-top: 1vw;
     width: 60%;
   } */
 
+/* Imagem de fundo Pentâgono */
   .pentagono {
     width: 60%;
     position: absolute;
@@ -378,40 +379,26 @@ body {
   }
 
   .conteiner-papel {
-    /* top: -80px;
-    left: 5vw; */
     top: 5%;
     left: 30%;
   }
 
   .conteiner-tesoura {
-    /* position: absolute;
-    top: -80px;
-    right: 10px; */
     top: 5%;
     right: 30%;
   }
 
   .conteiner-pedra {
-    /* position: absolute;
-    bottom: -70px;
-    left: 10px; */
     bottom: 5%;
     left: 20%;
   }
 
   .conteiner-lagarto {
-    /* position: absolute;
-    bottom: -70px;
-    left: 10px; */
     bottom: 5%;
     left: 5%;
   }
 
   .conteiner-spock {
-    /* position: absolute;
-    bottom: -70px;
-    right: 10px; */
     bottom: 5%;
     right: 5%;
   }
@@ -453,7 +440,7 @@ body {
     box-shadow: 0px 7px 0px #6e2230, inset 0px 7px #d6d6d6;
   }
 
-  /* Estilos para Lagarto e Spock */
+  /* Adicionando novos Estilos para Lagarto e Spock */
   .lagarto {
     border-color: #74C69D;
     box-shadow: 0px 7px 0px #42B983, inset 0px 7px #d6d6d6;
@@ -478,9 +465,4 @@ body {
   }
 }
 
-/* mobile */
-@media screen and (max-height: 550px) {
-  .jogo {
-    height: 100px;
-  }
-}
+

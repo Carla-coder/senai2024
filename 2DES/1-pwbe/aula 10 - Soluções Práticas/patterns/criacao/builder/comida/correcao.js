@@ -13,7 +13,7 @@ class Comida {
 }
 
 class Salgada {
-    constructor (nome, peso) {
+    constructor(nome, peso) {
         this.nome = nome != undefined ? nome : 'Comida Generica';
         this.tipo = 'Salgada';
         this.peso = peso != undefined ? peso : 0;
@@ -21,7 +21,7 @@ class Salgada {
 }
 
 class Doce {
-    constructor (nome, peso) {
+    constructor(nome, peso) {
         this.nome = nome != undefined ? nome : 'Comida Generica';
         this.tipo = 'Doce';
         this.peso = peso != undefined ? peso : 0;
@@ -30,18 +30,18 @@ class Doce {
 
 class ComidaBuilder {
     constructor(nome, tipo, peso) {
-        if(nome != undefined && tipo != undefined && peso != undefined) {
-            if(tipo == 'Salgada'){
+        if (nome != undefined && tipo != undefined && peso != undefined) {
+            if (tipo == 'Salgada') {
                 this.comida = new Salgada(nome, peso);
-            } else if(tipo == 'Doce'){
+            } else if (tipo == 'Doce') {
                 this.comida = new Doce(nome, peso);
             } else {
                 this.comida = new Comida(nome, tipo, peso);
             }
         } else if (nome != undefined && tipo != undefined) {
-            if(tipo == 'Salgada'){
+            if (tipo == 'Salgada') {
                 this.comida = new Salgada(nome);
-            } else if(tipo == 'Doce'){
+            } else if (tipo == 'Doce') {
                 this.comida = new Doce(nome);
             } else {
                 this.comida = new Comida(nome, tipo);
@@ -51,22 +51,37 @@ class ComidaBuilder {
         } else {
             this.comida = new Comida();
         }
+        this.ingredientes = []; // Inicializa a lista de ingredientes
     }
 
-    addIngrediente(Ingredientes){
-        if(this.comida.ingrediente == undefined) {
-            this.comida.ingrediente = [];
+    //     addIngrediente(Ingrediente){
+    //         if(this.comida.ingrediente == undefined) {
+    //             this.comida.ingrediente = [];
+    //         }
+    //         this.comida.ingrediente.push(Ingrediente);
+    //         return this;
+    //     }
+
+    //     build(){
+    //         return this.comida;
+    //     }
+
+    // }
+
+    addIngrediente(ingrediente) {
+        if (this.ingredientes.length < 10 && !this.ingredientes.some(item => item.descricao === ingrediente.descricao)) {
+            this.ingredientes.push(ingrediente);
         }
-        this.comida.ingrediente.push(Ingredientes);
         return this;
     }
 
-    build(){
+    build() {
+        this.comida.ingredientes = this.ingredientes;
         return this.comida;
     }
-
 }
 
+// Criando uma nova instância de ComidaBuilder
 const comidas = [
     new ComidaBuilder(),
     new ComidaBuilder("Arroz", "Salgada", 100),
@@ -80,6 +95,7 @@ const comidas = [
     new ComidaBuilder("Salada")
 ];
 
+// Adicionando ingredientes à lista
 comidas[1].addIngrediente(new Ingrediente("Sal"));
 comidas[1].addIngrediente(new Ingrediente("Alho"));
 comidas[3].addIngrediente(new Ingrediente("Leite compensado"));
