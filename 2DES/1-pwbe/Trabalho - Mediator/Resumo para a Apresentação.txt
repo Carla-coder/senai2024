@@ -1,0 +1,58 @@
+* O que é o Design Pattern Controlador Mediator?
+
+O Controlador Mediator é como um 'gerente central' que gerencia todas as interações entre os
+diferentes componentes de um sistema.
+
+Ele age como um mediador, facilitando a comunicação entre os objetos, permitindo que eles
+se comuniquem sem precisar conhecer uns aos outros.
+
+* Componentes Independentes 
+
+Temos dois componentes principais no nosso chat, são eles: A interface do usuário chatUI e a lógica de envio e recebimento das mensagens.
+Eles atual independentes um do outro e não precisam saber detalhes sobre como o outro funciona.
+
+* Desacoplamento
+
+Quando um usuário envia uma mensagem, ela é enviada para o chatMediator, que a distribui para o destinatário correto e simula uma resposta 
+de uma amiga virtual, ou seja, a interface do usuário não precisa se preocupar com a lógica por trás do
+envio de mensagens.
+
+* Importância do Padrão Mediator
+
+Ele é útil em situações onde queremos desacoplar objetos, facilitando a manutenção e extensão do código.
+Ele promove um código mais organizado e modular, já que cada parte do sistema não precisa conhecer todos os detalhes uns dos outros.
+
+* Porque usamos o Controlador Mediator em nosso projeto?
+
+Organização: cada componente do chat tem sua responsabilidade clara e não precisa se preocupar com o funcionamento dos outros objetos.
+
+Flexibilidade: Se quisermos adicionar novos recursos ao chat no futuro, podemos fazer isso facilmente no Mediator, sem precisar alterar 
+os outros objetos.
+
+Manutenção: Torna nosso código mais fácil de manter. Se algo precisar ser corrigido ou alterado, geralmente só precisamos fazer isso no Mediator, em vez
+de ter que mexer em vários lugares do código.
+
+* Como aplicamos o Controlador Mediator em nosso projeto de Chat? ( usar a imagem que fiz no word para explicação em detalhes )
+
+1. sendMessage envia a mensagem do usuário 1 para o chatMediator e simula uma resposta para o usuário 2.
+
+2. chatMediator gerencia todas as mensagens enviadas e recebidas no chat. Coordena a comunicação entre o usuário 1, o ChatUi e o usuário 2.
+ 
+3. chatUI atualiza a interface do usuário exibindo as mensagens enviadas e recebidas no chat.
+
+4. simulateReply simula uma resposta do usuário 2 com base na mensagem do usuário 1 e envia a mensagem do Mediator após 10 segundos.
+
+5. startTime inicia um temporizador para verificar se houve uma resposta do usuário 1 em 10 segundos, se não houver, é exibido a mensagem do Mediator.
+
+6. blockfriend envia uma mensagem informando qual a função do Mediator no chat.
+
+7. Por fim, o updateChat no chatUi, limpa o conteúdo atual do chat e adiciona novas mensagens.
+
+* Conclusão
+
+Nesta apresentação, exploramos como o Padrão Mediator é implementado em um chat simples.
+Ele pode ajudar a simplificar e organizar as interações entre objetos, promovendo um código mais limpo, modular e fácil de manter.
+
+Muito obrigado(a) 
+Carla e Letícia
+
