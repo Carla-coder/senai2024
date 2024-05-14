@@ -1,97 +1,58 @@
-import questions from './questions.js'
 
-document.addEventListener('DOMContentLoaded', function () {
-  const questionElement = document.querySelector('.question')
-  const answersElement = document.querySelector('.answers')
-  const spnQtd = document.querySelector('.spnQtd')
-  const textFinish = document.querySelector('.finish span')
-  const content = document.querySelector('.content')
-  const contentFinish = document.querySelector('.finish')
-  const btnRestart = document.querySelector('.finish button')
+const question = document.querySelector(".question");
+const answers = document.querySelector(".answers");
+const spnQtd = document.querySelector(".spnQtd");
+const textFinish = document.querySelector(".finish span");
+const content = document.querySelector(".content");
+const contentFinish = document.querySelector(".finish");
+const btnRestart = document.querySelector(".finish button");
 
-  let currentIndex = 0
-  let questionsCorrect = 0
+import questions from "./questions.js";
 
-  btnRestart.onclick = () => {
-    content.style.display = 'flex'
-    contentFinish.style.display = 'none'
-    currentIndex = 0
-    questionsCorrect = 0
-    loadQuestion()
-  }
+let currentIndex = 0;
+let questionsCorrect = 0;
 
-  function nextQuestion () {
-    const selectedAnswer = document.querySelector(
-      'input[name="answer"]:checked'
-    )
-    if (!selectedAnswer) {
-      return // Não faz nada se nenhuma resposta for selecionada
+btnRestart.onclick = () => {
+    content.style.display = "flex";
+    contentFinish.style.display = "none";
+
+    currentIndex = 0;
+    questionsCorrect = 0;
+    loadQuestion();
+};
+
+function nextQuestion(e) {
+    if (e.target.getAttribute("data-correct") === "true") {
+        questionsCorrect++;
     }
-
-    const isCorrect = selectedAnswer.getAttribute('data-correct') === 'true'
-
-    if (isCorrect) {
-      questionsCorrect++
-      selectedAnswer.parentNode.classList.add('correct')
+    if (currentIndex < questions.length - 1) {
+        currentIndex++;
+        loadQuestion();
     } else {
-      selectedAnswer.parentNode.classList.add('incorrect')
+        finish();
     }
+}
+function finish() {
+    textFinish.innerHTML = `Você Acertou ${questionsCorrect} de ${questions.length} questões`;
+    content.style.display = "none";
+    contentFinish.style.display = "flex";
+}
 
-    // Desabilita todos os botões de resposta para evitar que o usuário responda novamente
-    document.querySelectorAll('.answer').forEach(item => {
-      item.disabled = true
-    })
+function loadQuestion() {
+    spnQtd.innerHTML = `${currentIndex + 1}/${questions.length}`;
+    const item = questions[currentIndex];
+    answers.innerHTML = "";
+    question.innerHTML = item.question;
 
-    // Aguarda um curto período antes de carregar a próxima pergunta
-    setTimeout(() => {
-      if (currentIndex < questions.length - 1) {
-        currentIndex++
-        loadQuestion()
-      } else {
-        finish()
-      }
-    }, 1000)
-  }
+    item.answers.forEach((answer) => {
+        const div = document.createElement("div");
 
-  function finish () {
-    textFinish.innerHTML = `Você Acertou ${questionsCorrect} de ${questions.length} questões`
-    content.style.display = 'none'
-    contentFinish.style.display = 'flex'
-  }
-
-  function loadQuestion () {
-    spnQtd.innerHTML = `${currentIndex + 1}/${questions.length}`
-    const item = questions[currentIndex]
-    questionElement.textContent = item.question
-    answersElement.innerHTML = ''
-
-    item.answers.forEach((answer, index) => {
-      const div = document.createElement('div')
-
-      const input = document.createElement('input')
-      input.type = 'radio'
-      input.id = `answer_${index}`
-      input.name = 'answer'
-      input.classList.add('answer')
-      input.setAttribute('data-correct', answer.correct)
-
-      const label = document.createElement('label')
-      label.setAttribute('for', `answer_${index}`)
-      label.textContent = answer.text
-
-      div.appendChild(input)
-      div.appendChild(label)
-
-      answersElement.appendChild(div)
-    })
-
-    const nextButton = document.createElement('button')
-    nextButton.textContent = 'Próximo'
-    nextButton.classList.add('next')
-    answersElement.appendChild(nextButton)
-
-    nextButton.addEventListener('click', nextQuestion)
-  }
-
-  loadQuestion()
-})
+        div.innerHTML = `<button class="answer" data-correct="${answer.correct}">
+        ${answer.option}</button>`;
+        answers.appendChild(div);
+    });
+    document.querySelectorAll(".answer").forEach((item) => {
+        item.addEventListener("click", nextQuestion);
+    });
+}
+loadQuestion();   
