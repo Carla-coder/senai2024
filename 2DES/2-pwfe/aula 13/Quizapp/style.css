@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'poppins', sans-serif;
+    font-family: "poppins", sans-serif;
 }
 
 body {
@@ -14,15 +14,19 @@ body {
     justify-content: center;
     flex-direction: column;
     gap: 5px;
-    background:linear-gradient(90deg, rgb(90, 2, 127) 0%, rgba(77,39,182,1)100%); 
+    background-image: url('./image/fundobee1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 body h2 {
-    color:white;
+    color: #000000;
+    font-size: 25px;
+    font-family: "TinkerToy Regular", sans-serif;
 }
 
 main {
-    background-color: white;
     padding: 10px;
     border-radius: 10px;
     width: 100%;
@@ -42,12 +46,14 @@ main {
 
 .spnQtd {
     text-align: end;
+    color: #000000;
 }
 
 .answers {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    color: #000000;
 }
 
 button {
@@ -57,8 +63,9 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: rgb(90, 2, 127);
-    color: whitesmoke;
+    background: linear-gradient(90deg, rgb(102, 151, 104), rgb(51, 102, 51), rgb(0, 51, 0));
+    color: white;
+    font-size: 14px;
 }
 
 .finish {
@@ -71,11 +78,37 @@ button {
     text-align: center;
 }
 
-.correct {
-    color: green;
+input {
+    all: unset;
+    border: 1px solid #94a3b8;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
-.incorrect {
-    color: red;
+input:checked {
+    border: 1px solid rgb(102, 151, 104);
 }
 
+input:checked:before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: rgb(102, 151, 104);
+    border-radius: 50%;
+}
+
+.answers div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+label {
+    order: 1;
+    /* Coloca o texto na frente do input */
+}
