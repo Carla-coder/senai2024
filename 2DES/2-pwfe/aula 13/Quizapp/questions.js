@@ -1,82 +1,40 @@
+
 export default [
     {
-        question: 'Qual é a cor mais comum na pintura country?',
+        question: "Quanto é 1 + 2?",
         answers: [
-            { text: 'Azul', correct: true },
-            { text: 'Vermelho', correct: false },
-            { text: 'Verde', correct: false }
-        ]
+            { option: "3", correct: true },
+            { option: "4", correct: false },
+            { option: "5", correct: false },
+        ],
     },
+
     {
-        question: 'O que é uma técnica comum na pintura country para criar um aspecto envelhecido?',
+        question: "Quanto é 5 x 2?",
         answers: [
-            { text: 'Verniz', correct: false },
-            { text: 'Lixa', correct: true },
-            { text: 'Pincel seco', correct: false }
-        ]
+            { option: "9", correct: false },
+            { option: "10", correct: true },
+            { option: "11", correct: false },
+        ],
     },
+
     {
-        question: 'Qual é o tema predominante na pintura country?',
+        question: "Quanto é 10 x 8?",
         answers: [
-            { text: 'Natureza morta', correct: false },
-            { text: 'Animais', correct: true },
-            { text: 'Retratos', correct: false }
-        ]
+            { option: "800", correct: false },
+            { option: "60", correct: false },
+            { option: "80", correct: true },
+        ],
+
     },
+
     {
-        question: 'Qual é a diferença entre a pintura country e a pintura folk?',
+        question: "Quanto é 7 x 7?",
         answers: [
-            { text: 'Não há diferença, são os mesmos', correct: false },
-            { text: 'A pintura country é mais detalhada', correct: false },
-            { text: 'A pintura folk é mais simplificada e primitiva', correct: true }
-        ]
+            { option: "49", correct: true },
+            { option: "50", correct: false },
+            { option: "51", correct: false },
+        ],
+
     },
-    {
-        question: 'O que é um pincel de stencil?',
-        answers: [
-            { text: 'Um pincel com cerdas duras', correct: false },
-            { text: 'Um pincel pequeno para detalhes', correct: false },
-            { text: 'Um pincel com cerdas curtas, suaves e flexíveis', correct: true }
-        ]
-    },
-    {
-        question: 'Qual é a função da base na pintura country?',
-        answers: [
-            { text: 'Fixar a pintura', correct: false },
-            { text: 'Proteger a madeira', correct: false },
-            { text: 'Preparar a superfície para receber a tinta', correct: true }
-        ]
-    },
-    {
-        question: 'O que é uma técnica de pincel comum na pintura country para criar textura?',
-        answers: [
-            { text: 'Esponjado', correct: false },
-            { text: 'Seco', correct: true },
-            { text: 'Molhado', correct: false }
-        ]
-    },
-    {
-        question: 'Qual é o tipo de tinta mais utilizado na pintura country?',
-        answers: [
-            { text: 'Acrílica', correct: true },
-            { text: 'Óleo', correct: false },
-            { text: 'Guache', correct: false }
-        ]
-    },
-    {
-        question: 'O que é um molde na pintura country?',
-        answers: [
-            { text: 'Um tipo de tinta', correct: false },
-            { text: 'Um padrão impresso usado como guia para pintura', correct: true },
-            { text: 'Um tipo de pincel', correct: false }
-        ]
-    },
-    {
-        question: 'Qual é a função do verniz na pintura country?',
-        answers: [
-            { text: 'Adicionar cor à pintura', correct: false },
-            { text: 'Proteger a pintura e dar um acabamento durável', correct: true },
-            { text: 'Secar a pintura mais rapidamente', correct: false }
-        ]
-    }
 ];
