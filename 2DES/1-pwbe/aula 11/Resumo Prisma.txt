@@ -1,0 +1,144 @@
+Prisma.io aul # 11 15/05/2024
+
+* Instalando as dependências ( VSC)
+
+1. npm install corss express doten
+
+2. Criar o index.js
+
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+
+
+const router = require('./src/routes');
+
+app.use(cors());
+app.use(router);
+
+// app.get('/', (req, res) => {
+//   res.send('Hello World!')
+// });
+
+app.listen(3000, () => {
+  console.log('App exemplo funcionando na porta 3000!')
+});
+
+3. npm install nodemon - 'para rodar nodemon'
+
+4. No 'src' criar um 'routes.js'
+
+  const express = require('express');
+
+ const router = express.Router();
+
+ const clientes = require('./controllers/clientes')
+
+ router.get('/', (req, res) => {
+    res.send('Hello World!')
+  });
+
+  //Clientes
+  router.post('/clientes', clientes.create);
+  router.get('/clientes', clientes.read);
+
+  module.exports = router;
+
+* Criar a estrutura controllers com clientes.js e telefones.js
+
+* Instalar as dependências do prisma - ver a documentação - database relacional mysql - troca para javascript e instale a dependência npn install prisma --save-dev
+
+* Abrir o php admin ( starat o apache) e criar o database no SQL - create database exemplo_prisma e executar
+
+* npx prisma init --datasource-provider mysql
+
+* No .env digite DATABASE_URL="mysql://root:@localhost:3306/exemplo_prisma" ( 3306 é a porta do XAMPP - MYSQL)
+
+* schema.prisma configure: (Prestar atenção as letras maiúsculas e minúsculas nas mesmas palavras EX: VarChar)
+
+  generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Clientes {
+  id Int @id @default(autoincrement())
+  nome String @db.VarChar(255)
+  cpf String @db.VarChar(14) @unique
+  email String? @db.VarChar(255) 
+  telefones Telefones[]
+}
+
+model Telefones {
+  id Int @id @default(autoincrement())
+  id_cliente Int 
+  telefone String @db.VarChar(20) @unique
+  cliente Clientes @relation(fields: [id_cliente], references: [id])
+}
+
+
+* npx prisma migrate dev --name Init
+
+* Instalar as extensões no VSC (Prisma e Prisma Inside)
+
+* Instalar as dependências do prisma Client: npm install @prisma/client
+
+* Dentro de clientes.js digite:
+
+const { PrismaClient } = require('@prisma/client');
+
+const prisma = new PrismaClient()
+
+const create = async (req, res) => {
+    const data = req.body;
+
+    const cliente = await prisma.clientes.create({
+        data
+    })
+
+    res.status(201).json(cliente).end();
+}
+    
+   const read = async (req, res) => {
+    const clientes = await prisma.clientes.findMany();
+
+    res.status(200).json(clientes).end();
+}
+
+
+module.exports = {
+    create, 
+}
+
+*. Abra o Insomnia e rie a pasta Clientes e no arquivo http, faça o CREATE (post). No Body crie o json
+
+{
+	"nome":"Fulano de Tal",
+	"cpf": "111.111.111.11",
+	"email": "fulanodetal@gmail.com"   este é o ID 1
+}
+
+{
+	"nome":"Beltrano da Cunha",
+	"cpf": "111.111.111.12",
+	"email": "beltrano@gmail.com"      este é o ID 2
+}
+
+
+** para resetar o nodemon digite rs e enter **
+
+
+
+
+
+
+
+
+
+
+
