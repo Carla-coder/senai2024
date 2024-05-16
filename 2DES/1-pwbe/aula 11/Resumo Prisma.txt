@@ -1,4 +1,4 @@
-Prisma.io aul # 11 15/05/2024
+Prisma.io aula #11 - 15/05/2024 - Prof. Renye
 
 * Instalando as dependências ( VSC)
 
@@ -115,7 +115,7 @@ module.exports = {
     create, 
 }
 
-*. Abra o Insomnia e rie a pasta Clientes e no arquivo http, faça o CREATE (post). No Body crie o json
+*. Abra o Insomnia e Crie a pasta Clientes e no arquivo http, faça o CREATE (post). No Body selecione JSON
 
 {
 	"nome":"Fulano de Tal",

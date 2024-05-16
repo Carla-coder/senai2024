@@ -16,7 +16,7 @@
   router.put('/clientes/:id', clientes.update);
 
   //Telefones
-  router.post('/telefones/', telefones.create);
+  router.post('/telefones', telefones.create);
   router.get('/telefones', telefones.read);
   router.delete('/telefones/:id', telefones.remove);
   router.put('/telefones/:id', telefones.update);
