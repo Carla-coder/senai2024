@@ -1,0 +1,22 @@
+Tarefa Backend - aula #11 - 16/05/2024
+
+Criar uma Agência de Viagens usando Prisma
+
+Destinos
+
+- Nome
+- Valor
+- Data
+
+Prontos Turísticos
+
+- Nome 
+- Endereço 
+- Valor
+
+Hoteis
+
+ Nome
+- Valor
+- E-mail
+- Site

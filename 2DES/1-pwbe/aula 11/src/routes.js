@@ -12,8 +12,10 @@
   //Clientes
   router.post('/clientes', clientes.create);
   router.get('/clientes', clientes.read);
+  router.get('/cliente/:id', clientes.readById);
   router.delete('/clientes/:id', clientes.remove);
   router.put('/clientes/:id', clientes.update);
+  router.post('/clientes/nome', clientes.readByName);
 
   //Telefones
   router.post('/telefones', telefones.create);

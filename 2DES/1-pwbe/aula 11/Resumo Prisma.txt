@@ -2,7 +2,7 @@ Prisma.io aula #11 - 15/05/2024 - Prof. Renye
 
 * Instalando as dependências ( VSC)
 
-1. npm install corss express doten
+1. npm install cors express dotenv
 
 2. Criar o index.js
 
@@ -49,7 +49,7 @@ app.listen(3000, () => {
 
 * Instalar as dependências do prisma - ver a documentação - database relacional mysql - troca para javascript e instale a dependência npn install prisma --save-dev
 
-* Abrir o php admin ( starat o apache) e criar o database no SQL - create database exemplo_prisma e executar
+* Abrir o php admin ( start o apache) e criar o database no SQL - create database exemplo_prisma e executar
 
 * npx prisma init --datasource-provider mysql
 
