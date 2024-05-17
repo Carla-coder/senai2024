@@ -1,0 +1,23 @@
+Aula #12 - INDMO - 17/05/2024
+
+Projeto MarwellApp usando API
+
+site oficial: https://developer.marvel.com/
+
+crie uma conta e acesse a KEYAPI
+
+Instalando as dependências:
+
+* Crie uma pasta no VSC na aula 12
+* Abra o terminal no cmd ( CTRL " )
+
+1. npm install -g expo-cli
+2. npx create-expo-app Marvel
+3. cd Marvel
+4. npm run web
+5. crie a pasta api e uma pasta components dentr da pasta Marvel
+6. dentro da pasta api crie um arquivo marvelApi.js
+7. configure o arquivo marvelApi.js
+8.  dentro da pasta components configure o arquivo CaractersList.js
+
+* para testar no navegador digite npm expo web *
