@@ -1,4 +1,4 @@
-Tarefa Backend - aula #11 - 16/05/2024
+Tarefa Backend - aula #11 - 16/05/2024 - Prof Renye
 
 Criar uma Agência de Viagens usando Prisma
 
@@ -12,11 +12,13 @@ Prontos Turísticos
 
 - Nome 
 - Endereço 
+- Telefone
 - Valor
 
 Hoteis
 
- Nome
+- Nome
 - Valor
+- Avaliação
 - E-mail
 - Site
