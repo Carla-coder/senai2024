@@ -16,28 +16,30 @@ datasource db {
 model Hoteis {
   id         Int        @id @default(autoincrement())
   nome       String     @db.VarChar(255)
-  valor      Float
-  avaliacao  String?
+  valor      Decimal?   @db.Decimal(10,2)
+  avaliacao  Int        @default(0)
   email      String?    @db.VarChar(255) 
-  site       String?
+  site       String?    @db.VarChar(255)
+  destinoId  Int? 
   destinos   Destino[]  @relation("HotelDestino")
 }
 
 model Destino {
   id         Int        @id @default(autoincrement())
   nome       String     @db.VarChar(255)
-  valor      Float
-  data       DateTime
+  valor      Decimal?   @db.Decimal(10,2)
+  data       DateTime?  @default(now())
   hoteis     Hoteis[]   @relation("HotelDestino")
-  pontos     Ponto[]   
+  pontos     Ponto[]  
+  hoteisId   Int?  
 }
-
 model Ponto {
   id         Int        @id @default(autoincrement())
   nome       String     @db.VarChar(255)
   endereco   String     @db.VarChar(255)
-  telefone   String     @db.VarChar(20) @unique
-  valor      Float
-  destinos   Destino[] 
+  telefone   String     @unique
+  valor      Decimal?   @db.Decimal(10, 2) @default(0)
+  destinoId  Int?
+  destinos   Destino?   @relation(fields: [destinoId], references: [id])
 }
  

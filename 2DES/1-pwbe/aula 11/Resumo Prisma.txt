@@ -82,7 +82,7 @@ model Telefones {
 }
 
 
-* npx prisma migrate dev --name Init
+* npx prisma migrate dev --name Init ( este é o comando para aparecer as tabelas no PHP MyAdmin )
 
 * Instalar as extensões no VSC (Prisma e Prisma Inside)
 
