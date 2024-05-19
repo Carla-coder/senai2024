@@ -14,7 +14,7 @@ body {
     justify-content: center;
     flex-direction: column;
     gap: 5px;
-    background-image: url('/assets/image/fundobee1.jpg');
+    background-image: url('../assets/image/fundobee1.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
