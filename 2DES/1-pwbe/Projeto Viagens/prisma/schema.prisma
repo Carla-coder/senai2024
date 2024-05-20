@@ -17,7 +17,7 @@ model Hoteis {
   id         Int        @id @default(autoincrement())
   nome       String     @db.VarChar(255)
   valor      Decimal?   @db.Decimal(10,2)
-  avaliacao  Int        @default(0)
+  avaliacao  String     @db.VarChar(255)
   email      String?    @db.VarChar(255) 
   site       String?    @db.VarChar(255)
   destinoId  Int? 
