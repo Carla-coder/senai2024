@@ -1,3 +1,4 @@
+
 O código só abre pelo Live Server. Como fazer para abrir pelo Navegador?
 
 Pergunta:
