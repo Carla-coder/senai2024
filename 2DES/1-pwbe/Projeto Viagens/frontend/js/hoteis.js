@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     const hoteisContainer = document.getElementById('hoteis-container');
 
     try {
-        const response = await fetch('/hoteis');
+        const response = await fetch('http://localhost:3000/hoteis');
         const data = await response.json();
         data.forEach(hotel => {
             const hotelElement = document.createElement('div');

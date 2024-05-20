@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     const pontosContainer = document.getElementById('pontos-container');
 
     try {
-        const response = await fetch('/pontos');
+        const response = await fetch('http://localhost:3000/pontos');
         const data = await response.json();
         data.forEach(ponto => {
             const pontoElement = document.createElement('div');
