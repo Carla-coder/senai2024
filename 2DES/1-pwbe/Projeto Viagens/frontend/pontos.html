@@ -4,27 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pontos Turísticos</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ponto.css">
 </head>
 <body>
     <header>
-        <h1>Pontos Turísticos</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="destinos.html">Destinos</a></li>
                 <li><a href="hoteis.html">Hotéis</a></li>
+                <li><a href="pontos.html">Pontos Turísticos</a></li>
             </ul>
         </nav>
     </header>
     <section id="pontos">
-        <h2>Pontos Turísticos</h2>
+        <div class="titulo">
+            <h2>Pontos Turísticos</h2>
+        </div>
         <div id="pontos-container" class="container"></div>
     </section>
     <footer>
         <p>&copy; 2024 Viagens Belo Destino. Todos os direitos reservados.</p>
     </footer>
-    <script src="js/script.js"></script>
-    <script src="js/pontos.js"></script>
+    <script>
+        // pontos.js
+        document.addEventListener('DOMContentLoaded', async function() {
+            const pontosContainer = document.getElementById('pontos-container');
+
+            try {
+                const response = await fetch('http://localhost:3000/pontos');
+                const data = await response.json();
+                data.forEach(ponto => {
+                    const pontoElement = document.createElement('div');
+                    pontoElement.classList.add('ponto');
+                    pontoElement.innerHTML = `
+                        <h3>${ponto.nome}</h3>
+                        <p>Endereço: ${ponto.endereco}</p>
+                        <p>Telefone: ${ponto.telefone}</p>
+                        <p>Valor: R$${ponto.valor}</p>
+                    `;
+                    pontosContainer.appendChild(pontoElement);
+                });
+            } catch (error) {
+                console.error('Erro ao buscar pontos turísticos:', error);
+            }
+        });
+    </script>
 </body>
 </html>

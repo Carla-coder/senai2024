@@ -1,22 +1,32 @@
 const { PrismaClient } = require('@prisma/client');
-
 const prisma = new PrismaClient();
 
 const pontoController = {
   create: async (req, res) => {
     try {
       const { nome, endereco, telefone, valor, destinoId } = req.body;
-      const pontos = await prisma.ponto.create({
+      
+      // Verifica se o telefone já existe
+      const telefoneExistente = await prisma.ponto.findUnique({
+        where: { telefone }
+      });
+
+      if (telefoneExistente) {
+        return res.status(400).json({ error: 'Telefone já cadastrado' });
+      }
+
+      const ponto = await prisma.ponto.create({
         data: {
           nome,
           endereco,
           telefone,
-          valor,
+          valor: parseFloat(valor), // Certifique-se de que o valor é um número
           destinoId
         }
       });
-      res.json(pontos);
+      res.json(ponto);
     } catch (error) {
+      console.error('Erro ao criar ponto:', error);
       res.status(500).json({ error: 'Erro ao criar ponto' });
     }
   },
@@ -40,7 +50,7 @@ const pontoController = {
           nome,
           endereco,
           telefone,
-          valor,
+          valor: parseFloat(valor), // Certifique-se de que o valor é um número
           destinoId
         }
       });

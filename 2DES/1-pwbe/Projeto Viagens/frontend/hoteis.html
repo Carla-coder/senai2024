@@ -4,27 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotéis</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/hotel.css">
 </head>
 <body>
     <header>
-        <h1>Hotéis</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="destinos.html">Destinos</a></li>
+                <li><a href="hoteis.html">Hotéis</a></li>
                 <li><a href="pontos.html">Pontos Turísticos</a></li>
             </ul>
         </nav>
     </header>
     <section id="hoteis">
-        <h2>Hotéis</h2>
+        <div class="titulo">
+            <h2>Hotéis</h2>
+        </div>
         <div id="hoteis-container" class="container"></div>
     </section>
     <footer>
         <p>&copy; 2024 Viagens Belo Destino. Todos os direitos reservados.</p>
     </footer>
-    <script src="js/script.js"></script>
-    <script src="js/hoteis.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const hoteisContainer = document.getElementById('hoteis-container');
+
+            try {
+                const response = await fetch('http://localhost:3000/hoteis');
+                const data = await response.json();
+                data.forEach(hotel => {
+                    const card = document.createElement('div');
+                    card.classList.add('card');
+                    card.innerHTML = `
+                        <h3>${hotel.nome}</h3>
+                        <p>Avaliação: ${hotel.avaliacao}</p>
+                        <p>Valor: R$ ${hotel.valor}</p>
+                        <p>Email: ${hotel.email}</p>
+                        <p>Site: ${hotel.site}</p>
+                    `;
+                    hoteisContainer.appendChild(card);
+                });
+            } catch (error) {
+                console.error('Erro ao buscar hotéis:', error);
+            }
+        });
+    </script>
 </body>
 </html>

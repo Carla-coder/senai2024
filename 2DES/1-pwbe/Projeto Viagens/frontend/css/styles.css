@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #121f34;
+    color: #ffffff;
+}
+
+header {
+    background: linear-gradient(to right, #76b9cf, #f5deb3);
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 170px;
+}
+
+nav ul li a {
+    background: -webkit-linear-gradient(#7e7e06, #f0a00c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bolder;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+.titulo h1 {
+    color: #ffffff;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 50px;
+    text-shadow: 2px 2px 4px rgba(247, 213, 25, 0.95), 0 0 10px rgb(223, 127, 17);
+}
+
+.sobre {
+    padding: 40px 20px;
+}
+
+.conteudo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.texto {
+    max-width: 600px;
+}
+
+.texto h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(247, 213, 25, 0.95), 0 0 10px rgb(223, 127, 17);
+}
+
+.texto p {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.texto ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.texto ul li {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.imagem-container {
+    max-width: 600px;
+}
+
+.imagem-container img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.imagem-container img:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    background: linear-gradient(to right, #76b9cf, #f5deb3);
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer p {
+    background: linear-gradient(#7e7e06, #f0a00c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bolder;
+    text-decoration: none;
+    font-size: 22px;
+}

@@ -53,7 +53,7 @@ footer {
     background: linear-gradient(to right, #76b9cf, #f5deb3);
     text-align: center;
     padding: 20px;
-    margin-top: 280px;
+    margin-top: 33px;
 }
 
 footer p{
@@ -93,7 +93,6 @@ footer p{
     color: #ffffff;
     background-clip: text;
     text-align: center;
-    margin-top: 70px;
     font-weight: bolder;
     font-size: 50px;
     text-shadow: 2px 2px 4px rgba(247, 213, 25, 0.952), 0 0 10px rgb(223, 127, 17);
