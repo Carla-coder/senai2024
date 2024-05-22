@@ -83,6 +83,7 @@ nav ul li a {
 
 .imagem-container {
     max-width: 600px;
+    text-align: center;
 }
 
 .imagem-container img {
@@ -94,6 +95,22 @@ nav ul li a {
 
 .imagem-container img:hover {
     transform: scale(1.05);
+}
+
+.redes-sociais {
+    margin-top: 20px; /* Espaço maior acima das redes sociais */
+}
+
+.redes-sociais .social-icon {
+    font-size: 30px;
+    color: #76b9cf;
+    margin: 0 40px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.redes-sociais .social-icon:hover {
+    color: #f0a00c;
 }
 
 footer {

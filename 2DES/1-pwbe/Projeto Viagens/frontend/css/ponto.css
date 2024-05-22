@@ -37,6 +37,7 @@ nav ul li a {
     text-decoration: none;
     font-size: 22px;
 }
+
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -82,4 +83,14 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+footer p {
+    background: linear-gradient(#7e7e06, #f0a00c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bolder;
+    text-decoration: none;
+    font-size: 22px;
 }

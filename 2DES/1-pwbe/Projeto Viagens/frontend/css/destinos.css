@@ -56,7 +56,7 @@ footer {
     margin-top: 33px;
 }
 
-footer p{
+footer p {
     background: -webkit-linear-gradient(#7e7e06, #f0a00c);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -66,29 +66,34 @@ footer p{
     font-size: 22px;
 }
 
-.destinos{
+.destinos {
     margin-top: 20px;
     margin-bottom: 20px;
     color: #76b9cf;
     display: flex;
 }
-.destinos img{
+
+.destinos img {
     width: 500px;
     margin-top: 100px;
     margin-left: 200px;
     animation: pulse 7s infinite alternate;
 }
-@keyframes pulse{
-    0%{
+
+@keyframes pulse {
+    0% {
         transform: scale(1);
     }
-    50%{
+
+    50% {
         transform: scale(1.2);
     }
-    100%{
+
+    100% {
         transform: scale(1);
     }
 }
+
 .titulo h2 {
     color: #ffffff;
     background-clip: text;
@@ -98,13 +103,13 @@ footer p{
     text-shadow: 2px 2px 4px rgba(247, 213, 25, 0.952), 0 0 10px rgb(223, 127, 17);
 }
 
-.resumo{
+.resumo {
     text-align: center;
-    width:900px;
+    width: 900px;
     margin-top: 150px;
 }
 
-.resumo h2{
+.resumo h2 {
     color: #ffffff;
     background-clip: text;
     text-align: center;
@@ -114,7 +119,7 @@ footer p{
     text-shadow: 2px 2px 4px rgba(247, 213, 25, 0.952), 0 0 10px rgb(223, 127, 17);
 }
 
-.resumo p{
+.resumo p {
     margin-top: 20px;
     font-size: 18px;
 }
@@ -148,16 +153,21 @@ footer p{
 .card {
     width: calc(15% - 60px);
     margin: 90px;
-    padding: 20px; 
-    border: 2px solid #000; /* Borda sólida de 2px */
-    border-radius: 10px; /* Borda arredondada */
-    background-color: #f0f0f0; /* Cor de fundo do card */
-    box-sizing: border-box; /* Inclui a borda e o preenchimento na largura total do card */
+    padding: 20px;
+    border: 2px solid #000;
+    /* Borda sólida de 2px */
+    border-radius: 10px;
+    /* Borda arredondada */
+    background-color: #f0f0f0;
+    /* Cor de fundo do card */
+    box-sizing: border-box;
+    /* Inclui a borda e o preenchimento na largura total do card */
 }
 
 /* Estilos para o contêiner dos cards */
 .container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* Distribui os cards uniformemente nas linhas */
+    justify-content: space-between;
+    /* Distribui os cards uniformemente nas linhas */
 }
