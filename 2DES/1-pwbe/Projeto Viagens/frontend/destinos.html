@@ -43,8 +43,8 @@
                     card.classList.add('card');
                     card.innerHTML = `
                         <h3>${destino.nome}</h3>
-                        <p>Valor: R$${destino.valor}</p>
-                        <p>Data: ${new Date(destino.data).toLocaleDateString('pt-BR')}</p>
+                        <p>Valor:R$${destino.valor}</p>
+                        <p>Data:${new Date(destino.data).toLocaleDateString('pt-BR')}</p>
                     `;
                     destinosContainer.appendChild(card);
                 });

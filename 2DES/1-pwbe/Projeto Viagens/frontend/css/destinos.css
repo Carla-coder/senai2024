@@ -151,23 +151,35 @@ footer p {
 
 /* Estilos específicos para os cards */
 .card {
+    display: flex;
+    /* Usado para aplicar o Flexbox */
+    flex-direction: column;
+    /* Direção da coluna para alinhar verticalmente */
+    align-items: center;
+    /* Alinha os itens horizontalmente ao centro */
+    justify-content: center;
+    /* Alinha os itens verticalmente ao centro */
     width: calc(15% - 60px);
-    margin: 90px;
-    padding: 20px;
+    margin: 80px;
+    padding: 10px;
     border: 2px solid #000;
     /* Borda sólida de 2px */
     border-radius: 10px;
     /* Borda arredondada */
-    background-color: #f0f0f0;
-    /* Cor de fundo do card */
+    /* background-color: #f0f0f0; Cor de fundo do card */
+    background: linear-gradient(to right, #76b9cf, #f5deb3);
     box-sizing: border-box;
     /* Inclui a borda e o preenchimento na largura total do card */
 }
 
-/* Estilos para o contêiner dos cards */
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    /* Distribui os cards uniformemente nas linhas */
+.card h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    /* Tamanho da fonte do título */
+}
+
+.card p {
+    font-size: 14px;
+    /* Tamanho da fonte dos parágrafos */
 }

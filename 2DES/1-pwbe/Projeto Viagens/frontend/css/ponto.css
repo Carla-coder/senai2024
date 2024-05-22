@@ -55,8 +55,9 @@ nav ul li a {
 }
 
 /* Card styles */
+
 .ponto {
-    background-color: #f0f0f0;
+    background: linear-gradient(to right, #76b9cf, #f5deb3);
     border: 2px solid #000;
     border-radius: 10px;
     width: calc(15% - 26px);
