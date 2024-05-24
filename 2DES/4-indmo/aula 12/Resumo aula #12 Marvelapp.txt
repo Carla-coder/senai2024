@@ -15,7 +15,7 @@ Instalando as dependências:
 2. npx create-expo-app Marvel
 3. cd Marvel
 4. npm run web
-5. crie a pasta api e uma pasta components dentr da pasta Marvel
+5. crie a pasta api e uma pasta components dentro da pasta Marvel
 6. dentro da pasta api crie um arquivo marvelApi.js
 7. configure o arquivo marvelApi.js
 8.  dentro da pasta components configure o arquivo CaractersList.js
