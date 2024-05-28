@@ -91,6 +91,7 @@ main {
     position: relative;
     width: 25%;
 }
+
 .control .background {
     background-color: green;
     border-radius: 100px;
@@ -102,6 +103,7 @@ main {
     position: absolute;
     width: 80%
 }
+
 .control p {
     pointer-events: none;
     position: relative;
@@ -138,7 +140,7 @@ main {
     text-align: center;
 }
 
-.nigh-mode-button {
+.night-mode-button {
     border-radius: 25px 0 0 25px;
     cursor:pointer;
     font-size: 50px;
@@ -162,9 +164,8 @@ footer p, footer a {
     font-size: 0.55rem;
 }
 
-.container.nigh-mode {
+.container.night-mode {
     background-color: #2c3147;
-
 }
 
 .night-mode .night-mode-button {
@@ -191,8 +192,8 @@ footer p, footer a {
 .day-mode footer p,
 .day-mode footer a {
     color: rgba(0,0,0,0.5);
-
 }
+
 #red {
     background-color: red;
 }
@@ -223,14 +224,17 @@ footer p, footer a {
         justify-content: center;
 
     }
+    
     .game {
         height: 40vw;
         margin: 0 35px 0 0;
         width: 40vw;
     }
+
     .control p, hud div p {
         font-size: 0.9rem;
     }
+
     .hud {
         align-items: center;
         flex-direction: column;

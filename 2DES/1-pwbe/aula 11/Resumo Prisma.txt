@@ -81,8 +81,7 @@ model Telefones {
   cliente Clientes @relation(fields: [id_cliente], references: [id])
 }
 
-
-* npx prisma migrate dev --name Init ( este é o comando para aparecer as tabelas no PHP MyAdmin )
+* npx prisma migrate dev --name init ( este é o comando para aparecer as tabelas no PHP MyAdmin )
 
 * Instalar as extensões no VSC (Prisma e Prisma Inside)
 
