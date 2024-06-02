@@ -1,0 +1,157 @@
+{ 
+ "nome": "Jardim Japonês de Fortaleza",
+  "endereco": "Av. Beira Mar, s/n, Fortaleza",
+  "telefone": "(85) 3242-9600",
+  "valor": 2500,
+  "destinoId": 8
+}
+
+Populando Banco de Dados
+
+DESTINOS - CREATE
+
+{
+  "nome": "Fernando de Noronha",
+  "valor": 9500.00,
+  "data": "2025-09-15",
+  "hoteisId": 1
+}
+{
+  "nome": "Bonito",
+  "valor": 6500.00,
+  "data": "2025-07-20",
+  "hoteisId": 2
+}
+{
+  "nome": "Gramado",
+  "valor": 4000.00,
+  "data": "2025-12-10",
+  "hoteisId": 6
+}
+{
+  "nome": "São Miguel do Gostoso",
+  "valor": 5200.00,
+  "data": "2025-08-05",
+  "hoteisId": 1
+}
+{
+  "nome": "Campos do Jordão",
+  "valor": 5800.00,
+  "data": "2025-10-30",
+  "hoteisId": 2
+}
+{
+  "nome": "Arraial do Cabo",
+  "valor": 7000.00,
+  "data": "2025-06-25",
+  "hoteisId": 6
+}
+{
+  "nome": "Ilha Grande",
+  "valor": 8200.00,
+  "data": "2025-11-08",
+  "hoteisId": 1
+}
+
+
+HOTEIS - CREATE
+
+{
+  "nome": "Pousada do Sol",
+  "valor": "350",
+  "avaliacao": "4 estrelas",
+  "email": "pousadadosol@teste.com",
+  "site": "pousadadosol.com",
+  "destinoId": 1
+}
+{
+  "nome": "Hotel Vista Mar",
+  "valor": "600",
+  "avaliacao": "4 estrelas",
+  "email": "vistamar@teste.com",
+  "site": "vistamar.com",
+  "destinoId": 2
+}
+{
+  "nome": "Resort Tropical",
+  "valor": "1300",
+  "avaliacao": "5 estrelas",
+  "email": "tropical@teste.com",
+  "site": "tropicalresort.com",
+  "destinoId": 6
+}
+{
+  "nome": "Hotel Pôr do Sol",
+  "valor": "480",
+  "avaliacao": "4 estrelas",
+  "email": "pordosol@teste.com",
+  "site": "pordosolhotel.com",
+  "destinoId": 1
+}
+{
+  "nome": "Pousada Paraíso",
+  "valor": "750",
+  "avaliacao": "5 estrelas",
+  "email": "paraiso@teste.com",
+  "site": "pousadaparaiso.com",
+  "destinoId": 2
+}
+
+
+PONTOS - CREATE
+{
+  "nome": "Ponto Turístico Exemplo",
+  "endereco": "Rua Exemplo, 123",
+  "telefone": "123456789",
+  "valor": 100.00,
+  "destinoId": 1 
+}
+{
+  "nome": "Lagoa Azul",
+  "endereco": "Estrada da Lagoa, s/n",
+  "telefone": "912345678",
+  "valor": 200.00,
+  "destinoId": 1
+}
+{
+  "nome": "Duna do Pôr do Sol",
+  "endereco": "Avenida das Dunas, 500",
+  "telefone": "934567890",
+  "valor": 50.00,
+  "destinoId": 1
+}
+{
+  "nome": "Pedra Furada",
+  "endereco": "Caminho da Pedra, s/n",
+  "telefone": "945678321",
+  "valor": 75.00,
+  "destinoId": 1
+}
+{
+  "nome": "Mangue Seco",
+  "endereco": "Rota dos Mangues, 200",
+  "telefone": "956789432",
+  "valor": 100.00,
+  "destinoId": 1
+}
+{
+  "nome": "Praia do Preá",
+  "endereco": "Beira Mar, s/n",
+  "telefone": "967890123",
+  "valor": 150.00,
+  "destinoId": 1
+}
+{
+  "nome": "Lagoa do Paraíso",
+  "endereco": "Lagoa do Paraíso, s/n",
+  "telefone": "978901234",
+  "valor": 120.00,
+  "destinoId": 1
+}
+{
+  "nome": "Farol do Serrote",
+  "endereco": "Morro do Serrote, s/n",
+  "telefone": "989012345",
+  "valor": 80.00,
+  "destinoId": 1
+}
