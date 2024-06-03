@@ -1,0 +1,19 @@
+Tarefa de Front-end
+
+03/06/2024 - Robson
+
+Fazer uma Homepage de jogos com os jogos já feitos em aula.
+Cada jogo é um card.
+Clicar no icone abre no jogo ou cada um em cada página, fazer um script para cada um
+Faça um quarto jogo e adicione na homepage.
+
+Cards dos jogos:
+
+1. Pedra, papel, tesoura, lagarto, spock
+2. Quiz Pintura Country
+3. Genius
+4. Memory Game
+
+
+
+
