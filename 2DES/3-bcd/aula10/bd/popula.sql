@@ -1,5 +1,7 @@
--- Banco de dados Pizzasria, Baseado no exemplo do livro Princípios de banco de dados com MySQL 5.7
+-- Banco de dados Pizzaria: Baseado no exemplo do livro Princípios de banco de dados com MySQL 5.7
+
 -- Editora SENAI - 2019
+
 -- Comandos DDL para criar a estrutura do banco de dados
 drop database if exists Pizzaria;
 create database Pizzaria charset=UTF8 collate utf8_general_ci;
