@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/jogo4.css">
+
+    <script defer src="./js/login.js"></script>
+    <link rel="shortcut icon" href="img 4/brain.png" type="image/x-icon">
+    <title>Memory Game | Login</title>
+</head>
+
+<body>
+
+    <form class="login-form">
+
+        <div class="login__header">
+            <img src="img 4/logo.png" alt="logo">
+            <img src="img 4/porta.png" alt="brain icon">
+            <h1>Memory Game</h1>
+        </div>
+
+        <input type="text" placeholder="Name" class="login__input">
+        <button type="submit" class="login__button">Play</button>
+
+    </form>
+
+    <!-- Página do Jogo -->
+    <div class="game-container" style="display: none;">
+        <div class="info">
+            <span class="player"></span>
+            <span class="timer">0</span>
+        </div>
+        <div class="grid"></div>
+    </div>
+
+    <script>
+
+        // LOGIN.JS
+        const input = document.querySelector('.login__input');
+        const button = document.querySelector('.login__button');
+        const form = document.querySelector('.login-form');
+        const gameContainer = document.querySelector('.game-container');
+        // Código do jogo de memória
+        const grid = document.querySelector('.grid');
+        const spanPlayer = document.querySelector('.player');
+        const timer = document.querySelector('.timer');
+
+        const validateInput = ({ target }) => {
+            if (target.value.length > 3) {
+                button.removeAttribute('disabled');
+                return;
+            }
+
+            button.setAttribute('disabled', '');
+        }
+
+        const handleSubmit = (event) => {
+            event.preventDefault();
+
+            localStorage.setItem('player', input.value);
+            form.style.display = 'none';
+            gameContainer.style.display = 'block';
+            startGame();
+        };
+
+        input.addEventListener('input', validateInput);
+        form.addEventListener('submit', handleSubmit);
+
+
+
+        /* função array */
+        const characters = [
+            'boo',
+            'james sullivan',
+            'mike wazowski',
+            'monsters 1',
+            'monsters 2',
+            'monsters 3',
+            'monsters 4',
+            'monsters 5',
+            'monsters 6',
+            'monsters 7',
+        ];
+
+        const createElement = (tag, className) => {
+            const element = document.createElement(tag);
+            element.className = className;
+            return element;
+        }
+
+        let firstCard = '';
+        let secondCard = '';
+
+        /* função que desabilita todas as cartas e checa se o usuário finalizou o jogo */
+        const checkEndGame = () => {
+            const disabledCards = document.querySelectorAll('.disabled-card');
+
+            if (disabledCards.length === 20) {
+                clearInterval(this.loop);
+                alert(`Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi de: ${timer.innerHTML}`);
+            }
+        }
+
+        /* função de checar as cartas */
+        const checkCards = () => {
+            const firstCharacter = firstCard.getAttribute('data-character');
+            const secondCharacter = secondCard.getAttribute('data-character');
+
+            if (firstCharacter === secondCharacter) {
+
+                firstCard.firstChild.classList.add('disabled-card');
+                secondCard.firstChild.classList.add('disabled-card');
+
+                firstCard = '';
+                secondCard = '';
+
+                checkEndGame();
+
+            } else {
+                setTimeout(() => {
+
+                    firstCard.classList.remove('reveal-card');
+                    secondCard.classList.remove('reveal-card');
+
+                    firstCard = '';
+                    secondCard = '';
+
+                }, 500);
+            }
+
+        }
+
+        const revealCard = ({ target }) => {
+
+            if (target.parentNode.className.includes('reveal-card')) {
+                return;
+            }
+
+            if (firstCard === '') {
+
+                target.parentNode.classList.add('reveal-card');
+                firstCard = target.parentNode;
+
+            } else if (secondCard === '') {
+
+                target.parentNode.classList.add('reveal-card');
+                secondCard = target.parentNode;
+
+                checkCards();
+
+            }
+        }
+        /* função que cria as cartas*/
+        const createCard = (character) => {
+
+            const card = createElement('div', 'card');
+            const front = createElement('div', 'face front');
+            const back = createElement('div', 'face back');
+
+            front.style.backgroundImage = `url('img 4/${character}.png')`;
+
+            card.appendChild(front);
+            card.appendChild(back);
+
+            card.addEventListener('click', revealCard);
+            card.setAttribute('data-character', character)
+
+            return card;
+        }
+
+        /* função para carregar o jogo */
+        const loadGame = () => {
+            const duplicateCharacters = [...characters, ...characters]; /* array duplicado 2 vezes */
+
+            const shuffledArray = duplicateCharacters.sort(() => Math.random() - 0.5); /* array embaralhado */
+
+            /* criar personagem */
+            shuffledArray.forEach((character) => {
+                const card = createCard(character);
+                grid.appendChild(card);
+            });
+        }
+
+        /*  função contador */
+        const startTimer = () => {
+
+            this.loop = setInterval(() => {
+                const currentTime = +timer.innerHTML; /* colocando o sinal de + na frente, ele converte a string texto para número */
+                timer.innerHTML = currentTime + 1;
+            }, 1000);
+
+        }
+
+        const startGame = () => {
+            spanPlayer.innerHTML = localStorage.getItem('player');
+            startTimer();
+            loadGame();
+        };
+    </script>
+
+</body>
+
+</html>

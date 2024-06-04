@@ -1,0 +1,277 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('../assets/img/fundo2.jpg');
+    background-size: cover;
+}
+
+body img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Cabeçalho */
+header {
+    background: linear-gradient(135deg, #2b2b5f, #3c3c7a, #ff4dff, #c1c1c1);
+    color: white;
+    padding: 0.5em 0;
+}
+
+nav {
+    padding: 20px 0;
+    font-size: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 70px;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    transition: color 0.3s ease;
+    font-family: 'Press Start 2P', cursive;
+}
+
+nav ul li a:hover {
+    color: #43f0d3;
+}
+
+.logo-nav {
+    margin-right: 30px;
+}
+
+.logo-nav img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 100%;
+}
+
+.logo-nav h1 {
+    font-size: 22px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+main {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.card {
+    background: linear-gradient(135deg, #2b2b5f, #3c3c7a, #ff4dff);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    text-align: center;
+    padding: 20px;
+    margin-top: 70px;
+}
+
+.card h2 {
+    font-size: 1.5em;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.card p {
+    font-size: 1em;
+    margin: 10px 0;
+    color: #43f0d3;
+    font-family: 'Press Start 2P', cursive;
+    margin-top: 20px;
+}
+
+/* Estilo padrão para os botões dos cards */
+.card button {
+    /* background-color: #ff4dff;
+    color: #2b2b5f; */
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    font-size: 14px;
+    width: 20%;
+    max-width: 300px;
+}
+
+/* Botão do Card 1 */
+.card:nth-child(1) button {
+    background-color: #ff4dff;
+    color: #2b2b5f;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card:nth-child(1) button:hover {
+    background-color: #e600e6;
+}
+
+/* Botão do Card 2 */
+.card:nth-child(2) button {
+    background-color: #00d1ff;
+    color: #2b2b5f;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card:nth-child(2) button:hover {
+    background-color: #00b5e6;
+}
+
+/* Botão do Card 3 */
+.card:nth-child(3) button {
+    background-color: #39ff14;
+    color: #2b2b5f;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card:nth-child(3) button:hover {
+    background-color: #32e600;
+}
+
+/* Botão do Card 4 */
+.card:nth-child(4) button {
+    background-color: #ff6600;
+    color: #2b2b5f;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card:nth-child(4) button:hover {
+    background-color: #e65c00;
+}
+
+.btn-voltar-homepage {
+    background-color: #43f0d3;
+    color: white;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 80px;
+    padding: 10px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    border-radius: 20px;
+    border: none;
+    color: #2b2b5f;
+}
+
+.btn-voltar-homepage:hover {
+    background-color: #ff4dff;
+    color: white;
+}
+
+.contact-form {
+    margin-top: 10px;
+    background: linear-gradient(135deg, #2b2b5f, #3c3c7a, #ff4dff);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #43f0d3;
+    width: 80%;
+    /* Defina a largura máxima desejada */
+    max-width: 500px;
+    /* Defina uma largura máxima para o formulário */
+    margin: 0 auto;
+    /* Centralize horizontalmente */
+}
+
+.contact-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.contact-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ff4dff;
+    color: #2b2b5f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.contact-form button:hover {
+    background-color: #e600e6;
+}
+
+footer {
+    background: linear-gradient(135deg, #2b2b5f, #3c3c7a, #ff4dff, #c1c1c1);
+
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    margin-top: auto;
+    font-family: 'Press Start 2P', cursive;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Espaço Gamer</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="logo-nav">
+                    <img src="assets/img/logo.png" alt="Espaço Gamer Logo">
+                    <h1>Espaço Gamer</h1>
+                </li>
+                <li><a href="jogo1.html">Pedra Papel Tesoura</a></li>
+                <li><a href="jogo2.html">Quiz de Pintura Country</a></li>
+                <li><a href="jogo3.html">Genius</a></li>
+                <li><a href="jogo4.html">Memory Game</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- <button onclick="location.href='index.html'">Voltar para a Homepage</button> -->
+        <button class="btn-voltar-homepage" onclick="location.href='index.html'">Voltar para a Homepage</button>
+
+        <div class="contact-form">
+            <h2>Contato</h2>
+            <form action="mailto:email@dominio.com" method="post" enctype="text/plain">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Espaço Gamer by Carla-coder. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+
+</html>
