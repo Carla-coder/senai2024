@@ -67,8 +67,9 @@ nav ul li a:hover {
 .logo-nav img {
     width: 50px;
     height: 50px;
+    border-radius: 50%;
     margin-right: 10px;
-    border-radius: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 .logo-nav h1 {
@@ -82,6 +83,76 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+}
+
+.logo-center {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    /* text-align: center; */
+    margin-bottom: 20px;
+    animation: moveLogo 3s infinite alternate;
+}
+
+.logo-center img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: moveLogo 3s infinite alternate;
+    position: relative;
+    z-index: 2;
+}
+
+.neon-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #7fffd4, 0 0 20px #7fffd4, 0 0 30px #7fffd4, 0 0 40px #7fffd4, 0 0 50px #7fffd4, 0 0 60px #7fffd4, 0 0 70px #7fffd4, 0 0 80px #7fffd4;
+    animation: neonAnimation 3s infinite alternate;
+    z-index: 1; /* Garante que o efeito de neon fique atrás da imagem */
+    animation: moveLogo 3s infinite alternate;
+}
+
+@keyframes moveLogo {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(20px);
+    }
+}
+
+@keyframes neonAnimation {
+    0% {
+        opacity: 0.5;
+        filter: blur(8px);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(12px);
+    }
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.social-media a {
+    color: white;
+    font-size: 2em;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: #43f0d3;
 }
 
 main p {
@@ -103,7 +174,7 @@ main p {
     width: 500px;
     text-align: center;
     padding: 20px;
-    margin-top: 70px;
+    margin-top: 10px;
 }
 
 .card h2 {
@@ -121,8 +192,6 @@ main p {
 
 /* Estilo padrão para os botões dos cards */
 .card button {
-    /* background-color: #ff4dff;
-    color: #2b2b5f; */
     border: none;
     padding: 10px;
     border-radius: 5px;
@@ -267,11 +336,74 @@ main p {
 
 footer {
     background: linear-gradient(135deg, #2b2b5f, #3c3c7a, #ff4dff, #c1c1c1);
-
     color: white;
     text-align: center;
     padding: 20px 0;
     width: 100%;
     margin-top: auto;
     font-family: 'Press Start 2P', cursive;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    font-family: 'Press Start 2P', cursive;
+    background: linear-gradient(135deg, #2b2b5f, #3c3c7a, #ff4dff);
+    margin: 5% auto;
+    padding: 20px;
+    border:none; 
+    width: 80%;
+    max-width: 500px;
+    border-radius: 20px;
+}
+
+.modal-content h2, p {
+   color: white; 
+}
+
+.close {
+    color: #ff4dff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#audioButton {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px;
+    background-color: #43f0d3;
+    color: #2b2b5f;
+    border: none;
+    font-family: 'Press Start 2P', cursive;
+    font-weight: bolder;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+#audioButton:hover {
+    background-color: #ff4dff;
+    color: white;
 }

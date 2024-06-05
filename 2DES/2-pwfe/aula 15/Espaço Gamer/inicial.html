@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espaço Gamer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="logo-nav">
+                    <img src="assets/img/logo.png" alt="Espaço Gamer Logo">
+                    <h1>Espaço Gamer</h1>
+                </li>
+                <li><a href="#modalQuemSomos" class="modal-btn">Quem Somos</a></li>
+                <li><a href="index.html">Jogos</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="logo-center">
+            <div class="neon-glow"></div>
+            <img src="assets/img/logo.png" alt="Espaço Gamer Logo">
+        </div>
+        <div class="social-media">
+            <a href="https://www.instagram.com/carla_coder2023" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/Carla-coder" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/carlamozena" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+
+        <button id="audioButton">Play Music</button>
+
+    </main>
+
+    <audio id="backgroundMusic" loop>
+        <source src="audio/music.mp3" type="audio/mp3">
+    </audio>
+
+    <footer>
+        <p>&copy; 2024 Espaço Gamer by Carla-coder. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modalQuemSomos" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Quem Somos!!!</h2>
+            <br>
+            <br>
+            <p>Bem-vindo ao Espaço Gamer! Somos um portal dedicado aos entusiastas de jogos.
+                No Espaço Gamer, você encontrará uma variedade de jogos interativos e desafiadores, 
+                que vão desde clássicos nostálgicos até novas aventuras empolgantes. Queremos proporcionar
+                momentos de entretenimento e aprendizado, estimulando a criatividade e a estratégia dos nossos jogadores.
+                <br>
+                <br>
+                Estamos felizes em tê-lo aqui e esperamos que aproveite ao máximo tudo o que o Espaço Gamer tem a oferecer. Sinta-se à 
+                vontade para explorar nossos jogos, compartilhar suas conquistas. Se tiver alguma 
+                dúvida ou sugestão, não hesite em nos contatar. Juntos, faremos do Espaço Gamer o seu lugar favorito para jogar e se 
+                divertir!
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Modal Script
+        var modal = document.getElementById("modalQuemSomos");
+        var btns = document.getElementsByClassName("modal-btn");
+        var span = document.getElementsByClassName("close")[0];
+
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function () {
+                modal.style.display = "block";
+            }
+        }
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+         // Adicionando o código para reproduzir o áudio
+    var audioButton = document.getElementById('audioButton');
+    var audio = document.getElementById('backgroundMusic');
+    var isAudioPlaying = false;
+
+    audioButton.addEventListener('click', function() {
+        if (isAudioPlaying) {
+            audio.pause();
+            isAudioPlaying = false;
+            audioButton.textContent = 'Play Music';
+        } else {
+            audio.play();
+            isAudioPlaying = true;
+            audioButton.textContent = 'Pause Music';
+        }
+    });
+
+    </script>
+</body>
+
+</html>
