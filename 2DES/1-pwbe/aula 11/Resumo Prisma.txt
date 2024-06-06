@@ -129,15 +129,12 @@ module.exports = {
 }
 
 
+Tutorial de como abrir o Projeto Escola Prisma Pug
+
+1. abra o terminal VSCode e digite npm i
+2. abra o xampp e start o MySQL - Apache e clique no admin do MySql para abrir o PhPMyAdmin
+3. no terminal digite nodemon
+4. no navegador digite http://localhost:3000 para ter acesso à aplicação.
 ** para resetar o nodemon digite rs e enter **
-
-
-
-
-
-
-
-
-
 
 

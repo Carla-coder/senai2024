@@ -24,34 +24,176 @@
     <section id="destinos">
         <div class="titulo">
             <h2>Destinos</h2>
+            <button id="addDestinoBtn">Adicionar Destino</button>
         </div>
 
         <div id="destinos-container" class="container"></div>
     </section>
+
+    <!-- Modal -->
+    <div id="destinoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Adicionar Destino</h2>
+            <form id="destinoForm">
+                <input type="hidden" id="destinoId">
+                <div>
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div>
+                    <label for="valor">Valor</label>
+                    <input type="number" id="valor" name="valor" required>
+                </div>
+                <div>
+                    <label for="data">Data</label>
+                    <input type="date" id="data" name="data" required>
+                </div>
+                <div>
+                    <label for="hoteisId">HoteisId</label>
+                    <input type="number" id="hoteisId" name="hoteisId" required>
+                </div>
+            
+                <button type="submit" id="submitBtn">Adicionar</button>
+                <button type="button" id="editBtn">Editar</button> 
+                
+            </form>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2024 Viagens Belo Destino. Todos os direitos reservados.</p>
     </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', async function () {
-            const destinosContainer = document.getElementById('destinos-container');
+    const destinosContainer = document.getElementById('destinos-container');
+    const modal = document.getElementById("destinoModal");
+    const addDestinoBtn = document.getElementById("addDestinoBtn");
+    const closeBtn = document.getElementsByClassName("close")[0];
+    const destinoForm = document.getElementById("destinoForm");
+    const editBtn = document.getElementById("editBtn");
 
-            try {
-                const response = await fetch('http://localhost:3000/destinos');
-                const data = await response.json();
-                data.forEach(destino => {
-                    const card = document.createElement('div');
-                    card.classList.add('card');
-                    card.innerHTML = `
-                        <h3>${destino.nome}</h3>
-                        <p>Valor:R$${destino.valor}</p>
-                        <p>Data:${new Date(destino.data).toLocaleDateString('pt-BR')}</p>
-                    `;
-                    destinosContainer.appendChild(card);
-                });
-            } catch (error) {
-                console.error('Erro ao buscar destinos:', error);
-            }
+    addDestinoBtn.onclick = function () {
+        openModal();
+    };
+
+    closeBtn.onclick = function () {
+        closeModal();
+    };
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    };
+
+    destinoForm.onsubmit = async function (event) {
+        event.preventDefault();
+        const id = document.getElementById('destinoId').value;
+        const nome = document.getElementById('nome').value;
+        const valor = document.getElementById('valor').value;
+        const data = document.getElementById('data').value;
+        const hoteisId = document.getElementById('hoteisId').value;
+
+        const destino = { nome, valor, data, hoteisId };
+
+        if (id) {
+            await updateDestino(id, destino);
+        } else {
+            await addDestino(destino);
+        }
+
+        fetchDestinos();
+        closeModal();
+    };
+
+    editBtn.onclick = function () {
+        const id = document.getElementById('destinoId').value;
+        const nome = document.getElementById('nome').value;
+        const valor = document.getElementById('valor').value;
+        const data = document.getElementById('data').value;
+        const hoteisId = document.getElementById('hoteisId').value;
+
+        const destino = { id, nome, valor, data, hoteisId };
+
+        openModal(destino);
+    };
+
+    const openModal = (destino = null) => {
+        if (destino) {
+            document.getElementById('destinoId').value = destino.id;
+            document.getElementById('nome').value = destino.nome;
+            document.getElementById('valor').value = destino.valor;
+            document.getElementById('data').value = destino.data.split('T')[0];
+            document.getElementById('hoteisId').value = destino.hoteisId;
+            document.getElementById('modalTitle').innerText = 'Editar Destino';
+            document.getElementById('submitBtn').innerText = 'Atualizar';
+        } else {
+            document.getElementById('destinoForm').reset();
+            document.getElementById('modalTitle').innerText = 'Adicionar Destino';
+            document.getElementById('submitBtn').innerText = 'Adicionar';
+        }
+        modal.style.display = "block";
+    };
+
+    const closeModal = () => {
+        modal.style.display = "none";
+    };
+
+    const fetchDestinos = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/destinos');
+            const data = await response.json();
+            destinosContainer.innerHTML = '';
+            data.forEach(destino => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                card.innerHTML = `
+                    <h3>${destino.nome}</h3>
+                    <p>Valor: R$${destino.valor}</p>
+                    <p>Data: ${new Date(destino.data).toLocaleDateString('pt-BR')}</p>
+                    <button onclick="deleteDestino(${destino.id})">Excluir</button>
+                `;
+                const editButton = document.createElement('button');
+                editButton.textContent = "Editar";
+                editButton.onclick = function() {
+                    openModal(destino);
+                };
+                card.appendChild(editButton);
+                destinosContainer.appendChild(card);
+            });
+        } catch (error) {
+            console.error('Erro ao buscar destinos:', error);
+        }
+    };
+
+    const addDestino = async (destino) => {
+        await fetch('http://localhost:3000/destinos', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(destino)
         });
+    };
+
+    const updateDestino = async (id, destino) => {
+        await fetch(`http://localhost:3000/destinos/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(destino)
+        });
+    };
+
+    window.deleteDestino = async (id) => {
+        await fetch(`http://localhost:3000/destinos/${id}`, {
+            method: 'DELETE'
+        });
+        fetchDestinos();
+    };
+
+    fetchDestinos();
+});
+
     </script>
 </body>
 
