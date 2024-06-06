@@ -128,7 +128,7 @@ module.exports = {
 	"email": "beltrano@gmail.com"      este é o ID 2
 }
 
-
+*******************************************************************************************
 Tutorial de como abrir o Projeto Escola Prisma Pug
 
 1. abra o terminal VSCode e digite npm i
@@ -136,5 +136,8 @@ Tutorial de como abrir o Projeto Escola Prisma Pug
 3. no terminal digite nodemon
 4. no navegador digite http://localhost:3000 para ter acesso à aplicação.
 ** para resetar o nodemon digite rs e enter **
+
+obs: se der erro quando o programa for aberto em outra máquina, delete o migration, 
+verifique o .env ( url database ) e digite no terminal npx prisma migrate dev --name init 
 
 
