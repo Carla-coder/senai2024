@@ -12,7 +12,8 @@ No Terminal digite:
 
 \cd appmarvel ( entre na pasta raiz )
 
-\npx create-react-app appmarvel ( instalando as dependências )
+\npx create-react-app appmarvel ( instalando as dependências )- usar nome em letras minusculas, pois esssa versão não aceita
+maisculas e minusculas juntas.
 
 * Entre na pasta raiz \cd appmarvel e digite:
 

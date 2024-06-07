@@ -12,7 +12,7 @@ Instalando as dependências:
 * Abra o terminal no cmd ( CTRL " )
 
 1. npm install -g expo-cli
-2. npx create-expo-app Marvel
+2. npx create-expo-app Marvel ( versão nova do react npx create-react-app (nome do projeto))
 3. cd Marvel
 4. npm run web
 5. crie a pasta api e uma pasta components dentro da pasta Marvel
