@@ -134,10 +134,38 @@ Tutorial de como abrir o Projeto Escola Prisma Pug
 1. abra o terminal VSCode e digite npm i
 2. abra o xampp e start o MySQL - Apache e clique no admin do MySql para abrir o PhPMyAdmin
 3. no terminal digite nodemon
-4. no navegador digite http://localhost:3000 para ter acesso à aplicação.
+4. no  .env inclua a URL_DATABASE DATABASE_URL="mysql://root@localhost:3306/escola?schema=public&timezone=UTC"
+5. exclua o migration e faça um novo, digite npx prisma migrate dev --name init e 'Y'
+6. no navegador digite http://localhost:3000 para ter acesso à aplicação.
 ** para resetar o nodemon digite rs e enter **
+** para sair da aplicação digite Ctrl C **
 
 obs: se der erro quando o programa for aberto em outra máquina, delete o migration, 
 verifique o .env ( url database ) e digite no terminal npx prisma migrate dev --name init 
+
+obs2: Existe uma sequência para se fazer os cadastros. Primeiro cadastre a turma, segundo cadastre o aluno que é referente a nova turma, 
+terceiro cadastre o professor referente a nova turma. Desta maneira o resultado em 'Turmas' quando se abre o modal em 'Detalhes', será mostrado 
+todos os dados retornados de alunos cadastrados e professores. Também faça o migration toda vez que fizer uma nova modificação no código.
+Eu deletei o migatrion anterior e fiz um novo executando o comando npx prisma migrate dev --name init
+
+Para faze os testes de retorno de dados no terninal, adicione um console.log em turmas.js: console.log(JSON.stringify(turmas, null, 2)); 
+Neste exemplo, retorna um json completo: 
+
+ "id": 5, (id da nova turma)
+    "nome": "Power BI", (nome do curso)
+    "abreviacao": "2DES", (qual turma)
+    "alunos": [
+      {
+        "ra": "RA0347", (RA do aluno)
+        "nome": "Jorge Freitas", (nome do aluno)
+        "nascimento": "2008-02-10T00:00:00.000Z" (data de nascimento do aluno)
+      }
+    ],
+    "professores": [
+      {
+        "professor": {
+          "nome": "Anderson", (nome do professor)
+          "especialidade": "Power BI" (Curso referente ao professor cadastrado)
+        }
 
 
