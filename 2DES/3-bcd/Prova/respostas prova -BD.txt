@@ -1,0 +1,25 @@
+delimiter //
+create procedure calcSubtotais()
+begin
+update Aluguel a
+set a.subtotal = (select datediff(a.devolucao, a.retirada) * v.diaria
+from Veiculo v
+where v.placa = a.placa);
+end//
+delimiter;
+
+create trigger trg_calc_subtotal after update on Aluguel
+for each row
+begin
+call calcSubtotais();
+end;
+
+SELECT COUNT(*) AS veiculos_alugados_hoje
+FROM vw_alugueis_em_andamento
+WHERE DATE(retirada) = CURDATE();
+
++--------------------+
+| veiculos_alugados_hoje |
++--------------------+
+|                   5 |
++--------------------+
