@@ -69,6 +69,6 @@ Implantação
 
 Esta seção foi movida para aqui: https://facebook.github.io/create-react-app/docs/deployment
 
-npm run buildnão consegue minificar
+npm run build não consegue minificar
 
 Esta seção foi movida para aqui: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
