@@ -1,4 +1,3 @@
-
 ## Sumário
 
 - Introdução
@@ -16,8 +15,6 @@
 - Como Executar o Projeto Localmente
 
 - API OMDB
-
-
 
 ## Introdução
 
@@ -55,12 +52,9 @@ cinemanamao/
 └── ...
 
 ```
-
 ## Detalhes de Implementação
 
 O projeto utiliza React para criar uma aplicação SPA (Single Page Application), onde cada rota é gerenciada pelo React Router. As páginas são componentes funcionais que fazem chamadas assíncronas à API do OMDB para obter informações sobre filmes. A integração com a API é feita através do uso de fetch e async/await para lidar com promessas.
-
-
 
 ## Estilização
 
@@ -78,7 +72,6 @@ A estilização é feita principalmente através de estilos inline e objetos de 
 - **Formulário de Contato**: Possibilita que os usuários enviem mensagens diretamente aos desenvolvedores.
 
 Cada seção é projetada para proporcionar uma experiência única e interativa.
-
 
 ## Tecnologias utilizadas
 
@@ -118,11 +111,6 @@ npm start
 
 - Certifique-se de ter uma conexão com a internet ativa para que as requisições à API do OMDB funcionem corretamente.
 
-
-
-
-
-
 ## API OMDB
 
 A API OMDB (Open Movie Database) é uma API pública que fornece informações detalhadas sobre filmes, séries de TV e outros tipos de mídia. Utilizamos a API OMDB para buscar informações como título, ano, sinopse, pôster e outros detalhes dos filmes. Para fazer requisições à API OMDB, é necessário um apikey.
@@ -137,10 +125,32 @@ Detalhes dos Filmes: http://www.omdbapi.com/?i=${movie.imdbID}&apikey=8ad25d0e
 ```
 
 A documentação completa da API pode ser encontrada em https://www.omdbapi.com/
+
+## Print das Telas
+
+- Tela 1
+
+![destaques](https://github.com/Carla-coder/senai2024/assets/128012862/4c2c5311-cd80-4df9-a1bc-12b289d13fed)
+
+- Tela 2
+
+![busca](https://github.com/Carla-coder/senai2024/assets/128012862/4fa12bf0-9c78-4930-8989-1feab3560393)
+
+- Tela 3
+
+![busca 2](https://github.com/Carla-coder/senai2024/assets/128012862/8b89ce95-b829-4bdd-bed6-a765c03c689b)
+
+- Tela 4
+
+![filmes](https://github.com/Carla-coder/senai2024/assets/128012862/510b4c7a-6a10-41b1-a671-47eb2794139c)
+
+- Tela 5
+
+![contato](https://github.com/Carla-coder/senai2024/assets/128012862/b18bf436-882f-4434-afe5-ea39aba15249)
+
 ## Autores
 
 - [@octokatherine](https://www.github.com/octokatherine)
-
 
 ## Instituição de Ensino
 
