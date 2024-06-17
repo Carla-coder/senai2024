@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: white;
+}
+
+/* Interface */
+.interface {
+   max-width: 1280px;
+   margin: 0 auto;
+}
+
+/* Estilo do header */
+header {
+  width: 100%;
+  padding: 40px 0;
+}
+
+header .interface {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo  img{
+    max-width: 40px;
+}
+
+header .menu-desktop nav ul {
+    list-style-type: none;
+}
+
+header .menu-desktop nav ul li {
+    display: inline-block;
+    margin: 0 40px;
+}
+
+header .menu-desktop nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+}
+
+.menu-desktop nav a:hover {
+    transform: scale(1.05);
+} 
+
+header .btn-contato button {
+    width: 140px;
+    height: 50px;
+    font-size: 18px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+header .btn-contato button:hover {
+    background-color: #fff;
+    color: #000;
+    transition: .5s;
+    border-radius: 8px;
+}
+
+/* Estilo do hero */
+
+
+
+
+
