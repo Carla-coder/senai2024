@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: white;
+    background-color: #e3e3e3;
 }
 
 /* Interface */
@@ -15,10 +15,23 @@ body {
    margin: 0 auto;
 }
 
+header .btn-contato button, .hero-site button {
+    font-size: 18px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .5s;
+}
+
 /* Estilo do header */
 header {
   width: 100%;
   padding: 40px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 header .interface {
@@ -51,25 +64,91 @@ header .menu-desktop nav ul li a {
     transform: scale(1.05);
 } 
 
-header .btn-contato button {
-    width: 140px;
-    height: 50px;
-    font-size: 18px;
-    background-color: transparent;
-    border: 1px solid #fff;
-    color: #fff;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-header .btn-contato button:hover {
+header .btn-contato button:hover, .hero-site button:hover {
     background-color: #fff;
     color: #000;
-    transition: .5s;
-    border-radius: 8px;
 }
 
 /* Estilo do hero */
+section.hero-site {
+    height: 98vh;
+    background-image: url(../images/bg-inicio-site.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+.hero-site .interface {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.hero-site .txt-hero h1 {
+    font-size: 4em;
+    line-height: 70px;
+    font-weight: 200;
+}
+
+.hero-site .txt-hero h1 span {
+    display: block;
+    font-weight: 800;
+}
+
+.hero-site .txt-hero p {
+    font-size: 20px;
+    font-weight: 300;
+    margin: 20px 0;
+}
+
+.hero-site .txt-hero p span {
+    display: block;
+}
+
+.hero-site button {
+    width: 220px;
+    height: 60px;
+    font-size: 20px;
+}
+
+/* Estilo das vantagens */
+section.vantagens {
+    padding: 80px 0;
+}
+
+.vantagens .itens-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10%;
+    margin-bottom: 60px;
+}
+
+.vantagens .itens-container .img-itens img {
+    max-width: 480px;
+}
+
+.vantagens .itens-container .txt-itens h3 {
+    font-size: 3em;
+    line-height: 50px;
+    margin-bottom: 20px;
+}
+
+.itens-container .txt-itens h3 span {
+    font-weight: 300;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
