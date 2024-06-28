@@ -110,6 +110,7 @@ cd landing-page
 ![3](https://github.com/Carla-coder/senai2024/assets/128012862/a845353c-d159-4b3f-b7fc-33be6d1992b0)
 
 - Tela 3
+
 ![4](https://github.com/Carla-coder/senai2024/assets/128012862/8d578cd0-7194-46ce-8628-f13410f267d4)
 
 - Modal Cadastrar
@@ -120,9 +121,10 @@ cd landing-page
 
 ![6](https://github.com/Carla-coder/senai2024/assets/128012862/fd53d571-8ec1-477b-95b5-86cde89a1989)
 
-  ## Agradecimentos
+## Agradecimentos
 
 Agradeço ao youtuber Gustavo Nietzke pelo projeto original que serviu de base e inspiração para este trabalho.
+
 ## Autores
 
 - [@octokatherine](https://www.github.com/Carla-coder)
