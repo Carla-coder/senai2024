@@ -1,8 +1,6 @@
-
 # Landing Page  Carla-coder
 
 Este é o repositório da Landing Page pessoal de Carla Mozena, também conhecida como Carla-coder nesta nova fase como Dev. O site serve como um portfólio para apresentar minhas habilidades, experiências e projetos na área do desenvolvimento web. Além disso, inclui informações sobre minha transição de carreira e meu trabalho como artesã e professora de artes.
-
 
 ## Funcionalidades do site
 
@@ -22,6 +20,7 @@ Eu  adicionei várias funcionalidades e melhorias ao projeto original, incluindo
 3. **Botão de Voltar ao Topo**: Incluí um botão que permite aos usuários retornarem ao topo da página com facilidade, melhorando a navegabilidade dentro do site.
 
 4. **Estilizações Adicionais em CSS, HTML e JavaScript**: Fiz várias melhorias estéticas e funcionais no código CSS, HTML e JavaScript, garantindo uma interface mais moderna e responsiva.
+
 ## Tecnologias Utilizadas
 
 - HTML5
@@ -41,8 +40,6 @@ Eu  adicionei várias funcionalidades e melhorias ao projeto original, incluindo
 └── README.md
 
 ```
-
-
 ## Seções do Site
 
 1. **Header**
@@ -101,7 +98,25 @@ cd landing-page
 - Customização da aparência do site usando variáveis de cores, fontes e estilos para diferentes elementos.
 - Estilização dos modais e botão 'Voltar ao Topo'.
 - Personalização da barra de rolagem.
-## Agradecimentos
+
+## Print das Telas
+
+- Tela 1
+![1](https://github.com/Carla-coder/senai2024/assets/128012862/29e57677-33a6-44a5-b764-5e926e5d2f0f)
+
+- Tela 2
+![3](https://github.com/Carla-coder/senai2024/assets/128012862/a845353c-d159-4b3f-b7fc-33be6d1992b0)
+
+- Tela 3
+![4](https://github.com/Carla-coder/senai2024/assets/128012862/8d578cd0-7194-46ce-8628-f13410f267d4)
+
+- Modal Cadastrar
+![5](https://github.com/Carla-coder/senai2024/assets/128012862/67ff5fef-e6d5-4138-bf04-afe4f9a244ff)
+
+- Modal Entrar
+![6](https://github.com/Carla-coder/senai2024/assets/128012862/fd53d571-8ec1-477b-95b5-86cde89a1989)
+
+  ## Agradecimentos
 
 Agradeço ao youtuber Gustavo Nietzke pelo projeto original que serviu de base e inspiração para este trabalho.
 ## Autores
