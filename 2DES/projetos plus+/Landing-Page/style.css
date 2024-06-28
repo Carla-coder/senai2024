@@ -45,7 +45,6 @@ header {
   gap: 1rem;
   flex-wrap: wrap;
   padding: 0.8rem;
-  /* background-color: #2f2f46; */
   background-color: var(--dark4);
   min-height: 50px;
 }
@@ -268,6 +267,17 @@ footer > div {
   flex-wrap: wrap;
 }
 
+footer > div a {
+  text-decoration: none;
+  color: var(--dark2);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+footer > div a:hover {
+  transform: scale(1.1);
+  color: var(--cyan1);
+}
+
 /* Estilos para os modais */
 .modal {
   display: none;
@@ -290,7 +300,7 @@ footer > div {
   max-width: 500px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  color: var(--dark1); /* Cor do texto */
+  color: var(--dark1); 
 }
 
 .close {
@@ -308,7 +318,7 @@ footer > div {
 }
 
 .modal-content h2 {
-  color: var(--dark1); /* Cor do título */
+  color: var(--dark1); 
   text-align: center;
   margin-bottom: 20px;
 }
@@ -330,7 +340,7 @@ footer > div {
 .modal-content button {
   width: 100%;
   padding: 10px;
-  background-color: var(--dark1); /* Cor do botão */
+  background-color: var(--dark1); 
   border: none;
   border-radius: 5px;
   color: #fff;
@@ -348,8 +358,8 @@ footer > div {
   bottom: 20px;
   right: 20px;
   padding: 10px 15px;
-  background-color: var(--dark3); /* Cor do botão */
-  color: white; /* Cor do texto */
+  background-color: var(--dark3); 
+  color: white; 
   border: none;
   border-radius: 5px;
   font-size: 16px;
@@ -359,6 +369,6 @@ footer > div {
 }
 
 .scroll-to-top:hover {
-  background-color: var(--dark4); /* Cor do botão ao passar o mouse */
+  background-color: var(--dark4); 
   color: var(--dark1);
 }
