@@ -102,18 +102,22 @@ cd landing-page
 ## Print das Telas
 
 - Tela 1
+  
 ![1](https://github.com/Carla-coder/senai2024/assets/128012862/29e57677-33a6-44a5-b764-5e926e5d2f0f)
 
 - Tela 2
+  
 ![3](https://github.com/Carla-coder/senai2024/assets/128012862/a845353c-d159-4b3f-b7fc-33be6d1992b0)
 
 - Tela 3
 ![4](https://github.com/Carla-coder/senai2024/assets/128012862/8d578cd0-7194-46ce-8628-f13410f267d4)
 
 - Modal Cadastrar
+  
 ![5](https://github.com/Carla-coder/senai2024/assets/128012862/67ff5fef-e6d5-4138-bf04-afe4f9a244ff)
 
 - Modal Entrar
+
 ![6](https://github.com/Carla-coder/senai2024/assets/128012862/fd53d571-8ec1-477b-95b5-86cde89a1989)
 
   ## Agradecimentos
