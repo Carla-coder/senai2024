@@ -7,3 +7,9 @@
  **Término do Segundo Semestre**: 21 de Junho.
 
  **Situação**: APROVADA
+
+ **Início do Terceiro Semestre**: 24 de Julho.
+
+ **Término do Terceiro Semestre**: 18 de Dezembro.
+
+ **Situação**:
