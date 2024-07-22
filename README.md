@@ -1,4 +1,4 @@
-# Escola Senai - 2024 - 2DES
+# Escola Senai - 2024 - 2DES - 3DES
 
 ### Repositório com exercícios, resumos, provas, tarefas e explicações das aulas do curso de Desenvolvimento de Sistemas na Escola Senai - Jaguariúna-SP
 
