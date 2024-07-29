@@ -1,0 +1,102 @@
+Identificação de Requisitos
+
+Funcionais:
+
+Busca de Livros: O sistema deve permitir que os usuários busquem livros por título ou autor.
+Empréstimo de Livros: O sistema deve permitir que os usuários façam empréstimos de livros online.
+
+Não Funcionais:
+
+Suporte a Usuários Simultâneos: O sistema deve suportar até 1000 usuários simultâneos.
+Tempo de Resposta: O tempo de resposta para uma busca deve ser inferior a 1 segundo.
+
+Criação de Diagramas UML
+
+1. Diagrama de Casos de Uso
+
+O diagrama de casos de uso mostra as interações entre os usuários e o sistema.
+
+Elementos:
+
+Ator (Usuário): Representa os usuários do sistema.
+Casos de Uso: Representam as funcionalidades que o sistema oferece.
+Associações: Linhas que conectam os atores aos casos de uso.
+
+Exemplo:
+
+Diagrama de casos de uso
+
++-------------------+
+| Ator (Usuário)    |
+| - Nome: Usuário   |
++---------+---------+
+          |
+          | associações
+          |
++---------v---------+      +-----------------------+
+| Casos de Uso      |      | Casos de Uso          |
+| - Buscar Livros   +<---->+ - Fazer Empréstimos   |
++-------------------+      +-----------------------+
+
+2. Diagrama de Classes
+
+O diagrama de classes mostra a estrutura estática do sistema, incluindo classes, atributos, métodos e relacionamentos.
+
+Elementos:
+
+Classes: Representam entidades do sistema.
+Atributos: Propriedades das classes.
+Métodos: Funcionalidades das classes.
+Associações: Relacionamentos entre as classes.
+
+Exemplo:
+
+Diagrama de Classes
+
++--------------------+
+| Classe: Livro      |
++--------------------+
+| - título: String   |
+| - autor: String    |
+| - disponível: Bool |
++--------------------+
+| + buscar()         |
+| + emprestar()      |
++--------------------+
+
++---------------------+
+| Classe: Usuário     |
++---------------------+
+| - nome: String      |
+| - id: Int           |
++---------------------+
+| + buscarLivro()     |
+| + fazerEmprestimo() |
++---------------------+
+
+3. Diagrama de Sequência
+
+O diagrama de sequência mostra a interação entre objetos ao longo do tempo, especialmente útil para visualizar chamadas de métodos.
+
+Elementos:
+
+Objetos: Representados por linhas de vida.
+Mensagens: Representadas por setas, indicando chamadas de métodos.
+
+Exemplo:
+
+Diagrama de sequencia
+
+Usuário     Sistema        Livro
+   |            |            |
+   | buscarLivro()           |
+   |------------>|           |
+   |            | buscar()   |
+   |            |----------->|
+   |            | <-----------|
+   |<-----------|           |
+   |            |            |
+
+e-mail Tania ( comunicação)
+
+professoratania.senai@gmail.com
