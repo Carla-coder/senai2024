@@ -12,6 +12,7 @@ O aplicativo precisa ser funcional e conter:
 *.tela
 
 Apresentação em Power Point com 5 páginas
+
 instalar o yarn no windows, abra o comand prompt e digite >npm install --global yarn
 e depois yarn --version (1.22.22)
 
@@ -19,28 +20,37 @@ iniciando o projeto no VScode
 
 no terminal digite:
 
-npx create-react-app (nomedoprojeto) ex financetracker
+npx create-react-app (nomedoprojeto) ex: financetracker
 
 entre na pasta  - cd financetracker
-
+yarn init
 yarn init
 yarn install
 
-Instalar as dependencias:
-
+Instalar as dependencias uma por vez:
+    yarn add expo
     yarn add @react-navigation/native
     yarn add react-native-safe-area-context
     yarn add react-native-screens
     yarn add react-native-svg
     yarn add @react-navigation/native-stack
     yarn add react-native-mask-input
+    npm start
 
-npm start
+Dependências:
 
 npm install styled-components --legacy-peer-deps
+
+npm install --legacy-peer-deps
+
+npm install @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
+
 
 {npm install react-router-dom uuid --force (não precisa instalar)
 npm install bootstrap (não precisa instalar)
 npm install axios (não precisa instalar)}
+
+
+
 
 
