@@ -51,7 +51,6 @@ export default function App() {
   const [pets, setPets] = useState([]);
   const [loading, setLoading] = useState(false);
   const [editingPetId, setEditingPetId] = useState(null);
-  const [idadePet, setIdadePet] = useState("");
   const [anosPet, setAnosPet] = useState("");
   const [mesesPet, setMesesPet] = useState("");
 
@@ -362,7 +361,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   petName: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "bold",
     color: "#20B2AA",
   },
@@ -385,11 +384,12 @@ const styles = StyleSheet.create({
   },
   ageInput: {
     flex: 1,
+    width: '48%',
     padding: 12,
-    marginHorizontal: 5,
+    marginHorizontal: 2,
     borderRadius: 8,
     backgroundColor: "#fff",
-    fontSize: 18,
+    fontSize: 16,
   },
   editButton: {
     backgroundColor: "#20B2AA",
@@ -401,7 +401,7 @@ const styles = StyleSheet.create({
   },
   editButtonText: {
     color: "#fff",
-    fontSize: 16,
+    fontSize: 12,
   },
   deleteButton: {
     backgroundColor: "#6B8E8D",
@@ -412,6 +412,6 @@ const styles = StyleSheet.create({
   },
   deleteButtonText: {
     color: "#fff",
-    fontSize: 16,
+    fontSize: 12,
   },
 });
