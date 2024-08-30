@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   Alert,
   ImageBackground,
+  ScrollView,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { db } from "./firebaseconfig";
@@ -176,6 +177,7 @@ export default function App() {
       source={require("./assets/background.jpg")}
       style={styles.container}
     >
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
       <View style={styles.innerContainer}>
         <Text style={styles.title}>PetShop SENAI</Text>
         <Text style={styles.label}>Nome do Pet:</Text>
@@ -213,6 +215,7 @@ export default function App() {
             keyboardType="numeric"
           />
         </View>
+       
         <TouchableOpacity onPress={escolherImagem} style={styles.imagePicker}>
           <Text style={styles.imagePickerText}>
             {petImage ? "Imagem Selecionada" : "Selecionar Imagem do Pet"}
@@ -245,6 +248,7 @@ export default function App() {
                   uri: item.imagem || "https://via.placeholder.com/100",
                 }}
                 style={styles.petImage}
+                contentContainerStyle={styles.flatListContent} 
               />
               <View style={styles.petInfo}>
                 <Text style={styles.petName}>{item.nome}</Text>
@@ -272,6 +276,7 @@ export default function App() {
           style={styles.petList}
         />
       </View>
+      </ScrollView>
     </ImageBackground>
   );
 }
@@ -281,6 +286,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#f0f8ff",
     padding: 20,
+  },
+  scrollContainer: {
+    flexGrow: 1,
   },
   innerContainer: {
     flex: 1,
@@ -413,5 +421,8 @@ const styles = StyleSheet.create({
   deleteButtonText: {
     color: "#fff",
     fontSize: 12,
+  },
+  flatListContent: {
+    paddingBottom: 20, 
   },
 });
