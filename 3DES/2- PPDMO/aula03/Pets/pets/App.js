@@ -58,7 +58,6 @@ export default function App() {
   useEffect(() => {
     fetchPets();
   }, []);
-  
 
   const adicionarPet = async () => {
     try {
@@ -71,13 +70,13 @@ export default function App() {
         await uploadBytes(storageRef, blob);
         imageUrl = await getDownloadURL(storageRef);
       }
-  
+
       // Formatar a idade do pet para salvar
       const idadePet = {
         anos: anosPet ? parseInt(anosPet, 10) : 0,
         meses: mesesPet ? parseInt(mesesPet, 10) : 0,
       };
-  
+
       if (editingPetId) {
         const petDoc = doc(db, "pets", editingPetId);
         await updateDoc(petDoc, {
@@ -141,7 +140,7 @@ export default function App() {
     setTipoPet(pet.tipo);
     setPetImage(pet.imagem);
     setEditingPetId(pet.id);
-  
+
     // Se o pet tiver idade, descompacte a idade para os campos de edição
     if (pet.idade) {
       setAnosPet(pet.idade.anos ? pet.idade.anos.toString() : "");
@@ -166,7 +165,7 @@ export default function App() {
   const resetForm = () => {
     setNomePet("");
     setTipoPet("");
-    setAnosPet(""); 
+    setAnosPet("");
     setMesesPet("");
     setPetImage(null);
     setEditingPetId(null);
@@ -178,104 +177,104 @@ export default function App() {
       style={styles.container}
     >
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-      <View style={styles.innerContainer}>
-        <Text style={styles.title}>PetShop SENAI</Text>
-        <Text style={styles.label}>Nome do Pet:</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Digite o nome do pet"
-          placeholderTextColor="#aaa"
-          value={nomePet}
-          onChangeText={setNomePet}
-        />
-        <Text style={styles.label}>Tipo do Pet:</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Digite a espécie do pet"
-          placeholderTextColor="#aaa"
-          value={tipoPet}
-          onChangeText={setTipoPet}
-        />
-        <Text style={styles.label}>Idade do Pet:</Text>
-        <View style={styles.ageContainer}>
+        <View style={styles.innerContainer}>
+          <Text style={styles.title}>PetShop SENAI</Text>
+          <Text style={styles.label}>Nome do Pet:</Text>
           <TextInput
-            style={styles.ageInput}
-            placeholder="Anos"
+            style={styles.input}
+            placeholder="Digite o nome do pet"
             placeholderTextColor="#aaa"
-            value={anosPet}
-            onChangeText={(text) => setAnosPet(text.replace(/[^0-9]/g, ""))}
-            keyboardType="numeric"
+            value={nomePet}
+            onChangeText={setNomePet}
           />
+          <Text style={styles.label}>Tipo do Pet:</Text>
           <TextInput
-            style={styles.ageInput}
-            placeholder="Meses"
+            style={styles.input}
+            placeholder="Digite a espécie do pet"
             placeholderTextColor="#aaa"
-            value={mesesPet}
-            onChangeText={(text) => setMesesPet(text.replace(/[^0-9]/g, ""))}
-            keyboardType="numeric"
+            value={tipoPet}
+            onChangeText={setTipoPet}
+          />
+          <Text style={styles.label}>Idade do Pet:</Text>
+          <View style={styles.ageContainer}>
+            <TextInput
+              style={styles.ageInput}
+              placeholder="Anos"
+              placeholderTextColor="#aaa"
+              value={anosPet}
+              onChangeText={(text) => setAnosPet(text.replace(/[^0-9]/g, ""))}
+              keyboardType="numeric"
+            />
+            <TextInput
+              style={styles.ageInput}
+              placeholder="Meses"
+              placeholderTextColor="#aaa"
+              value={mesesPet}
+              onChangeText={(text) => setMesesPet(text.replace(/[^0-9]/g, ""))}
+              keyboardType="numeric"
+            />
+          </View>
+
+          <TouchableOpacity onPress={escolherImagem} style={styles.imagePicker}>
+            <Text style={styles.imagePickerText}>
+              {petImage ? "Imagem Selecionada" : "Selecionar Imagem do Pet"}
+            </Text>
+          </TouchableOpacity>
+          {petImage && (
+            <Image source={{ uri: petImage }} style={styles.petImagePreview} />
+          )}
+          <TouchableOpacity
+            onPress={adicionarPet}
+            style={styles.addButton}
+            disabled={loading}
+          >
+            <Text style={styles.addButtonText}>
+              {loading
+                ? "Salvando..."
+                : editingPetId
+                ? "Atualizar Pet"
+                : "Adicionar Pet"}
+            </Text>
+          </TouchableOpacity>
+
+          <FlatList
+            data={pets}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <View style={styles.petItem}>
+                <Image
+                  source={{
+                    uri: item.imagem || "https://via.placeholder.com/100",
+                  }}
+                  style={styles.petImage}
+                  contentContainerStyle={styles.flatListContent}
+                />
+                <View style={styles.petInfo}>
+                  <Text style={styles.petName}>{item.nome}</Text>
+                  <Text style={styles.petType}>{item.tipo}</Text>
+                  <Text style={styles.petAge}>
+                    Idade: {formatAge(item.idade)}
+                  </Text>
+                </View>
+                <View style={styles.petActions}>
+                  <TouchableOpacity
+                    onPress={() => editarPet(item)}
+                    style={styles.editButton}
+                  >
+                    <Icon name="pencil" size={20} color="#ffffff" />
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() => excluirPet(item.id)}
+                    style={styles.deleteButton}
+                  >
+                    <Icon name="trash" size={20} color="#ffffff" />
+                  </TouchableOpacity>
+                </View>
+              </View>
+            )}
+            style={styles.petList}
           />
         </View>
-       
-        <TouchableOpacity onPress={escolherImagem} style={styles.imagePicker}>
-          <Text style={styles.imagePickerText}>
-            {petImage ? "Imagem Selecionada" : "Selecionar Imagem do Pet"}
-          </Text>
-        </TouchableOpacity>
-        {petImage && (
-          <Image source={{ uri: petImage }} style={styles.petImagePreview} />
-        )}
-        <TouchableOpacity
-          onPress={adicionarPet}
-          style={styles.addButton}
-          disabled={loading}
-        >
-          <Text style={styles.addButtonText}>
-            {loading
-              ? "Salvando..."
-              : editingPetId
-              ? "Atualizar Pet"
-              : "Adicionar Pet"}
-          </Text>
-        </TouchableOpacity>
-
-        <FlatList
-          data={pets}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <View style={styles.petItem}>
-              <Image
-                source={{
-                  uri: item.imagem || "https://via.placeholder.com/100",
-                }}
-                style={styles.petImage}
-                contentContainerStyle={styles.flatListContent} 
-              />
-              <View style={styles.petInfo}>
-                <Text style={styles.petName}>{item.nome}</Text>
-                <Text style={styles.petType}>{item.tipo}</Text>
-                <Text style={styles.petAge}>
-                  Idade: {formatAge(item.idade)}
-                </Text>
-              </View>
-              <View style={styles.petActions}>
-                <TouchableOpacity
-                  onPress={() => editarPet(item)}
-                  style={styles.editButton}
-                >
-                  <Icon name="pencil" size={20} color="#ffffff" />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => excluirPet(item.id)}
-                  style={styles.deleteButton}
-                >
-                  <Icon name="trash" size={20} color="#ffffff" />
-                </TouchableOpacity>
-              </View>
-            </View>
-          )}
-          style={styles.petList}
-        />
-      </View>
       </ScrollView>
     </ImageBackground>
   );
@@ -327,7 +326,7 @@ const styles = StyleSheet.create({
   imagePickerText: {
     color: "#fff",
     fontWeight: "bold",
-    fontSize: 18,
+    fontSize: 16,
   },
   petImagePreview: {
     width: 100,
@@ -346,7 +345,7 @@ const styles = StyleSheet.create({
   addButtonText: {
     color: "#fff",
     fontWeight: "bold",
-    fontSize: 18,
+    fontSize: 16,
   },
   petList: {
     flex: 1,
@@ -369,16 +368,16 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   petName: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: "bold",
     color: "#20B2AA",
   },
   petType: {
-    fontSize: 16,
+    fontSize: 14,
     color: "#666",
   },
   petAge: {
-    fontSize: 16,
+    fontSize: 14,
     color: "#20B2AA",
   },
   petActions: {
@@ -392,7 +391,7 @@ const styles = StyleSheet.create({
   },
   ageInput: {
     flex: 1,
-    width: '48%',
+    width: "48%",
     padding: 12,
     marginHorizontal: 2,
     borderRadius: 8,
@@ -423,6 +422,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   flatListContent: {
-    paddingBottom: 20, 
+    paddingBottom: 20,
   },
 });
