@@ -8,6 +8,7 @@ import {
   FlatList,
   Image,
   TouchableOpacity,
+  ImageBackground,
   Alert,
   ScrollView,
 } from "react-native";
@@ -31,7 +32,7 @@ export default function App() {
   const [editoraLivro, setEditoraLivro] = useState("");
   const [anoLivro, setAnoLivro] = useState("");
   const [imagemLivro, setImagemLivro] = useState(null);
-  const [flagLivro, setFlagLivro] = useState("Lendo"); // "Lido" ou "Lendo"
+  const [flagLivro, setFlagLivro] = useState(""); // "Lido" ou "Lendo"
   const [livros, setLivros] = useState([]);
   const [loading, setLoading] = useState(false);
   const [editingLivroId, setEditingLivroId] = useState(null);
@@ -45,7 +46,10 @@ export default function App() {
       setLoading(true);
       let imageUrl = null;
       if (imagemLivro) {
-        const storageRef = ref(storage, `livros/${Date.now()}-${nomeLivro}.jpg`);
+        const storageRef = ref(
+          storage,
+          `livros/${Date.now()}-${nomeLivro}.jpg`
+        );
         const response = await fetch(imagemLivro);
         const blob = await response.blob();
         await uploadBytes(storageRef, blob);
@@ -53,6 +57,7 @@ export default function App() {
       }
 
       if (editingLivroId) {
+        // Atualiza o livro no Firebase
         const livroDoc = doc(db, "livros", editingLivroId);
         await updateDoc(livroDoc, {
           nome: nomeLivro,
@@ -62,6 +67,7 @@ export default function App() {
           imagem: imageUrl || imagemLivro,
           flag: flagLivro,
         });
+
         Alert.alert("Livro atualizado com sucesso!");
       } else {
         await addDoc(collection(db, "livros"), {
@@ -146,111 +152,121 @@ export default function App() {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.innerContainer}>
-        <Text style={styles.title}>Biblioteca Pessoal</Text>
-        <Text style={styles.label}>Nome do Livro:</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Digite o nome do livro"
-          placeholderTextColor="#aaa"
-          value={nomeLivro}
-          onChangeText={setNomeLivro}
-        />
-        <Text style={styles.label}>Autor:</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Digite o nome do autor"
-          placeholderTextColor="#aaa"
-          value={autorLivro}
-          onChangeText={setAutorLivro}
-        />
-        <Text style={styles.label}>Editora:</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Digite o nome da editora"
-          placeholderTextColor="#aaa"
-          value={editoraLivro}
-          onChangeText={setEditoraLivro}
-        />
-        <Text style={styles.label}>Ano de Publicação:</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Digite o ano de publicação"
-          placeholderTextColor="#aaa"
-          value={anoLivro}
-          onChangeText={(text) => setAnoLivro(text.replace(/[^0-9]/g, ""))}
-          keyboardType="numeric"
-        />
-        <Text style={styles.label}>Status:</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Digite 'Lido' ou 'Lendo'"
-          placeholderTextColor="#aaa"
-          value={flagLivro}
-          onChangeText={setFlagLivro}
-        />
+    <ImageBackground
+      source={require("./assets/fundo.jpg")}
+      style={styles.container}
+    >
+      <ScrollView contentContainerStyle={styles.container}>
+        <View style={styles.innerContainer}>
+          <Text style={styles.title}>Biblioteca Pessoal</Text>
+          <Text style={styles.label}>Nome do Livro:</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Digite o nome do livro"
+            placeholderTextColor="#aaa"
+            value={nomeLivro}
+            onChangeText={setNomeLivro}
+          />
+          <Text style={styles.label}>Autor:</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Digite o nome do autor"
+            placeholderTextColor="#aaa"
+            value={autorLivro}
+            onChangeText={setAutorLivro}
+          />
+          <Text style={styles.label}>Editora:</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Digite o nome da editora"
+            placeholderTextColor="#aaa"
+            value={editoraLivro}
+            onChangeText={setEditoraLivro}
+          />
+          <Text style={styles.label}>Ano de Publicação:</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Digite o ano de publicação"
+            placeholderTextColor="#aaa"
+            value={anoLivro}
+            onChangeText={(text) => setAnoLivro(text.replace(/[^0-9]/g, ""))}
+            keyboardType="numeric"
+          />
+          <Text style={styles.label}>Status:</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Digite 'Lido' ou 'Lendo'"
+            placeholderTextColor="#aaa"
+            value={flagLivro}
+            onChangeText={setFlagLivro}
+          />
 
-        <TouchableOpacity onPress={escolherImagem} style={styles.imagePicker}>
-          <Text style={styles.imagePickerText}>
-            {imagemLivro ? "Imagem Selecionada" : "Selecionar Imagem do Livro"}
-          </Text>
-        </TouchableOpacity>
-        {imagemLivro && (
-          <Image source={{ uri: imagemLivro }} style={styles.bookImagePreview} />
-        )}
-        <TouchableOpacity
-          onPress={adicionarLivro}
-          style={styles.addButton}
-          disabled={loading}
-        >
-          <Text style={styles.addButtonText}>
-            {loading
-              ? "Salvando..."
-              : editingLivroId
-              ? "Atualizar Livro"
-              : "Adicionar Livro"}
-          </Text>
-        </TouchableOpacity>
-
-        <FlatList
-          data={livros}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <View style={styles.bookItem}>
-              <Image
-                source={{
-                  uri: item.imagem || "https://via.placeholder.com/100",
-                }}
-                style={styles.bookImage}
-              />
-              <View style={styles.bookInfo}>
-                <Text style={styles.bookName}>{item.nome}</Text>
-                <Text style={styles.bookAuthor}>{item.autor}</Text>
-                <Text style={styles.bookPublisher}>{item.editora}</Text>
-                <Text style={styles.bookYear}>Ano: {item.ano}</Text>
-                <Text style={styles.bookFlag}>Status: {item.flag}</Text>
-              </View>
-              <View style={styles.bookActions}>
-                <TouchableOpacity
-                  onPress={() => editarLivro(item)}
-                  style={styles.editButton}
-                >
-                  <Icon name="pencil" size={20} color="#ffffff" />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => excluirLivro(item.id)}
-                  style={styles.deleteButton}
-                >
-                  <Icon name="trash" size={20} color="#ffffff" />
-                </TouchableOpacity>
-              </View>
-            </View>
+          <TouchableOpacity onPress={escolherImagem} style={styles.imagePicker}>
+            <Text style={styles.imagePickerText}>
+              {imagemLivro
+                ? "Imagem Selecionada"
+                : "Selecionar Imagem do Livro"}
+            </Text>
+          </TouchableOpacity>
+          {imagemLivro && (
+            <Image
+              source={{ uri: imagemLivro }}
+              style={styles.bookImagePreview}
+            />
           )}
-          style={styles.bookList}
-        />
-      </View>
-    </ScrollView>
+          <TouchableOpacity
+            onPress={adicionarLivro}
+            style={styles.addButton}
+            disabled={loading}
+          >
+            <Text style={styles.addButtonText}>
+              {loading
+                ? "Salvando..."
+                : editingLivroId
+                ? "Atualizar Livro"
+                : "Adicionar Livro"}
+            </Text>
+          </TouchableOpacity>
+
+          <FlatList
+            data={livros}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <View style={styles.bookItem}>
+                <Image
+                  source={{
+                    uri: item.imagem || "https://via.placeholder.com/100",
+                  }}
+                  style={styles.bookImage}
+                />
+                <View style={styles.bookInfo}>
+                  <Text style={styles.bookName}>{item.nome}</Text>
+                  <Text style={styles.bookAuthor}>{item.autor}</Text>
+                  <Text style={styles.bookPublisher}>{item.editora}</Text>
+                  <Text style={styles.bookYear}>Ano: {item.ano}</Text>
+                  <Text style={styles.bookFlag}>Status: {item.flag}</Text>
+                </View>
+                <View style={styles.bookActions}>
+                  <TouchableOpacity
+                    onPress={() => editarLivro(item)}
+                    style={styles.editButton}
+                  >
+                    <Icon name="pencil" size={20} color="#ffffff" />
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() => excluirLivro(item.id)}
+                    style={styles.deleteButton}
+                  >
+                    <Icon name="trash" size={20} color="#ffffff" />
+                  </TouchableOpacity>
+                </View>
+              </View>
+            )}
+            style={styles.bookList}
+          />
+        </View>
+      </ScrollView>
+    </ImageBackground>
   );
 }
 
@@ -268,7 +284,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 36,
     fontWeight: "bold",
-    color: "#333",
+    color: "#4682b4",
     textAlign: "center",
     marginBottom: 20,
   },
@@ -276,7 +292,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 5,
-    color: "#333",
+    color: "#4682b4",
   },
   input: {
     width: "100%",
@@ -288,10 +304,11 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   imagePicker: {
+    width: "100%",
     backgroundColor: "#4682b4",
-    padding: 10,
+    padding: 15,
     alignItems: "center",
-    borderRadius: 5,
+    borderRadius: 8,
     marginBottom: 15,
   },
   imagePickerText: {
@@ -311,7 +328,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#4682b4",
     padding: 15,
     alignItems: "center",
-    borderRadius: 5,
+    borderRadius: 8,
     marginBottom: 15,
   },
   addButtonText: {
@@ -340,9 +357,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   bookName: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "bold",
-    color: "#333",
+    color: "#4682b4",
   },
   bookAuthor: {
     fontSize: 18,
@@ -358,7 +375,7 @@ const styles = StyleSheet.create({
   },
   bookFlag: {
     fontSize: 16,
-    color: "#777",
+    color: "#ff4500",
   },
   bookActions: {
     justifyContent: "space-around",
@@ -376,5 +393,3 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
 });
-
-
