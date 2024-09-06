@@ -41,53 +41,56 @@ export default function App() {
     fetchLivros();
   }, []);
 
+ 
   const adicionarLivro = async () => {
     try {
-      setLoading(true);
-      let imageUrl = null;
-      if (imagemLivro) {
-        const storageRef = ref(
-          storage,
-          `livros/${Date.now()}-${nomeLivro}.jpg`
-        );
-        const response = await fetch(imagemLivro);
-        const blob = await response.blob();
-        await uploadBytes(storageRef, blob);
-        imageUrl = await getDownloadURL(storageRef);
-      }
+        setLoading(true);
+        let imageUrl = null;
+        
+        // Se uma nova imagem foi selecionada, faça o upload e obtenha a URL
+        if (imagemLivro && !imagemLivro.startsWith('http')) {
+            const storageRef = ref(
+              storage,
+              `livros/${Date.now()}-${nomeLivro}.jpg`
+            );
+            const response = await fetch(imagemLivro);
+            const blob = await response.blob();
+            await uploadBytes(storageRef, blob);
+            imageUrl = await getDownloadURL(storageRef);
+        }
 
-      if (editingLivroId) {
-        // Atualiza o livro no Firebase
-        const livroDoc = doc(db, "livros", editingLivroId);
-        await updateDoc(livroDoc, {
-          nome: nomeLivro,
-          autor: autorLivro,
-          editora: editoraLivro,
-          ano: anoLivro,
-          imagem: imageUrl || imagemLivro,
-          flag: flagLivro,
-        });
-
-        Alert.alert("Livro atualizado com sucesso!");
-      } else {
-        await addDoc(collection(db, "livros"), {
-          nome: nomeLivro,
-          autor: autorLivro,
-          editora: editoraLivro,
-          ano: anoLivro,
-          imagem: imageUrl,
-          flag: flagLivro,
-        });
-        Alert.alert("Livro adicionado com sucesso!");
-      }
-      resetForm();
-      fetchLivros();
+        if (editingLivroId) {
+            // Atualiza o livro no Firebase
+            const livroDoc = doc(db, "livros", editingLivroId);
+            await updateDoc(livroDoc, {
+                nome: nomeLivro,
+                autor: autorLivro,
+                editora: editoraLivro,
+                ano: anoLivro,
+                imagem: imageUrl || imagemLivro, // Use a imagem existente se não tiver uma nova
+                flag: flagLivro,
+            });
+            Alert.alert("Livro atualizado com sucesso!");
+        } else {
+            await addDoc(collection(db, "livros"), {
+                nome: nomeLivro,
+                autor: autorLivro,
+                editora: editoraLivro,
+                ano: anoLivro,
+                imagem: imageUrl,
+                flag: flagLivro,
+            });
+            Alert.alert("Livro adicionado com sucesso!");
+        }
+        
+        resetForm();
+        fetchLivros(); // Atualiza a lista de livros após a edição
     } catch (e) {
-      console.error("Erro ao adicionar/atualizar livro", e);
+        console.error("Erro ao adicionar/atualizar livro", e);
     } finally {
-      setLoading(false);
+        setLoading(false);
     }
-  };
+};
 
   const fetchLivros = async () => {
     try {
@@ -147,7 +150,7 @@ export default function App() {
     setEditoraLivro("");
     setAnoLivro("");
     setImagemLivro(null);
-    setFlagLivro("Lendo");
+    setFlagLivro("");
     setEditingLivroId(null);
   };
 
