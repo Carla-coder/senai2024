@@ -8,7 +8,7 @@ CREATE TABLE Professor (
     email VARCHAR(100) NOT NULL UNIQUE,
     senha VARCHAR(100) NOT NULL
 );
-DESCRIBE Professor;
+
 
 CREATE TABLE Turma (
     id_turma INT AUTO_INCREMENT PRIMARY KEY,
@@ -17,7 +17,7 @@ CREATE TABLE Turma (
     id_professor INT,
     FOREIGN KEY (id_professor) REFERENCES Professor(id_professor) ON DELETE CASCADE
 );
-DESCRIBE Turma;
+
 
 CREATE TABLE Atividade (
     id_atividade INT AUTO_INCREMENT PRIMARY KEY,
@@ -26,7 +26,7 @@ CREATE TABLE Atividade (
     id_turma INT,
     FOREIGN KEY (id_turma) REFERENCES Turma(id_turma) ON DELETE CASCADE
 );
-DESCRIBE Atividade;
+
 
 INSERT INTO Professor (nome, email, senha) VALUES
 ('Carlos Silva', 'carlos.silva@escola.com', 'senha123'),
@@ -37,17 +37,20 @@ INSERT INTO Professor (nome, email, senha) VALUES
 ('Juliana Fernandes', 'juliana.fernandes@escola.com', 'senha5678');
 
 INSERT INTO Turma (nome_turma, ano, id_professor) VALUES
-('Turma 1A', 2024, 1),
-('Turma 2B', 2024, 2),
-('Turma 3C', 2024, 1);
+('Turma 1Des', 2024, 1),
+('Turma 2Des', 2024, 2),
+('Turma 3Des', 2024, 1);
 
 INSERT INTO Atividade (descricao, data, id_turma) VALUES
-('Atividade de Matemática', '2024-09-25', 1),
-('Atividade de Ciências', '2024-09-26', 2),
-('Atividade de Português', '2024-09-27', 1),
-('Atividade de História', '2024-09-28', 3);
+('Atividade de Front-end', '2024-09-25', 1),
+('Atividade de Banco de Dados', '2024-09-26', 2),
+('Atividade de Back-end', '2024-09-27', 1),
+('Atividade de Mobile', '2024-09-28', 3);
 
 SELECT * FROM Professor;
 SELECT * FROM Turma;
 SELECT * FROM Atividade;
+DESCRIBE Professor;
+DESCRIBE Turma;
+DESCRIBE Atividade;
 SHOW TABLES;

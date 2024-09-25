@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela Principal do Professor</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h2>Nome do Professor</h2> 
+        </div>
+        <div class="header-right">
+            <button class="btn sair-btn">Sair</button> 
+        </div>
+    </header>
+
+    <main>
+        <div class="cadastrar-turma">
+            <button class="btn cadastrar-btn">Cadastrar turma</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>Nome</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Exemplo de turma estática -->
+                <tr>
+                    <td>1</td>
+                    <td>Atividade de Front-end</td>
+                    <td>
+                        <button class="btn excluir-btn">Excluir</button>
+                        <button class="btn visualizar-btn">Visualizar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Atividade de Banco de Dados</td>
+                    <td>
+                        <button class="btn excluir-btn">Excluir</button>
+                        <button class="btn visualizar-btn">Visualizar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Atividade de Back-end</td>
+                    <td>
+                        <button class="btn excluir-btn">Excluir</button>
+                        <button class="btn visualizar-btn">Visualizar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Atividade de Mobile</td>
+                    <td>
+                        <button class="btn excluir-btn">Excluir</button>
+                        <button class="btn visualizar-btn">Visualizar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <script>
+        // Carregar turmas
+        window.onload = function() {
+            fetch('/professor')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('nomeProfessor').textContent = 'Bem-vindo, ' + data.professor.nome;
+                const listaTurmas = document.getElementById('listaTurmas');
+                listaTurmas.innerHTML = '';
+                data.turmas.forEach(turma => {
+                    const li = document.createElement('li');
+                    li.textContent = `${turma.nome_turma} (${turma.ano}) `;
+                    const excluirBtn = document.createElement('button');
+                    excluirBtn.textContent = 'Excluir';
+                    excluirBtn.onclick = () => excluirTurma(turma.id_turma);
+                    li.appendChild(excluirBtn);
+                    listaTurmas.appendChild(li);
+                });
+            });
+        };
+
+        // Cadastrar turma
+        document.getElementById('formTurma').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nome_turma = document.getElementById('nome_turma').value;
+
+            fetch('/cadastrar-turma', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nome_turma })
+            }).then(() => {
+                window.location.reload(); // Recarregar turmas
+            });
+        });
+
+        // Excluir turma
+        function excluirTurma(id_turma) {
+            fetch('/excluir-turma', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id_turma })
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.reload();
+                } else {
+                    alert('Não foi possível excluir a turma.');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+

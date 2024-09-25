@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Turma</title>
+    <link rel="stylesheet" href="styless.css"> 
+</head>
+<body>
+    <header>
+        <h2>Cadastrar Nova Turma</h2>
+        <a href="professor.html">Voltar à Tela Principal</a> 
+    </header>
+
+    <!-- Formulário de Cadastro de Turma -->
+    <main>
+        <form id="cadastro-turma-form" action="/cadastrarTurma" method="POST">
+            <label for="nome_turma">Nome da Turma:</label>
+            <input type="text" id="nome_turma" name="nome_turma" required>
+            
+            <button type="submit">Cadastrar</button>
+        </form>
+    </main>
+
+    <script>
+        document.getElementById('cadastro-turma-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Previne o comportamento padrão do formulário
+
+            const nomeTurma = document.getElementById('nome_turma').value;
+
+            // Faz uma requisição POST para cadastrar a turma
+            fetch('/cadastrar-turma', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nome_turma: nomeTurma })
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Turma cadastrada com sucesso!');
+                    window.location.href = 'professor.html'; // Redireciona para a tela principal do professor
+                } else {
+                    alert('Erro ao cadastrar a turma.');
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+        });
+    </script>
+</body>
+</html>
