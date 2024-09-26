@@ -1,60 +1,16 @@
 tarefa - Sistema Escola
 aula 07 de projetos - 25/09/2024
 
+
 (Abra o Xampp e start o mysql - adm e o Apache)
-Populando o Banco de Dados pelo PowerShell:
-
-* mysql -u root (para entrar no MariaDB)
-* Use SistemaEscola;
-* Show Tables;
-+-------------------------+
-| Tables_in_sistemaescola |
-+-------------------------+
-| atividade               |
-| professor               |
-| turma                   |
-+-------------------------+
-
-* select*from Professor;
-
-MariaDB [SistemaEscola]> select*from Professor;
-+--------------+-------------------+------------------------------+-----------+
-| id_professor | nome              | email                        | senha     |
-+--------------+-------------------+------------------------------+-----------+
-|            1 | Carlos Silva      | carlos.silva@escola.com      | senha123  |
-|            2 | Ana Souza         | ana.souza@escola.com         | senha456  |
-|            3 | Jo├úo Pereira      | joao.pereira@escola.com      | senha789  |
-|            4 | Maria Oliveira    | maria.oliveira@escola.com    | senhaabc  |
-|            5 | Paulo Lima        | paulo.lima@escola.com        | senha1234 |
-|            6 | Juliana Fernandes | juliana.fernandes@escola.com | senha5678 |
-+--------------+-------------------+------------------------------+-----------+
-
-* select*from Turma;
-
-MariaDB [SistemaEscola]> select*from Turma;
-+----------+------------+------+--------------+
-| id_turma | nome_turma | ano  | id_professor |
-+----------+------------+------+--------------+
-|        1 | Turma 1Des | 2024 |            1 |
-|        2 | Turma 2Des | 2024 |            2 |
-|        3 | Turma 3Des | 2024 |            1 |
-+----------+------------+------+--------------+
-
-* select*from Atividade;
-
-MariaDB [SistemaEscola]> select*from Atividade;
-+--------------+-----------------------------+------------+----------+
-| id_atividade | descricao                   | data       | id_turma |
-+--------------+-----------------------------+------------+----------+
-|            1 | Atividade de Front-end      | 2024-09-25 |        1 |
-|            2 | Atividade de Banco de Dados | 2024-09-26 |        2 |
-|            3 | Atividade de Back-end       | 2024-09-27 |        1 |
-|            4 | Atividade de Mobile         | 2024-09-28 |        3 |
-+--------------+-----------------------------+------------+----------+
 
 - Populando o banco de Dados pelo PHAdmin:
 
 Na aba SQL popule o script e execute:
+
+DROP DATABASE IF EXISTS SistemaEscola;
+CREATE DATABASE SistemaEscola CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
+USE SistemaEscola;
 
 CREATE TABLE Professor (
     id_professor INT AUTO_INCREMENT PRIMARY KEY,
@@ -62,6 +18,7 @@ CREATE TABLE Professor (
     email VARCHAR(100) NOT NULL UNIQUE,
     senha VARCHAR(100) NOT NULL
 );
+
 
 CREATE TABLE Turma (
     id_turma INT AUTO_INCREMENT PRIMARY KEY,
@@ -71,6 +28,7 @@ CREATE TABLE Turma (
     FOREIGN KEY (id_professor) REFERENCES Professor(id_professor) ON DELETE CASCADE
 );
 
+
 CREATE TABLE Atividade (
     id_atividade INT AUTO_INCREMENT PRIMARY KEY,
     descricao TEXT NOT NULL,
@@ -78,6 +36,7 @@ CREATE TABLE Atividade (
     id_turma INT,
     FOREIGN KEY (id_turma) REFERENCES Turma(id_turma) ON DELETE CASCADE
 );
+
 
 INSERT INTO Professor (nome, email, senha) VALUES
 ('Carlos Silva', 'carlos.silva@escola.com', 'senha123'),
@@ -105,3 +64,57 @@ DESCRIBE Professor;
 DESCRIBE Turma;
 DESCRIBE Atividade;
 SHOW TABLES;
+
+
+- Populando o Banco de Dados pelo PowerShell:
+
+ mysql -u root (para entrar no MariaDB)
+ Use SistemaEscola;
+ Show Tables;
+
++-------------------------+
+| Tables_in_sistemaescola |
++-------------------------+
+| atividade               |
+| professor               |
+| turma                   |
++-------------------------+
+
+ select*from Professor;
+
+MariaDB [SistemaEscola]> select*from Professor;
++--------------+-------------------+------------------------------+-----------+
+| id_professor | nome              | email                        | senha     |
++--------------+-------------------+------------------------------+-----------+
+|            1 | Carlos Silva      | carlos.silva@escola.com      | senha123  |
+|            2 | Ana Souza         | ana.souza@escola.com         | senha456  |
+|            3 | Jo├úo Pereira      | joao.pereira@escola.com      | senha789  |
+|            4 | Maria Oliveira    | maria.oliveira@escola.com    | senhaabc  |
+|            5 | Paulo Lima        | paulo.lima@escola.com        | senha1234 |
+|            6 | Juliana Fernandes | juliana.fernandes@escola.com | senha5678 |
++--------------+-------------------+------------------------------+-----------+
+
+ select*from Turma;
+
+MariaDB [SistemaEscola]> select*from Turma;
++----------+------------+------+--------------+
+| id_turma | nome_turma | ano  | id_professor |
++----------+------------+------+--------------+
+|        1 | Turma 1Des | 2024 |            1 |
+|        2 | Turma 2Des | 2024 |            2 |
+|        3 | Turma 3Des | 2024 |            1 |
++----------+------------+------+--------------+
+
+ select*from Atividade;
+
+MariaDB [SistemaEscola]> select*from Atividade;
++--------------+-----------------------------+------------+----------+
+| id_atividade | descricao                   | data       | id_turma |
++--------------+-----------------------------+------------+----------+
+|            1 | Atividade de Front-end      | 2024-09-25 |        1 |
+|            2 | Atividade de Banco de Dados | 2024-09-26 |        2 |
+|            3 | Atividade de Back-end       | 2024-09-27 |        1 |
+|            4 | Atividade de Mobile         | 2024-09-28 |        3 |
++--------------+-----------------------------+------------+----------+
+
+
