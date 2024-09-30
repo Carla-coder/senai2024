@@ -17,10 +17,16 @@ app.use(bodyParser.json());
 
 // Configuração da sessão
 app.use(session({
-    secret: 'chave-secreta',
+    secret: 'meu-segredo',
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: false,
+    cookie: { secure: false }
 }));
+// app.use(session({
+//     secret: 'chave-secreta',
+//     resave: false,
+//     saveUninitialized: true
+// }));
 
 // Configuração para servir os arquivos da pasta 'front'
 app.use(express.static(path.join(__dirname, '../front')));
@@ -77,16 +83,26 @@ app.get('/professor', autenticar, (req, res) => {
     });
 });
 
-// Rota para Cadastro de Turma
-app.post('/cadastrar-turma', autenticar, (req, res) => {
+
+app.post('/cadastrar-turma', (req, res) => {
     const { nome_turma } = req.body;
-    const professorId = req.session.professor.id_professor;
-    const query = 'INSERT INTO Turma (nome_turma, ano, id_professor) VALUES (?, YEAR(NOW()), ?)';
-    db.query(query, [nome_turma, professorId], (err) => {
-        if (err) throw err;
-        res.sendStatus(200);
+    
+    if (!nome_turma) {
+        return res.status(400).json({ success: false, message: 'Nome da turma é obrigatório' });
+    }
+
+    // Exemplo de código para inserir a turma no banco de dados
+    const query = 'INSERT INTO turmas (nome_turma) VALUES (?)';
+    db.query(query, [nome_turma], (err, result) => {
+        if (err) {
+            console.error('Erro ao cadastrar turma:', err);
+            return res.status(500).json({ success: false, message: 'Erro ao cadastrar a turma.' });
+        }
+
+        res.status(200).json({ success: true, message: 'Turma cadastrada com sucesso!' });
     });
 });
+
 
 // Rota para Excluir Turma
 app.post('/excluir-turma', autenticar, (req, res) => {
@@ -105,11 +121,21 @@ app.post('/excluir-turma', autenticar, (req, res) => {
     });
 });
 
-// Rota de Logout
-app.get('/logout', (req, res) => {
-    req.session.destroy();
-    res.redirect('/login.html');
+// Rota de logout
+app.post('/logout', (req, res) => {
+    console.log("Requisição de logout recebida");
+    // Destroi a sessão do usuário
+    req.session.destroy((err) => {
+        if (err) {
+            return res.status(500).json({ message: 'Erro ao sair do sistema' });
+        }
+        console.log('Sessão destruída com sucesso.');
+        // Se a sessão for destruída com sucesso, envia uma resposta de sucesso
+        res.status(200).json({ message: 'Sessão encerrada com sucesso' });
+    });
 });
+
+
 
 // Servidor rodando
 app.listen(3000, () => {
