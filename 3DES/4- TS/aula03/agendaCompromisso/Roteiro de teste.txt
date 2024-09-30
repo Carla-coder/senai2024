@@ -1,0 +1,7 @@
+Tarefa aula03 - TS 
+Prof: Robson 30/09/2024
+
+1. Desenvolver um roteiro de testes para seu pré-projeto,
+com 10 testes no mínimo.
+2. Colocar no Markdown do repositório do seu projeto com
+checkbox para testes.
