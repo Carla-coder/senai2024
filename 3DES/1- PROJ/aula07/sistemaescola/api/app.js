@@ -47,7 +47,7 @@ function autenticar(req, res, next) {
 }
 
 // Rota de Login (via POST)
-app.post('/login', (req, res) => {
+app.post('/login.html', (req, res) => {
     const { email, senha } = req.body;
     const query = 'SELECT * FROM Professor WHERE email = ? AND senha = ?';
 

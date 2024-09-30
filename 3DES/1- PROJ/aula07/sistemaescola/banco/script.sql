@@ -50,7 +50,9 @@ INSERT INTO Atividade (descricao, data, id_turma) VALUES
 SELECT * FROM Professor;
 SELECT * FROM Turma;
 SELECT * FROM Atividade;
+
 DESCRIBE Professor;
 DESCRIBE Turma;
 DESCRIBE Atividade;
+
 SHOW TABLES;

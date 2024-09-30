@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividades da Turma</title>
+    <link rel="stylesheet" href="stylesss.css"> 
+</head>
+<body>
+    <header>
+        <h1>Atividades da Turma</h1>
+        <p id="nomeProfessor">Professor: Nome do Professor</p> 
+        <button id="logoutBtn">Sair</button>
+    </header>
+
+    <main>
+        <h2 id="nomeTurma">Turma: Nome da Turma</h2> 
+        <button id="cadastrarAtividadeBtn">Cadastrar Atividade</button>
+
+        <section id="listaAtividades">
+            <h3>Lista de Atividades</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Número da Atividade</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody id="atividades">
+                    <!-- As atividades serão inseridas aqui dinamicamente -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    // Exibe o nome do professor autenticado
+    const nomeProfessor = "Professor X";  // Obtenha esse valor da sessão ou backend
+    document.getElementById('nomeProfessor').textContent = `Professor: ${nomeProfessor}`;
+
+    // Exibe o nome da turma
+    const nomeTurma = "Turma Y";  // Obtenha esse valor da sessão ou backend
+    document.getElementById('nomeTurma').textContent = `Turma: ${nomeTurma}`;
+
+    // Simula a listagem de atividades - obter via API do banco de dados
+    const atividades = [
+        { numero: 1, descricao: "Atividade de Front-end" },
+        { numero: 2, descricao: "Atividade de banco de Dados" },
+        { numero: 3, descricao: "Atividade de Back-end" },
+        { numero: 4, descricao: "Atividade de Mobile"},
+    ];
+
+    const atividadesTable = document.getElementById('atividades');
+    atividades.forEach(atividade => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${atividade.numero}</td><td>${atividade.descricao}</td>`;
+        atividadesTable.appendChild(row);
+    });
+
+    // Botão para cadastrar nova atividade
+    document.getElementById('cadastrarAtividadeBtn').addEventListener('click', () => {
+        window.location.href = 'cadastrarAtividade.html'; // Direciona para a página de cadastro
+    });
+
+    // Função de logout
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+        fetch('/logout', {
+            method: 'POST'
+        })
+        .then(response => {
+            if (response.ok) {
+                window.location.href = 'login.html';
+            } else {
+                alert('Erro ao sair do sistema.');
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
+    });
+});
+
+    </script> 
+    
+</body>
+</html>
