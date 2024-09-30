@@ -14,7 +14,7 @@
 
     <!-- Formulário de Cadastro de Turma -->
     <main>
-        <form id="cadastro-turma-form" action="/cadastrarTurma" method="POST">
+        <form id="cadastro-turma-form">
             <label for="nome_turma">Nome da Turma:</label>
             <input type="text" id="nome_turma" name="nome_turma" required>
             
@@ -24,7 +24,7 @@
 
     <script>
         document.getElementById('cadastro-turma-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Previne o comportamento padrão do formulário
+            event.preventDefault(); 
 
             const nomeTurma = document.getElementById('nome_turma').value;
 

@@ -1,0 +1,917 @@
+app.js
+
+const express = require('express');
+const mysql = require('mysql');
+const session = require('express-session');
+const bodyParser = require('body-parser');
+const path = require('path');
+const cors = require('cors');
+
+// Inicialização do Express
+const app = express();
+
+// Configuração do CORS
+app.use(cors());
+
+// Configuração do Body-Parser para aceitar JSON e dados de formulários
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// Configuração da sessão
+app.use(session({
+    secret: 'meu-segredo',
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false }
+}));
+// app.use(session({
+//     secret: 'chave-secreta',
+//     resave: false,
+//     saveUninitialized: true
+// }));
+
+// Configuração para servir os arquivos da pasta 'front'
+app.use(express.static(path.join(__dirname, '../front')));
+
+// Configuração do banco de dados MySQL
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '', // Sua senha de root
+    database: 'SistemaEscola'
+});
+
+db.connect((err) => {
+    if (err) throw err;
+    console.log('Conectado ao banco de dados!');
+});
+
+// Middleware de autenticação
+function autenticar(req, res, next) {
+    if (!req.session.professor) {
+        return res.redirect('/login.html');
+    }
+    next();
+}
+
+// Rota de Login (via POST)
+app.post('/login', (req, res) => {
+    const { email, senha } = req.body;
+    const query = 'SELECT * FROM Professor WHERE email = ? AND senha = ?';
+
+    db.query(query, [email, senha], (err, result) => {
+        if (err) throw err;
+
+        if (result.length > 0) {
+            // Armazenando o professor na sessão
+            req.session.professor = result[0];
+
+            // Enviando uma resposta JSON para o frontend fazer o redirecionamento
+            res.json({ success: true, message: 'Login bem-sucedido', redirect: '/professor.html' });
+        } else {
+            // Enviando status 401 e mensagem de erro
+            res.status(401).json({ success: false, message: 'E-mail ou senha incorretos' });
+        }
+    });
+});
+
+// Rota para obter dados do professor e suas turmas (para preencher professor.html)
+app.get('/professor', autenticar, (req, res) => {
+    const professorId = req.session.professor.id_professor;
+    const query = 'SELECT * FROM Turma WHERE id_professor = ?';
+    db.query(query, [professorId], (err, turmas) => {
+        if (err) throw err;
+        res.json({ professor: req.session.professor, turmas });
+    });
+});
+
+
+app.post('/cadastrar-turma', (req, res) => {
+    const { nome_turma } = req.body;
+    
+    if (!nome_turma) {
+        return res.status(400).json({ success: false, message: 'Nome da turma é obrigatório' });
+    }
+
+    // Exemplo de código para inserir a turma no banco de dados
+    const query = 'INSERT INTO turmas (nome_turma) VALUES (?)';
+    db.query(query, [nome_turma], (err, result) => {
+        if (err) {
+            console.error('Erro ao cadastrar turma:', err);
+            return res.status(500).json({ success: false, message: 'Erro ao cadastrar a turma.' });
+        }
+
+        res.status(200).json({ success: true, message: 'Turma cadastrada com sucesso!' });
+    });
+});
+
+
+// Rota para Excluir Turma
+app.post('/excluir-turma', autenticar, (req, res) => {
+    const { id_turma } = req.body;
+    const query = 'SELECT COUNT(*) AS atividades FROM Atividade WHERE id_turma = ?';
+    db.query(query, [id_turma], (err, result) => {
+        if (err) throw err;
+        if (result[0].atividades > 0) {
+            return res.status(400).send("Você não pode excluir uma turma com atividades cadastradas.");
+        }
+        const deleteQuery = 'DELETE FROM Turma WHERE id_turma = ?';
+        db.query(deleteQuery, [id_turma], (err) => {
+            if (err) throw err;
+            res.sendStatus(200);
+        });
+    });
+});
+
+// Rota de logout
+app.post('/logout', (req, res) => {
+    console.log("Requisição de logout recebida");
+    // Destroi a sessão do usuário
+    req.session.destroy((err) => {
+        if (err) {
+            return res.status(500).json({ message: 'Erro ao sair do sistema' });
+        }
+        console.log('Sessão destruída com sucesso.');
+        // Se a sessão for destruída com sucesso, envia uma resposta de sucesso
+        res.status(200).json({ message: 'Sessão encerrada com sucesso' });
+    });
+});
+
+
+
+// Servidor rodando
+app.listen(3000, () => {
+    console.log('Servidor rodando na porta 3000');
+});
+
+logi.html
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-box">
+        <h2>Bem Vindo Professor!</h2>
+        <form id="login-form">
+            <div class="user-box">
+                <input type="email" id="email" name="email" required>
+                <label>E-mail</label>
+            </div>
+            <div class="user-box">
+                <input type="password" id="senha" name="senha" required>
+                <label>Senha</label>
+            </div>
+            <button type="submit">ENTRAR</button>
+        </form>
+    </div>
+    
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Previne o envio padrão do formulário
+    
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senha').value;
+
+    // Fazendo a requisição POST para o backend
+    fetch('http://localhost:3000/login', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email, senha })
+})
+    .then(response => response.json()) // Convertendo a resposta para JSON
+    .then(data => {
+        if (data.success) {
+            // Redireciona para a página do professor
+            window.location.href = data.redirect;
+        } else {
+            alert(data.message); // Exibe a mensagem de erro
+        }
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+    });
+});
+
+    </script>
+</body>
+</html>
+
+professor.html
+
+<!-- <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela Principal do Professor</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h2>Nome do Professor</h2> 
+        </div>
+        <div class="header-right">
+            <button class="btn sair-btn">Sair</button> 
+        </div>
+    </header>
+
+    <main>
+         <div class="cadastrar-turma">
+            <button class="btn cadastrar-btn">Cadastrar turma</button>
+        </div> -->
+
+         <!-- Formulário de Cadastro de Turma (inicialmente oculto) -->
+    <!-- <div id="formulario-cadastro-turma" style="display: none;">
+        <form id="cadastro-turma-form">
+            <label for="nome_turma">Nome da Turma:</label>
+            <input type="text" id="nome_turma" name="nome_turma" required>
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>Nome</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody id="lista-turmas"> -->
+
+                <!-- Exemplo de turma estática
+                <tr>
+                    <td>1</td>
+                    <td>Atividade de Front-end</td>
+                    <td>
+                        <button class="btn excluir-btn">Excluir</button>
+                        <button class="btn visualizar-btn">Visualizar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Atividade de Banco de Dados</td>
+                    <td>
+                        <button class="btn excluir-btn">Excluir</button>
+                        <button class="btn visualizar-btn">Visualizar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Atividade de Back-end</td>
+                    <td>
+                        <button class="btn excluir-btn">Excluir</button>
+                        <button class="btn visualizar-btn">Visualizar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Atividade de Mobile</td>
+                    <td>
+                        <button class="btn excluir-btn">Excluir</button>
+                        <button class="btn visualizar-btn">Visualizar</button>
+                    </td>
+                </tr> -->
+            <!-- </tbody>
+        </table>
+    </main>
+    <script>
+        // Carregar turmas
+        window.onload = function() {
+    fetch('/professor')
+        .then(response => response.json())
+        .then(data => {
+            document.querySelector('.header-left h2').textContent = 'Bem-vindo, ' + data.professor.nome;
+            const tabelaTurmas = document.querySelector('tbody');
+            tabelaTurmas.innerHTML = ''; // Limpa a tabela antes de adicionar novas turmas
+
+            data.turmas.forEach(turma => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${turma.id_turma}</td>
+                    <td>${turma.nome_turma}</td>
+                    <td>
+                        <button class="btn excluir-btn" data-id="${turma.id_turma}">Excluir</button>
+                        <button class="btn visualizar-btn" data-id="${turma.id_turma}">Visualizar</button>
+                    </td>
+                `;
+                tabelaTurmas.appendChild(row);
+            }); -->
+
+            <!-- // Event listeners para excluir e visualizar
+//             document.querySelectorAll('.excluir-btn').forEach(button => {
+//                 button.addEventListener('click', function() {
+//                     const idTurma = this.getAttribute('data-id');
+//                     excluirTurma(idTurma);
+//                 });
+//             });
+
+//             document.querySelectorAll('.visualizar-btn').forEach(button => {
+//                 button.addEventListener('click', function() {
+//                     const idTurma = this.getAttribute('data-id');
+//                     alert(`Você clicou em visualizar a turma ${idTurma}`); // Coloque a ação desejada aqui
+//                 });
+//             });
+//         });
+// };
+
+// Função para excluir turma -->
+<!-- function excluirTurma(id_turma) {
+    fetch('/excluir-turma', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id_turma })
+    })
+    .then(response => {
+        if (response.ok) {
+            window.location.reload(); // Recarrega a página para atualizar a lista de turmas
+        } else {
+            alert('Não foi possível excluir a turma.');
+        }
+    });
+} -->
+<!-- 
+    </script>
+</body>
+</html> --> 
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela Principal do Professor</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h2>Nome do Professor</h2> 
+        </div>
+        <div class="header-right">
+            <button class="btn sair-btn">Sair</button> 
+        </div>
+    </header>
+
+    <main>
+        <!-- Botão para abrir o formulário de cadastro de turma -->
+        <div class="cadastrar-turma">
+            <button class="btn cadastrar-btn" id="abrir-formulario-turma">Cadastrar turma</button>
+        </div>
+
+        <!-- Formulário de Cadastro de Turma (inicialmente oculto) -->
+        <div id="formulario-cadastro-turma" style="display: none;">
+            <form id="cadastro-turma-form">
+                <label for="nome_turma">Nome da Turma:</label>
+                <input type="text" id="nome_turma" name="nome_turma" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+
+        <!-- Tabela de turmas -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>Nome</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody id="lista-turmas">
+                <!-- As turmas serão carregadas aqui dinamicamente -->
+            </tbody>
+        </table>
+    </main>
+
+    <script>
+        // Carregar turmas
+        window.onload = function() {
+            fetch('/professor')
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector('.header-left h2').textContent = 'Bem-vindo, ' + data.professor.nome;
+                    const tabelaTurmas = document.querySelector('tbody');
+                    tabelaTurmas.innerHTML = ''; // Limpa a tabela antes de adicionar novas turmas
+
+                    data.turmas.forEach(turma => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${turma.id_turma}</td>
+                            <td>${turma.nome_turma}</td>
+                            <td>
+                                <button class="btn excluir-btn" data-id="${turma.id_turma}">Excluir</button>
+                                <button class="btn visualizar-btn" data-id="${turma.id_turma}">Visualizar</button>
+                            </td>
+                        `;
+                        tabelaTurmas.appendChild(row);
+                    });
+
+                    // Event listeners para excluir e visualizar
+                    document.querySelectorAll('.excluir-btn').forEach(button => {
+                        button.addEventListener('click', function() {
+                            const idTurma = this.getAttribute('data-id');
+                            excluirTurma(idTurma);
+                        });
+                    });
+
+                    document.querySelectorAll('.visualizar-btn').forEach(button => {
+                        button.addEventListener('click', function() {
+                            const idTurma = this.getAttribute('data-id');
+                            alert(`Você clicou em visualizar a turma ${idTurma}`); // Coloque a ação desejada aqui
+                        });
+                    });
+                });
+        };
+
+        // Função para excluir turma
+        function excluirTurma(id_turma) {
+            fetch('/excluir-turma', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id_turma })
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.reload(); // Recarrega a página para atualizar a lista de turmas
+                } else {
+                    alert('Não foi possível excluir a turma.');
+                }
+            });
+        }
+
+        // Mostrar o formulário de cadastro de turma
+        document.getElementById('abrir-formulario-turma').addEventListener('click', function() {
+            document.getElementById('formulario-cadastro-turma').style.display = 'block';
+        });
+
+        // Cadastrar turma ao enviar o formulário
+        document.getElementById('cadastro-turma-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Previne o comportamento padrão do formulário
+
+            const nomeTurma = document.getElementById('nome_turma').value;
+
+            // Fazendo requisição POST para o backend para cadastrar a turma
+            fetch('/cadastrar-turma', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nome_turma: nomeTurma })
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Turma cadastrada com sucesso!');
+                    window.location.reload(); // Recarrega a página para exibir as turmas atualizadas
+                } else {
+                    alert('Erro ao cadastrar a turma.');
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+        });
+
+         // Evento para o botão de "Sair"
+    document.querySelector('.sair-btn').addEventListener('click', function() {
+        // Fazer requisição para encerrar a sessão no backend
+        fetch('http://localhost:3000/logout', {
+            method: 'POST',
+            credentials: 'same-origin', // Isso garante que os cookies de sessão sejam incluídos na requisição
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                // Redireciona para a página de login após o logout
+                window.location.href = 'login.html';
+            } else {
+                alert('Erro ao sair do sistema.');
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao sair:', error);
+        });
+    });
+    </script>
+</body>
+</html>
+
+turma.html
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Turma</title>
+    <link rel="stylesheet" href="styless.css"> 
+</head>
+<body>
+    <header>
+        <h2>Cadastrar Nova Turma</h2>
+        <a href="professor.html">Voltar à Tela Principal</a> 
+    </header>
+
+    <!-- Formulário de Cadastro de Turma -->
+    <main>
+        <form id="cadastro-turma-form" action="/cadastrarTurma" method="POST">
+            <label for="nome_turma">Nome da Turma:</label>
+            <input type="text" id="nome_turma" name="nome_turma" required>
+            
+            <button type="submit">Cadastrar</button>
+        </form>
+    </main>
+
+    <script>
+        document.getElementById('cadastro-turma-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Previne o comportamento padrão do formulário
+
+            const nomeTurma = document.getElementById('nome_turma').value;
+
+            // Faz uma requisição POST para cadastrar a turma
+            fetch('/cadastrar-turma', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nome_turma: nomeTurma })
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Turma cadastrada com sucesso!');
+                    window.location.href = 'professor.html'; // Redireciona para a tela principal do professor
+                } else {
+                    alert('Erro ao cadastrar a turma.');
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+        });
+    </script>
+</body>
+</html>
+
+style.css (login)
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.login-box {
+    width: 300px;
+    padding: 40px;
+    position: relative;
+    background: #fff;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 30px;
+}
+
+.user-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.user-box input {
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #999;
+    outline: none;
+    color: #333;
+    font-size: 18px;
+}
+
+.user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color: #999;
+}
+
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #333;
+    font-size: 12px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s ease;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 8px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+styles.css (professor)
+
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    padding: 15px 20px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+header .sair-btn {
+    background-color: white;
+    color: #007bff;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+header .sair-btn:hover {
+    background-color: #f2f2f2;
+}
+
+.cadastrar-turma {
+    text-align: right;
+    margin: 20px 50px;
+}
+
+.cadastrar-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cadastrar-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para o formulário de cadastro */
+#formulario-cadastro-turma {
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#formulario-cadastro-turma form {
+    display: flex;
+    flex-direction: column;
+}
+
+#formulario-cadastro-turma label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#formulario-cadastro-turma input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 1em;
+}
+
+#formulario-cadastro-turma button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#formulario-cadastro-turma button:hover {
+    background-color: #218838;
+}
+
+/* Estilos para a tabela */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    font-size: 1em;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+    text-transform: uppercase;
+}
+
+table td {
+    background-color: #f9f9f9;
+}
+
+
+.excluir-btn, .visualizar-btn {
+    padding: 8px 15px;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.excluir-btn {
+    background-color: #f44336;
+}
+
+.excluir-btn:hover {
+    background-color: #d32f2f;
+}
+
+.visualizar-btn {
+    background-color: #4CAF50;
+}
+
+.visualizar-btn:hover {
+    background-color: #388e3c;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header, main {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    table {
+        width: 100%;
+        font-size: 0.9em;
+    }
+
+    .cadastrar-turma {
+        margin: 10px 20px;
+    }
+}
+
+styless.css (turma)
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 10px;
+}
+
+input, button {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 8px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;;
+}
+
+script.sql
+
+DROP DATABASE IF EXISTS SistemaEscola;
+CREATE DATABASE SistemaEscola CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
+USE SistemaEscola;
+
+CREATE TABLE Professor (
+    id_professor INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(100) NOT NULL
+);
+
+
+CREATE TABLE Turma (
+    id_turma INT AUTO_INCREMENT PRIMARY KEY,
+    nome_turma VARCHAR(100) NOT NULL,
+    ano INT NOT NULL,
+    id_professor INT,
+    FOREIGN KEY (id_professor) REFERENCES Professor(id_professor) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Atividade (
+    id_atividade INT AUTO_INCREMENT PRIMARY KEY,
+    descricao TEXT NOT NULL,
+    data DATE NOT NULL,
+    id_turma INT,
+    FOREIGN KEY (id_turma) REFERENCES Turma(id_turma) ON DELETE CASCADE
+);
+
+
+INSERT INTO Professor (nome, email, senha) VALUES
+('Carlos Silva', 'carlos.silva@escola.com', 'senha123'),
+('Ana Souza', 'ana.souza@escola.com', 'senha456'),
+('João Pereira', 'joao.pereira@escola.com', 'senha789'),
+('Maria Oliveira', 'maria.oliveira@escola.com', 'senhaabc'),
+('Paulo Lima', 'paulo.lima@escola.com', 'senha1234'),
+('Juliana Fernandes', 'juliana.fernandes@escola.com', 'senha5678');
+
+INSERT INTO Turma (nome_turma, ano, id_professor) VALUES
+('Turma 1Des', 2024, 1),
+('Turma 2Des', 2024, 2),
+('Turma 3Des', 2024, 1);
+
+INSERT INTO Atividade (descricao, data, id_turma) VALUES
+('Atividade de Front-end', '2024-09-25', 1),
+('Atividade de Banco de Dados', '2024-09-26', 2),
+('Atividade de Back-end', '2024-09-27', 1),
+('Atividade de Mobile', '2024-09-28', 3);
+
+SELECT * FROM Professor;
+SELECT * FROM Turma;
+SELECT * FROM Atividade;
+DESCRIBE Professor;
+DESCRIBE Turma;
+DESCRIBE Atividade;
+SHOW TABLES;
