@@ -1,0 +1,13 @@
+Como iniciar um projeto com prisma. 
+
+O passo a passo esta na aula #11 no 2Des em backend
+
+npm init -y ( para não perguntar nada)
+npm i -g prisma ( para instalar o prisma)
+se tiver datas usar o time zone no .env
+node -v (pra verificar versão do node)
+prisma -v (pra verificar versão do prisma)
+Mariadb verificar no Shell => (mysql --version)
+
+colocar o 'seed' no package.json para que o migration rode no banco de dados
+
