@@ -22,11 +22,6 @@ app.use(session({
     saveUninitialized: false,
     cookie: { secure: false }
 }));
-// app.use(session({
-//     secret: 'chave-secreta',
-//     resave: false,
-//     saveUninitialized: true
-// }));
 
 // Configuração para servir os arquivos da pasta 'front'
 app.use(express.static(path.join(__dirname, '../front')));
@@ -92,7 +87,7 @@ app.post('/cadastrar-turma', (req, res) => {
     }
 
     // Exemplo de código para inserir a turma no banco de dados
-    const query = 'INSERT INTO turmas (nome_turma) VALUES (?)';
+    const query = 'INSERT INTO Turma (nome_turma) VALUES (?)';
     db.query(query, [nome_turma], (err, result) => {
         if (err) {
             console.error('Erro ao cadastrar turma:', err);
