@@ -1,0 +1,284 @@
+[
+    {
+      "id": "1",
+      "area": "1",
+      "automovel": "1",
+      "concession�ria": "1",
+      "quantidade": "8"
+    },
+    {
+      "id": "2",
+      "area": "2",
+      "automovel": "2",
+      "concession�ria": "2",
+      "quantidade": "1"
+    },
+    {
+      "id": "3",
+      "area": "4",
+      "automovel": "3",
+      "concession�ria": "3",
+      "quantidade": "4"
+    },
+    {
+      "id": "4",
+      "area": "7",
+      "automovel": "4",
+      "concession�ria": "4",
+      "quantidade": "6"
+    },
+    {
+      "id": "5",
+      "area": "8",
+      "automovel": "5",
+      "concession�ria": "5",
+      "quantidade": "4"
+    },
+    {
+      "id": "6",
+      "area": "9",
+      "automovel": "6",
+      "concession�ria": "1",
+      "quantidade": "4"
+    },
+    {
+      "id": "7",
+      "area": "10",
+      "automovel": "7",
+      "concession�ria": "2",
+      "quantidade": "1"
+    },
+    {
+      "id": "8",
+      "area": "1",
+      "automovel": "8",
+      "concession�ria": "2",
+      "quantidade": "7"
+    },
+    {
+      "id": "9",
+      "area": "2",
+      "automovel": "9",
+      "concession�ria": "3",
+      "quantidade": "2"
+    },
+    {
+      "id": "10",
+      "area": "4",
+      "automovel": "10",
+      "concession�ria": "4",
+      "quantidade": "6"
+    },
+    {
+      "id": "11",
+      "area": "7",
+      "automovel": "11",
+      "concession�ria": "5",
+      "quantidade": "3"
+    },
+    {
+      "id": "12",
+      "area": "8",
+      "automovel": "12",
+      "concession�ria": "1",
+      "quantidade": "9"
+    },
+    {
+      "id": "13",
+      "area": "9",
+      "automovel": "13",
+      "concession�ria": "2",
+      "quantidade": "9"
+    },
+    {
+      "id": "14",
+      "area": "10",
+      "automovel": "14",
+      "concession�ria": "3",
+      "quantidade": "6"
+    },
+    {
+      "id": "15",
+      "area": "1",
+      "automovel": "15",
+      "concession�ria": "3",
+      "quantidade": "4"
+    },
+    {
+      "id": "16",
+      "area": "2",
+      "automovel": "16",
+      "concession�ria": "4",
+      "quantidade": "1"
+    },
+    {
+      "id": "17",
+      "area": "4",
+      "automovel": "17",
+      "concession�ria": "5",
+      "quantidade": "8"
+    },
+    {
+      "id": "18",
+      "area": "7",
+      "automovel": "18",
+      "concession�ria": "1",
+      "quantidade": "4"
+    },
+    {
+      "id": "19",
+      "area": "8",
+      "automovel": "19",
+      "concession�ria": "2",
+      "quantidade": "10"
+    },
+    {
+      "id": "20",
+      "area": "9",
+      "automovel": "20",
+      "concession�ria": "3",
+      "quantidade": "10"
+    },
+    {
+      "id": "21",
+      "area": "10",
+      "automovel": "21",
+      "concession�ria": "4",
+      "quantidade": "7"
+    },
+    {
+      "id": "22",
+      "area": "1",
+      "automovel": "22",
+      "concession�ria": "4",
+      "quantidade": "3"
+    },
+    {
+      "id": "23",
+      "area": "2",
+      "automovel": "23",
+      "concession�ria": "5",
+      "quantidade": "5"
+    },
+    {
+      "id": "24",
+      "area": "4",
+      "automovel": "24",
+      "concession�ria": "1",
+      "quantidade": "4"
+    },
+    {
+      "id": "25",
+      "area": "7",
+      "automovel": "25",
+      "concession�ria": "2",
+      "quantidade": "3"
+    },
+    {
+      "id": "26",
+      "area": "8",
+      "automovel": "26",
+      "concession�ria": "3",
+      "quantidade": "3"
+    },
+    {
+      "id": "27",
+      "area": "9",
+      "automovel": "27",
+      "concession�ria": "4",
+      "quantidade": "10"
+    },
+    {
+      "id": "28",
+      "area": "10",
+      "automovel": "28",
+      "concession�ria": "5",
+      "quantidade": "4"
+    },
+    {
+      "id": "29",
+      "area": "1",
+      "automovel": "29",
+      "concession�ria": "1",
+      "quantidade": "2"
+    },
+    {
+      "id": "30",
+      "area": "2",
+      "automovel": "30",
+      "concession�ria": "2",
+      "quantidade": "3"
+    },
+    {
+      "id": "31",
+      "area": "4",
+      "automovel": "31",
+      "concession�ria": "3",
+      "quantidade": "4"
+    },
+    {
+      "id": "32",
+      "area": "7",
+      "automovel": "32",
+      "concession�ria": "4",
+      "quantidade": "2"
+    },
+    {
+      "id": "33",
+      "area": "8",
+      "automovel": "33",
+      "concession�ria": "5",
+      "quantidade": "3"
+    },
+    {
+      "id": "34",
+      "area": "9",
+      "automovel": "34",
+      "concession�ria": "1",
+      "quantidade": "4"
+    },
+    {
+      "id": "35",
+      "area": "10",
+      "automovel": "35",
+      "concession�ria": "2",
+      "quantidade": "3"
+    },
+    {
+      "id": "36",
+      "area": "1",
+      "automovel": "36",
+      "concession�ria": "3",
+      "quantidade": "2"
+    },
+    {
+      "id": "37",
+      "area": "2",
+      "automovel": "37",
+      "concession�ria": "4",
+      "quantidade": "3"
+    },
+    {
+      "id": "38",
+      "area": "4",
+      "automovel": "38",
+      "concession�ria": "5",
+      "quantidade": "3"
+    },
+    {
+      "id": "39",
+      "area": "7",
+      "automovel": "39",
+      "concession�ria": "1",
+      "quantidade": "2"
+    },
+    {
+      "id": "40",
+      "area": "8",
+      "automovel": "40",
+      "concession�ria": "2",
+      "quantidade": "1"
+    }
+  ]
+  
+  

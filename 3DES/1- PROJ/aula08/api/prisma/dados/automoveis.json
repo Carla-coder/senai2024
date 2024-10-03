@@ -1,0 +1,203 @@
+[
+    {
+      "id": "1",
+      "modelo": "Fiat Strada",
+      "preco": "43115.00"
+    },
+    {
+      "id": "2",
+      "modelo": "Fiat Argo",
+      "preco": "47660.00"
+    },
+    {
+      "id": "3",
+      "modelo": "Fiat Mobi",
+      "preco": "32102.00"
+    },
+    {
+      "id": "4",
+      "modelo": "Jeep Compass",
+      "preco": "34950.00"
+    },
+    {
+      "id": "5",
+      "modelo": "Hyundai HB20",
+      "preco": "49302.00"
+    },
+    {
+      "id": "6",
+      "modelo": "JeepRenegade",
+      "preco": "36661.00"
+    },
+    {
+      "id": "7",
+      "modelo": "Volkswagen T-Cross",
+      "preco": "38182.00"
+    },
+    {
+      "id": "8",
+      "modelo": "Fiat Toro",
+      "preco": "57733.00"
+    },
+    {
+      "id": "9",
+      "modelo": "Hyundai Creta",
+      "preco": "55998.00"
+    },
+    {
+      "id": "10",
+      "modelo": "Chevrolet S10",
+      "preco": "51035.00"
+    },
+    {
+      "id": "11",
+      "modelo": "Toyota Corolla Cross",
+      "preco": "34544.00"
+    },
+    {
+      "id": "12",
+      "modelo": "Toyota Hilux",
+      "preco": "53937.00"
+    },
+    {
+      "id": "13",
+      "modelo": "Toyota Corolla",
+      "preco": "55022.00"
+    },
+    {
+      "id": "14",
+      "modelo": "Volkswagen Gol",
+      "preco": "48253.00"
+    },
+    {
+      "id": "15",
+      "modelo": "Honda HR-V",
+      "preco": "53438.00"
+    },
+    {
+      "id": "16",
+      "modelo": "Renault Kwid",
+      "preco": "31810.00"
+    },
+    {
+      "id": "17",
+      "modelo": "Volkswagen Nivus",
+      "preco": "35104.00"
+    },
+    {
+      "id": "18",
+      "modelo": "Hyundai HB20S",
+      "preco": "31855.00"
+    },
+    {
+      "id": "19",
+      "modelo": "FordRanger",
+      "preco": "48927.00"
+    },
+    {
+      "id": "20",
+      "modelo": "Fiat Uno",
+      "preco": "38111.00"
+    },
+    {
+      "id": "21",
+      "modelo": "Fiat Cronos",
+      "preco": "36515.00"
+    },
+    {
+      "id": "22",
+      "modelo": "Citroën C4 Cactus",
+      "preco": "53654.00"
+    },
+    {
+      "id": "23",
+      "modelo": "Toyota Yaris Hatchback",
+      "preco": "55869.00"
+    },
+    {
+      "id": "24",
+      "modelo": "Volkswagen Voyage",
+      "preco": "30954.00"
+    },
+    {
+      "id": "25",
+      "modelo": "Honda Civic",
+      "preco": "30871.00"
+    },
+    {
+      "id": "26",
+      "modelo": "Volkswagen Saveiro",
+      "preco": "32306.00"
+    },
+    {
+      "id": "27",
+      "modelo": "Caoa Chery Tiggo 5x",
+      "preco": "30069.00"
+    },
+    {
+      "id": "28",
+      "modelo": "Volkswagen Virtus",
+      "preco": "40689.00"
+    },
+    {
+      "id": "29",
+      "modelo": "Fiat Grand Siena",
+      "preco": "33469.00"
+    },
+    {
+      "id": "30",
+      "modelo": "Caoa Chery Tiggo 8",
+      "preco": "48481.00"
+    },
+    {
+      "id": "31",
+      "modelo": "Chevrolet Tracker",
+      "preco": "30648.00"
+    },
+    {
+      "id": "32",
+      "modelo": "Peugeot 208",
+      "preco": "46934.00"
+    },
+    {
+      "id": "33",
+      "modelo": "Toyota SW4",
+      "preco": "54252.00"
+    },
+    {
+      "id": "34",
+      "modelo": "Nissan Frontier",
+      "preco": "32596.00"
+    },
+    {
+      "id": "35",
+      "modelo": "Honda WR-V",
+      "preco": "35139.00"
+    },
+    {
+      "id": "36",
+      "modelo": "Volkswagen Taos",
+      "preco": "47546.00"
+    },
+    {
+      "id": "37",
+      "modelo": "Mitsubishi L200",
+      "preco": "57049.00"
+    },
+    {
+      "id": "38",
+      "modelo": "Renault Oroch",
+      "preco": "48756.00"
+    },
+    {
+      "id": "39",
+      "modelo": "Toyota Yaris Sedan",
+      "preco": "43077.00"
+    },
+    {
+      "id": "40",
+      "modelo": "Renault Duster",
+      "preco": "52641.00"
+    }
+  ]
+  

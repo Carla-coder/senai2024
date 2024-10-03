@@ -1,0 +1,24 @@
+{
+  "name": "fabrica",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Carla-coder",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "prisma": "^5.20.0"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  }
+}
