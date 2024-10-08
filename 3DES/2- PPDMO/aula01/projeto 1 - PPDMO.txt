@@ -28,6 +28,7 @@ yarn init
 yarn install
 
 Instalar as dependencias uma por vez:
+
     yarn add expo
     yarn add @react-navigation/native
     yarn add react-native-safe-area-context
