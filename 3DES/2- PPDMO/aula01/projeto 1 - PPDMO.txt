@@ -23,7 +23,7 @@ no terminal digite:
 npx create-react-app (nomedoprojeto) ex: financetracker
 
 entre na pasta  - cd financetracker
-yarn init
+
 yarn init
 yarn install
 
