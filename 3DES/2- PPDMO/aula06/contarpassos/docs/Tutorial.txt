@@ -1,0 +1,26 @@
+11/10/2024 - aula #06 PPDMO - Prof Robson
+
+Acelerômetro e Pedômetro em Mobile
+
+1. Crie uma pasta no VsCode
+2. Crie um novo projeto: npx create-expo-app contarpassos --template blank
+3. Entre pa pasta: cd contarpassos
+4. Instale as dependências:
+
+yarn add expo-sensors
+yarn add expo-permissions@~14.1.1 
+yarn add react-native@0.71.14 
+yarn add react-native-gesture-handler@~2.9.0 
+yarn add react-native-safe-area-context@4.5.0 
+yarn add react-native-screens@~3.20.0
+yarn add @react-navigation/native @react-navigation/native-stack
+yarn add @react-native-community/masked-view
+
+5. Na pasta raiz de seu projeto, crie os arquivos:
+
+AccelerometerContador.js / Contadorpassos.js / HomeScreen.js
+
+6. Dentro de HomeScreen.js crie a tela inicial do projeto
+7. Dentro de Contadorpassos.js importe as permisões
+8. Modifique o App.js para fazer a ligação das telas
+9. Teste o projeto no emulador. Abra o Android Studio e no terminal do VsCode digite: yarn run
