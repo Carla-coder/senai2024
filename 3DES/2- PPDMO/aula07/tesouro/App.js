@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
-  StyleSheet,
+  Stylesheet,
   Text,
   View,
   TouchableOpacity,
@@ -13,20 +13,25 @@ import { Magnetometer } from "expo-sensors";
 import { Audio } from "expo-av";
 
 export default function App() {
-  const [location, setLocation] = useState(null);
-  const [errorMsg, setErrorMsg] = useState(null);
-  const [treasure, setTreasure] = useState({ latitude: 0, longitude: 0 });
-  const [step, setStep] = useState(null);
-  const [hirn, setHirn] = useState(null);
-  const [ImageBackgroundColor] = useState(null);
-  const [magnetometerData, setMagnetometerData] = useState(null);
-  const [sound, setSound] = useState();
+  const { location, setLocation } = useState(null);
+  const { errorMsg, setErrorMsg } = useState(null);
+  const { treasure, setTreasure } = useState({ latitude: 0, longitude: 0 });
+  const { steps, setSteps } = useState(null);
+  const { hinr, setHinr } = useState(null);
+  const { backgroundColor } = useState(new Animated.Value(0));
+  const { watcher, setWatcher } = useState(null);
+  const { magnotometerData, setMagnetometerData } = useState([]);
+  const { sound, setSound } = useState();
 
+  //Função para converter radianos em graus
   const radtoDeg = (rad) => (rad * 180) / Math.PI;
 
-  const CalculateDirection = (loc1, loc2) => {
-    const delatLon = loc2.longitude - loc1.longitude;
-    const y = Math.sin(delatLon) * Math.cos(loc2.latitude);
+  const calculateDirection = (loc1, loc2) => {
+    const deltaLon = loc2.longitude - loc1.longitude;
+    const y = Math.sin(deltaLon) * Math.cos(loc2.latitude);
+    const x =
+      Math.cos(loc1.latitude) * Math.sin(loc2.latitude) -
+      Math.sin(loc1.latitude) * Math.cos(loc2.latitude) * Math.cos(deltaLon);
     const angle = Math.atan2(y, x);
     return radtoDeg(angle);
   };
@@ -44,5 +49,91 @@ export default function App() {
         Math.cos(lat2) *
         Math.sin(deltaLon / 2) *
         Math.sin(deltaLon / 2);
+
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+    const distanceInMeters = R * c;
+    const steps = distanceInMeters / 0.8;
+    return steps;
   };
+
+  const generateRandomTreasure = (currentLocation) => {
+    const radius = 16;
+    const angle = Math.random() * 2 * Math.PI;
+    const offsetDistance = Math.random() * radius;
+
+    const deltaLatitude = (offsetDistance / 6371000) * (180 / Math.PI);
+    const deltaLongitude =
+      ((offsetDistance / 6371000) * (180 / Math.PI)) /
+      Math.cos(currentLocation.latitude * (Math.PI / 180));
+
+    const newTreasureLat =
+      currenteLocation.latitude + deltaLatitude * Math.sin(angle);
+    const newTreasureLon =
+      currenteLocation.longitude + deltaLongitude * Math.cos(angle);
+
+    setTreasure({ latitude: newTreasureLat, longitude: newTreasureLon });
+  };
+
+  const updateHint = (steps) => {
+    if (steps < 5) {
+      SpeechSynthesisEvent("Tesouro encontrado! 🎁");
+      playRandonMusic();
+    } else if (steps < 20) setHint("Quente 🔥");
+    else if (steps < 50) setHint("Morno 🌡");
+    else setHint("Frio ❄");
+  };
+
+  const animateBackground = (steps) => {
+    let colorValue;
+    if (steps < 5) colorValue = 1;
+    else if (steps < 20) colorValue = 0.8;
+    else if (steps < 50) colorValue = 0.5;
+    else colorValue = 0;
+  };
+
+  Animated.timing(backgroundColor, {
+    toValue: colorValue,
+    duration: 500,
+    usenativeDriver: false,
+  }).start();
 }
+
+const playRandonMusic = async () => {
+  const musicTracks = [
+    require("./assets/musica1.mp3"),
+    require("./assets/musica2.mp3"),
+    require("./assets/musica3.mp3"),
+  ];
+  const randonTrack =
+    musicTracks[Math.floor(Math.randon() * musicTracks.length)];
+
+  if (sound) {
+    await sound.stopasync();
+    await sound.unloadAsync();
+  }
+
+  const { sound: newSound } = await Audio.Sound.createAsync(randonTrack);
+  setSound(newSound);
+  await sound.playAsync();
+};
+
+useEffect(() => {
+  async () => {
+    let { status } = await Location.requestForegroundPermissionsAsync();
+    if (status !== "granted") {
+      setErrorMsg("Permissão para acessar a localização não concedida.");
+      return;
+    }
+
+    let location = await Location.getCurrentPositionAsync({
+      accuracy: Location.Accuracy.BestForNavigation,
+    });
+    setLocation(location.coords);
+    generateRandonTreasure(location.coords);
+
+    const locationWatcher = await location.watchPositionAsync(
+      
+    )
+  };
+});
