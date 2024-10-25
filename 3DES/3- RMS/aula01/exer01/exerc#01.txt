@@ -1,14 +1,21 @@
 Exercício
 
 Cenário: Sistema de Biblioteca Online
+
 Identificação de Requisitos
+
 Funcionais:
+
 O sistema deve permitir que usuários busquem livros por título ou autor.
 O sistema deve permitir que usuários façam empréstimos de livros online.
+
 Não Funcionais:
+
 O sistema deve suportar até 1000 usuários simultâneos.
 O tempo de resposta para uma busca deve ser inferior a 1 segundo.
+
 Criação de Diagramas UML
+
 1. Diagrama de Casos de Uso
 2. Diagrama de Classes
 3. Diagrama de Sequência
