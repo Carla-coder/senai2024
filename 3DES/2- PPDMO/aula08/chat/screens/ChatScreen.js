@@ -101,7 +101,6 @@
 //   },
 // });
 
-
 import React, { useState, useEffect, useRef } from 'react';
 import { View, TextInput, Button, Text, StyleSheet, ScrollView } from 'react-native';
 import { db } from '../firebaseConfig';
@@ -151,6 +150,7 @@ export default function ChatScreen({ route }) {
       <ScrollView 
         ref={scrollViewRef} // Atribui a referência ao ScrollView
         contentContainerStyle={styles.scrollContainer}
+        keyboardShouldPersistTaps="handled" // Permite que o teclado não feche ao tocar em mensagens
       >
         {messages.map((item) => (
           <View key={item.id} style={styles.messageContainer}>

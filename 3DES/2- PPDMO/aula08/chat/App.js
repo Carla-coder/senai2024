@@ -21,8 +21,8 @@ export default function App() {
           component={ChatScreen} 
           options={({ navigation }) => ({
             headerTitle: 'Chat',
-            headerStyle: { backgroundColor: '#35797d' }, // Cor do cabeçalho
-            headerTintColor: '#fff', // Cor do texto do cabeçalho
+            headerStyle: { backgroundColor: '#35797d' }, 
+            headerTintColor: '#fff', 
             headerTitleStyle: { fontWeight: 'bold' },
             headerRight: () => (
               <TouchableOpacity onPress={() => navigation.navigate('Login')}>
