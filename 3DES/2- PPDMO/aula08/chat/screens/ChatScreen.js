@@ -217,7 +217,7 @@
 
 
 import React, { useState, useEffect, useRef } from 'react';
-import { View, TextInput, Text, StyleSheet, ScrollView, Alert, TouchableOpacity, Button } from 'react-native';
+import { View, TextInput, Text, StyleSheet, ScrollView, Alert, TouchableOpacity} from 'react-native';
 import { db } from '../firebaseconfig';
 import { collection, addDoc, onSnapshot, query, orderBy, serverTimestamp, doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import Icon from 'react-native-vector-icons/Ionicons'; // Importa os ícones
@@ -276,19 +276,26 @@ export default function ChatScreen({ route }) {
   };
 
   const handleDelete = async (id) => {
+    console.log("Tentativa de exclusão da mensagem com ID:", id); // Confirma que o onPress está sendo acionado
     Alert.alert(
       "Excluir Mensagem",
       "Você tem certeza que deseja excluir esta mensagem?",
       [
         { text: "Cancelar", style: "cancel" },
         { text: "Excluir", onPress: async () => {
-            await deleteDoc(doc(db, 'messages', id));
-            console.log("Mensagem excluída.");
+            try {
+              await deleteDoc(doc(db, 'messages', id));
+              // setMessages((prevMessages) => prevMessages.filter((msg) => msg.id !== id)); // Atualiza o estado
+              console.log("Mensagem excluída com sucesso");
+            } catch (error) {
+              console.error("Erro ao excluir a mensagem:", error);
+            }
           } 
         },
       ]
     );
   };
+  
 
   return (
     <View style={styles.container}>
