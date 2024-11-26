@@ -1,0 +1,32 @@
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum TipoLancamento {
+  ENTRADA
+  SAIDA
+}
+
+model Usuario {
+  id     Int    @id @default(autoincrement())
+  nome   String
+  email  String @unique
+  Lancamentos Lancamento[]
+}
+
+model Lancamento {
+  id         Int            @id @default(autoincrement())
+  usuarioId  Int
+  descricao  String
+  tipo       TipoLancamento
+  valor      Float
+  data       DateTime
+  usuario    Usuario        @relation(fields: [usuarioId], references: [id])
+}
