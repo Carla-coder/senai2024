@@ -1,70 +1,54 @@
-
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-module.exports = {
-  // Criação de Lançamento
-  create: async (req, res) => {
-    const { usuarioId, descricao, tipo, valor, data } = req.body;
-    try {
-      const novoLancamento = await prisma.lancamento.create({
-        data: { usuarioId, descricao, tipo, valor, data: new Date(data) },
-      });
-      res.status(201).json(novoLancamento);
-    } catch (err) {
-      res.status(500).json({ error: 'Erro ao criar lançamento', details: err.message });
-    }
-  },
+const create = async (req, res) => {
+    const lancamento = await prisma.lancamento.create({
+        data: req.body
+    });
+    res.status(201).json(lancamento);
+}
 
-  // Leitura de Lançamentos
-  read: async (req, res) => {
-    try {
-      const lancamentos = await prisma.lancamento.findMany();
-      res.status(200).json(lancamentos);
-    } catch (err) {
-      res.status(500).json({ error: 'Erro ao buscar lançamentos', details: err.message });
-    }
-  },
+const read = async (req, res) => {
+    const lancamentos = await prisma.lancamento.findMany();
+    res.json(lancamentos);
+}
 
-  // Leitura por Dia
-  readDia: async (req, res) => {
-    const { dia } = req.params;
-    try {
-      const lancamentos = await prisma.lancamento.findMany({
+const readDia = async (req, res) => {
+    const inicio = new Date(req.params.dia);
+    inicio.setHours(0, 0, 0, 0);
+    inicio.setDate(inicio.getDate() + 1);
+    const fim = new Date(req.params.dia);
+    fim.setHours(23, 59, 59, 999);
+    fim.setDate(fim.getDate() + 1);
+    const lancamentos = await prisma.lancamento.findMany({
         where: {
-          data: {
-            equals: new Date(dia),
-          },
+            data: {
+                gte: inicio,
+                lt: fim
+            }
+        }
+    });
+    res.json(lancamentos);
+}
+
+const update = async (req, res) => {
+    const lancamento = await prisma.lancamento.update({
+        where: {
+            id: req.body.id
         },
-      });
-      res.status(200).json(lancamentos);
-    } catch (err) {
-      res.status(500).json({ error: 'Erro ao buscar lançamentos do dia', details: err.message });
-    }
-  },
+        data: req.body
+    });
+    res.json(lancamento);
+}
 
-  // Atualização de Lançamento
-  update: async (req, res) => {
-    const { id, descricao, tipo, valor, data } = req.body;
-    try {
-      const lancamentoAtualizado = await prisma.lancamento.update({
-        where: { id },
-        data: { descricao, tipo, valor, data: new Date(data) },
-      });
-      res.status(200).json(lancamentoAtualizado);
-    } catch (err) {
-      res.status(500).json({ error: 'Erro ao atualizar lançamento', details: err.message });
-    }
-  },
+const del = async (req, res) => {
+    const lancamento = await prisma.lancamento.delete({
+        where: {
+            id: parseInt(req.params.id)
+        }
+    });
+    res.json(lancamento);
+}
 
-  // Exclusão de Lançamento
-  del: async (req, res) => {
-    const { id } = req.params;
-    try {
-      await prisma.lancamento.delete({ where: { id: parseInt(id) } });
-      res.status(204).send();
-    } catch (err) {
-      res.status(500).json({ error: 'Erro ao deletar lançamento', details: err.message });
-    }
-  },
-};
+module.exports = { create, read, readDia, update, del };
+
