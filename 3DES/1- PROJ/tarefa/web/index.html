@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Todo-list</title>
+</head>
+
+<body onload="listarTarefas()">
+    <header>
+        <h1>Todo-list</h1>
+        <nav>
+            <button onclick="novoUsuario()">Novo Usuário</button>
+            <button onclick="novaTarefa()">Nova Tarefa</button>
+            <button onclick="window.location.reload()">Listar Tarefas</button>
+        </nav>
+    </header>
+    <main id="conteiner">
+        <table>
+            <thead>
+                <tr>
+                    <th><h2>A Fazer</h2></th>
+                    <th><h2>Fazendo</h2></th>
+                    <th><h2>Pronto</h2></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><div id="prioridadeBaixa"></div></td>
+                    <td><div id="prioridadeMedia"></div></td>
+                    <td><div id="prioridadeAlta"></div></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <div class="status-filtros">
+            <label for="status">Filtrar por Status:</label>
+            <select id="status" onchange="listarTarefas(null, this.value)">
+                <option value="todos">Todos</option>
+                <option value="a fazer">A Fazer</option>
+                <option value="fazendo">Fazendo</option>
+                <option value="pronto">Pronto</option>
+            </select>
+        </div>
+    </footer>
+</body>
+<script src="script.js"></script>
+
+</html>

@@ -1,0 +1,247 @@
+/* Reset e estilo base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+}
+
+:root {
+    --cor1: #000000; 
+    --cor2: #f0f0f0; 
+    --cor3: #ffffff; 
+    --cor4: #ff4d4d; 
+    --cor5: #4caf50; 
+    --cor6: #ffc107; 
+    --cor7: #2196f3; 
+}
+
+/* Corpo geral */
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--cor2);
+    color: var(--cor1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Cabeçalho e Rodapé */
+header,
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--cor1);
+    color: var(--cor2);
+    min-height: 10vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+}
+
+/* Navegação */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+nav button {
+    background-color: var(--cor3);
+    color: var(--cor1);
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav button:hover {
+    background-color: var(--cor1);
+    color: var(--cor3);
+    /* box-shadow: 0 0 5px var(--cor3); */
+}
+
+/* Área Principal */
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 20px;
+}
+
+/* Tabelas dentro de main */
+table {
+    width: 80%;
+    height: 100%;
+    border-collapse: collapse;
+    margin-top: 20px 0;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid var(--cor2);
+}
+
+h2 {
+    margin-bottom: 10px; /* Adicionando espaçamento abaixo dos títulos */
+}
+
+/* Lista de Tarefas */
+.tarefas {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+/* Cartão de Tarefa */
+.tarefa-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--cor3);
+    color: var(--cor1);
+    box-shadow: 0 0 5px var(--cor1);
+    flex-wrap: wrap;
+}
+
+.tarefa-card .status {
+    margin: 5px 10px;  /* Aumenta o espaço entre os textos de status */
+}
+
+.tarefa-card .descricao {
+    flex: 2;
+}
+
+.tarefa-card .prioridade {
+    width: fit-content;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+    color: var(--cor3);
+}
+
+.tarefa-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Cores por Prioridade */
+.prioridade-baixa {
+    background-color: var(--cor5);
+}
+
+.prioridade-media {
+    background-color: var(--cor6);
+}
+
+.prioridade-alta {
+    background-color: var(--cor4);
+}
+
+/* Cores por Status */
+.status {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+    margin: 5px 0; 
+}
+
+.status-a-fazer {
+    color: var(--cor7);
+}
+
+.status-fazendo {
+    color: var(--cor6);
+}
+
+.status-pronto {
+    color: var(--cor5);
+}
+
+/* Formulários */
+form {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--cor1);
+    border-radius: 5px;
+}
+
+form input:focus,
+form select:focus {
+    border-color: var(--cor7);
+    outline: none;
+    box-shadow: 0 0 5px var(--cor7);
+}
+
+form button {
+    background-color: var(--cor1);
+    color: var(--cor3);
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+form button:hover {
+    background-color: var(--cor3);
+    color: var(--cor1);
+    box-shadow: 0 0 5px var(--cor1);
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    header, footer {
+        flex-direction: column;
+        min-height: 5vh;
+    }
+    
+    table {
+        width: 100%;
+    }
+    
+    .tarefas {
+        width: 100%;
+    }
+    
+    .tarefa-card {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
