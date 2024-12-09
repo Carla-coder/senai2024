@@ -4,7 +4,7 @@ Vamos agora transformar o projeto em realidade
 
 Para isso vamos precisar de algumas ferramentas
 
-Primeiramente crie uma conta neste site: https://expo.dev/accounts
+Primeiramente crie uma conta neste site: https://expo.dev
 
 Para gerar um APK local com o novo [EAS do Expo](https://docs.expo.dev/build/setup/):
 
