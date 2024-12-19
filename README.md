@@ -12,4 +12,4 @@
 
  **Término do Terceiro Semestre**: 18 de Dezembro.
 
- **Situação**:
+ **Situação**: APROVADA
