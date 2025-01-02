@@ -6,7 +6,7 @@
 
  **Término do Segundo Semestre**: 21 de Junho.
 
- **Situação**: APROVADA
+ **Situação**: APROVADA - Aluna Destaque Ouro
 
  **Início do Terceiro Semestre**: 24 de Julho.
 
@@ -14,4 +14,6 @@
 
  **Situação**: APROVADA
 
- **Formatura**: 20 de Dezembro de 2024 realizada com sucesso!!!
+ **Formatura**: 20 de Dezembro.
+
+ **Situação**: FORMADA
