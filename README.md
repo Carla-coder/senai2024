@@ -13,3 +13,5 @@
  **Término do Terceiro Semestre**: 18 de Dezembro.
 
  **Situação**: APROVADA
+
+ **Formatura**: 20 de Dezembro de 2024 realizada com sucesso!!!
